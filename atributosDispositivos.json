@@ -1,5 +1,5 @@
 {
-	"NombreGenerico":"",
-	"ConsumoKWxHora":"",
-	"EstaEncendido":""
+	"NombreGenerico":"Popola",
+	"ConsumoKWxHora": 100,
+	"EstaEncendido": true
 }
