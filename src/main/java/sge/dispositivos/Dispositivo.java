@@ -12,4 +12,5 @@ public class Dispositivo {
 		this.encendido = Encendido;
 	}
 	public String nombre() { return nombre; }
+	public boolean encendido() { return encendido; }
 }
