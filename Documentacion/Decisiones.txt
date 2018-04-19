@@ -1,0 +1,6 @@
+Usamos un Adapter/Wrapper para la biblioteca de JSON para poder abstraernos de la biblioteca.
+Tambien hicimos un wrapper para la clase de JSON Object, para poder poner la definiciond del formato del JSON en cada clase sin acoplarla a la biblioteca.
+
+El tipo de documento lo modelamos con un enum, ya que no tiene comportamiento propio, y es un listado de distintos tipos de documentos.
+
+A las categorias residenciales las modelamos como una clase, ya que se comportan todas igual y solo dependen de sus atributos. Al rango lo modelamos como un ValueRange ya que es nativo de java.

@@ -1,0 +1,6 @@
+Usar Java 8
+La importacion de entidades debe ser con formato JSON
+Usar programacion orientada a objetos
+Modelar con UML
+Usar Eclipse
+Usar Maven
