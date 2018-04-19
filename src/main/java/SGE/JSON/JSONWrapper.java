@@ -1,4 +1,4 @@
-package SGE;
+package SGE.JSON;
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.util.Scanner;
