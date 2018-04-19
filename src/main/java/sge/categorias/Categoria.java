@@ -1,4 +1,4 @@
-package SGE.Categorias;
+package sge.categorias;
 
 public interface Categoria {
 

@@ -1,14 +1,14 @@
-package SGE.Clientes;
+package sge.clientes;
 
-import SGE.Categorias.*;
+import sge.categorias.*;
 
 public abstract class Cliente {
-	String[] nombres;
-	String[] apellidos;
-	int documento;
-	String domicilio;
-	String telefono;
-	Categoria categoria;
+	private String[] nombres;
+	private String[] apellidos;
+	private int documento;
+	private String domicilio;
+	private String telefono;
+	private Categoria categoria;
 	
 	public abstract int cantidadDispositivosTotal();
 	public abstract int cantidadDispositivosEncendidos();
