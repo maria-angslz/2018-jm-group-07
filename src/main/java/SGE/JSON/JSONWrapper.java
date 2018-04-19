@@ -8,12 +8,11 @@ import org.json.JSONObject;
 public class JSONWrapper {
 	public static String StringFromFile(String filename) throws FileNotFoundException {
 		File a = new File(filename);
-        System.out.println(a.getAbsolutePath());
 		return new Scanner(a).useDelimiter("\\A").next();
 	}
 	
-	public static JSONObj FromFile(String path) throws FileNotFoundException {
-		return new JSONObjectWrapper(path);
+	public static JSONObj FromFile(String filename) throws FileNotFoundException {
+		return new JSONObjectWrapper(filename);
 	}
 }
 
