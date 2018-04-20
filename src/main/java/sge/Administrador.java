@@ -10,8 +10,8 @@ public class Administrador {
 	private LocalDate fechaDeAlta;
 	private long id;
 	
-	public Administrador(String[] nombres, String[] apellidos, String domicilio) {
-		this(nombres, apellidos, domicilio, LocalDate.now());
+	public static Administrador nuevoAdministrador(String[] nombres, String[] apellidos, String domicilio) {
+		return new Administrador(nombres, apellidos, domicilio, LocalDate.now());
 	}
 	public Administrador(String[] nombres, String[] apellidos, String domicilio, LocalDate fechaDeAlta) {
 		this.nombres = nombres;
@@ -25,5 +25,8 @@ public class Administrador {
 	}
 	public int antiguedad(LocalDate now) {
 		return (int) ChronoUnit.MONTHS.between(fechaDeAlta, now);
+	}
+	public String nombre() {
+		return String.join(" ", nombres);
 	}
 }

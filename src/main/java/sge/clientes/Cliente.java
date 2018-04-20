@@ -1,6 +1,5 @@
 package sge.clientes;
 
-import java.util.ArrayList;
 import java.util.List;
 
 import sge.Documento;
@@ -36,5 +35,8 @@ public class Cliente {
 	}
 	public boolean algunDispositivoEstaEncendido() {
 		return dispositivos.stream().anyMatch(disp->disp.encendido());
+	}
+	public String nombre() {
+		return String.join(" ", nombres);
 	}
 }
