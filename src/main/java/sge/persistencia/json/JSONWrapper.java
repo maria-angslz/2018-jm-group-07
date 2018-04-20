@@ -7,7 +7,6 @@ import java.util.List;
 import java.util.Scanner;
 import java.nio.file.Files;
 import java.nio.file.Paths;
-import java.time.LocalDate;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
@@ -17,8 +16,6 @@ import sge.persistencia.repos.RepoAdmins;
 import sge.persistencia.repos.RepoClientes;
 import sge.persistencia.repos.RepoDispositivos;
 import sge.Administrador;
-import sge.Documento;
-import sge.TipoDocumento;
 import sge.clientes.Cliente;
 import sge.dispositivos.Dispositivo;
 import sge.persistencia.AlmacenamientoPersistente;
