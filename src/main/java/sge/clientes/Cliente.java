@@ -1,7 +1,5 @@
 package sge.clientes;
-
 import java.util.List;
-
 import sge.Documento;
 import sge.categorias.*;
 import sge.dispositivos.Dispositivo;
@@ -38,5 +36,14 @@ public class Cliente {
 	}
 	public String nombre() {
 		return String.join(" ", nombres);
+	}
+	public double estimarFacturacionAFinDeMes() {
+		//Una cosa a tener en cuenta aca, es que el consumoKWxHora del dispositivo, solo determina lo que consumiria por cada hora el dispositivo, 
+		//en realidad nosotros deberiamos saber cuantas horas podria consumir en un mes, habria que definir como conseguir ese valor o como lo definimos
+		//actualmente, el calculo me estaria dando el valor de una hora de cada dispositivo, no de lo que consumiria en un mes
+		
+		//Calculo la sumatoria de todos los consumoKWXHora de la lista de dispositivos del cliente
+		double sumaConsumosKWHoraDisp = dispositivos.stream().mapToDouble(disp -> disp.consumoKWxHora()).sum();
+		return categoria.calcularConsumos(sumaConsumosKWHoraDisp);
 	}
 }

@@ -15,4 +15,14 @@ public class Residencial implements Categoria {
 	public Residencial(double cargoFijo, double cargoPorkWh, int min, int max) {
 		this(cargoFijo, cargoPorkWh, ValueRange.of(min, max));
 	}
+	/* Esto se podria definir asi? ahi ocuparia menos codigo y cumpliria la misma funcion
+	public Residencial(double cargoFijo, double cargoPorkWh, int min, int max) {
+		this.cargoFijo = cargoFijo;
+		this.cargoPorkWh = cargoPorkWh;
+		this.rango = ValueRange.of(min, max);
+	}
+	 */
+	public double calcularConsumos(double KWConsumidos) {
+		return cargoFijo + KWConsumidos * cargoPorkWh;
+	}
 }

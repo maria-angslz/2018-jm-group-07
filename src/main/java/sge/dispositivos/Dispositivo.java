@@ -13,4 +13,6 @@ public class Dispositivo {
 	}
 	public String nombre() { return nombre; }
 	public boolean encendido() { return encendido; }
+	public double consumoKWxHora() {	return consumoKWxHora;	}
+	
 }
