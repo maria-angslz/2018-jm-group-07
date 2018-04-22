@@ -3,8 +3,10 @@ import java.util.List;
 import sge.Documento;
 import sge.categorias.*;
 import sge.dispositivos.Dispositivo;
+import sge.persistencia.repos.RepoCatResidenciales;
 
 public class Cliente {
+	final int horasDelMes = 720;
 	private String[] nombres;
 	private String[] apellidos;
 	private Documento documento;
@@ -43,7 +45,20 @@ public class Cliente {
 		//actualmente, el calculo me estaria dando el valor de una hora de cada dispositivo, no de lo que consumiria en un mes
 		
 		//Calculo la sumatoria de todos los consumoKWXHora de la lista de dispositivos del cliente
-		double sumaConsumosKWHoraDisp = dispositivos.stream().mapToDouble(disp -> disp.consumoKWxHora()).sum();
-		return categoria.calcularConsumos(sumaConsumosKWHoraDisp);
+		return categoria.calcularConsumos(this.sumatoriaConsumosPorDispositivosMensual());
+	}
+	
+	private double sumatoriaConsumosPorDispositivosMensual(){
+		return horasDelMes * dispositivos.stream().mapToDouble(disp -> disp.consumoKWxHora()).sum();
+	}
+	
+	public void recategorizar() {
+		if(!categoria.perteneceAEstaCategoria((long) this.sumatoriaConsumosPorDispositivosMensual())) {
+			cambiarCategoria();
+		}
+	}
+	private void cambiarCategoria() {
+		RepoCatResidenciales categorias = RepoCatResidenciales.getInstance();
+		categoria = categorias.get().stream().filter(unaCategoria -> unaCategoria.perteneceAEstaCategoria( (long) this.sumatoriaConsumosPorDispositivosMensual() )).findFirst().get();
 	}
 }
