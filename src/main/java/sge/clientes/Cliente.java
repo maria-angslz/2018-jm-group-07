@@ -40,15 +40,12 @@ public class Cliente {
 		return String.join(" ", nombres);
 	}
 	public double estimarFacturacionAFinDeMes() {
-		//Una cosa a tener en cuenta aca, es que el consumoKWxHora del dispositivo, solo determina lo que consumiria por cada hora el dispositivo, 
-		//en realidad nosotros deberiamos saber cuantas horas podria consumir en un mes, habria que definir como conseguir ese valor o como lo definimos
-		//actualmente, el calculo me estaria dando el valor de una hora de cada dispositivo, no de lo que consumiria en un mes
 		
-		//Calculo la sumatoria de todos los consumoKWXHora de la lista de dispositivos del cliente
 		return categoria.calcularConsumos(this.sumatoriaConsumosPorDispositivosMensual());
 	}
 	
 	private double sumatoriaConsumosPorDispositivosMensual(){
+		//Calculo la sumatoria de todos los consumoKWXHora de la lista de dispositivos del cliente y lo considero para la cantidad total de horas que tiene el mes
 		return horasDelMes * dispositivos.stream().mapToDouble(disp -> disp.consumoKWxHora()).sum();
 	}
 	

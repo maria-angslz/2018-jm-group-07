@@ -9,11 +9,12 @@ public class JobRecategorizacion {
 
 	Runnable task = new Runnable() {
         public void run() {
-        	//tarea a automatizar       
+        	//tarea a automatizar
+        	//Deberia ser un foreach para la lista de clientes del repoClientes, enviandoles el msje recategorizacion
         }
     };
 
-    int delay = 90; //tiempo que queremos que lo haga.
+    int delay = 90; //tiempo que queremos que lo haga (3 meses = 90 dias).
     scheduler.schedule(task, delay, TimeUnit.DAYS);
     scheduler.shutdown();
     
