@@ -14,8 +14,12 @@ public class Cliente {
 	private String telefono;
 	private Categoria categoria;
 	private List<Dispositivo> dispositivos;
+	private double facturacionAproximadaDelMesPasado;
 	
-	public Cliente(String[] nombres, String[] apellidos, Documento documento, String domicilio, String telefono, Categoria categoria, List<Dispositivo> dispositivos) {
+	public Cliente(String[] nombres, String[] apellidos, 
+			Documento documento, String domicilio, 
+			String telefono, Categoria categoria, 
+			List<Dispositivo> dispositivos) {
 		this.nombres = nombres;
 		this.apellidos = apellidos;
 		this.documento = documento;
@@ -24,14 +28,19 @@ public class Cliente {
 		this.categoria = categoria;
 		this.dispositivos = dispositivos;
 	}
+	public double facturacionAproximadaDelMesPasado() { 
+		return facturacionAproximadaDelMesPasado; 
+	}
 	public int cantidadDispositivosTotal() {
 		return dispositivos.size();
 	}
 	public int cantidadDispositivosEncendidos() {
-		return (int) dispositivos.stream().filter(disp->disp.encendido()).count();
+		return (int) dispositivos.stream().
+				filter(disp->disp.encendido()).count();
 	}
 	public int cantidadDispositivosApagados() {
-		return (int) dispositivos.stream().filter(disp->!disp.encendido()).count();
+		return (int) dispositivos.stream().
+				filter(disp->!disp.encendido()).count();
 	}
 	public boolean algunDispositivoEstaEncendido() {
 		return dispositivos.stream().anyMatch(disp->disp.encendido());
@@ -40,22 +49,26 @@ public class Cliente {
 		return String.join(" ", nombres);
 	}
 	public double estimarFacturacionAFinDeMes() {
-		
-		return categoria.calcularConsumos(this.sumatoriaConsumosPorDispositivosMensual());
+		facturacionAproximadaDelMesPasado = categoria.
+				aproximarFacturacion(this.consumoDeEsteMes());
+		return facturacionAproximadaDelMesPasado;
 	}
-	
-	private double sumatoriaConsumosPorDispositivosMensual(){
-		//Calculo la sumatoria de todos los consumoKWXHora de la lista de dispositivos del cliente y lo considero para la cantidad total de horas que tiene el mes
-		return horasDelMes * dispositivos.stream().mapToDouble(disp -> disp.consumoKWxHora()).sum();
+	private double consumoDeEsteMes(){
+		return dispositivos.stream().
+				mapToDouble(disp->disp.consumoDeEsteMes()).sum();
 	}
-	
+	// En un futuro puede que querramos que los clientes
+	// tengan tipos de categoria y esta se encargue
+	// de recategorizarlo
 	public void recategorizar() {
-		if(!categoria.perteneceAEstaCategoria((long) this.sumatoriaConsumosPorDispositivosMensual())) {
+		if(!categoria.perteneceAEstaCategoria(this)) {
 			cambiarCategoria();
 		}
 	}
 	private void cambiarCategoria() {
 		RepoCatResidenciales categorias = RepoCatResidenciales.getInstance();
-		categoria = categorias.get().stream().filter(unaCategoria -> unaCategoria.perteneceAEstaCategoria( (long) this.sumatoriaConsumosPorDispositivosMensual() )).findFirst().get();
+		categoria = categorias.get().stream().
+				filter(unaCategoria -> unaCategoria.perteneceAEstaCategoria(this)).
+				findFirst().get();
 	}
 }

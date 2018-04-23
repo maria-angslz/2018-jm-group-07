@@ -23,7 +23,7 @@ public class ClienteTest {
 	public void  init() {
 		Dispositivo tv = new Dispositivo("TV", 10.5, false);
 		Dispositivo heladera = new Dispositivo("Heladera", 10.5, true);
-		Categoria r1 = new Residencial(60.71, 0.681, 325, 400);
+		Categoria r1 = new CategoriaResidencial(60.71, 0.681, 325, 400);
 		ArrayList<Dispositivo> dosDispositivos = new ArrayList<Dispositivo>();
 		dosDispositivos.add(tv);
 		dosDispositivos.add(heladera);

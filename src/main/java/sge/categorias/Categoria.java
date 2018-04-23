@@ -1,6 +1,8 @@
 package sge.categorias;
 
+import sge.clientes.Cliente;
+
 public interface Categoria {
-	double calcularConsumos(double num);
-	boolean perteneceAEstaCategoria(long num);
+	double aproximarFacturacion(double KWConsumidos);
+	boolean perteneceAEstaCategoria(Cliente cliente);
 }
