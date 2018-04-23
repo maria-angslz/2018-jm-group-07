@@ -71,4 +71,8 @@ public class Cliente {
 				filter(unaCategoria -> unaCategoria.perteneceAEstaCategoria(this)).
 				findFirst().get();
 	}
+	public List<Dispositivo> getDispositivos() {
+		return dispositivos;
+	}
+	
 }

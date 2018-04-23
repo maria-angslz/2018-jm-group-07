@@ -11,7 +11,13 @@ public class Dispositivo {
 		this.nombre = Nombre;
 		this.consumoKWxHora = d;
 		this.encendido = Encendido;
+	}	
+	
+	public void setConsumoDeEsteMes(double consumoDeEsteMes) {
+		this.consumoDeEsteMes = consumoDeEsteMes;
 	}
+
+
 	public String nombre() { return nombre; }
 	public boolean encendido() { return encendido; }
 	public double consumoKWxHora() {	return consumoKWxHora;	}

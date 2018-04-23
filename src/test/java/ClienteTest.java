@@ -86,4 +86,30 @@ public class ClienteTest {
 		assertFalse("El cliente debe al menos un dispositivo encendido", 
 				clienteSinDispositivos.algunDispositivoEstaEncendido());
 	}
+	
+	@Test
+	public void testFacturacionAproximadaClienteCategoriaR1ConDosDispositivos() {
+		
+		clienteConDosDispositivos.getDispositivos().stream().forEach(disp -> disp.setConsumoDeEsteMes(100));
+		
+		assertEquals("El cliente de categoria R1 con dos dispositivos de consumo mensual igual a 100 kW tiene una facturacion aproximada de 257.62", (200*0.681)+60.71, clienteConDosDispositivos.estimarFacturacionAFinDeMes(), 0.05);
+		
+	}
+	
+	@Test
+	public void testFacturacionAproximadaClienteCategoriaR1ConUnDispositivos() {
+		
+		clienteConUnDispositivo.getDispositivos().stream().forEach(disp -> disp.setConsumoDeEsteMes(100));
+		
+		assertEquals("El cliente de categoria R1 con un dispositivo de consumo mensual igual a 100 kW tiene una facturacion aproximada de 98.81", (100*0.681)+60.71, clienteConUnDispositivo.estimarFacturacionAFinDeMes(), 0.05);
+		
+	}
+	
+	
+	@Test
+	public void testClienteSinDispositivosFacturacionAproximadaCostoFijo() {
+		
+		assertEquals("testClienteSinDispositivosFacturacionAproximadaCostoFijo", 60.71, clienteSinDispositivos.estimarFacturacionAFinDeMes(), 0.05);
+	}
+	
 }
