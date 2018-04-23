@@ -1,5 +1,6 @@
 package sge.persistencia.repos;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class RepoGenerico<T> {
@@ -16,5 +17,8 @@ public class RepoGenerico<T> {
 	}
 	public void addAll(List<T> dispositivosNuevos) {
 		lista.addAll(dispositivosNuevos);
+	}
+	public void reset() {
+		lista = new ArrayList<T>();
 	}
 }
