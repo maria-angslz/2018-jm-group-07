@@ -21,7 +21,6 @@ import sge.persistencia.repos.RepoCatResidenciales;
 import sge.persistencia.repos.RepoClientes;
 
 public class JSONWrapper implements AlmacenamientoPersistente {
-	private String archivoDispositivos = ".\\src\\main\\resources\\Dispositivos.json";
 	private String archivoAdmins = ".\\src\\main\\resources\\Administradores.json";
 	private String archivoClientes = ".\\src\\main\\resources\\Clientes.json";
 	private String archivoCategoriasResidenciales = ".\\src\\main\\resources\\CategoriasResidenciales.json";
