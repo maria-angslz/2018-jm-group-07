@@ -11,13 +11,12 @@ import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.time.LocalDate;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
-import org.mockito.ArgumentCaptor;
-import org.mockito.Captor;
 import org.mockito.Mock;
 import org.mockito.invocation.InvocationOnMock;
 import org.mockito.junit.MockitoJUnitRunner;
@@ -42,13 +41,13 @@ public class JSONTest {
 	@Mock
 	JSONWrapper mockWrapper;
 	List<Dispositivo> dispositivos;
-	List<ArrayList<Dispositivo>> listasDeDispositivos;
+	List<List<Dispositivo>> listasDeDispositivos;
 	List<Cliente> clientes;
-	List<ArrayList<Cliente>> listasDeClientes;
+	List<List<Cliente>> listasDeClientes;
 	List<Administrador> admins;
-	List<ArrayList<Administrador>> listasDeAdmins;
+	List<List<Administrador>> listasDeAdmins;
 	List<CategoriaResidencial> categorias;
-	List<ArrayList<CategoriaResidencial>> listasDeCategorias;
+	List<List<CategoriaResidencial>> listasDeCategorias;
 
 	@Before
 	public void init() throws FileNotFoundException {
@@ -64,24 +63,11 @@ public class JSONTest {
 		admins.add(new Administrador(new String[] { "Jose" }, new String[] { "Perez" }, "Belgrano 25",
 				now.minusMonths(5)));
 		// Listas de administradores
-		listasDeAdmins = new ArrayList<ArrayList<Administrador>>();
+		listasDeAdmins = new ArrayList<List<Administrador>>();
 		listasDeAdmins.add(new ArrayList<Administrador>());
-		listasDeAdmins.add(new ArrayList<Administrador>() {
-			{
-				add(admins.get(0));
-			}
-		});
-		listasDeAdmins.add(new ArrayList<Administrador>() {
-			{
-				add(admins.get(1));
-				add(admins.get(2));
-			}
-		});
-		listasDeAdmins.add(new ArrayList<Administrador>() {
-			{
-				add(admins.get(3));
-			}
-		});
+		listasDeAdmins.add(Arrays.asList(admins.get(0)));
+		listasDeAdmins.add(Arrays.asList(admins.get(1), admins.get(2)));
+		listasDeAdmins.add(Arrays.asList(admins.get(3)));
 
 		// Categorias
 		categorias = new ArrayList<CategoriaResidencial>();
@@ -90,24 +76,11 @@ public class JSONTest {
 		categorias.add(new CategoriaResidencial(60.71, 0.681, 325, 400));
 		categorias.add(new CategoriaResidencial(60.71, 0.681, 325, 400));
 		// Listas de categorias
-		listasDeCategorias = new ArrayList<ArrayList<CategoriaResidencial>>();
+		listasDeCategorias = new ArrayList<List<CategoriaResidencial>>();
 		listasDeCategorias.add(new ArrayList<CategoriaResidencial>());
-		listasDeCategorias.add(new ArrayList<CategoriaResidencial>() {
-			{
-				add(categorias.get(0));
-			}
-		});
-		listasDeCategorias.add(new ArrayList<CategoriaResidencial>() {
-			{
-				add(categorias.get(1));
-				add(categorias.get(2));
-			}
-		});
-		listasDeCategorias.add(new ArrayList<CategoriaResidencial>() {
-			{
-				add(categorias.get(3));
-			}
-		});
+		listasDeCategorias.add(Arrays.asList(categorias.get(0)));
+		listasDeCategorias.add(Arrays.asList(categorias.get(1), categorias.get(2)));
+		listasDeCategorias.add(Arrays.asList(categorias.get(3)));
 
 		// Dispositivos
 		dispositivos = new ArrayList<Dispositivo>();
@@ -116,24 +89,11 @@ public class JSONTest {
 		dispositivos.add(new Dispositivo("Heladera", 40.0, false));
 		dispositivos.add(new Dispositivo("Parlante", 2.0, false));
 		// Listas de dispositivos
-		listasDeDispositivos = new ArrayList<ArrayList<Dispositivo>>();
+		listasDeDispositivos = new ArrayList<List<Dispositivo>>();
 		listasDeDispositivos.add(new ArrayList<Dispositivo>());
-		listasDeDispositivos.add(new ArrayList<Dispositivo>() {
-			{
-				add(dispositivos.get(0));
-			}
-		});
-		listasDeDispositivos.add(new ArrayList<Dispositivo>() {
-			{
-				add(dispositivos.get(1));
-				add(dispositivos.get(2));
-			}
-		});
-		listasDeDispositivos.add(new ArrayList<Dispositivo>() {
-			{
-				add(dispositivos.get(3));
-			}
-		});
+		listasDeDispositivos.add(Arrays.asList(dispositivos.get(0)));
+		listasDeDispositivos.add(Arrays.asList(dispositivos.get(1), dispositivos.get(2)));
+		listasDeDispositivos.add(Arrays.asList(dispositivos.get(3)));
 
 		// Clientes
 		Categoria r1 = new CategoriaResidencial(60.71, 0.681, 325, 400);
@@ -151,24 +111,12 @@ public class JSONTest {
 				new Documento(47465078, TipoDocumento.DNI), "Belgrano 2252", "01149212334", r1,
 				listasDeDispositivos.get(2)));
 		// Listas de Clientes
-		listasDeClientes = new ArrayList<ArrayList<Cliente>>();
+		listasDeClientes = new ArrayList<List<Cliente>>();
 		listasDeClientes.add(new ArrayList<Cliente>());
-		listasDeClientes.add(new ArrayList<Cliente>() {
-			{
-				add(clientes.get(0));
-			}
-		});
-		listasDeClientes.add(new ArrayList<Cliente>() {
-			{
-				add(clientes.get(1));
-				add(clientes.get(2));
-			}
-		});
-		listasDeClientes.add(new ArrayList<Cliente>() {
-			{
-				add(clientes.get(3));
-			}
-		});
+		listasDeClientes.add(Arrays.asList(clientes.get(0)));
+		listasDeClientes.add(Arrays.asList(clientes.get(1), clientes.get(0)));
+		listasDeClientes.add(Arrays.asList(clientes.get(3)));
+
 		// Cambiamos el servicio de almacenamiento
 		ServiceLocator.getInstance().setAlmacenamiento(mockWrapper);
 	}
@@ -266,7 +214,6 @@ public class JSONTest {
 		});
 		// Verificamos que se llamo a guardar n veces
 		verify(mockWrapper, times(listasDeClientes.size())).guardar(any(), any());
-		;
 	}
 
 	@Test
