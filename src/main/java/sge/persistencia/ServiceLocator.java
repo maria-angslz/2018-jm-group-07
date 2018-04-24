@@ -1,6 +1,6 @@
 package sge.persistencia;
 
-import sge.persistencia.json.*;
+import sge.persistencia.json.JSONWrapper;
 
 public class ServiceLocator {
 	private AlmacenamientoPersistente almacenamiento;

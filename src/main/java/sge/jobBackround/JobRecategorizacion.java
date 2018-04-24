@@ -1,6 +1,8 @@
 package sge.jobBackround;
 
-import java.util.concurrent.*;
+import java.util.concurrent.Executors;
+import java.util.concurrent.ScheduledExecutorService;
+import java.util.concurrent.TimeUnit;
 
 public class JobRecategorizacion {
 	public static void main(String[] args) {

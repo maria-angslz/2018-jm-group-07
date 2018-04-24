@@ -1,8 +1,9 @@
 package sge.clientes;
 
 import java.util.List;
+
 import sge.Documento;
-import sge.categorias.*;
+import sge.categorias.Categoria;
 import sge.dispositivos.Dispositivo;
 import sge.persistencia.repos.RepoCatResidenciales;
 

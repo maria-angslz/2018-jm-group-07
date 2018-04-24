@@ -1,8 +1,12 @@
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.fail;
+import static org.mockito.ArgumentMatchers.any;
+import static org.mockito.Mockito.doCallRealMethod;
+import static org.mockito.Mockito.times;
+import static org.mockito.Mockito.verify;
+import static org.mockito.Mockito.when;
 
 import java.io.FileNotFoundException;
-import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -10,12 +14,10 @@ import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.mockito.Mock;
-import org.mockito.Mockito;
 import org.mockito.invocation.InvocationOnMock;
 import org.mockito.junit.MockitoJUnitRunner;
 import org.mockito.stubbing.Answer;
 
-import sge.Administrador;
 import sge.Documento;
 import sge.TipoDocumento;
 import sge.categorias.Categoria;
@@ -26,8 +28,6 @@ import sge.persistencia.ServiceLocator;
 import sge.persistencia.json.JSONWrapper;
 import sge.persistencia.repos.RepoClientes;
 import sge.persistencia.repos.RepoDispositivos;
-
-import static org.mockito.Mockito.*;
 
 @RunWith(MockitoJUnitRunner.class)
 public class JSONTest {

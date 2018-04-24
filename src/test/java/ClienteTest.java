@@ -1,8 +1,8 @@
 import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertTrue;
 import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.when;
-import static org.junit.Assert.assertFalse;
 
 import java.util.ArrayList;
 
@@ -10,11 +10,12 @@ import org.junit.Before;
 import org.junit.Test;
 import org.mockito.Mockito;
 
-import sge.clientes.*;
-import sge.categorias.*;
-import sge.dispositivos.*;
 import sge.Documento;
 import sge.TipoDocumento;
+import sge.categorias.Categoria;
+import sge.categorias.CategoriaResidencial;
+import sge.clientes.Cliente;
+import sge.dispositivos.Dispositivo;
 
 public class ClienteTest {
 

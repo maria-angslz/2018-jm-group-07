@@ -1,6 +1,7 @@
 package sge.persistencia.repos;
 
 import java.util.ArrayList;
+
 import sge.dispositivos.Dispositivo;
 
 public class RepoDispositivos extends RepoGenerico<Dispositivo> {
