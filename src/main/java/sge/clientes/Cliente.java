@@ -58,7 +58,7 @@ public class Cliente {
 		return facturacionAproximadaDelMesPasado;
 	}
 
-	private double consumoDeEsteMes() {
+	public double consumoDeEsteMes() {
 		return dispositivos.stream().mapToDouble(disp -> disp.consumoDeEsteMes()).sum();
 	}
 

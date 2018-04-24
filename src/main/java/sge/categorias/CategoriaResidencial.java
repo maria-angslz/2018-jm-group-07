@@ -24,6 +24,6 @@ public class CategoriaResidencial implements Categoria {
 		// porque el mes actual puede no haber terminado
 		// (x ej. si preguntamos a ppio. de mes va a tener
 		// consumo 0)
-		return rango.isValidValue((long) cliente.facturacionAproximadaDelMesPasado());
+		return rango.isValidValue((long) cliente.consumoDeEsteMes());
 	}
 }
