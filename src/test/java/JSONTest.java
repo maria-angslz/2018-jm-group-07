@@ -50,13 +50,6 @@ public class JSONTest {
 	List<CategoriaResidencial> categorias;
 	List<ArrayList<CategoriaResidencial>> listasDeCategorias;
 
-	@Captor
-	ArgumentCaptor<List<Cliente>> captorListaClientes;
-	@Captor
-	ArgumentCaptor<List<Administrador>> captorListaAdmins;
-	@Captor
-	ArgumentCaptor<List<Categoria>> captorListaCategorias;
-
 	@Before
 	public void init() throws FileNotFoundException {
 		// Administradores
