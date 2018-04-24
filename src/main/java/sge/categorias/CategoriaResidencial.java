@@ -20,10 +20,8 @@ public class CategoriaResidencial implements Categoria {
 	}
 
 	public boolean perteneceAEstaCategoria(Cliente cliente) {
-		// Usamos la facturacion del mes pasado
-		// porque el mes actual puede no haber terminado
-		// (x ej. si preguntamos a ppio. de mes va a tener
-		// consumo 0)
+		// Suponemos que se recategoriza a fin de mes
+		// Antes de que se resete el consumo de los dispositivos
 		return rango.isValidValue((long) cliente.consumoDeEsteMes());
 	}
 }
