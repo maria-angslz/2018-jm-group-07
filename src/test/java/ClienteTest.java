@@ -16,30 +16,34 @@ import sge.categorias.Categoria;
 import sge.categorias.CategoriaResidencial;
 import sge.clientes.Cliente;
 import sge.dispositivos.Dispositivo;
+import sge.persistencia.repos.RepoCatResidenciales;
 
 public class ClienteTest {
 
 	Cliente clienteSinDispositivos;
 	Cliente clienteConUnDispositivo;
 	Cliente clienteConDosDispositivos;
+	Cliente clienteMock;
 
 	@Before
 	public void init() {
 		Dispositivo tv = new Dispositivo("TV", 10.5, false);
 		Dispositivo heladera = new Dispositivo("Heladera", 10.5, true);
-		Categoria r1 = new CategoriaResidencial(60.71, 0.681, 325, 400);
+		Categoria r3 = new CategoriaResidencial(60.71, 0.681, 325, 400);
 		ArrayList<Dispositivo> dosDispositivos = new ArrayList<Dispositivo>();
 		dosDispositivos.add(tv);
 		dosDispositivos.add(heladera);
 		clienteConDosDispositivos = new Cliente(new String[] { "Martin" }, new String[] { "Perez" },
-				new Documento(40732178, TipoDocumento.DNI), "Belgrano 2251", "01149212334", r1, dosDispositivos);
+				new Documento(40732178, TipoDocumento.DNI), "Belgrano 2251", "01149212334", r3, dosDispositivos);
 		ArrayList<Dispositivo> sinDispositivos = new ArrayList<Dispositivo>();
 		clienteSinDispositivos = new Cliente(new String[] { "Juan" }, new String[] { "Lopez" },
-				new Documento(40732178, TipoDocumento.DNI), "Santa Fe 1781", "01141131234", r1, sinDispositivos);
+				new Documento(40732178, TipoDocumento.DNI), "Santa Fe 1781", "01141131234", r3, sinDispositivos);
 		ArrayList<Dispositivo> unDispositivo = new ArrayList<Dispositivo>();
 		unDispositivo.add(tv);
 		clienteConUnDispositivo = new Cliente(new String[] { "Pepe" }, new String[] { "Mitre" },
-				new Documento(40732178, TipoDocumento.DNI), "Belgrano 241", "01149231234", r1, unDispositivo);
+				new Documento(40732178, TipoDocumento.DNI), "Belgrano 241", "01149231234", r3, unDispositivo);
+		clienteMock = Mockito.spy(clienteConUnDispositivo);
+		
 	}
 
 	@Test
@@ -107,6 +111,23 @@ public class ClienteTest {
 
 		assertEquals("testClienteSinDispositivosFacturacionAproximadaCostoFijo", 60.71,
 				clienteSinDispositivos. facturacionAproximada(), 0.05);
+	}
+	
+	@Test
+	public void testClienteMantieneCategoria() {
+		when(clienteMock.consumoDeEsteMes()).thenReturn(350.0);
+		Categoria r3 = clienteMock.getCategoria();
+		clienteMock.recategorizar();
+		assertEquals("El cliente no supera el consumo maximo de su categoria, por ende la mantiene", r3, clienteMock.getCategoria());
+	}
+	
+	@Test
+	public void testClienteCambiaDeCategoria() {
+		Categoria r4 = new CategoriaResidencial(71.74, 0.738, 400, 450);
+		RepoCatResidenciales.getInstance().agregar((CategoriaResidencial)r4);
+		when(clienteMock.consumoDeEsteMes()).thenReturn(425.0);
+		clienteMock.recategorizar();
+		assertEquals("El cliente supera el consumo maximo de su categoria (R3), por ende se recategoriza a R4", r4, clienteMock.getCategoria());
 	}
 
 }
