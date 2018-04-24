@@ -13,17 +13,18 @@ import com.google.gson.GsonBuilder;
 import com.google.gson.reflect.TypeToken;
 
 import sge.Administrador;
+import sge.categorias.CategoriaResidencial;
 import sge.clientes.Cliente;
-import sge.dispositivos.Dispositivo;
 import sge.persistencia.AlmacenamientoPersistente;
 import sge.persistencia.repos.RepoAdmins;
+import sge.persistencia.repos.RepoCatResidenciales;
 import sge.persistencia.repos.RepoClientes;
-import sge.persistencia.repos.RepoDispositivos;
 
 public class JSONWrapper implements AlmacenamientoPersistente {
 	private String archivoDispositivos = ".\\src\\main\\resources\\Dispositivos.json";
 	private String archivoAdmins = ".\\src\\main\\resources\\Administradores.json";
 	private String archivoClientes = ".\\src\\main\\resources\\Clientes.json";
+	private String archivoCategoriasResidenciales = ".\\src\\main\\resources\\CategoriasResidenciales.json";
 	private Gson gson = new GsonBuilder().create();
 	private static JSONWrapper instancia;
 
@@ -55,15 +56,6 @@ public class JSONWrapper implements AlmacenamientoPersistente {
 		stringToFile(file, gson.toJson(lista));
 	}
 
-	public void cargarDispositivos() throws FileNotFoundException {
-		List<Dispositivo> dispositivos = cargar(archivoDispositivos);
-		RepoDispositivos.getInstance().addAll(dispositivos);
-	}
-
-	public void guardarDispositivos() throws IOException {
-		guardar(archivoDispositivos, RepoDispositivos.getInstance().get());
-	}
-
 	public void cargarAdmins() throws FileNotFoundException {
 		List<Administrador> admins = cargar(archivoAdmins);
 		RepoAdmins.getInstance().addAll(admins);
@@ -80,6 +72,15 @@ public class JSONWrapper implements AlmacenamientoPersistente {
 
 	public void guardarClientes() throws IOException {
 		guardar(archivoClientes, RepoClientes.getInstance().get());
+	}
+
+	public void cargarCategorias() throws FileNotFoundException {
+		List<CategoriaResidencial> categorias = cargar(archivoCategoriasResidenciales);
+		RepoCatResidenciales.getInstance().addAll(categorias);
+	}
+
+	public void guardarCategorias() throws IOException {
+		guardar(archivoCategoriasResidenciales, RepoCatResidenciales.getInstance().get());
 	}
 
 }

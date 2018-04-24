@@ -15,6 +15,7 @@ public class Cliente {
 	private String domicilio;
 	private String telefono;
 	private Categoria categoria;
+
 	private List<Dispositivo> dispositivos;
 	private double facturacionAproximadaDelMesPasado;
 
@@ -79,6 +80,10 @@ public class Cliente {
 
 	public List<Dispositivo> getDispositivos() {
 		return dispositivos;
+	}
+
+	public Categoria getCategoria() {
+		return categoria;
 	}
 
 }

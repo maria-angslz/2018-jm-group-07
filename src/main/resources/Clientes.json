@@ -1,19 +1,59 @@
 [
 	{
+		"horasDelMes": 720,
 		"nombres": [
-			"Juan"
+			"Jose"
 		],
 		"apellidos": [
-			"Perez"
+			"Hernandez"
 		],
 		"documento": {
-			"numero": 40732178,
+			"numero": 47465078,
 			"tipo": "DNI"
 		},
-		"domicilio": "Belgrano 2251",
-		"telefono": ""
+		"domicilio": "Belgrano 2252",
+		"telefono": "01149212334",
+		"categoria": {
+			"cargoFijo": 60.71,
+			"cargoPorkWh": 0.681,
+			"rango": {
+				"minSmallest": 325,
+				"minLargest": 325,
+				"maxSmallest": 400,
+				"maxLargest": 400
+			}
+		},
+		"dispositivos": [
+			{
+				"nombre": "TV",
+				"consumoKWxHora": 5.0,
+				"encendido": true,
+				"consumoDeEsteMes": 0.0,
+				"fechaDeEncendido": {
+					"date": {
+						"year": 2018,
+						"month": 4,
+						"day": 24
+					},
+					"time": {
+						"hour": 15,
+						"minute": 25,
+						"second": 47,
+						"nano": 594000000
+					}
+				}
+			},
+			{
+				"nombre": "Heladera",
+				"consumoKWxHora": 40.0,
+				"encendido": false,
+				"consumoDeEsteMes": 0.0
+			}
+		],
+		"facturacionAproximadaDelMesPasado": 0.0
 	},
 	{
+		"horasDelMes": 720,
 		"nombres": [
 			"Martin"
 		],
@@ -25,6 +65,18 @@
 			"tipo": "DNI"
 		},
 		"domicilio": "Belgrano 2251",
-		"telefono": ""
+		"telefono": "01149212334",
+		"categoria": {
+			"cargoFijo": 60.71,
+			"cargoPorkWh": 0.681,
+			"rango": {
+				"minSmallest": 325,
+				"minLargest": 325,
+				"maxSmallest": 400,
+				"maxLargest": 400
+			}
+		},
+		"dispositivos": [],
+		"facturacionAproximadaDelMesPasado": 0.0
 	}
 ]

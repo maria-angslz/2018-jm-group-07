@@ -22,7 +22,8 @@ public class ClienteTest {
 	Cliente clienteSinDispositivos;
 	Cliente clienteConUnDispositivo;
 	Cliente clienteConDosDispositivos;
-
+	Cliente mmock;
+	
 	@Before
 	public void init() {
 		Dispositivo tv = new Dispositivo("TV", 10.5, false);
@@ -40,12 +41,13 @@ public class ClienteTest {
 		unDispositivo.add(tv);
 		clienteConUnDispositivo = new Cliente(new String[] { "Pepe" }, new String[] { "Mitre" },
 				new Documento(40732178, TipoDocumento.DNI), "Belgrano 241", "01149231234", r1, unDispositivo);
-		Cliente mock = mock(Cliente.class, Mockito.CALLS_REAL_METHODS);
-		when(mock.facturacionAproximadaDelMesPasado()).thenReturn(10.0);
+		mmock = Mockito.spy(clienteConUnDispositivo);
+		when(mmock.facturacionAproximadaDelMesPasado()).thenReturn(10.0);
 	}
 
 	@Test
 	public void testCantidadTotalDeDispositivos() {
+		System.out.println(mmock.nombre());
 		assertEquals("El cliente debe tener dos dispositivos", 2,
 				clienteConDosDispositivos.cantidadDispositivosTotal());
 		assertEquals("El cliente debe tener un dispositivos", 1, clienteConUnDispositivo.cantidadDispositivosTotal());

@@ -14,7 +14,7 @@ public class Dispositivo {
 		this.nombre = Nombre;
 		this.consumoKWxHora = d;
 		this.encendido = Encendido;
-		if(encendido)
+		if (encendido)
 			fechaDeEncendido = LocalDateTime.now();
 	}
 
