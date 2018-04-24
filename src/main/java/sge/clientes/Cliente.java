@@ -15,9 +15,7 @@ public class Cliente {
 	private String domicilio;
 	private String telefono;
 	private Categoria categoria;
-
 	private List<Dispositivo> dispositivos;
-	private double facturacionAproximadaDelMesPasado;
 
 	public Cliente(String[] nombres, String[] apellidos, Documento documento, String domicilio, String telefono,
 			Categoria categoria, List<Dispositivo> dispositivos) {
@@ -28,10 +26,6 @@ public class Cliente {
 		this.telefono = telefono;
 		this.categoria = categoria;
 		this.dispositivos = dispositivos;
-	}
-
-	public double facturacionAproximadaDelMesPasado() {
-		return facturacionAproximadaDelMesPasado;
 	}
 
 	public int cantidadDispositivosTotal() {
@@ -54,9 +48,8 @@ public class Cliente {
 		return String.join(" ", nombres);
 	}
 
-	public double estimarFacturacionAFinDeMes() {
-		facturacionAproximadaDelMesPasado = categoria.aproximarFacturacion(this.consumoDeEsteMes());
-		return facturacionAproximadaDelMesPasado;
+	public double facturacionAproximada() {
+		return categoria.aproximarFacturacion(this.consumoDeEsteMes());
 	}
 
 	public double consumoDeEsteMes() {

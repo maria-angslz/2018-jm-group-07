@@ -22,8 +22,7 @@ public class ClienteTest {
 	Cliente clienteSinDispositivos;
 	Cliente clienteConUnDispositivo;
 	Cliente clienteConDosDispositivos;
-	Cliente mmock;
-	
+
 	@Before
 	public void init() {
 		Dispositivo tv = new Dispositivo("TV", 10.5, false);
@@ -41,13 +40,10 @@ public class ClienteTest {
 		unDispositivo.add(tv);
 		clienteConUnDispositivo = new Cliente(new String[] { "Pepe" }, new String[] { "Mitre" },
 				new Documento(40732178, TipoDocumento.DNI), "Belgrano 241", "01149231234", r1, unDispositivo);
-		mmock = Mockito.spy(clienteConUnDispositivo);
-		when(mmock.facturacionAproximadaDelMesPasado()).thenReturn(10.0);
 	}
 
 	@Test
 	public void testCantidadTotalDeDispositivos() {
-		System.out.println(mmock.nombre());
 		assertEquals("El cliente debe tener dos dispositivos", 2,
 				clienteConDosDispositivos.cantidadDispositivosTotal());
 		assertEquals("El cliente debe tener un dispositivos", 1, clienteConUnDispositivo.cantidadDispositivosTotal());
@@ -91,7 +87,7 @@ public class ClienteTest {
 
 		assertEquals(
 				"El cliente de categoria R1 con dos dispositivos de consumo mensual igual a 100 kW tiene una facturacion aproximada de 257.62",
-				(200 * 0.681) + 60.71, clienteConDosDispositivos.estimarFacturacionAFinDeMes(), 0.05);
+				(200 * 0.681) + 60.71, clienteConDosDispositivos. facturacionAproximada(), 0.05);
 
 	}
 
@@ -102,7 +98,7 @@ public class ClienteTest {
 
 		assertEquals(
 				"El cliente de categoria R1 con un dispositivo de consumo mensual igual a 100 kW tiene una facturacion aproximada de 98.81",
-				(100 * 0.681) + 60.71, clienteConUnDispositivo.estimarFacturacionAFinDeMes(), 0.05);
+				(100 * 0.681) + 60.71, clienteConUnDispositivo. facturacionAproximada(), 0.05);
 
 	}
 
@@ -110,7 +106,7 @@ public class ClienteTest {
 	public void testClienteSinDispositivosFacturacionAproximadaCostoFijo() {
 
 		assertEquals("testClienteSinDispositivosFacturacionAproximadaCostoFijo", 60.71,
-				clienteSinDispositivos.estimarFacturacionAFinDeMes(), 0.05);
+				clienteSinDispositivos. facturacionAproximada(), 0.05);
 	}
 
 }
