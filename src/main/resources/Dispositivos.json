@@ -1,1 +1,12 @@
-[{"nombre":"a","consumoKWxHora":1.0,"encendido":true},{"nombre":"b","consumoKWxHora":1.0,"encendido":true}]
+[
+	{
+		"nombre": "a",
+		"consumoKWxHora": 1.0,
+		"encendido": true
+	},
+	{
+		"nombre": "b",
+		"consumoKWxHora": 1.0,
+		"encendido": true
+	}
+]

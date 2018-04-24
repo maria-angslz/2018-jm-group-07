@@ -47,14 +47,14 @@ public class JSONWrapper implements AlmacenamientoPersistente {
 	}
 
 	public <T> List<T> cargar(String file) throws FileNotFoundException {
-		return 
-			gson.fromJson(stringFromFile(file),
-				new TypeToken<List<T>>() {}.getType());
+		return gson.fromJson(stringFromFile(file), new TypeToken<List<T>>() {
+		}.getType());
 	}
 
 	public <T> void guardar(String file, List<T> lista) throws IOException {
 		stringToFile(file, gson.toJson(lista));
 	}
+
 	public void cargarDispositivos() throws FileNotFoundException {
 		List<Dispositivo> dispositivos = cargar(archivoDispositivos);
 		RepoDispositivos.getInstance().addAll(dispositivos);
@@ -68,16 +68,16 @@ public class JSONWrapper implements AlmacenamientoPersistente {
 		List<Administrador> admins = cargar(archivoAdmins);
 		RepoAdmins.getInstance().addAll(admins);
 	}
-	
+
 	public void guardarAdmins() throws IOException {
 		guardar(archivoAdmins, RepoAdmins.getInstance().get());
 	}
-	
+
 	public void cargarClientes() throws FileNotFoundException {
 		List<Cliente> clientes = cargar(archivoClientes);
 		RepoClientes.getInstance().addAll(clientes);
 	}
-	
+
 	public void guardarClientes() throws IOException {
 		guardar(archivoClientes, RepoClientes.getInstance().get());
 	}

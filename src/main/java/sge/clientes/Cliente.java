@@ -1,4 +1,5 @@
 package sge.clientes;
+
 import java.util.List;
 import sge.Documento;
 import sge.categorias.*;
@@ -15,11 +16,9 @@ public class Cliente {
 	private Categoria categoria;
 	private List<Dispositivo> dispositivos;
 	private double facturacionAproximadaDelMesPasado;
-	
-	public Cliente(String[] nombres, String[] apellidos, 
-			Documento documento, String domicilio, 
-			String telefono, Categoria categoria, 
-			List<Dispositivo> dispositivos) {
+
+	public Cliente(String[] nombres, String[] apellidos, Documento documento, String domicilio, String telefono,
+			Categoria categoria, List<Dispositivo> dispositivos) {
 		this.nombres = nombres;
 		this.apellidos = apellidos;
 		this.documento = documento;
@@ -28,51 +27,57 @@ public class Cliente {
 		this.categoria = categoria;
 		this.dispositivos = dispositivos;
 	}
-	public double facturacionAproximadaDelMesPasado() { 
-		return facturacionAproximadaDelMesPasado; 
+
+	public double facturacionAproximadaDelMesPasado() {
+		return facturacionAproximadaDelMesPasado;
 	}
+
 	public int cantidadDispositivosTotal() {
 		return dispositivos.size();
 	}
+
 	public int cantidadDispositivosEncendidos() {
-		return (int) dispositivos.stream().
-				filter(disp->disp.encendido()).count();
+		return (int) dispositivos.stream().filter(disp -> disp.encendido()).count();
 	}
+
 	public int cantidadDispositivosApagados() {
-		return (int) dispositivos.stream().
-				filter(disp->!disp.encendido()).count();
+		return (int) dispositivos.stream().filter(disp -> !disp.encendido()).count();
 	}
+
 	public boolean algunDispositivoEstaEncendido() {
-		return dispositivos.stream().anyMatch(disp->disp.encendido());
+		return dispositivos.stream().anyMatch(disp -> disp.encendido());
 	}
+
 	public String nombre() {
 		return String.join(" ", nombres);
 	}
+
 	public double estimarFacturacionAFinDeMes() {
-		facturacionAproximadaDelMesPasado = categoria.
-				aproximarFacturacion(this.consumoDeEsteMes());
+		facturacionAproximadaDelMesPasado = categoria.aproximarFacturacion(this.consumoDeEsteMes());
 		return facturacionAproximadaDelMesPasado;
 	}
-	private double consumoDeEsteMes(){
-		return dispositivos.stream().
-				mapToDouble(disp->disp.consumoDeEsteMes()).sum();
+
+	private double consumoDeEsteMes() {
+		return dispositivos.stream().mapToDouble(disp -> disp.consumoDeEsteMes()).sum();
 	}
+
 	// En un futuro puede que querramos que los clientes
 	// tengan tipos de categoria y esta se encargue
 	// de recategorizarlo
 	public void recategorizar() {
-		if(!categoria.perteneceAEstaCategoria(this)) {
+		if (!categoria.perteneceAEstaCategoria(this)) {
 			cambiarCategoria();
 		}
 	}
+
 	private void cambiarCategoria() {
 		RepoCatResidenciales categorias = RepoCatResidenciales.getInstance();
-		categoria = categorias.get().stream().
-				filter(unaCategoria -> unaCategoria.perteneceAEstaCategoria(this)).
-				findFirst().get();
+		categoria = categorias.get().stream().filter(unaCategoria -> unaCategoria.perteneceAEstaCategoria(this))
+				.findFirst().get();
 	}
+
 	public List<Dispositivo> getDispositivos() {
 		return dispositivos;
 	}
-	
+
 }
