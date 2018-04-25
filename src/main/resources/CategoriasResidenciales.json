@@ -1,0 +1,52 @@
+[
+	{
+		"cargoFijo": 60.71,
+		"cargoPorkWh": 0.681,
+		"rango": {
+			"minSmallest": 325,
+			"minLargest": 325,
+			"maxSmallest": 400,
+			"maxLargest": 400
+		}
+	},
+	{
+		"cargoFijo": 60.71,
+		"cargoPorkWh": 0.681,
+		"rango": {
+			"minSmallest": 325,
+			"minLargest": 325,
+			"maxSmallest": 400,
+			"maxLargest": 400
+		}
+	},
+	{
+		"cargoFijo": 60.71,
+		"cargoPorkWh": 0.681,
+		"rango": {
+			"minSmallest": 325,
+			"minLargest": 325,
+			"maxSmallest": 400,
+			"maxLargest": 400
+		}
+	},
+	{
+		"cargoFijo": 60.71,
+		"cargoPorkWh": 0.681,
+		"rango": {
+			"minSmallest": 325,
+			"minLargest": 325,
+			"maxSmallest": 400,
+			"maxLargest": 400
+		}
+	},
+	{
+		"cargoFijo": 60.71,
+		"cargoPorkWh": 0.681,
+		"rango": {
+			"minSmallest": 325,
+			"minLargest": 325,
+			"maxSmallest": 400,
+			"maxLargest": 400
+		}
+	}
+]
