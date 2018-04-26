@@ -133,12 +133,13 @@ public class JSONTest {
 	}
 
 	@Test
-	public void testCargarAdmins() throws Exception {
+	public void testCargarAdmins() throws FileNotFoundException {
 		// Le decimos a Mockito que use el cargarDispositivos real
 		doCallRealMethod().when(mockWrapper).cargarAdmins();
 		RepoAdmins repo = RepoAdmins.getInstance();
 		// Testeamos que se cargan correctamente
 		// todas nuestras listas de testing
+		
 		listasDeAdmins.forEach(admins -> {
 			try {
 				repo.reset();

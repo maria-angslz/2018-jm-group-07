@@ -33,13 +33,17 @@ public class JSONWrapper implements AlmacenamientoPersistente {
 		return instancia;
 	}
 
-	public String stringFromFile(String filename) throws FileNotFoundException {
-		File file = Paths.get(filename).toFile();
-		Scanner lector = new Scanner(file);
-		lector.useDelimiter("\\A");
-		String contenido = lector.next();
-		lector.close();
-		return contenido;
+	public String stringFromFile(String filename)  {
+		try {
+			File file = Paths.get(filename).toFile();
+			Scanner lector = new Scanner(file);
+			lector.useDelimiter("\\A");
+			String contenido = lector.next();
+			lector.close();
+			return contenido;
+		} catch (Exception e) {
+			throw new RuntimeException(e);
+		}
 	}
 
 	public void stringToFile(String filename, String content) throws IOException {
