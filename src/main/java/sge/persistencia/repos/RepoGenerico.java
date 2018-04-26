@@ -4,7 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class RepoGenerico<T> {
-	protected List<T> lista;
+	protected List<T> lista = new ArrayList<T>();
 
 	public List<T> get() {
 		return lista;

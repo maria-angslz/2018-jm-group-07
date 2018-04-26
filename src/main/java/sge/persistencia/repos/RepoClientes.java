@@ -10,7 +10,6 @@ public class RepoClientes extends RepoGenerico<Cliente> {
 	public static RepoClientes getInstance() {
 		if (instancia == null) {
 			instancia = new RepoClientes();
-			instancia.lista = new ArrayList<Cliente>();
 		}
 		return instancia;
 	}

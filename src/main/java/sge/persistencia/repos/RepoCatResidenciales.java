@@ -10,7 +10,6 @@ public class RepoCatResidenciales extends RepoGenerico<CategoriaResidencial> {
 	public static RepoCatResidenciales getInstance() {
 		if (instancia == null) {
 			instancia = new RepoCatResidenciales();
-			instancia.lista = new ArrayList<CategoriaResidencial>();
 		}
 		return instancia;
 	}
