@@ -1,11 +1,8 @@
 [
 	{
-		"nombres": [
-			"Juan"
-		],
-		"apellidos": [
-			"Perez"
-		],
+		"nombreYApellido":
+			"Juan Perez"
+		,
 		"domicilio": "Belgrano 2251",
 		"fechaDeAlta": {
 			"year": 2018,
@@ -15,12 +12,9 @@
 		"id": 0
 	},
 	{
-		"nombres": [
-			"Pepe"
-		],
-		"apellidos": [
-			"Rodriguez"
-		],
+		"nombreYApellido":
+			"Pepe Rodriguez",
+	
 		"domicilio": "Belgrano 2251",
 		"fechaDeAlta": {
 			"year": 2018,

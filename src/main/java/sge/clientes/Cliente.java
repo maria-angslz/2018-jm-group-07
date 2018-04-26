@@ -9,18 +9,18 @@ import sge.persistencia.repos.RepoCatResidenciales;
 
 public class Cliente {
 	final int horasDelMes = 720;
-	private String[] nombres;
-	private String[] apellidos;
+	private String nombreYApellido;
+	//private String[] apellidos;
 	private Documento documento;
 	private String domicilio;
 	private String telefono;
 	private Categoria categoria;
 	private List<Dispositivo> dispositivos;
 
-	public Cliente(String[] nombres, String[] apellidos, Documento documento, String domicilio, String telefono,
+	public Cliente(String nombreYApellido, Documento documento, String domicilio, String telefono,
 			Categoria categoria, List<Dispositivo> dispositivos) {
-		this.nombres = nombres;
-		this.apellidos = apellidos;
+		this.nombreYApellido = nombreYApellido;
+		//this.apellidos = apellidos;
 		this.documento = documento;
 		this.domicilio = domicilio;
 		this.telefono = telefono;
@@ -45,7 +45,8 @@ public class Cliente {
 	}
 
 	public String nombre() {
-		return String.join(" ", nombres);
+		return nombreYApellido;
+		//return String.join(" ", nombres);
 	}
 
 	public double facturacionAproximada() {

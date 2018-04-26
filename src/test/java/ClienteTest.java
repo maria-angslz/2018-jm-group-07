@@ -33,14 +33,14 @@ public class ClienteTest {
 		ArrayList<Dispositivo> dosDispositivos = new ArrayList<Dispositivo>();
 		dosDispositivos.add(tv);
 		dosDispositivos.add(heladera);
-		clienteConDosDispositivos = new Cliente(new String[] { "Martin" }, new String[] { "Perez" },
+		clienteConDosDispositivos = new Cliente("Martin Perez",
 				new Documento(40732178, TipoDocumento.DNI), "Belgrano 2251", "01149212334", r3, dosDispositivos);
 		ArrayList<Dispositivo> sinDispositivos = new ArrayList<Dispositivo>();
-		clienteSinDispositivos = new Cliente(new String[] { "Juan" }, new String[] { "Lopez" },
+		clienteSinDispositivos = new Cliente("Juan Lopez",
 				new Documento(40732178, TipoDocumento.DNI), "Santa Fe 1781", "01141131234", r3, sinDispositivos);
 		ArrayList<Dispositivo> unDispositivo = new ArrayList<Dispositivo>();
 		unDispositivo.add(tv);
-		clienteConUnDispositivo = new Cliente(new String[] { "Pepe" }, new String[] { "Mitre" },
+		clienteConUnDispositivo = new Cliente( "Pepe Mitre" ,
 				new Documento(40732178, TipoDocumento.DNI), "Belgrano 241", "01149231234", r3, unDispositivo);
 		clienteMock = Mockito.spy(clienteConUnDispositivo);
 		

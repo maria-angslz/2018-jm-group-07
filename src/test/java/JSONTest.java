@@ -54,13 +54,13 @@ public class JSONTest {
 		// Administradores
 		admins = new ArrayList<Administrador>();
 		LocalDate now = LocalDate.now();
-		admins.add(new Administrador(new String[] { "Juan" }, new String[] { "Perez" }, "Belgrano 2251",
+		admins.add(new Administrador("Juan Perez", "Belgrano 2251",
 				now.minusMonths(2)));
-		admins.add(new Administrador(new String[] { "Pepe" }, new String[] { "Perez" }, "Belgrano 21",
+		admins.add(new Administrador("Pepe Perez", "Belgrano 21",
 				now.minusMonths(3)));
-		admins.add(new Administrador(new String[] { "Martin" }, new String[] { "Perez" }, "Belgrano 251",
+		admins.add(new Administrador("Martin Perez", "Belgrano 251",
 				now.minusMonths(4)));
-		admins.add(new Administrador(new String[] { "Jose" }, new String[] { "Perez" }, "Belgrano 25",
+		admins.add(new Administrador("Jose Perez",  "Belgrano 25",
 				now.minusMonths(5)));
 		// Listas de administradores
 		listasDeAdmins = new ArrayList<List<Administrador>>();
@@ -98,16 +98,16 @@ public class JSONTest {
 		// Clientes
 		Categoria r1 = new CategoriaResidencial(60.71, 0.681, 325, 400);
 		clientes = new ArrayList<Cliente>();
-		clientes.add(new Cliente(new String[] { "Martin" }, new String[] { "Perez" },
+		clientes.add(new Cliente( "Martin Perez" ,
 				new Documento(40732178, TipoDocumento.DNI), "Belgrano 2251", "01149212334", r1,
 				listasDeDispositivos.get(0)));
-		clientes.add(new Cliente(new String[] { "Juan" }, new String[] { "Lopez" },
+		clientes.add(new Cliente("Juan Lopez" ,
 				new Documento(40732178, TipoDocumento.DNI), "Santa Fe 1781", "01141131234", r1,
 				new ArrayList<Dispositivo>()));
-		clientes.add(new Cliente(new String[] { "Pepe" }, new String[] { "Mitre" },
+		clientes.add(new Cliente( "Pepe Mitre" ,
 				new Documento(40732178, TipoDocumento.DNI), "Belgrano 241", "01149231234", r1,
 				listasDeDispositivos.get(1)));
-		clientes.add(new Cliente(new String[] { "Jose" }, new String[] { "Hernandez" },
+		clientes.add(new Cliente( "Jose Hernandez" ,
 				new Documento(47465078, TipoDocumento.DNI), "Belgrano 2252", "01149212334", r1,
 				listasDeDispositivos.get(2)));
 		// Listas de Clientes

@@ -4,19 +4,17 @@ import java.time.LocalDate;
 import java.time.temporal.ChronoUnit;
 
 public class Administrador {
-	private String[] nombres;
-	private String[] apellidos;
+	private String nombreYApellido;
 	private String domicilio;
 	private LocalDate fechaDeAlta;
 	private long id;
 
-	public static Administrador nuevoAdministrador(String[] nombres, String[] apellidos, String domicilio) {
-		return new Administrador(nombres, apellidos, domicilio, LocalDate.now());
+	public static Administrador nuevoAdministrador(String nombreYApellido, String domicilio) {
+		return new Administrador(nombreYApellido, domicilio, LocalDate.now());
 	}
 
-	public Administrador(String[] nombres, String[] apellidos, String domicilio, LocalDate fechaDeAlta) {
-		this.nombres = nombres;
-		this.apellidos = apellidos;
+	public Administrador(String nombres, String domicilio, LocalDate fechaDeAlta) {
+		this.nombreYApellido = nombres;
 		this.domicilio = domicilio;
 		this.fechaDeAlta = fechaDeAlta;
 	}
@@ -31,6 +29,6 @@ public class Administrador {
 	}
 
 	public String nombre() {
-		return String.join(" ", nombres);
+		return nombreYApellido;
 	}
 }
