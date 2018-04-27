@@ -50,65 +50,68 @@ public class ClienteTest {
 	public void testCantidadTotalDeDispositivos() {
 		assertEquals("El cliente debe tener dos dispositivos", 2,
 				clienteConDosDispositivos.cantidadDispositivosTotal());
-		assertEquals("El cliente debe tener un dispositivos", 1, clienteConUnDispositivo.cantidadDispositivosTotal());
+		
+	}
+	
+	@Test
+	public void testCantidadTotalDeDispositivosDeClienteSinDispositivos() {
 		assertEquals("El cliente debe no tener dispositivos", 0, clienteSinDispositivos.cantidadDispositivosTotal());
 	}
 
 	@Test
-	public void testCantidadDeDispositivosEncendidos() {
+	public void testCantidadDeDispositivosEncendidosDeClienteConDispositivos() {
 		assertEquals("El cliente debe tener solo un dispositivo encendido", 1,
 				clienteConDosDispositivos.cantidadDispositivosEncendidos());
-		assertEquals("El cliente no debe tener dispositivos encendidos", 0,
-				clienteConUnDispositivo.cantidadDispositivosEncendidos());
+	}
+	
+	@Test
+	public void testCantidadDeDispositivosEncendidosDeClienteSinDispositivos() {
 		assertEquals("El cliente no debe tener dispositivos encendidos", 0,
 				clienteSinDispositivos.cantidadDispositivosEncendidos());
 	}
 
 	@Test
-	public void testCantidadDispositivosApagados() {
+	public void testCantidadDispositivosApagadosDeClienteConDispositivos() {
 		assertEquals("El cliente debe tener solo un dispositivo apagado", 1,
 				clienteConDosDispositivos.cantidadDispositivosApagados());
-		assertEquals("El cliente debe tener solo un dispositivo apagado", 1,
-				clienteConUnDispositivo.cantidadDispositivosApagados());
+	}
+	
+	@Test
+	public void testCantidadDispositivosApagadosDeClienteSinDispositivos() {
 		assertEquals("El cliente no debe tener dispositivos apagados", 0,
 				clienteSinDispositivos.cantidadDispositivosApagados());
 	}
 
 	@Test
-	public void testAlgunDispositivoEstaEncendido() {
-		assertTrue("El cliente debe al menos un dispositivo encendido",
+	public void testAlgunDispositivoEstaEncendidoDeClienteConDispositivos() {
+		assertTrue("El cliente debe tener al menos un dispositivo encendido",
 				clienteConDosDispositivos.algunDispositivoEstaEncendido());
-		assertFalse("El cliente debe al menos un dispositivo encendido",
-				clienteConUnDispositivo.algunDispositivoEstaEncendido());
-		assertFalse("El cliente debe al menos un dispositivo encendido",
+	}
+	
+	@Test
+	public void testAlgunDispositivoEstaEncendidoDeClienteSinDispositivos() {
+		assertFalse("El cliente no debe tener ni un dispositivo encendido",
 				clienteSinDispositivos.algunDispositivoEstaEncendido());
 	}
 
 	@Test
 	public void testFacturacionAproximadaClienteCategoriaR1ConDosDispositivos() {
-
 		clienteConDosDispositivos.getDispositivos().stream().forEach(disp -> disp.setConsumoDeEsteMes(100));
-
 		assertEquals(
 				"El cliente de categoria R1 con dos dispositivos de consumo mensual igual a 100 kW tiene una facturacion aproximada de 257.62",
 				(200 * 0.681) + 60.71, clienteConDosDispositivos. facturacionAproximada(), 0.05);
-
 	}
 
 	@Test
 	public void testFacturacionAproximadaClienteCategoriaR1ConUnDispositivos() {
-
 		clienteConUnDispositivo.getDispositivos().stream().forEach(disp -> disp.setConsumoDeEsteMes(100));
-
 		assertEquals(
 				"El cliente de categoria R1 con un dispositivo de consumo mensual igual a 100 kW tiene una facturacion aproximada de 98.81",
 				(100 * 0.681) + 60.71, clienteConUnDispositivo. facturacionAproximada(), 0.05);
-
 	}
 
 	@Test
 	public void testClienteSinDispositivosFacturacionAproximadaCostoFijo() {
-
 		assertEquals("testClienteSinDispositivosFacturacionAproximadaCostoFijo", 60.71,
 				clienteSinDispositivos. facturacionAproximada(), 0.05);
 	}
