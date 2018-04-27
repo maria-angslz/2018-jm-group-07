@@ -37,7 +37,7 @@ public class Cliente {
 	}
 
 	public int cantidadDispositivosApagados() {
-		return (int) dispositivos.stream().filter(disp -> !disp.encendido()).count();
+		return (int) (this.cantidadDispositivosTotal() - this.cantidadDispositivosEncendidos());
 	}
 
 	public boolean algunDispositivoEstaEncendido() {
