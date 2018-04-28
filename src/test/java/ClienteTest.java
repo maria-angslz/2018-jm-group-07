@@ -95,19 +95,19 @@ public class ClienteTest {
 	}
 
 	@Test
-	public void testFacturacionAproximadaClienteCategoriaR1ConDosDispositivos() {
-		clienteConDosDispositivos.getDispositivos().stream().forEach(disp -> disp.setConsumoDeEsteMes(100));
+	public void testFacturacionAproximadaClienteCategoriaR3ConDosDispositivos() {
+		clienteConDosDispositivos.getDispositivos().stream().forEach(disp -> disp.setConsumoDeEsteMes(175));
 		assertEquals(
-				"El cliente de categoria R1 con dos dispositivos de consumo mensual igual a 100 kW tiene una facturacion aproximada de 257.62",
-				(200 * 0.681) + 60.71, clienteConDosDispositivos. facturacionAproximada(), 0.05);
+				"El cliente de categoria R3 con dos dispositivos de consumo mensual igual a 350 kW tiene una facturacion aproximada de 299.06",
+				299.06, clienteConDosDispositivos. facturacionAproximada(), 0.05);
 	}
 
 	@Test
-	public void testFacturacionAproximadaClienteCategoriaR1ConUnDispositivos() {
-		clienteConUnDispositivo.getDispositivos().stream().forEach(disp -> disp.setConsumoDeEsteMes(100));
+	public void testFacturacionAproximadaClienteCategoriaR3ConUnDispositivos() {
+		clienteConUnDispositivo.getDispositivos().stream().forEach(disp -> disp.setConsumoDeEsteMes(350));
 		assertEquals(
-				"El cliente de categoria R1 con un dispositivo de consumo mensual igual a 100 kW tiene una facturacion aproximada de 98.81",
-				(100 * 0.681) + 60.71, clienteConUnDispositivo. facturacionAproximada(), 0.05);
+				"El cliente de categoria R3 con un dispositivo de consumo mensual igual a 350 kW tiene una facturacion aproximada de 299.06",
+				299.06, clienteConUnDispositivo. facturacionAproximada(), 0.05);
 	}
 
 	@Test
