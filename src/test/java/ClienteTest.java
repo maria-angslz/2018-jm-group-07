@@ -1,51 +1,20 @@
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertTrue;
-import static org.mockito.Mockito.mock;
+
 import static org.mockito.Mockito.when;
 
-import java.util.ArrayList;
 
-import org.junit.Before;
+
 import org.junit.Test;
-import org.mockito.Mockito;
 
-import sge.Documento;
-import sge.TipoDocumento;
 import sge.categorias.Categoria;
 import sge.categorias.CategoriaResidencial;
-import sge.clientes.Cliente;
-import sge.dispositivos.Dispositivo;
 import sge.persistencia.repos.RepoCatResidenciales;
 
-public class ClienteTest {
 
-	Cliente clienteSinDispositivos;
-	Cliente clienteConUnDispositivo;
-	Cliente clienteConDosDispositivos;
-	Cliente clienteMock;
-
-	@Before
-	public void init() {
-		Dispositivo tv = new Dispositivo("TV", 10.5, false);
-		Dispositivo heladera = new Dispositivo("Heladera", 10.5, true);
-		Categoria r3 = new CategoriaResidencial(60.71, 0.681, 325, 400);
-		ArrayList<Dispositivo> dosDispositivos = new ArrayList<Dispositivo>();
-		dosDispositivos.add(tv);
-		dosDispositivos.add(heladera);
-		clienteConDosDispositivos = new Cliente("Martin Perez",
-				new Documento(40732178, TipoDocumento.DNI), "Belgrano 2251", "01149212334", r3, dosDispositivos);
-		ArrayList<Dispositivo> sinDispositivos = new ArrayList<Dispositivo>();
-		clienteSinDispositivos = new Cliente("Juan Lopez",
-				new Documento(40732178, TipoDocumento.DNI), "Santa Fe 1781", "01141131234", r3, sinDispositivos);
-		ArrayList<Dispositivo> unDispositivo = new ArrayList<Dispositivo>();
-		unDispositivo.add(tv);
-		clienteConUnDispositivo = new Cliente( "Pepe Mitre" ,
-				new Documento(40732178, TipoDocumento.DNI), "Belgrano 241", "01149231234", r3, unDispositivo);
-		clienteMock = Mockito.spy(clienteConUnDispositivo);
-		
-	}
-
+public class ClienteTest extends Fixture.FCliente{
+	
 	@Test
 	public void testCantidadTotalDeDispositivos() {
 		assertEquals("El cliente debe tener dos dispositivos", 2,

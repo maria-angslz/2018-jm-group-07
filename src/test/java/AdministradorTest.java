@@ -1,27 +1,18 @@
 import static org.junit.Assert.assertEquals;
 
-import java.time.LocalDate;
-
 import org.junit.Test;
 
-import sge.Administrador;
 
-public class AdministradorTest {
+public class AdministradorTest extends Fixture.FAdmin {
 
 	@Test
 	public void testAntiguedadDeAdministradorRegistradoHaceDosMeses() {
-		LocalDate now = LocalDate.now();
-		Administrador admin = new Administrador( "Juan Perez" , "Belgrano 2251",
-				now.minusMonths(2));
-		assertEquals("Un administrador registrado hace dos meses debe tener antiguedad 2", 2, admin.antiguedad(now));
+		assertEquals("Un administrador registrado hace dos meses debe tener antiguedad 2", 2, adminViejo.antiguedad(now));
 	}
 
 	@Test
 	public void testAntiguedadDeNuevoAdministradorEsCero() {
-		LocalDate now = LocalDate.now();
-		Administrador admin = new Administrador( "Juan Perez", "Belgrano 2251",
-				now);
-		assertEquals("Un nuevo administrador debe tener antiguedad 0", 0, admin.antiguedad(now));
+		assertEquals("Un nuevo administrador debe tener antiguedad 0", 0, adminNuevo.antiguedad(now));
 	}
 
 }
