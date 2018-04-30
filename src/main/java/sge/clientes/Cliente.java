@@ -8,7 +8,7 @@ import sge.dispositivos.Dispositivo;
 import sge.persistencia.repos.RepoCatResidenciales;
 
 public class Cliente {
-	final int horasDelMes = 720;
+	final double horasDelMes = 720;
 	private String nombreYApellido;
 	//private String[] apellidos;
 	private Documento documento;
@@ -50,25 +50,29 @@ public class Cliente {
 	}
 
 	public double facturacionAproximada() {
-		return categoria.aproximarFacturacion(this.consumoDeEsteMes());
+		return categoria.aproximarFacturacion(this.cantidadDeConsumoDelMes());
 	}
 
-	public double consumoDeEsteMes() {
-		return dispositivos.stream().mapToDouble(disp -> disp.consumoDeEsteMes()).sum();
+	public double consumoDispositivos() {
+		return dispositivos.stream().mapToDouble(disp -> disp.consumoKWxHora()).sum();
+	}
+	
+	public double cantidadDeConsumoDelMes() {
+		return this.consumoDispositivos() * horasDelMes;
 	}
 
 	// En un futuro puede que querramos que los clientes
 	// tengan tipos de categoria y esta se encargue
 	// de recategorizarlo
 	public void recategorizar() {
-		if (!categoria.perteneceAEstaCategoria(this)) {
+		if (!categoria.perteneceAEstaCategoria(this.facturacionAproximada())) {
 			cambiarCategoria();
 		}
 	}
 
 	private void cambiarCategoria() {
 		RepoCatResidenciales categorias = RepoCatResidenciales.getInstance();
-		categoria = categorias.get().stream().filter(unaCategoria -> unaCategoria.perteneceAEstaCategoria(this))
+		categoria = categorias.get().stream().filter(unaCategoria -> unaCategoria.perteneceAEstaCategoria(this.facturacionAproximada()))
 				.findFirst().get();
 	}
 

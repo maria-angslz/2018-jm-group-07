@@ -65,18 +65,18 @@ public class ClienteTest extends Fixture.FCliente{
 
 	@Test
 	public void testFacturacionAproximadaClienteCategoriaR3ConDosDispositivos() {
-		clienteConDosDispositivos.getDispositivos().stream().forEach(disp -> disp.setConsumoDeEsteMes(175));
+		//clienteConDosDispositivos.getDispositivos().stream().forEach(disp -> disp.setConsumoDeEsteMes(175));
 		assertEquals(
-				"El cliente de categoria R3 con dos dispositivos de consumo mensual igual a 350 kW tiene una facturacion aproximada de 299.06",
-				299.06, clienteConDosDispositivos. facturacionAproximada(), 0.05);
+				"El cliente de categoria R3 con dos dispositivos de consumo 0.6 kW/h tiene una facturacion aproximada de 10357.43",
+				649.094, clienteConDosDispositivos. facturacionAproximada(), 0.05);
 	}
 
 	@Test
 	public void testFacturacionAproximadaClienteCategoriaR3ConUnDispositivos() {
-		clienteConUnDispositivo.getDispositivos().stream().forEach(disp -> disp.setConsumoDeEsteMes(350));
+		//clienteConUnDispositivo.getDispositivos().stream().forEach(disp -> disp.setConsumoDeEsteMes(350));
 		assertEquals(
-				"El cliente de categoria R3 con un dispositivo de consumo mensual igual a 350 kW tiene una facturacion aproximada de 299.06",
-				299.06, clienteConUnDispositivo. facturacionAproximada(), 0.05);
+				"El cliente de categoria R3 con un dispositivo de consumo 0.6 kW/h tiene una facturacion aproximada de 5209.07",
+				354.902, clienteConUnDispositivo. facturacionAproximada(), 0.05);
 	}
 
 	@Test
@@ -87,19 +87,23 @@ public class ClienteTest extends Fixture.FCliente{
 	
 	@Test
 	public void testClienteMantieneCategoria() {
-		when(clienteMock.consumoDeEsteMes()).thenReturn(350.0);
-		Categoria r3 = clienteMock.getCategoria();
-		clienteMock.recategorizar();
-		assertEquals("El cliente no supera el consumo maximo de su categoria, por ende la mantiene", r3, clienteMock.getCategoria());
+		//when(clienteMock.consumoDeEsteMes()).thenReturn(350.0);
+		//Categoria r3 = clienteMock.getCategoria();
+		//clienteMock.recategorizar();
+		Categoria r3 = clienteConUnDispositivo.getCategoria();
+		clienteConUnDispositivo.recategorizar();
+		assertEquals("El cliente no supera el consumo maximo de su categoria, por ende la mantiene", r3, clienteConUnDispositivo.getCategoria());
 	}
 	
 	@Test
 	public void testClienteCambiaDeCategoria() {
-		Categoria r4 = new CategoriaResidencial(71.74, 0.738, 400, 450);
-		RepoCatResidenciales.getInstance().agregar((CategoriaResidencial)r4);
-		when(clienteMock.consumoDeEsteMes()).thenReturn(425.0);
-		clienteMock.recategorizar();
-		assertEquals("El cliente supera el consumo maximo de su categoria (R3), por ende se recategoriza a R4", r4, clienteMock.getCategoria());
+		
+		//RepoCatResidenciales.getInstance().agregar((CategoriaResidencial)r4);
+		//when(clienteMock.consumoDeEsteMes()).thenReturn(425.0);
+		Categoria r7 = new CategoriaResidencial(443.59, 0.851, 600, 700);
+		RepoCatResidenciales.getInstance().agregar((CategoriaResidencial) r7);
+		clienteConDosDispositivos.recategorizar();
+		assertEquals("El cliente supera el consumo maximo de su categoria (R3), por ende se recategoriza a R4", r7, clienteConDosDispositivos.getCategoria());
 	}
 
 }

@@ -19,9 +19,9 @@ public class CategoriaResidencial implements Categoria {
 		return cargoFijo + KWConsumidos * cargoPorkWh;
 	}
 
-	public boolean perteneceAEstaCategoria(Cliente cliente) {
+	public boolean perteneceAEstaCategoria(double valorConsumido) {
 		// Suponemos que se recategoriza a fin de mes
 		// Antes de que se resete el consumo de los dispositivos
-		return rango.isValidValue((long) cliente.consumoDeEsteMes());
+		return rango.isValidValue((long) valorConsumido);
 	}
 }
