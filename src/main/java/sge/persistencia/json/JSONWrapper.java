@@ -1,28 +1,23 @@
 package sge.persistencia.json;
 
-import java.io.File;
-import java.io.FileNotFoundException;
 import java.io.IOException;
-import java.nio.file.Files;
-import java.nio.file.Paths;
 import java.util.List;
-import java.util.Scanner;
-
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 import com.google.gson.reflect.TypeToken;
 
 import sge.Administrador;
-import sge.categorias.CategoriaResidencial;
+import sge.categorias.Categoria;
 import sge.clientes.Cliente;
 import sge.persistencia.AlmacenamientoPersistente;
-import sge.persistencia.repos.RepoAdmins;
-import sge.persistencia.repos.RepoCatResidenciales;
-import sge.persistencia.repos.RepoClientes;
+import sge.persistencia.FileIO;
 
-public class JSONWrapper {
+public class JSONWrapper implements AlmacenamientoPersistente {
 	private static Gson gson = new GsonBuilder().create();
 	private static JSONWrapper instancia;
+	private String archivoAdmins = ".\\src\\main\\resources\\Administradores.json";
+	private String archivoClientes = ".\\src\\main\\resources\\Clientes.json";
+	private String archivoCategorias = ".\\src\\main\\resources\\Categorias.json";
 
 	public static AlmacenamientoPersistente getInstance() {
 		if (instancia == null)
@@ -30,30 +25,41 @@ public class JSONWrapper {
 		return instancia;
 	}
 
-	public static String stringFromFile(String filename)  {
+	public <T> List<T> cargar(String file) {
+		return gson.fromJson(FileIO.stringFromFile(file), new TypeToken<List<T>>() {}.getType());
+	}
+
+	public <T> void guardar(String file, List<T> lista) {
 		try {
-			File file = Paths.get(filename).toFile();
-			Scanner lector = new Scanner(file);
-			lector.useDelimiter("\\A");
-			String contenido = lector.next();
-			lector.close();
-			return contenido;
-		} catch (Exception e) {
+			FileIO.stringToFile(file, gson.toJson(lista));
+		}
+		catch(IOException e) {
 			throw new RuntimeException(e);
 		}
 	}
-
-	public static void stringToFile(String filename, String content) throws IOException {
-		Files.write(Paths.get(filename), content.getBytes());
+	
+	public List<Administrador> cargarAdmins() {
+		return cargar(archivoAdmins);
 	}
 
-	public static <T> List<T> cargar(String file) throws FileNotFoundException {
-		return gson.fromJson(stringFromFile(file), new TypeToken<List<T>>() {
-		}.getType());
+	public void guardarAdmins(String file, List<Administrador> lista) {
+		guardar(archivoAdmins, lista);
 	}
 
-	public static <T> void guardar(String file, List<T> lista) throws IOException {
-		stringToFile(file, gson.toJson(lista));
+	public List<Cliente> cargarClientes() {
+		return cargar(archivoClientes);
 	}
-
+	
+	public void guardarClientes(String file, List<Cliente> lista) {
+		guardar(archivoClientes, lista);
+	}
+	
+	public List<Categoria> cargarCategorias() {
+		return cargar(archivoCategorias);
+	}
+	
+	public void guardarCategorias(String file, List<Categoria> lista) {
+		guardar(archivoCategorias, lista);
+	}
+	
 }
