@@ -5,6 +5,8 @@ import java.util.List;
 import sge.Documento;
 import sge.categorias.Categoria;
 import sge.dispositivos.Dispositivo;
+import sge.dispositivosConModulo.DispositivoConModulo;
+import sge.dispositivosEstandar.DispositivoEstandar;
 import sge.persistencia.repos.RepoCatResidenciales;
 
 public class Cliente {
@@ -92,6 +94,13 @@ public class Cliente {
 	public void agregarDispositivo(Dispositivo unDispositivo) {
 		dispositivos.add(unDispositivo);
 		puntos += unDispositivo.puntosPorAgregarDisp();
+	}
+	
+	public void ligarModuloADispositivo(DispositivoEstandar unDispositivo) {
+		DispositivoConModulo unDispositivoConModulo= new DispositivoConModulo(unDispositivo.nombre(), unDispositivo.consumoKWxHora(), unDispositivo);
+		dispositivos.add(unDispositivoConModulo);
+		dispositivos.remove(unDispositivo);
+		puntos += 10;
 	}
 
 }

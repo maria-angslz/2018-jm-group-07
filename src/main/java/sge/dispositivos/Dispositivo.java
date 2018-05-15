@@ -14,6 +14,8 @@ public abstract class Dispositivo {
 	
 	public abstract double consumoMensual();
 	
+	public abstract void encender();
+	
 	public int puntosPorAgregarDisp() {
 		return 0;
 	}

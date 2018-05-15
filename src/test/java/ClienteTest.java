@@ -10,6 +10,8 @@ import org.junit.Test;
 
 import sge.categorias.Categoria;
 import sge.categorias.CategoriaResidencial;
+import sge.dispositivos.Dispositivo;
+import sge.dispositivosEstandar.DispositivoEstandar;
 import sge.persistencia.repos.RepoCatResidenciales;
 
 
@@ -41,7 +43,7 @@ public class ClienteTest extends Fixture.FCliente{
 
 	@Test
 	public void testCantidadDispositivosApagadosDeClienteConDispositivos() {
-		assertEquals("El cliente debe tener solo un dispositivo apagado", 1,
+		assertEquals("El cliente no debe tenerun dispositivo apagado, ya que el SmartTv esta encendido, y la heladera es tipo Estandar", 0,
 				clienteConDosDispositivos.cantidadDispositivosApagados());
 	}
 	
@@ -104,6 +106,13 @@ public class ClienteTest extends Fixture.FCliente{
 		RepoCatResidenciales.getInstance().agregar((CategoriaResidencial) r7);
 		clienteConDosDispositivos.recategorizar();
 		assertEquals("El cliente supera el consumo maximo de su categoria (R3), por ende se recategoriza a R4", r7, clienteConDosDispositivos.getCategoria());
+	}
+	
+	@Test
+	public void testLigarModulo() {
+		DispositivoEstandar heladera = (DispositivoEstandar) clienteConUnDispositivo.getDispositivos().get(0);
+		clienteConUnDispositivo.ligarModuloADispositivo(heladera);
+		assertEquals("El cliente tiene 1 dispositivo apagado ya que ahora al dispositivo Heladera (antes tipo Estandar )se le puede preguntar el estado", 1,clienteConUnDispositivo.cantidadDispositivosApagados());
 	}
 
 }
