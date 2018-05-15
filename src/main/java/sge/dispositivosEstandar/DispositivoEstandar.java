@@ -20,7 +20,7 @@ public class DispositivoEstandar implements Dispositivo {
 	public double consumoKWxHora() {
 		return consumoKWxHora;
 	}
-
+/*
 	public double consumoDuranteUltimasHoras(int cantHoras) {
 		return consumoKWxHora * cantHoras;
 	}
@@ -29,5 +29,5 @@ public class DispositivoEstandar implements Dispositivo {
 
 		return this.consumoKWxHora() * horasDeUsoDiarias * cantDias;
 	}
-
+*/
 }

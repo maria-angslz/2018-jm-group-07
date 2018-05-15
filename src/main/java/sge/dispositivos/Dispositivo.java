@@ -34,4 +34,6 @@ public interface Dispositivo {
 	// para el siguiente metodo asumo que el periodo que se solicite sera dado en dias
 	public double consumoTotalUnPeriodo(int dias);
 	
+	public int puntosPorAgregarDisp();
+	
 }

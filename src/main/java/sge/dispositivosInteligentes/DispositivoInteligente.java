@@ -1,13 +1,14 @@
 package sge.dispositivosInteligentes;
 
-import sge.dispositivos.Dispositivo;
+import sge.dispositivos.*;
 
-class dispositivosInteligentes implements Dispositivo {
+class dispositivoInteligente implements Dispositivo {
 	private String nombre;
 	private double consumoKWxHora;
 	private boolean encendido; // cambiar antes de la entrega, se incorpora el modo "ahorro de energia"
+	private EstadoDispositivo estado;
 
-	public dispositivosInteligentes(String nombre, double consumoKWxHora, boolean encendido) {
+	public dispositivoInteligente(String nombre, double consumoKWxHora, boolean encendido) {
 		this.nombre = nombre;
 		this.consumoKWxHora = consumoKWxHora;
 		this.encendido = encendido;
@@ -30,7 +31,7 @@ class dispositivosInteligentes implements Dispositivo {
 	}
 
 	public boolean encendido() {
-		return encendido;
+		return estado.devolverEstado();
 	}
 
 	public boolean apagado() {
@@ -47,5 +48,9 @@ class dispositivosInteligentes implements Dispositivo {
 
 	public void encender() {
 		this.encendido(true);
+	}
+	
+	public int puntosPorAgregarDisp() {
+		return 15;
 	}
 }

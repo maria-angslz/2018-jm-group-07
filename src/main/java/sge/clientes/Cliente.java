@@ -1,6 +1,7 @@
 package sge.clientes;
 
 import java.util.List;
+import java.util.stream.Collectors;
 
 import sge.Documento;
 import sge.categorias.Categoria;
@@ -16,6 +17,7 @@ public class Cliente {
 	private String telefono;
 	private Categoria categoria;
 	private List<Dispositivo> dispositivos;
+	private int puntos;
 
 	public Cliente(String nombreYApellido, Documento documento, String domicilio, String telefono,
 			Categoria categoria, List<Dispositivo> dispositivos) {
@@ -31,9 +33,17 @@ public class Cliente {
 	public int cantidadDispositivosTotal() {
 		return dispositivos.size();
 	}
+	
+	public List<Dispositivo> listaDispositivosInteligentes(){
+		return dispositivos.stream().filter(disp -> esDispositivoInteligente(disp)).collect(Collectors.toList());
+	}
+	
+	public boolean esDispositivoInteligente(Dispositivo unDisp) {
+		return unDisp.getClass().getName() == "dispositivoInteligente";
+	}
 
 	public int cantidadDispositivosEncendidos() {
-		return (int) dispositivos.stream().filter(disp -> disp.encendido()).count();
+		return (int) listaDispositivosInteligentes().stream().filter(disp -> disp.encendido()).count();
 	}
 
 	public int cantidadDispositivosApagados() {
@@ -82,6 +92,11 @@ public class Cliente {
 
 	public Categoria getCategoria() {
 		return categoria;
+	}
+	
+	public void agregarDispositivo(Dispositivo unDispositivo) {
+		dispositivos.add(unDispositivo);
+		puntos += unDispositivo.puntosPorAgregarDisp();
 	}
 
 }
