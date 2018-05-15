@@ -114,5 +114,22 @@ public class ClienteTest extends Fixture.FCliente{
 		clienteConUnDispositivo.ligarModuloADispositivo(heladera);
 		assertEquals("El cliente tiene 1 dispositivo apagado ya que ahora al dispositivo Heladera (antes tipo Estandar )se le puede preguntar el estado", 1,clienteConUnDispositivo.cantidadDispositivosApagados());
 	}
+	
+	@Test
+	public void testPuntuacionClienteConUnDispositivoInteligente() {
+		assertEquals("Un cliente con un dispositivo inteligente y uno estandar tiene 15 puntos",15,clienteConDosDispositivos.getPuntos());	
+		}
+	
+	@Test
+	public void testPuntuacionClienteSinDispositivos() {
+		assertEquals("Un cliente sin dispositivos debe tener 0 puntos",0,clienteSinDispositivos.getPuntos());
+	}
+	
+	@Test
+	public void testPuntuacionLuegoDeConversionDeDispositivo() {
+		DispositivoEstandar heladera = (DispositivoEstandar) clienteConUnDispositivo.getDispositivos().get(0);
+		clienteConUnDispositivo.ligarModuloADispositivo(heladera);
+		assertEquals("Un cliente con un dispositivo estandar suma 10 puntos luego de acoplar modulo a este",10,clienteConUnDispositivo.getPuntos());
+	}
 
 }

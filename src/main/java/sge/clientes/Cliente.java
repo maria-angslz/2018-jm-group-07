@@ -47,6 +47,10 @@ public class Cliente {
 	public int cantidadDispositivosEncendidos() {
 		return (int) dispositivos.stream().filter(disp -> disp.encendido()).count();
 	}
+	
+	public int getPuntos() {
+		return puntos;
+	}
 
 	public int cantidadDispositivosApagados() {
 		return (int) dispositivos.stream().filter(disp -> disp.apagado()).count();
