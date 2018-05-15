@@ -1,39 +1,29 @@
 package sge.dispositivos;
 
-public interface Dispositivo {
-//	public String nombre;
-//	public double consumoKWxHora;
-//	private boolean encendido;
-/*
-	public Dispositivo(String Nombre, double d, boolean Encendido) {
-		this.nombre = Nombre;
-		this.consumoKWxHora = d;
-		this.encendido = Encendido;
+public abstract class Dispositivo {
+	public String nombre;
+	public double consumoKWxHora;
+	
+	public String nombre() {
+		return this.nombre;
 	}
-*/
-	public String nombre();// {
-//		return nombre;
-//	}
-/*
+	
+	public double consumoKWxHora() {
+		return consumoKWxHora;
+	}
+	
+	public abstract double consumoMensual();
+	
+	public int puntosPorAgregarDisp() {
+		return 0;
+	}
+	
 	public boolean encendido() {
-		return encendido;
+		return false;
 	}
-*/
-/*
-	public void encendido(boolean encendido) {
-		this.encendido = encendido;
+	
+	public boolean apagado() {
+		return false;
 	}
-*/
-	public double consumoKWxHora();// {
-//		return consumoKWxHora;
-//}
-	
-	public double consumoDuranteUltimasHoras(int cantHoras);
-	
-	
-	// para el siguiente metodo asumo que el periodo que se solicite sera dado en dias
-	public double consumoTotalUnPeriodo(int dias);
-	
-	public int puntosPorAgregarDisp();
-	
+
 }

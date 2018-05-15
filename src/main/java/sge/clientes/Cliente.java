@@ -1,7 +1,6 @@
 package sge.clientes;
 
 import java.util.List;
-import java.util.stream.Collectors;
 
 import sge.Documento;
 import sge.categorias.Categoria;
@@ -9,9 +8,8 @@ import sge.dispositivos.Dispositivo;
 import sge.persistencia.repos.RepoCatResidenciales;
 
 public class Cliente {
-	final double horasDelMes = 720;
+	//final double horasDelMes = 720;
 	private String nombreYApellido;
-	//private String[] apellidos;
 	private Documento documento;
 	private String domicilio;
 	private String telefono;
@@ -22,32 +20,34 @@ public class Cliente {
 	public Cliente(String nombreYApellido, Documento documento, String domicilio, String telefono,
 			Categoria categoria, List<Dispositivo> dispositivos) {
 		this.nombreYApellido = nombreYApellido;
-		//this.apellidos = apellidos;
 		this.documento = documento;
 		this.domicilio = domicilio;
 		this.telefono = telefono;
 		this.categoria = categoria;
 		this.dispositivos = dispositivos;
+		
+		//esto habria que tener en cuenta, si cdo se carga los dispositivos del cliente que ya tenia, se deben sumar los puntos, se haria de esta forma:
+		agregarPuntosIniciales();
+	}
+	
+	public void agregarPuntosIniciales() {
+		puntos += cantPuntosIniciales();
+	}
+	
+	public double cantPuntosIniciales() {
+		return dispositivos.stream().mapToDouble(disp -> disp.puntosPorAgregarDisp()).sum();
 	}
 
 	public int cantidadDispositivosTotal() {
 		return dispositivos.size();
 	}
-	
-	public List<Dispositivo> listaDispositivosInteligentes(){
-		return dispositivos.stream().filter(disp -> esDispositivoInteligente(disp)).collect(Collectors.toList());
-	}
-	
-	public boolean esDispositivoInteligente(Dispositivo unDisp) {
-		return unDisp.getClass().getName() == "dispositivoInteligente";
-	}
 
 	public int cantidadDispositivosEncendidos() {
-		return (int) listaDispositivosInteligentes().stream().filter(disp -> disp.encendido()).count();
+		return (int) dispositivos.stream().filter(disp -> disp.encendido()).count();
 	}
 
 	public int cantidadDispositivosApagados() {
-		return (int) (this.cantidadDispositivosTotal() - this.cantidadDispositivosEncendidos());
+		return (int) dispositivos.stream().filter(disp -> disp.apagado()).count();
 	}
 
 	public boolean algunDispositivoEstaEncendido() {
@@ -56,19 +56,14 @@ public class Cliente {
 
 	public String nombre() {
 		return nombreYApellido;
-		//return String.join(" ", nombres);
 	}
 
 	public double facturacionAproximada() {
 		return categoria.aproximarFacturacion(this.cantidadDeConsumoDelMes());
 	}
 
-	public double consumoDispositivos() {
-		return dispositivos.stream().mapToDouble(disp -> disp.consumoKWxHora()).sum();
-	}
-	
 	public double cantidadDeConsumoDelMes() {
-		return this.consumoDispositivos() * horasDelMes;
+		return dispositivos.stream().mapToDouble(disp -> disp.consumoMensual()).sum();
 	}
 
 	// En un futuro puede que querramos que los clientes
