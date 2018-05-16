@@ -1,20 +1,18 @@
 package sge.persistencia;
 
-import java.util.List;
-import sge.clientes.Cliente;
-import sge.Administrador;
-import sge.categorias.Categoria;
+import java.io.FileNotFoundException;
+import java.io.IOException;
 
 public interface AlmacenamientoPersistente {
-	public List<Administrador> cargarAdmins();
+	public void cargarAdmins() throws FileNotFoundException ;
 
-	public void guardarAdmins(String file, List<Administrador> lista);
+	public void guardarAdmins() throws IOException;
 
-	public List<Cliente> cargarClientes();
+	public void cargarClientes() throws FileNotFoundException ;
 
-	public void guardarClientes(String file, List<Cliente> lista);
+	public void guardarClientes() throws IOException;
+ 
+	public void cargarCategorias() throws FileNotFoundException ;
 
-	public List<Categoria> cargarCategorias();
-
-	public void guardarCategorias(String file, List<Categoria> lista);
+	public void guardarCategorias() throws IOException;
 }

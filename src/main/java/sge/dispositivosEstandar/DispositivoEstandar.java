@@ -14,10 +14,9 @@ public class DispositivoEstandar extends Dispositivo {
 	public double consumoMensual() {
 		return consumoKWxHora * horasDeUsoDiarias * 30; //el 30 seria la cantidad de dias del mes
 	}
-
-	@Override
+	
 	public void encender() {
-		//lanzar error????
+		//lanzar excepcion;
 	}
 	
 }

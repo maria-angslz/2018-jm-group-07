@@ -1,14 +1,11 @@
 package sge.dispositivosInteligentes;
 
 import sge.dispositivos.*;
-import java.util.List;
 
 public class DispositivoInteligente extends Dispositivo {
 	private EstadoDispositivo estado; //aca podriamos usar un repo de estados, para no tener que andar instanciando todo el tiempo
 	private double IDFabrica = (Math.random() * 100000) + 1; //deberia cambiarse dsps y meter los nros generados en una lista, para comprobar que no se repitan
-	private List<Sensor> sensores;
-	private List<Actuador> actuadores;
-	private List<Regla> reglas;
+
 
 	public DispositivoInteligente(String nombre, double consumoKWxHora) {
 		this.nombre = nombre;
@@ -55,5 +52,11 @@ public class DispositivoInteligente extends Dispositivo {
 	
 	public int puntosPorAgregarDisp() {
 		return 15;
+	}
+	public void ejecutarRegla(Regla unaRegla) {
+		unaRegla.ejecutar(this);
+	}
+	public double getIDfabrica() {
+		return IDFabrica;
 	}
 }

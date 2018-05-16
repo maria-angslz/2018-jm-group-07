@@ -9,7 +9,7 @@ public class ServiceLocator {
 	public static ServiceLocator getInstance() {
 		if (instancia == null) {
 			instancia = new ServiceLocator();
-			instancia.almacenamiento = new JSONWrapper();
+			instancia.almacenamiento = (AlmacenamientoPersistente) new JSONWrapper();
 		}
 		return instancia;
 	}
