@@ -10,8 +10,8 @@ import org.junit.Test;
 
 import sge.categorias.Categoria;
 import sge.categorias.CategoriaResidencial;
-import sge.dispositivos.Dispositivo;
 import sge.dispositivosEstandar.DispositivoEstandar;
+import sge.estados.Dispositivo;
 import sge.persistencia.repos.RepoCatResidenciales;
 
 

@@ -1,8 +1,8 @@
 package sge.dispositivosEstandar;
 
-import sge.dispositivos.Dispositivo;
-
-public class DispositivoEstandar extends Dispositivo {
+public class DispositivoEstandar {
+	private String nombre;
+	private double consumoKWxHora;
 	private int horasDeUsoDiarias;
 	
 	public DispositivoEstandar(String nombre, double consumoKWxH, int horas){
@@ -11,12 +11,16 @@ public class DispositivoEstandar extends Dispositivo {
 		this.horasDeUsoDiarias = horas;
 	}
 	
-	public double consumoMensual() {
-		return consumoKWxHora * horasDeUsoDiarias * 30; //el 30 seria la cantidad de dias del mes
+	public String nombre() {
+		return this.nombre;
 	}
 	
-	public void encender() {
-		//lanzar excepcion;
+	public double consumoKWxHora() {
+		return consumoKWxHora;
+	}
+	
+	public double consumoMensual() {
+		return consumoKWxHora * horasDeUsoDiarias * 30; //el 30 seria la cantidad de dias del mes
 	}
 	
 }

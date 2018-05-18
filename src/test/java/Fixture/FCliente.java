@@ -10,9 +10,9 @@ import sge.TipoDocumento;
 import sge.categorias.Categoria;
 import sge.categorias.CategoriaResidencial;
 import sge.clientes.Cliente;
-import sge.dispositivos.Dispositivo;
 import sge.dispositivosEstandar.DispositivoEstandar;
 import sge.dispositivosInteligentes.DispositivoInteligente;
+import sge.estados.Dispositivo;
 
 public class FCliente {
 	

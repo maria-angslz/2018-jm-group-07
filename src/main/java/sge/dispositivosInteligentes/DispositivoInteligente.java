@@ -1,8 +1,10 @@
 package sge.dispositivosInteligentes;
 
-import sge.dispositivos.*;
+import sge.estados.*;
 
-public class DispositivoInteligente extends Dispositivo {
+public class DispositivoInteligente {
+	private String nombre;
+	private double consumoKWxHora;
 	private EstadoDispositivo estado; //aca podriamos usar un repo de estados, para no tener que andar instanciando todo el tiempo
 	private double IDFabrica = (Math.random() * 100000) + 1; //deberia cambiarse dsps y meter los nros generados en una lista, para comprobar que no se repitan
 
@@ -11,6 +13,14 @@ public class DispositivoInteligente extends Dispositivo {
 		this.nombre = nombre;
 		this.consumoKWxHora = consumoKWxHora;
 		this.estado = new Apagado(); //el dispositivo inicia apagado
+	}
+	
+	public String nombre() {
+		return this.nombre;
+	}
+	
+	public double consumoKWxHora() {
+		return consumoKWxHora;
 	}
 	
 	public double consumoMensual() {
@@ -50,12 +60,6 @@ public class DispositivoInteligente extends Dispositivo {
 		estado.entrarEnModoAhorroDeEnergia(this);
 	}
 	
-	public int puntosPorAgregarDisp() {
-		return 15;
-	}
-	public void ejecutarRegla(Regla unaRegla) {
-		unaRegla.ejecutar(this);
-	}
 	public double getIDfabrica() {
 		return IDFabrica;
 	}
