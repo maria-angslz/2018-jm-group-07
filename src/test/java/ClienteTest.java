@@ -2,7 +2,7 @@ import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertTrue;
 
-import static org.mockito.Mockito.when;
+//import static org.mockito.Mockito.when;
 
 
 
@@ -11,7 +11,6 @@ import org.junit.Test;
 import sge.categorias.Categoria;
 import sge.categorias.CategoriaResidencial;
 import sge.dispositivosEstandar.DispositivoEstandar;
-import sge.estados.Dispositivo;
 import sge.persistencia.repos.RepoCatResidenciales;
 
 
@@ -43,7 +42,7 @@ public class ClienteTest extends Fixture.FCliente{
 
 	@Test
 	public void testCantidadDispositivosApagadosDeClienteConDispositivos() {
-		assertEquals("El cliente no debe tenerun dispositivo apagado, ya que el SmartTv esta encendido, y la heladera es tipo Estandar", 0,
+		assertEquals("El cliente debe tener un dispositivo apagado, ya que el SmartTv esta encendido, y la PC está apagada", 1,
 				clienteConDosDispositivos.cantidadDispositivosApagados());
 	}
 	
@@ -109,15 +108,15 @@ public class ClienteTest extends Fixture.FCliente{
 	}
 	
 	@Test
-	public void testLigarModulo() {
-		DispositivoEstandar heladera = (DispositivoEstandar) clienteConUnDispositivo.getDispositivos().get(0);
+	public void testLigarModuloADispositivoEstandar() {
+		DispositivoEstandar heladera = clienteConUnDispositivo.getDispositivosEstandar().get(0);
 		clienteConUnDispositivo.ligarModuloADispositivo(heladera);
 		assertEquals("El cliente tiene 1 dispositivo apagado ya que ahora al dispositivo Heladera (antes tipo Estandar )se le puede preguntar el estado", 1,clienteConUnDispositivo.cantidadDispositivosApagados());
 	}
 	
 	@Test
 	public void testPuntuacionClienteConUnDispositivoInteligente() {
-		assertEquals("Un cliente con un dispositivo inteligente y uno estandar tiene 15 puntos",15,clienteConDosDispositivos.getPuntos());	
+		assertEquals("Un cliente con 2 dispositivos inteligentes tiene 30 puntos",30,clienteConDosDispositivos.getPuntos());	
 		}
 	
 	@Test
@@ -127,7 +126,7 @@ public class ClienteTest extends Fixture.FCliente{
 	
 	@Test
 	public void testPuntuacionLuegoDeConversionDeDispositivo() {
-		DispositivoEstandar heladera = (DispositivoEstandar) clienteConUnDispositivo.getDispositivos().get(0);
+		DispositivoEstandar heladera = clienteConUnDispositivo.getDispositivosEstandar().get(0);
 		clienteConUnDispositivo.ligarModuloADispositivo(heladera);
 		assertEquals("Un cliente con un dispositivo estandar suma 10 puntos luego de acoplar modulo a este",10,clienteConUnDispositivo.getPuntos());
 	}
