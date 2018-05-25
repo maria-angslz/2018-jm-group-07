@@ -1,4 +1,5 @@
-import static org.junit.Assert.assertEquals;
+
+import static org.junit.Assert.assertTrue;
 
 import org.junit.Test;
 
@@ -8,6 +9,6 @@ public class DispositivoTest extends Fdispositivo {
 	@Test
 	public void testEncederAlCumplirseCondicionDada() {
 		unaRegla.ejecutar();
-		assertEquals("El actuador debe enviar la orden de encender la luz", true, LuzInteligente.encendido());
+		assertTrue("El actuador debe enviar la orden de encender la luz",dispoInteligentes.stream().allMatch(dispositivo -> dispositivo.encendido()));
 	}
 }
