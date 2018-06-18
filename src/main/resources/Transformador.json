@@ -1,0 +1,25 @@
+[
+	{
+		"zona": {
+				"nombre":"capital",
+				"coordenadasCentro":{
+									"latitud": 0,
+									"longitud":0,
+									}
+				"radio":10,
+				"transformadores":[
+									{
+										"PosicionTransformador":{
+																"latitud": 1,
+																"longitud":1,
+																},
+									
+									
+									
+									}
+									
+								]
+				}					
+	}
+	
+]

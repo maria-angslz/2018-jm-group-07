@@ -1,6 +1,7 @@
 package sge.clientes;
 
 import java.util.List;
+import java.util.stream.Stream;
 
 import sge.Documento;
 import sge.categorias.Categoria;
@@ -8,6 +9,7 @@ import sge.dispositivosConModulo.DispositivoConModulo;
 import sge.dispositivosEstandar.DispositivoEstandar;
 import sge.dispositivosInteligentes.DispositivoInteligente;
 import sge.persistencia.repos.RepoCatResidenciales;
+
 
 public class Cliente {
 	final int puntosAgregarDisp = 15;
@@ -112,5 +114,17 @@ public class Cliente {
 		dispositivosEstandar.remove(unDispositivo);
 		puntos += puntosConvDispEaI;
 	}
+	public Stream<DispositivoInteligente> dispositivosEncendidos() {
+		return dispositivosInteligentes.stream().filter(disp -> disp.encendido());
+	}
+	
+	public double consumos() {
+		return dispositivosEncendidos().mapToDouble(unDispositivo -> unDispositivo.consumoKWxHora()).sum();
+	}
+	
+	public String domicilio() {
+		return domicilio;
+	}
+	
 
 }
