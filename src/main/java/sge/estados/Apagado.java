@@ -13,10 +13,12 @@ public class Apagado implements EstadoDispositivo {
 	
 	public void encenderse(DispositivoInteligente disp) {
 		disp.cambiarEstado(new Encendido());
+		disp.getDispositivoFisico().encender();
 	}
 	
 	public void entrarEnModoAhorroDeEnergia(DispositivoInteligente disp) {
 		disp.cambiarEstado(new AhorroDeEnergia());
+		disp.getDispositivoFisico().entrarEnModoAhorroDeEnergia();
 	}
 	
 }

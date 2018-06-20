@@ -13,6 +13,7 @@ import sge.categorias.CategoriaResidencial;
 import sge.clientes.Cliente;
 import sge.dispositivosEstandar.DispositivoEstandar;
 import sge.dispositivosInteligentes.DispositivoInteligente;
+import sge.dispositivosInteligentes.DispositivoInteligenteFisico;
 
 public class FCliente {
 	
@@ -30,6 +31,8 @@ public class FCliente {
 		List<DispositivoInteligente> dosDispositivosInteligentes = new ArrayList<DispositivoInteligente>();
 		List<DispositivoEstandar> sinDispositivosEstandar = new ArrayList<DispositivoEstandar>();
 		List<DispositivoInteligente> sinDispositivosInteligentes = new ArrayList<DispositivoInteligente>();
+		DispositivoInteligenteFisico mockDispositivoFisico = Mockito.mock(DispositivoInteligenteFisico.class);
+		smartTv.setDispositivoFisico(mockDispositivoFisico);
 		smartTv.encender();
 		dosDispositivosInteligentes.add(smartTv);
 		dosDispositivosInteligentes.add(pc);

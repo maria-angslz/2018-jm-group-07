@@ -7,12 +7,21 @@ public class DispositivoInteligente {
 	private double consumoKWxHora;
 	private EstadoDispositivo estado; //aca podriamos usar un repo de estados, para no tener que andar instanciando todo el tiempo
 	private double IDFabrica = (Math.random() * 100000) + 1; //deberia cambiarse dsps y meter los nros generados en una lista, para comprobar que no se repitan
+	private DispositivoInteligenteFisico dispositivoFisico; //deberia haber un repo de dispositivos fisicos y pedir el dispositivo con el mismo IDFabrica?
 
 
 	public DispositivoInteligente(String nombre, double consumoKWxHora) {
 		this.nombre = nombre;
 		this.consumoKWxHora = consumoKWxHora;
 		this.estado = new Apagado(); //el dispositivo inicia apagado
+	}
+	
+	public void setDispositivoFisico(DispositivoInteligenteFisico unDispositivoFisico) {
+		this.dispositivoFisico = unDispositivoFisico;
+	}
+	
+	public DispositivoInteligenteFisico getDispositivoFisico(){
+		return dispositivoFisico;
 	}
 	
 	public String nombre() {

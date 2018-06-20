@@ -10,6 +10,7 @@ public class Encendido implements EstadoDispositivo {
 	
 	public void apagarse(DispositivoInteligente disp) {
 		disp.cambiarEstado(new Apagado());
+		disp.getDispositivoFisico().apagar();
 	}
 	
 	public void encenderse(DispositivoInteligente disp) {
@@ -18,6 +19,7 @@ public class Encendido implements EstadoDispositivo {
 	
 	public void entrarEnModoAhorroDeEnergia(DispositivoInteligente disp) {
 		disp.cambiarEstado(new AhorroDeEnergia());
+		disp.getDispositivoFisico().entrarEnModoAhorroDeEnergia();
 	}
 	
 }

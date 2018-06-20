@@ -10,10 +10,12 @@ public class AhorroDeEnergia implements EstadoDispositivo {
 	
 	public void apagarse(DispositivoInteligente disp) {
 		disp.cambiarEstado(new Apagado());
+		disp.getDispositivoFisico().apagar();
 	}
 	
 	public void encenderse(DispositivoInteligente disp) {
 		disp.cambiarEstado(new Encendido());
+		disp.getDispositivoFisico().encender();
 	}
 	
 	public void entrarEnModoAhorroDeEnergia(DispositivoInteligente disp) {
