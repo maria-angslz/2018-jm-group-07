@@ -7,6 +7,7 @@ import java.util.function.Function;
 
 import org.junit.Before;
 import org.mockito.Mockito;
+import static org.mockito.Mockito.*;
 
 import sge.dispositivosInteligentes.DispositivoInteligente;
 import sge.dispositivosInteligentes.DispositivoInteligenteFisico;
@@ -19,6 +20,7 @@ public class Fdispositivo {
 	protected DispositivoInteligente LuzInteligente;
 	protected Regla unaRegla;
 	protected DispositivoInteligenteFisico mockDispositivoFisico;
+	protected Sensor mockSensorLuminosidad;
 	
 	@Before
 	
@@ -30,11 +32,11 @@ public class Fdispositivo {
 		dispoInteligentes.add(LuzInteligente);
 
 		Consumer<DispositivoInteligente> accionAEjecutar = (dispositivo) -> dispositivo.encender();
-		Sensor sensorLuminosidad = new Sensor("luminosidad");
+		mockSensorLuminosidad = Mockito.mock(Sensor.class);
+		when(mockSensorLuminosidad.medir()).thenReturn((float) 0); //valor mockeado
 		Actuador unActuador = new Actuador("apaga luz", dispoInteligentes, accionAEjecutar);
 		Function<Float,Boolean> funcionCumplir = (medicion) -> (Boolean) ((50) > (medicion));
-		unaRegla = new Regla("Determinacion de encendido de luz", sensorLuminosidad, unActuador, funcionCumplir);
-		
+		unaRegla = new Regla("Determinacion de encendido de luz", mockSensorLuminosidad, unActuador, funcionCumplir);
 		mockDispositivoFisico = Mockito.mock(DispositivoInteligenteFisico.class);
 		LuzInteligente.setDispositivoFisico(mockDispositivoFisico);
 	}
