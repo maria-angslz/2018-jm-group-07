@@ -1,6 +1,7 @@
 package sge.clientes;
 
 import java.util.List;
+import java.util.stream.DoubleStream;
 import java.util.stream.Stream;
 
 import sge.Documento;
@@ -9,7 +10,7 @@ import sge.dispositivosConModulo.DispositivoConModulo;
 import sge.dispositivosEstandar.DispositivoEstandar;
 import sge.dispositivosInteligentes.DispositivoInteligente;
 import sge.persistencia.repos.RepoCatResidenciales;
-
+import sge.simplex.SgeSimplex;
 
 public class Cliente {
 	final int puntosAgregarDisp = 15;
@@ -126,5 +127,14 @@ public class Cliente {
 		return domicilio;
 	}
 	
+	public double consumoIdeal() {
+		SgeSimplex simplex = new SgeSimplex();
+		//DoubleStream consumos = dispositivosEncendidos().mapToDouble(unDispositivo -> unDispositivo.consumoKWxHora());
+		List<DispositivoInteligente> dp = (List<DispositivoInteligente>) this.dispositivosEncendidos();
+		//double[] consumos = dp.map(disp -> disp.consumoKWxHora());
+		//simplex.inicializar(consumos);
+		double consumoIdealFinal = simplex.maximizar();
+		return consumoIdealFinal;
+	}
 
 }
