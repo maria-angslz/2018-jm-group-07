@@ -9,8 +9,8 @@ import org.junit.Before;
 import org.mockito.Mockito;
 import static org.mockito.Mockito.*;
 
-import sge.dispositivosInteligentes.DispositivoInteligente;
-import sge.dispositivosInteligentes.DispositivoInteligenteFisico;
+import sge.dispositivos.inteligentes.DispositivoInteligente;
+import sge.dispositivos.inteligentes.DispositivoInteligenteFisico;
 import sge.reglas.Actuador;
 import sge.reglas.Regla;
 import sge.reglas.Sensor;

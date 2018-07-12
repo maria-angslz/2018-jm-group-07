@@ -1,4 +1,4 @@
-package sge.dispositivosInteligentes;
+package sge.dispositivos.inteligentes;
 
 public interface DispositivoInteligenteFisico {
 	

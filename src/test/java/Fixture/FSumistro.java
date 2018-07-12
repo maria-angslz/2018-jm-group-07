@@ -14,8 +14,8 @@ import sge.Suministro.ZonaGeografica;
 import sge.categorias.Categoria;
 import sge.categorias.CategoriaResidencial;
 import sge.clientes.Cliente;
-import sge.dispositivosEstandar.DispositivoEstandar;
-import sge.dispositivosInteligentes.DispositivoInteligente;
+import sge.dispositivos.estandar.DispositivoEstandar;
+import sge.dispositivos.inteligentes.DispositivoInteligente;
 import sge.persistencia.repos.RepoClientes;
 import sge.persistencia.repos.RepoZonas;
 

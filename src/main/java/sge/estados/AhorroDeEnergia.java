@@ -1,6 +1,6 @@
 package sge.estados;
 
-import sge.dispositivosInteligentes.DispositivoInteligente;
+import sge.dispositivos.inteligentes.DispositivoInteligente;
 
 public class AhorroDeEnergia implements EstadoDispositivo {
 	

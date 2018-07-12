@@ -1,4 +1,4 @@
-package sge.dispositivosEstandar;
+package sge.dispositivos.estandar;
 
 import sge.dispositivos.Dispositivo;
 

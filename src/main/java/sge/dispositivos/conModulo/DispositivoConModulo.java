@@ -1,6 +1,6 @@
-package sge.dispositivosConModulo;
-import sge.dispositivosEstandar.*;
-import sge.dispositivosInteligentes.DispositivoInteligente;
+package sge.dispositivos.conModulo;
+import sge.dispositivos.estandar.*;
+import sge.dispositivos.inteligentes.DispositivoInteligente;
 
 public class DispositivoConModulo extends DispositivoInteligente {
 	

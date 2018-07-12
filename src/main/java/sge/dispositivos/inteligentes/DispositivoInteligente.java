@@ -1,4 +1,4 @@
-package sge.dispositivosInteligentes;
+package sge.dispositivos.inteligentes;
 
 import sge.dispositivos.Dispositivo;
 import sge.estados.*;

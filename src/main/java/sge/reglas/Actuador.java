@@ -2,7 +2,8 @@ package sge.reglas;
 
 import java.util.List;
 import java.util.function.Consumer;
-import sge.dispositivosInteligentes.DispositivoInteligente;
+
+import sge.dispositivos.inteligentes.DispositivoInteligente;
 
 public class Actuador {
 	private String nombre;
