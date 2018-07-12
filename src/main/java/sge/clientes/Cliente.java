@@ -39,11 +39,13 @@ public class Cliente {
 		this.categoria = categoria;
 		this.dispositivosEstandar = dispositivosEstandar;
 		this.dispositivosInteligentes = dispositivosInteligentes;
+		
 		/*
 		List<Dispositivo> construibles = RepoDispositivosResidenciales.getInstance().all();
-		if(getDispositivos().stream().anyMatch(d->!construibles.contains(d)))
+		if(getDispositivos().stream().anyMatch(d->!construibles.stream().anyMatch(d2->d2.mismoModelo(d))))
 			throw new DispositivoNoPermitidoException();
 		*/
+		
 		agregarPuntosIniciales();
 	}
 	

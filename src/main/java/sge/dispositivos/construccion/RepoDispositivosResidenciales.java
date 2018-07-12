@@ -1,5 +1,6 @@
 package sge.dispositivos.construccion;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import sge.dispositivos.Dispositivo;
@@ -16,7 +17,7 @@ public class RepoDispositivosResidenciales {
 		return instancia;
 	}
 	
-	List<Dispositivo> construibles;
+	List<Dispositivo> construibles = new ArrayList<Dispositivo>();
 
 	public List<Dispositivo> all() {
 		return construibles;

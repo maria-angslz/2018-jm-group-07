@@ -11,4 +11,10 @@ public abstract class Dispositivo {
 	public Double getMaximo() {
 		return maximo;
 	}
+	public boolean mismoModelo(Dispositivo otro) {
+		return otro.minimo == minimo &&
+			otro.maximo == maximo &&
+			otro.consumoKWxHora() == consumoKWxHora() &&
+			otro.getClass() == getClass();
+	}
 }
