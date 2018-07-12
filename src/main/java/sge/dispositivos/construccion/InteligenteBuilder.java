@@ -7,7 +7,7 @@ public class InteligenteBuilder implements DispositivoBuilder<DispositivoIntelig
 		
 	}
 	
-	public DispositivoInteligente create(String nombre, double kwh, double maximo, double minimo) {
+	public DispositivoInteligente create(String nombre, double kwh, double minimo, double maximo) {
 		return new DispositivoInteligente(nombre, kwh, maximo, minimo);
 	}
 }
