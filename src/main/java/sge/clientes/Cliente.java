@@ -128,7 +128,7 @@ public class Cliente {
 	}
 	
 	public double consumoIdeal() {
-		SgeSimplex simplex = new SgeSimplex();
+		SgeSimplex simplex = SgeSimplex.getInstance();
 		//DoubleStream consumos = dispositivosEncendidos().mapToDouble(unDispositivo -> unDispositivo.consumoKWxHora());
 		List<DispositivoInteligente> dp = (List<DispositivoInteligente>) this.dispositivosEncendidos();
 		//double[] consumos = dp.map(disp -> disp.consumoKWxHora());

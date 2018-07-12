@@ -8,10 +8,20 @@ import org.apache.commons.math3.optim.linear.LinearConstraint;
 import org.apache.commons.math3.optim.linear.Relationship;
 import org.apache.commons.math3.optim.linear.SimplexSolver;
 
+import sge.persistencia.json.JSONWrapper;
+
 public class SgeSimplex {
 	
-	public SgeSimplex(){
+	static SgeSimplex instancia;
+	
+	private SgeSimplex(){
 		
+	}
+	
+	public static SgeSimplex getInstance() {
+		if (instancia == null)
+			instancia = new SgeSimplex();
+		return instancia;
 	}
 
 	private SimplexSolver ss = new SimplexSolver();
