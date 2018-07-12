@@ -1,15 +1,19 @@
 package sge.clientes;
 
+import java.util.ArrayList;
+import java.util.LinkedList;
 import java.util.List;
 import java.util.stream.DoubleStream;
 import java.util.stream.Stream;
 
 import sge.Documento;
 import sge.categorias.Categoria;
+import sge.dispositivos.Dispositivo;
 import sge.dispositivosConModulo.DispositivoConModulo;
 import sge.dispositivosEstandar.DispositivoEstandar;
 import sge.dispositivosInteligentes.DispositivoInteligente;
 import sge.persistencia.repos.RepoCatResidenciales;
+import sge.simplex.ResultadoSimplex;
 import sge.simplex.SgeSimplex;
 
 public class Cliente {
@@ -91,6 +95,13 @@ public class Cliente {
 	public List<DispositivoEstandar> getDispositivosEstandar() {
 		return dispositivosEstandar;
 	}
+	
+	public List<Dispositivo> getDispositivos() {
+		List<Dispositivo> disps = new LinkedList<Dispositivo>();
+		disps.addAll(getDispositivosEstandar());
+		disps.addAll(getDispositivosInteligentes());
+		return disps;
+	}
 
 	public List<DispositivoInteligente> getDispositivosInteligentes() {
 		return dispositivosInteligentes;
@@ -127,14 +138,8 @@ public class Cliente {
 		return domicilio;
 	}
 	
-	public double consumoIdeal() {
-		SgeSimplex simplex = SgeSimplex.getInstance();
-		//DoubleStream consumos = dispositivosEncendidos().mapToDouble(unDispositivo -> unDispositivo.consumoKWxHora());
-		List<DispositivoInteligente> dp = (List<DispositivoInteligente>) this.dispositivosEncendidos();
-		//double[] consumos = dp.map(disp -> disp.consumoKWxHora());
-		//simplex.inicializar(consumos);
-		double consumoIdealFinal = simplex.maximizar();
-		return consumoIdealFinal;
+	public ResultadoSimplex consumoIdeal() {
+		return SgeSimplex.getInstance().optimizar(getDispositivos());
 	}
 
 }

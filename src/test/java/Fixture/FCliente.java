@@ -24,6 +24,7 @@ public class FCliente {
 	
 	@Before
 	public void init() {
+		DispositivoInteligente aire3500 = new DispositivoInteligente("Aire acondicionado", 1.613);
 		DispositivoInteligente smartTv = new DispositivoInteligente("SmartTV", 0.6);
 		DispositivoInteligente pc = new DispositivoInteligente("PC", 0.6);
 		DispositivoEstandar heladera = new DispositivoEstandar("Heladera", 0.6, 24);

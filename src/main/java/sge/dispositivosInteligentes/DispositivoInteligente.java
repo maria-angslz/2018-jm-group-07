@@ -1,8 +1,9 @@
 package sge.dispositivosInteligentes;
 
+import sge.dispositivos.Dispositivo;
 import sge.estados.*;
 
-public class DispositivoInteligente {
+public class DispositivoInteligente extends Dispositivo {
 	private String nombre;
 	private double consumoKWxHora;
 	private EstadoDispositivo estado; //aca podriamos usar un repo de estados, para no tener que andar instanciando todo el tiempo
@@ -10,10 +11,15 @@ public class DispositivoInteligente {
 	private DispositivoInteligenteFisico dispositivoFisico; //deberia haber un repo de dispositivos fisicos y pedir el dispositivo con el mismo IDFabrica?
 
 
-	public DispositivoInteligente(String nombre, double consumoKWxHora) {
+	public DispositivoInteligente(String nombre, double consumoKWxHora, double maximo, double minimo) {
+		this.maximo = maximo;
+		this.minimo = minimo;
 		this.nombre = nombre;
 		this.consumoKWxHora = consumoKWxHora;
 		this.estado = new Apagado(); //el dispositivo inicia apagado
+	}
+	public DispositivoInteligente(String nombre, double consumoKWxHora) {
+		this(nombre, consumoKWxHora, 0.0, 0.0);
 	}
 	
 	public void setDispositivoFisico(DispositivoInteligenteFisico unDispositivoFisico) {
