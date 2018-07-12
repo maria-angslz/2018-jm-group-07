@@ -4,10 +4,10 @@ import sge.dispositivos.estandar.DispositivoEstandar;
 import sge.dispositivos.inteligentes.DispositivoInteligente;
 
 public class Factory<T> {
-	static Factory<DispositivoInteligente> Inteligente() {
+	public static Factory<DispositivoInteligente> Inteligente() {
 		return new Factory<DispositivoInteligente>(new InteligenteBuilder());
 	}
-	static Factory<DispositivoEstandar> Estandar(int horas) {
+	public static Factory<DispositivoEstandar> Estandar(int horas) {
 		return new Factory<DispositivoEstandar>(new EstandarBuilder(horas));
 	}
 	
@@ -16,7 +16,7 @@ public class Factory<T> {
 		this.builder = builder;
 	}
 	
-	T AireAcondicionado(double kwh) {
-		return builder.create("Aire Acondicionado", kwh, 90, 360);
+	public T AireAcondicionado(double kwh) {
+		return builder.create("Aire Acondicionado", kwh, 360, 90);
 	}
 }

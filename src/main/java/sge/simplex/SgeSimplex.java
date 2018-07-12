@@ -23,9 +23,7 @@ public class SgeSimplex {
 	
 	static SgeSimplex instancia;
 	
-	private SgeSimplex(){
-		
-	}
+	private SgeSimplex() { }
 	
 	public static SgeSimplex getInstance() {
 		if (instancia == null)
@@ -34,15 +32,7 @@ public class SgeSimplex {
 	}
 
 	private SimplexSolver ss = new SimplexSolver();
-	private double consumoMaximo = 612;
-	
-	private List<LinearConstraint> restricciones = new ArrayList<LinearConstraint>();
-
-	/*
-	public void inicializar(double[] consumos) { 
-		restricciones.add(new LinearConstraint(double[] consumos, Relationship.LEQ, consumoMaximo));
-		//falta continuar
-	}*/ //ver tipo de dato de la lista de consumos
+	static public double consumoMaximo = 612;
 	
 	private double[] listaConCerosYUnoEnLaPosicionNro(int size, int i) {
 		double[] array = new double[size];
@@ -77,11 +67,11 @@ public class SgeSimplex {
 			Dispositivo d = disps.get(i);
 			consumosHora.add(d.consumoKWxHora());
 			minimos.add(constraint(disps.size(),i, Relationship.GEQ, d.getMinimo()));
-			maximos.add(constraint(disps.size(),i, Relationship.GEQ, d.getMaximo()));
+			maximos.add(constraint(disps.size(),i, Relationship.LEQ, d.getMaximo()));
 		}
+		List<LinearConstraint> restricciones = new ArrayList<LinearConstraint>();
 		// Suma de horas*kwh <= consumoMaximo
 		restricciones.add(new LinearConstraint(unboxArray(consumosHora), Relationship.LEQ, consumoMaximo));
-		List<LinearConstraint> restricciones = new ArrayList<LinearConstraint>();
 		restricciones.addAll(minimos);
 		restricciones.addAll(maximos);
 		double[] coeficientes = new double[disps.size()];
