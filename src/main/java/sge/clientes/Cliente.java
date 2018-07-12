@@ -10,6 +10,7 @@ import sge.Documento;
 import sge.categorias.Categoria;
 import sge.dispositivos.Dispositivo;
 import sge.dispositivos.conModulo.DispositivoConModulo;
+import sge.dispositivos.construccion.RepoDispositivosResidenciales;
 import sge.dispositivos.estandar.DispositivoEstandar;
 import sge.dispositivos.inteligentes.DispositivoInteligente;
 import sge.persistencia.repos.RepoCatResidenciales;
@@ -17,6 +18,7 @@ import sge.simplex.ResultadoSimplex;
 import sge.simplex.SgeSimplex;
 
 public class Cliente {
+	private boolean simplexAutomatico = false; 
 	final int puntosAgregarDisp = 15;
 	final int puntosConvDispEaI = 10;
 	private String nombreYApellido;
@@ -37,7 +39,11 @@ public class Cliente {
 		this.categoria = categoria;
 		this.dispositivosEstandar = dispositivosEstandar;
 		this.dispositivosInteligentes = dispositivosInteligentes;
-		
+		/*
+		List<Dispositivo> construibles = RepoDispositivosResidenciales.getInstance().all();
+		if(getDispositivos().stream().anyMatch(d->!construibles.contains(d)))
+			throw new DispositivoNoPermitidoException();
+		*/
 		agregarPuntosIniciales();
 	}
 	
@@ -109,6 +115,14 @@ public class Cliente {
 
 	public Categoria getCategoria() {
 		return categoria;
+	}
+
+	public boolean getSimplexAutomatico() {
+		return simplexAutomatico;
+	}
+
+	public void setSimplexAutomatico(boolean b) {
+		simplexAutomatico = b;
 	}
 	
 	public void agregarDispositivoInteligente(DispositivoInteligente unDispositivo) {

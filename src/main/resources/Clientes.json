@@ -1,8 +1,7 @@
 [
 	{
 		"horasDelMes": 720,
-		"nombreYApellido":
-			"Jose Hernandez",
+		"nombreYApellido": "Jose Hernandez",
 		"documento": {
 			"numero": 47465078,
 			"tipo": "DNI"
@@ -50,8 +49,7 @@
 	},
 	{
 		"horasDelMes": 720,
-		"nombreYApellido":
-			"Martin Perez",
+		"nombreYApellido": "Martin Perez",
 		"documento": {
 			"numero": 40732178,
 			"tipo": "DNI"

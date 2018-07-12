@@ -79,7 +79,7 @@ public class SgeSimplex {
 		LinearObjectiveFunction f = new LinearObjectiveFunction(coeficientes, 0); 
 		PointValuePair res = optimizarInterno(f, restricciones);
 		double[] resultados = res.getPoint();
-		return new ResultadoSimplex(boxArray(resultados), res.getValue());
+		return new ResultadoSimplex(boxArray(resultados), res.getValue(), disps);
 	}
 
 }
