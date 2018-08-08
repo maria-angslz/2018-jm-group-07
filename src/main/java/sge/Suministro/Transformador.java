@@ -21,10 +21,4 @@ public class Transformador {
 		this.clientes.add(cliente);
 	}
 	
-	public double distanciaA(Coordenates coord){
-		
-		return Math.sqrt(Math.pow(posicion.X() - coord.X(), 2) +  Math.pow(posicion.Y() - coord.Y(), 2 ));
-		
-	}
-	
 }

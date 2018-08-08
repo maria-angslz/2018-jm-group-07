@@ -26,7 +26,7 @@ public class ZonaGeografica {
 	}
 	
 	public void asignarTransformadorAcliente(Cliente cliente, Coordenates coord) {
-		transformadores.stream().min((tranf1,tranf2) -> Double.compare(tranf1.distanciaA(coord), tranf2.distanciaA(coord))).get().setCliente(cliente);
+		transformadores.stream().min((tranf1,tranf2) -> Double.compare(tranf1.posicion.distancia(coord), tranf2.posicion.distancia(coord))).get().setCliente(cliente);
 	    
 	}
 	
