@@ -1,6 +1,6 @@
 package sge.Suministro;
 
-import java.util.Comparator;
+
 import java.util.List;
 
 import sge.Coordenates;
@@ -31,12 +31,8 @@ public class ZonaGeografica {
 	}
 	
 	public Boolean pertenece(Coordenates coordenada) {
-		return getDistancia(coordenada) <= radioCubierto;
+		return coordenadaCentral.distancia(coordenada) <= radioCubierto;
 		
-	}
-
-	private double getDistancia(Coordenates coordenada) {
-		return Math.sqrt( Math.pow(coordenadaCentral.X() - coordenada.X(), 2)  + Math.pow(coordenadaCentral.Y() - coordenada.Y(),2));
 	}
 	
 }

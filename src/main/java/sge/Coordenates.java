@@ -1,23 +1,24 @@
 package sge;
 
-import java.util.HashMap;
-
 public class Coordenates {
-	HashMap<String,Double> coordenada = new HashMap<String,Double>();
+	double latitud;
+	double longitud;
 	
 	public Coordenates(double longitud, double latitud) {
-		coordenada.put("latitud", latitud);
-		coordenada.put("longitud", longitud);
-	}
-	public HashMap<String, Double> coordenadas(){
-		return coordenada;
+		this.latitud = latitud;
+		this.longitud = longitud;
 	}
 	public double X() {
-		return coordenada.get("longitud");
+		return longitud;
 	}
 	
 	public double Y() {
-		return coordenada.get("latitud");
+		return latitud;
 	}
+	
+	public double distancia(Coordenates coordenada) {
+		return Math.sqrt( Math.pow(this.X() - coordenada.X(), 2)  + Math.pow(this.Y() - coordenada.Y(),2));
+	}
+	
 	
 }
