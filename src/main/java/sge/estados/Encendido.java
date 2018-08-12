@@ -8,6 +8,10 @@ public class Encendido implements EstadoDispositivo {
 		return true;
 	}
 	
+	public boolean modoAhorroDeEnergia() {
+		return false;
+	}
+	
 	public void apagarse(DispositivoInteligente disp) {
 		disp.cambiarEstado(new Apagado());
 		disp.getDispositivoFisico().apagar();

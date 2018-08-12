@@ -58,6 +58,10 @@ public class DispositivoInteligente extends Dispositivo {
 	public boolean apagado() {
 		return !estado.encendido();
 	}
+	
+	public boolean modoAhorroDeEnergia() {
+		return estado.modoAhorroDeEnergia();
+	}
 
 	public void cambiarEstado(EstadoDispositivo estado) {
 		this.estado = estado;

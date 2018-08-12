@@ -7,6 +7,10 @@ public class Apagado implements EstadoDispositivo {
 		return false;
 	}
 	
+	public boolean modoAhorroDeEnergia() {
+		return false;
+	}
+	
 	public void apagarse(DispositivoInteligente disp) {
 		
 	}
