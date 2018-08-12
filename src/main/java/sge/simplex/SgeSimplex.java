@@ -57,29 +57,37 @@ public class SgeSimplex {
 	private PointValuePair optimizarInterno(LinearObjectiveFunction f, List<LinearConstraint> restricciones) {
 		return ss.optimize(new MaxIter(100), f, new LinearConstraintSet(restricciones), GoalType.MAXIMIZE, new NonNegativeConstraint(true));
 	}
-	public ResultadoSimplex optimizar(List<Dispositivo> disps) {
+	
+	public List<LinearConstraint> obtenerRestricciones(List<Dispositivo> dispositivos){
 		List<Double> consumosHora = new ArrayList<Double>();
 		List<LinearConstraint> minimos = new ArrayList<LinearConstraint>();
 		List<LinearConstraint> maximos = new ArrayList<LinearConstraint>();
 		
 		// horas[i] entre minimo y maximo
-		for(int i=0;i<disps.size(); i++){
-			Dispositivo d = disps.get(i);
+		for(int i=0;i<dispositivos.size(); i++){
+			Dispositivo d = dispositivos.get(i);
 			consumosHora.add(d.consumoKWxHora());
-			minimos.add(constraint(disps.size(),i, Relationship.GEQ, d.getMinimo()));
-			maximos.add(constraint(disps.size(),i, Relationship.LEQ, d.getMaximo()));
+			minimos.add(constraint(dispositivos.size(),i, Relationship.GEQ, d.getMinimo()));
+			maximos.add(constraint(dispositivos.size(),i, Relationship.LEQ, d.getMaximo()));
 		}
+		
 		List<LinearConstraint> restricciones = new ArrayList<LinearConstraint>();
 		// Suma de horas*kwh <= consumoMaximo
 		restricciones.add(new LinearConstraint(unboxArray(consumosHora), Relationship.LEQ, consumoMaximo));
 		restricciones.addAll(minimos);
 		restricciones.addAll(maximos);
-		double[] coeficientes = new double[disps.size()];
+		
+		return restricciones;
+	}
+	
+	public ResultadoSimplex optimizar(List<Dispositivo> dispositivos) {
+		double[] coeficientes = new double[dispositivos.size()];
 		java.util.Arrays.fill(coeficientes, 1.0);
 		LinearObjectiveFunction f = new LinearObjectiveFunction(coeficientes, 0); 
+		List<LinearConstraint> restricciones = this.obtenerRestricciones(dispositivos);
 		PointValuePair res = optimizarInterno(f, restricciones);
 		double[] resultados = res.getPoint();
-		return new ResultadoSimplex(boxArray(resultados), res.getValue(), disps);
+		return new ResultadoSimplex(boxArray(resultados), res.getValue(), dispositivos);
 	}
 
 }
