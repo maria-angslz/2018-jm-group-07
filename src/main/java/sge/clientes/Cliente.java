@@ -157,5 +157,13 @@ public class Cliente {
 	public ResultadoSimplex consumoIdeal() {
 		return SgeSimplex.getInstance().optimizar(getDispositivos());
 	}
+	
+	public void activarAhorroAutomatico() {
+		this.simplexAutomatico = true;
+	}
+	
+	public void desactivarAhorroAutomatico() {
+		this.simplexAutomatico = false;
+	}
 
 }

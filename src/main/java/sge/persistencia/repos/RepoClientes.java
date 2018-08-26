@@ -1,7 +1,8 @@
 package sge.persistencia.repos;
 
-
 import sge.clientes.Cliente;
+import java.util.List;
+import java.util.stream.Collectors;
 
 public class RepoClientes extends RepoGenerico<Cliente> {
 	private static RepoClientes instancia;
@@ -11,5 +12,9 @@ public class RepoClientes extends RepoGenerico<Cliente> {
 			instancia = new RepoClientes();
 		}
 		return instancia;
+	}
+	
+	public List<Cliente> obtenerClientesSimplex() {
+		return RepoClientes.getInstance().get().stream().filter(cliente -> cliente.getSimplexAutomatico()).collect(Collectors.toList());
 	}
 }
