@@ -10,7 +10,7 @@ import sge.dispositivos.inteligentes.DispositivoInteligente;
 import sge.persistencia.repos.RepoClientes;
 
 public class ProcesoSimplex {
-	public void ejecutar() {
+	public static void ejecutar() {
 		List<Cliente> autorizados = RepoClientes.getInstance().get().stream().filter(c->c.getSimplexAutomatico()).collect(Collectors.toList());
 		autorizados.forEach(cliente-> {
 			ResultadoSimplex res = cliente.consumoIdeal();
