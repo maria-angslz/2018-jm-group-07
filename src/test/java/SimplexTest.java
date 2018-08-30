@@ -2,6 +2,7 @@ import static org.junit.Assert.assertEquals;
 
 import org.junit.Test;
 
+import sge.simplex.ProcesoSimplex;
 import sge.simplex.ResultadoSimplex;
 import sge.simplex.SgeSimplex;
 
@@ -18,6 +19,12 @@ public class SimplexTest extends Fixture.FSimplex {
 	public void testOptimizarCuatroAires() {
 		ResultadoSimplex res = clienteConCuatroAires.consumoIdeal();
 		assertEquals("Un cliente con cuatro", SgeSimplex.consumoMaximo, res.horasTotales* unAire.get(0).consumoKWxHora(), 0.5);
+	}
+	
+	@Test
+	public void testSimplexAutomatico() {
+		ProcesoSimplex.ejecutar();
+		assertEquals("El aire se pasa del consumo mensual, por lo tanto lo debe apagar",1, clienteConUnAire.cantidadDispositivosApagados());
 	}
 
 }

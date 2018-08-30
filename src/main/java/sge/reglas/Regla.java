@@ -20,11 +20,23 @@ public class Regla {
 		this.funcion = unaFuncion;
 	}
 	
+	public Regla(String nombre, Actuador actuador, Function<Float, Boolean> unaFuncion) {
+		this.nombre = nombre;
+		this.actuador = actuador;
+		this.funcion = unaFuncion;
+	}
+	
 	public void ejecutar() {
 		float medicion = sensorADisposicion.medir();
 		if(funcion.apply(medicion)) {
 			actuador.accionar();
 		}
 		
+	}
+	
+	public void ejecutar(float medicion) {
+		if(funcion.apply(medicion)) {
+			actuador.accionar();
+		}
 	}
 }

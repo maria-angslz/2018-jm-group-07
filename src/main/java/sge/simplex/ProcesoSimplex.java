@@ -3,6 +3,7 @@ package sge.simplex;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
+import java.util.function.Function;
 import java.util.stream.Collectors;
 
 import sge.clientes.Cliente;
@@ -10,6 +11,7 @@ import sge.dispositivos.Dispositivo;
 import sge.dispositivos.inteligentes.DispositivoInteligente;
 import sge.persistencia.repos.RepoClientes;
 import sge.reglas.Actuador;
+import sge.reglas.Regla;
 
 public class ProcesoSimplex {
 
@@ -36,7 +38,7 @@ public class ProcesoSimplex {
 
 		clientesSimplex.forEach(cliente -> {
 			ResultadoSimplex resultado = cliente.consumoIdeal();
-			List<DispositivoInteligente> dispositivosApagar = new ArrayList<DispositivoInteligente>();
+//			List<DispositivoInteligente> dispositivosApagar = new ArrayList<DispositivoInteligente>();
 
 			for (int i = 0; i < resultado.dispositivos.size(); i++) {
 				Dispositivo disp = resultado.dispositivos.get(i);
@@ -44,15 +46,17 @@ public class ProcesoSimplex {
 				Optional<DispositivoInteligente> optDispInteligente = cliente.getDispositivosInteligentes().stream()
 						.filter(d -> d == disp).findFirst();
 				optDispInteligente.ifPresent(dispInteligente -> {
-					if (dispInteligente.consumoMensual() > maximo)
-						dispositivosApagar.add(dispInteligente);
-				});
+					
+					Actuador unActuador = new Actuador("apagar dispositivo", dispInteligente, (d -> d.apagar()));
+					Function<Float,Boolean> funcionCumplir = (medicion) -> (Boolean) ((maximo) < (medicion));
+					Regla unaRegla = new Regla("Controlar consumo mensual", unActuador, funcionCumplir);
+					
+					unaRegla.ejecutar((float) dispInteligente.consumoMensual());
+					
+//					if (dispInteligente.consumoMensual() > maximo)
+//						dispositivosApagar.add(dispInteligente);
+				});		
 			}
-
-			Actuador actuadorSimplex = new Actuador("apagar", dispositivosApagar, (d -> d.apagar()));
-
-			actuadorSimplex.accionar();
-
 		});
 
 	}

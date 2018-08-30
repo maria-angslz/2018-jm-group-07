@@ -12,5 +12,6 @@ public class ResultadoSimplex {
 	public ResultadoSimplex(List<Double> horasOptimasDisps, double horasTotales, List<Dispositivo> dispositivos) {
 		this.horasOptimasDisps = horasOptimasDisps;
 		this.horasTotales = horasTotales;
+		this.dispositivos = dispositivos;
 	}
 }
