@@ -36,7 +36,7 @@ public class Regla {
 	
 	public void ejecutar(float medicion) {
 		if(funcion.apply(medicion)) {
-			actuador.accionar();
+			actuador.accionar(); //recibir la lista de dispositivos y pasarla como parametro
 		}
 	}
 }

@@ -25,7 +25,7 @@ public class Actuador {
 		this.dispositivo = dispositivo;
 	}
 	
-	public void accionar() {
+	public void accionar() { //idea: recibir lista de dispositivos por parametro
 		if(dispositivo != null) {
 			funcion.accept(dispositivo);
 		}else {
