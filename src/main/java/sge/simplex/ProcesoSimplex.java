@@ -35,7 +35,11 @@ public class ProcesoSimplex {
 
 	public static void ejecutar() {
 		List<Cliente> clientesSimplex = RepoClientes.getInstance().obtenerClientesSimplex();
+		
+		Actuador unActuador = new Actuador("apagar dispositivo", (d -> d.apagar()));
 
+		Regla unaRegla = new Regla("Controlar consumo mensual", unActuador);
+		
 		clientesSimplex.forEach(cliente -> {
 			ResultadoSimplex resultado = cliente.consumoIdeal();
 //			List<DispositivoInteligente> dispositivosApagar = new ArrayList<DispositivoInteligente>();
@@ -47,11 +51,12 @@ public class ProcesoSimplex {
 						.filter(d -> d == disp).findFirst();
 				optDispInteligente.ifPresent(dispInteligente -> {
 					
-					Actuador unActuador = new Actuador("apagar dispositivo", dispInteligente, (d -> d.apagar()));
-					Function<Float,Boolean> funcionCumplir = (medicion) -> (Boolean) ((maximo) < (medicion));
-					Regla unaRegla = new Regla("Controlar consumo mensual", unActuador, funcionCumplir);
 					
-					unaRegla.ejecutar((float) dispInteligente.consumoMensual());
+					Function<Float,Boolean> funcionCumplir = (medicion) -> (Boolean) ((maximo) < (medicion));
+					
+					unaRegla.setFuncion(funcionCumplir);
+					
+					unaRegla.ejecutar((float) dispInteligente.consumoMensual(),dispInteligente);
 					
 //					if (dispInteligente.consumoMensual() > maximo)
 //						dispositivosApagar.add(dispInteligente);

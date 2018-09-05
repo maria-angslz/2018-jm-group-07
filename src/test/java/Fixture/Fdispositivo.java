@@ -17,8 +17,8 @@ import sge.reglas.Sensor;
 
 public class Fdispositivo {
 	protected List<DispositivoInteligente> dispoInteligentes;
-	protected DispositivoInteligente LuzInteligente;
 	protected Regla unaRegla;
+	protected DispositivoInteligente LuzInteligente;
 	protected DispositivoInteligenteFisico mockDispositivoFisico;
 	protected Sensor mockSensorLuminosidad;
 	
@@ -27,16 +27,17 @@ public class Fdispositivo {
 	public void Init() {
 		LuzInteligente = new DispositivoInteligente("Luz",100);
 		
-		dispoInteligentes = new ArrayList<DispositivoInteligente>();
+//		dispoInteligentes = new ArrayList<DispositivoInteligente>();
 		
-		dispoInteligentes.add(LuzInteligente);
+//		dispoInteligentes.add(LuzInteligente);
 
 		Consumer<DispositivoInteligente> accionAEjecutar = (dispositivo) -> dispositivo.encender();
 		mockSensorLuminosidad = Mockito.mock(Sensor.class);
 		when(mockSensorLuminosidad.medir()).thenReturn((float) 0); //valor mockeado
-		Actuador unActuador = new Actuador("apaga luz", dispoInteligentes, accionAEjecutar);
+		Actuador unActuador = new Actuador("apaga luz", accionAEjecutar);
 		Function<Float,Boolean> funcionCumplir = (medicion) -> (Boolean) ((50) > (medicion));
-		unaRegla = new Regla("Determinacion de encendido de luz", mockSensorLuminosidad, unActuador, funcionCumplir);
+		unaRegla = new Regla("Determinacion de encendido de luz", mockSensorLuminosidad, unActuador);
+		unaRegla.setFuncion(funcionCumplir);
 		mockDispositivoFisico = Mockito.mock(DispositivoInteligenteFisico.class);
 		LuzInteligente.setDispositivoFisico(mockDispositivoFisico);
 	}

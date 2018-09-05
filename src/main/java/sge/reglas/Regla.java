@@ -1,6 +1,9 @@
 package sge.reglas;
 
+import java.util.List;
 import java.util.function.Function;
+
+import sge.dispositivos.inteligentes.DispositivoInteligente;
 
 //import java.util.List;
 
@@ -13,30 +16,33 @@ public class Regla {
 	private Function<Float,Boolean> funcion;
 	
 	
-	public Regla(String nombre,Sensor sensor, Actuador actuador, Function<Float, Boolean> unaFuncion) {
+	public Regla(String nombre,Sensor sensor, Actuador actuador) {
 		this.nombre = nombre;
 		this.sensorADisposicion = sensor;
 		this.actuador = actuador;
-		this.funcion = unaFuncion;
 	}
 	
-	public Regla(String nombre, Actuador actuador, Function<Float, Boolean> unaFuncion) {
+	public Regla(String nombre, Actuador actuador) { //, Function<Float, Boolean> unaFuncion
 		this.nombre = nombre;
 		this.actuador = actuador;
-		this.funcion = unaFuncion;
+		//this.funcion = unaFuncion;
 	}
 	
-	public void ejecutar() {
+	public void setFuncion(Function<Float,Boolean> funcionACumplir) {
+		this.funcion = funcionACumplir;
+	}
+	
+	public void ejecutar(DispositivoInteligente dispositivo) { //con la medicion de un sensor
 		float medicion = sensorADisposicion.medir();
 		if(funcion.apply(medicion)) {
-			actuador.accionar();
+			actuador.accionar(dispositivo);
 		}
 		
 	}
 	
-	public void ejecutar(float medicion) {
+	public void ejecutar(float medicion, DispositivoInteligente dispositivo) {
 		if(funcion.apply(medicion)) {
-			actuador.accionar(); //recibir la lista de dispositivos y pasarla como parametro
+			actuador.accionar(dispositivo); //recibir la lista de dispositivos y pasarla como parametro
 		}
 	}
 }

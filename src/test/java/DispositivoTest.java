@@ -12,8 +12,8 @@ import sge.estados.Encendido;
 public class DispositivoTest extends Fdispositivo {
 	@Test
 	public void testEncederAlCumplirseCondicionDada() {
-		unaRegla.ejecutar();
-		assertTrue("El actuador debe enviar la orden de encender la luz",dispoInteligentes.stream().allMatch(dispositivo -> dispositivo.encendido()));
+		unaRegla.ejecutar(LuzInteligente);
+		assertTrue("El actuador debe enviar la orden de encender la luz",LuzInteligente.encendido());
 	}
 	
 	@Test
