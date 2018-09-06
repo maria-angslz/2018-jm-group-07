@@ -1,6 +1,7 @@
 package sge.dispositivos.construccion;
 
 import sge.dispositivos.estandar.DispositivoEstandar;
+import sge.dispositivos.inteligentes.TipoDeDispositivo;
 
 public class EstandarBuilder implements DispositivoBuilder<DispositivoEstandar>{
 	int horas;
@@ -9,7 +10,7 @@ public class EstandarBuilder implements DispositivoBuilder<DispositivoEstandar>{
 		this.horas = horas;
 	}
 	
-	public DispositivoEstandar create(String nombre, double kwh, double minimo, double maximo) {
-		return new DispositivoEstandar(nombre, kwh, horas, maximo, minimo);
+	public DispositivoEstandar create(String nombre, double kwh, TipoDeDispositivo tipo) {
+		return new DispositivoEstandar(nombre, kwh, horas, tipo);
 	}
 }

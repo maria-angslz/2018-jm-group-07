@@ -8,7 +8,7 @@ public class DispositivoConModulo extends DispositivoInteligente {
 	
 	public DispositivoConModulo(DispositivoEstandar dispositivoAsociado) {
 		super(dispositivoAsociado.nombre(), dispositivoAsociado.consumoKWxHora(), 
-				dispositivoAsociado.getMaximo(), dispositivoAsociado.getMinimo());
+				dispositivoAsociado.getTipo());
 		this.dispositivoAsociado = dispositivoAsociado;
 	}
 	

@@ -14,6 +14,7 @@ import sge.clientes.Cliente;
 import sge.dispositivos.estandar.DispositivoEstandar;
 import sge.dispositivos.inteligentes.DispositivoInteligente;
 import sge.dispositivos.inteligentes.DispositivoInteligenteFisico;
+import sge.dispositivos.inteligentes.TipoDeDispositivo;
 
 public class FCliente {
 	
@@ -24,10 +25,9 @@ public class FCliente {
 	
 	@Before
 	public void init() {
-		DispositivoInteligente aire3500 = new DispositivoInteligente("Aire acondicionado", 1.613);
-		DispositivoInteligente smartTv = new DispositivoInteligente("SmartTV", 0.6);
-		DispositivoInteligente pc = new DispositivoInteligente("PC", 0.6);
-		DispositivoEstandar heladera = new DispositivoEstandar("Heladera", 0.6, 24);
+		DispositivoInteligente smartTv = new DispositivoInteligente("SmartTV", 0.6, TipoDeDispositivo.Televisor);
+		DispositivoInteligente pc = new DispositivoInteligente("PC", 0.6, TipoDeDispositivo.Computadora);
+		DispositivoEstandar heladera = new DispositivoEstandar("Heladera", 0.6, 24, TipoDeDispositivo.Heladera);
 		Categoria r3 = new CategoriaResidencial(60.71, 0.681, 325, 400);
 		List<DispositivoInteligente> dosDispositivosInteligentes = new ArrayList<DispositivoInteligente>();
 		List<DispositivoEstandar> sinDispositivosEstandar = new ArrayList<DispositivoEstandar>();

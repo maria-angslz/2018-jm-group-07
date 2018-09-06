@@ -10,17 +10,17 @@ public class DispositivoInteligente extends Dispositivo {
 	private double IDFabrica = (Math.random() * 100000) + 1; //deberia cambiarse dsps y meter los nros generados en una lista, para comprobar que no se repitan
 	private DispositivoInteligenteFisico dispositivoFisico; //deberia haber un repo de dispositivos fisicos y pedir el dispositivo con el mismo IDFabrica?
 
-
-	public DispositivoInteligente(String nombre, double consumoKWxHora, double maximo, double minimo) {
-		this.maximo = maximo;
-		this.minimo = minimo;
+	public DispositivoInteligente(String nombre, double consumoKWxHora, TipoDeDispositivo tipo) { //double maximo, double minimo
+//		this.maximo = maximo;
+//		this.minimo = minimo;
+		this.tipo = tipo;
 		this.nombre = nombre;
 		this.consumoKWxHora = consumoKWxHora;
 		this.estado = new Apagado(); //el dispositivo inicia apagado
 	}
-	public DispositivoInteligente(String nombre, double consumoKWxHora) {
-		this(nombre, consumoKWxHora, 0.0, 0.0);
-	}
+//	public DispositivoInteligente(String nombre, double consumoKWxHora) {
+//		this(nombre, consumoKWxHora, 0.0, 0.0);
+//	}
 	
 	public void setDispositivoFisico(DispositivoInteligenteFisico unDispositivoFisico) {
 		this.dispositivoFisico = unDispositivoFisico;
@@ -81,5 +81,9 @@ public class DispositivoInteligente extends Dispositivo {
 	
 	public double getIDfabrica() {
 		return IDFabrica;
+	}
+	
+	public TipoDeDispositivo getTipo() {
+		return tipo;
 	}
 }

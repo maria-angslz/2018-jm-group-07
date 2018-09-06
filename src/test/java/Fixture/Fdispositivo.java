@@ -1,6 +1,5 @@
 package Fixture;
 
-import java.util.ArrayList;
 import java.util.List;
 import java.util.function.Consumer;
 import java.util.function.Function;
@@ -11,6 +10,7 @@ import static org.mockito.Mockito.*;
 
 import sge.dispositivos.inteligentes.DispositivoInteligente;
 import sge.dispositivos.inteligentes.DispositivoInteligenteFisico;
+import sge.dispositivos.inteligentes.TipoDeDispositivo;
 import sge.reglas.Actuador;
 import sge.reglas.Regla;
 import sge.reglas.Sensor;
@@ -25,7 +25,7 @@ public class Fdispositivo {
 	@Before
 	
 	public void Init() {
-		LuzInteligente = new DispositivoInteligente("Luz",100);
+		LuzInteligente = new DispositivoInteligente("Luz",100, TipoDeDispositivo.Lampara);
 		
 //		dispoInteligentes = new ArrayList<DispositivoInteligente>();
 		

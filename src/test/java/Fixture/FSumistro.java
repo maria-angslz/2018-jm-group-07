@@ -16,6 +16,7 @@ import sge.categorias.CategoriaResidencial;
 import sge.clientes.Cliente;
 import sge.dispositivos.estandar.DispositivoEstandar;
 import sge.dispositivos.inteligentes.DispositivoInteligente;
+import sge.dispositivos.inteligentes.TipoDeDispositivo;
 import sge.persistencia.repos.RepoClientes;
 import sge.persistencia.repos.RepoZonas;
 
@@ -29,8 +30,8 @@ public class FSumistro {
 	
 	public void Init() {
 		//////////////cliente///////////////////////
-		DispositivoInteligente smartTv = new DispositivoInteligente("SmartTV", 0.6); //segundo parametro el consumo 
-		DispositivoInteligente pc = new DispositivoInteligente("PC", 0.6);
+		DispositivoInteligente smartTv = new DispositivoInteligente("SmartTV", 0.6, TipoDeDispositivo.Televisor); //segundo parametro el consumo 
+		DispositivoInteligente pc = new DispositivoInteligente("PC", 0.6, TipoDeDispositivo.Computadora);
 		Categoria r3 = new CategoriaResidencial(60.71, 0.681, 325, 400);
 		List<DispositivoInteligente> dosDispositivosInteligentes = new ArrayList<DispositivoInteligente>();
 		List<DispositivoEstandar> sinDispositivosEstandar = new ArrayList<DispositivoEstandar>();

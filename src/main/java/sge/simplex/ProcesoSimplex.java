@@ -1,11 +1,8 @@
 package sge.simplex;
 
-import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 import java.util.function.Function;
-import java.util.stream.Collectors;
-
 import sge.clientes.Cliente;
 import sge.dispositivos.Dispositivo;
 import sge.dispositivos.inteligentes.DispositivoInteligente;
@@ -35,27 +32,19 @@ public class ProcesoSimplex {
 
 	public static void ejecutar() {
 		List<Cliente> clientesSimplex = RepoClientes.getInstance().obtenerClientesSimplex();
-		
 		Actuador unActuador = new Actuador("apagar dispositivo", (d -> d.apagar()));
-
 		Regla unaRegla = new Regla("Controlar consumo mensual", unActuador);
 		
 		clientesSimplex.forEach(cliente -> {
 			ResultadoSimplex resultado = cliente.consumoIdeal();
 //			List<DispositivoInteligente> dispositivosApagar = new ArrayList<DispositivoInteligente>();
-
 			for (int i = 0; i < resultado.dispositivos.size(); i++) {
 				Dispositivo disp = resultado.dispositivos.get(i);
 				double maximo = resultado.horasOptimasDisps.get(i);
-				Optional<DispositivoInteligente> optDispInteligente = cliente.getDispositivosInteligentes().stream()
-						.filter(d -> d == disp).findFirst();
+				Optional<DispositivoInteligente> optDispInteligente = cliente.getDispositivosInteligentes().stream().filter(d -> d == disp).findFirst();
 				optDispInteligente.ifPresent(dispInteligente -> {
-					
-					
 					Function<Float,Boolean> funcionCumplir = (medicion) -> (Boolean) ((maximo) < (medicion));
-					
 					unaRegla.setFuncion(funcionCumplir);
-					
 					unaRegla.ejecutar((float) dispInteligente.consumoMensual(),dispInteligente);
 					
 //					if (dispInteligente.consumoMensual() > maximo)
