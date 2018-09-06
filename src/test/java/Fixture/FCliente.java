@@ -11,6 +11,7 @@ import sge.TipoDocumento;
 import sge.categorias.Categoria;
 import sge.categorias.CategoriaResidencial;
 import sge.clientes.Cliente;
+import sge.dispositivos.construccion.Factory;
 import sge.dispositivos.estandar.DispositivoEstandar;
 import sge.dispositivos.inteligentes.DispositivoInteligente;
 import sge.dispositivos.inteligentes.DispositivoInteligenteFisico;
@@ -25,8 +26,8 @@ public class FCliente {
 	
 	@Before
 	public void init() {
-		DispositivoInteligente smartTv = new DispositivoInteligente("SmartTV", 0.6, TipoDeDispositivo.Televisor);
-		DispositivoInteligente pc = new DispositivoInteligente("PC", 0.6, TipoDeDispositivo.Computadora);
+		DispositivoInteligente smartTv = Factory.Inteligente().Televisor(0.6);
+		DispositivoInteligente pc = Factory.Inteligente().Computadora(0.6);
 		DispositivoEstandar heladera = new DispositivoEstandar("Heladera", 0.6, 24, TipoDeDispositivo.Heladera);
 		Categoria r3 = new CategoriaResidencial(60.71, 0.681, 325, 400);
 		List<DispositivoInteligente> dosDispositivosInteligentes = new ArrayList<DispositivoInteligente>();

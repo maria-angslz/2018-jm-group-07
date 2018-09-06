@@ -8,9 +8,9 @@ import org.junit.Before;
 import org.mockito.Mockito;
 import static org.mockito.Mockito.*;
 
+import sge.dispositivos.construccion.Factory;
 import sge.dispositivos.inteligentes.DispositivoInteligente;
 import sge.dispositivos.inteligentes.DispositivoInteligenteFisico;
-import sge.dispositivos.inteligentes.TipoDeDispositivo;
 import sge.reglas.Actuador;
 import sge.reglas.Regla;
 import sge.reglas.Sensor;
@@ -25,7 +25,8 @@ public class Fdispositivo {
 	@Before
 	
 	public void Init() {
-		LuzInteligente = new DispositivoInteligente("Luz",100, TipoDeDispositivo.Lampara);
+		LuzInteligente = Factory.Inteligente().Lampara(100);
+//		LuzInteligente = new DispositivoInteligente("Luz",100, TipoDeDispositivo.Lampara);
 		
 //		dispoInteligentes = new ArrayList<DispositivoInteligente>();
 		

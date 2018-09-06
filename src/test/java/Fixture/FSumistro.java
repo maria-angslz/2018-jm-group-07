@@ -14,9 +14,9 @@ import sge.Suministro.ZonaGeografica;
 import sge.categorias.Categoria;
 import sge.categorias.CategoriaResidencial;
 import sge.clientes.Cliente;
+import sge.dispositivos.construccion.Factory;
 import sge.dispositivos.estandar.DispositivoEstandar;
 import sge.dispositivos.inteligentes.DispositivoInteligente;
-import sge.dispositivos.inteligentes.TipoDeDispositivo;
 import sge.persistencia.repos.RepoClientes;
 import sge.persistencia.repos.RepoZonas;
 
@@ -30,8 +30,10 @@ public class FSumistro {
 	
 	public void Init() {
 		//////////////cliente///////////////////////
-		DispositivoInteligente smartTv = new DispositivoInteligente("SmartTV", 0.6, TipoDeDispositivo.Televisor); //segundo parametro el consumo 
-		DispositivoInteligente pc = new DispositivoInteligente("PC", 0.6, TipoDeDispositivo.Computadora);
+		DispositivoInteligente smartTv = Factory.Inteligente().Televisor(0.6);
+//		DispositivoInteligente smartTv = new DispositivoInteligente("SmartTV", 0.6, TipoDeDispositivo.Televisor); //segundo parametro el consumo 
+		DispositivoInteligente pc = Factory.Inteligente().Computadora(0.6);
+//		DispositivoInteligente pc = new DispositivoInteligente("PC", 0.6, TipoDeDispositivo.Computadora);
 		Categoria r3 = new CategoriaResidencial(60.71, 0.681, 325, 400);
 		List<DispositivoInteligente> dosDispositivosInteligentes = new ArrayList<DispositivoInteligente>();
 		List<DispositivoEstandar> sinDispositivosEstandar = new ArrayList<DispositivoEstandar>();
