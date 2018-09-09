@@ -8,7 +8,9 @@
     <persistence-unit name="db" transaction-type="RESOURCE_LOCAL">
     	<provider>org.hibernate.ejb.HibernatePersistence</provider>
     	<class>model.Cliente</class>
-    	
+    	<class>model.Sensor</class>
+    	<class>model.Regla</class>
+    	<class>model.Actuador</class>
     	 
         <properties> 
 	    <property name="hibernate.archive.autodetection" value="class"/>        
