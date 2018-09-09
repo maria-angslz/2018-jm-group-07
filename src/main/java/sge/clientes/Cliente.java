@@ -25,7 +25,7 @@ public class Cliente {
 	@Id @GeneratedValue
 	private int id;
 	
-	private boolean simplexAutomatico = false; 
+	private boolean simplexAutomatico = false;
 	final int puntosAgregarDisp = 15;
 	final int puntosConvDispEaI = 10;
 	private String nombreYApellido;
