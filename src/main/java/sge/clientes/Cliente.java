@@ -1,32 +1,46 @@
 package sge.clientes;
 
-import java.util.ArrayList;
 import java.util.LinkedList;
 import java.util.List;
-import java.util.stream.DoubleStream;
 import java.util.stream.Stream;
+
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
+import javax.persistence.OneToOne;
+import javax.persistence.Transient;
 
 import sge.Documento;
 import sge.categorias.Categoria;
 import sge.dispositivos.Dispositivo;
 import sge.dispositivos.conModulo.DispositivoConModulo;
-import sge.dispositivos.construccion.RepoDispositivosResidenciales;
 import sge.dispositivos.estandar.DispositivoEstandar;
 import sge.dispositivos.inteligentes.DispositivoInteligente;
 import sge.persistencia.repos.RepoCatResidenciales;
 import sge.simplex.ResultadoSimplex;
 import sge.simplex.SgeSimplex;
 
+@Entity
 public class Cliente {
+	@Id @GeneratedValue
+	private int id;
+	
 	private boolean simplexAutomatico = false; 
 	final int puntosAgregarDisp = 15;
 	final int puntosConvDispEaI = 10;
 	private String nombreYApellido;
+	
+	@OneToOne
 	private Documento documento;
+	
 	private String domicilio;
 	private String telefono;
+	
 	private Categoria categoria;
+	
+	@Transient
 	private List<DispositivoEstandar> dispositivosEstandar;
+	@Transient
 	private List<DispositivoInteligente> dispositivosInteligentes;
 	private int puntos;
 

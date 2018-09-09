@@ -4,7 +4,7 @@ import java.time.temporal.ValueRange;
 
 import sge.clientes.Cliente;
 
-public class CategoriaResidencial implements Categoria {
+public class CategoriaResidencial extends Categoria {
 	private double cargoFijo;
 	private double cargoPorkWh;
 	private ValueRange rango;

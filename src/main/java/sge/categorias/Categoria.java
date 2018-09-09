@@ -1,7 +1,14 @@
 package sge.categorias;
 
-public interface Categoria {
-	double aproximarFacturacion(double KWConsumidos);
+import javax.persistence.OneToMany;
 
-	boolean perteneceAEstaCategoria(double valorConsumido);
+import sge.clientes.Cliente;
+
+public abstract class Categoria {
+	@OneToMany
+	Cliente cliente;
+	
+	public abstract double aproximarFacturacion(double KWConsumidos);
+
+	public abstract boolean perteneceAEstaCategoria(double valorConsumido);
 }
