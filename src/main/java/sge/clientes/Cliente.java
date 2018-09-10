@@ -7,6 +7,7 @@ import java.util.stream.Stream;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.ManyToOne;
 import javax.persistence.OneToOne;
 import javax.persistence.Transient;
 
@@ -43,6 +44,9 @@ public class Cliente {
 	@Transient
 	private List<DispositivoInteligente> dispositivosInteligentes;
 	private int puntos;
+	
+	@ManyToOne
+	private int id_transformador;
 
 	public Cliente(String nombreYApellido, Documento documento, String domicilio, String telefono,
 			Categoria categoria, List<DispositivoEstandar> dispositivosEstandar, List<DispositivoInteligente> dispositivosInteligentes) {

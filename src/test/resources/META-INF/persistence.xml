@@ -11,6 +11,9 @@
     	<class>model.Sensor</class>
     	<class>model.Regla</class>
     	<class>model.Actuador</class>
+    	<class>model.ZonaGeografica</class>
+    	<class>model.Transformador</class>
+    	<class>model.Coordenates</class>
     	 
         <properties> 
 	    <property name="hibernate.archive.autodetection" value="class"/>        

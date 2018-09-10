@@ -1,5 +1,8 @@
 package sge;
 
+import javax.persistence.Entity;
+
+@Entity
 public class Coordenates {
 	double latitud;
 	double longitud;
