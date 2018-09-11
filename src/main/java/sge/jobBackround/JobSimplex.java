@@ -15,7 +15,7 @@ public class JobSimplex {
 	Runnable tarea = new Runnable () {
 		public void run() {
 			
-			ProcesoSimplex.ejecutar(); //falta mejorar
+			ProcesoSimplex.ejecutar();
 		}
 	};
 	

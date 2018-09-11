@@ -6,6 +6,7 @@ import java.util.function.Function;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.ManyToOne;
 import javax.persistence.OneToOne;
 
 import sge.dispositivos.inteligentes.DispositivoInteligente;
@@ -21,11 +22,14 @@ public class Regla {
 	private String nombre;
 	//private List<Sensor> sensoresADisposicion; //pensamos que seria en un futuro una lista de sensores y actuadores, pero por el momenton por falta de informacion al respecto, lo planteamos para uno solo.
 	//private List<Actuador> actuadores;
-	private Sensor sensorADisposicion;//ver relacion
-	private Actuador actuador; //ver relacion
+	
+	@ManyToOne
+	private Sensor sensorADisposicion;
+	
+	@ManyToOne
+	private Actuador actuador;
 	
 	private Function<Float,Boolean> funcion; //ver como persistir funciones
-	
 	
 	public Regla(String nombre,Sensor sensor, Actuador actuador) {
 		this.nombre = nombre;
