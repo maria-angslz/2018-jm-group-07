@@ -7,13 +7,13 @@
   
     <persistence-unit name="db" transaction-type="RESOURCE_LOCAL">
     	<provider>org.hibernate.ejb.HibernatePersistence</provider>
-    	<class>model.Cliente</class>
-    	<class>model.Sensor</class>
-    	<class>model.Regla</class>
-    	<class>model.Actuador</class>
-    	<class>model.ZonaGeografica</class>
-    	<class>model.Transformador</class>
-    	<class>model.Coordenates</class>
+    	<class>sge.clientes.Cliente</class>
+    	<class>sge.reglas.Sensor</class>
+    	<class>sge.reglas.Regla</class>
+    	<class>sge.reglas.Actuador</class>
+    	<class>sge.Suministro.ZonaGeografica</class>
+    	<class>sge.Suministro.Transformador</class>
+    	<class>sge.Coordenates</class>
     	 
         <properties> 
 	    <property name="hibernate.archive.autodetection" value="class"/>        
