@@ -1,7 +1,7 @@
 package sge.dispositivos.construccion;
 
+import sge.dispositivos.TipoDeDispositivo;
 import sge.dispositivos.inteligentes.DispositivoInteligente;
-import sge.dispositivos.inteligentes.TipoDeDispositivo;
 
 public class InteligenteBuilder implements DispositivoBuilder<DispositivoInteligente>{
 	public InteligenteBuilder() {

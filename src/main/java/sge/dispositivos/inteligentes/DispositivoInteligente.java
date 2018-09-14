@@ -1,6 +1,7 @@
 package sge.dispositivos.inteligentes;
 
 import sge.dispositivos.Dispositivo;
+import sge.dispositivos.TipoDeDispositivo;
 import sge.estados.*;
 
 public class DispositivoInteligente extends Dispositivo {

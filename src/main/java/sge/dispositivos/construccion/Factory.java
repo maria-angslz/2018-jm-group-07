@@ -1,8 +1,8 @@
 package sge.dispositivos.construccion;
 
+import sge.dispositivos.TipoDeDispositivo;
 import sge.dispositivos.estandar.DispositivoEstandar;
 import sge.dispositivos.inteligentes.DispositivoInteligente;
-import sge.dispositivos.inteligentes.TipoDeDispositivo;
 
 public class Factory<T> {
 	public static Factory<DispositivoInteligente> Inteligente() {

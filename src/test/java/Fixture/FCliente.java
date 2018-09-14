@@ -11,11 +11,11 @@ import sge.TipoDocumento;
 import sge.categorias.Categoria;
 import sge.categorias.CategoriaResidencial;
 import sge.clientes.Cliente;
+import sge.dispositivos.TipoDeDispositivo;
 import sge.dispositivos.construccion.Factory;
 import sge.dispositivos.estandar.DispositivoEstandar;
 import sge.dispositivos.inteligentes.DispositivoInteligente;
 import sge.dispositivos.inteligentes.DispositivoInteligenteFisico;
-import sge.dispositivos.inteligentes.TipoDeDispositivo;
 
 public class FCliente {
 	

@@ -1,7 +1,5 @@
 package sge.dispositivos;
 
-import sge.dispositivos.inteligentes.TipoDeDispositivo;
-
 public abstract class Dispositivo {
 	public abstract double consumoKWxHora();
 //	protected double minimo;
