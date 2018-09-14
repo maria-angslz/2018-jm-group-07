@@ -3,17 +3,12 @@ package sge.reglas;
 import java.util.function.Consumer;
 
 import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
-
+import sge.SuperClase;
 import sge.dispositivos.inteligentes.DispositivoInteligente;
 
 
 @Entity
-public class Actuador {
-	
-	@Id @GeneratedValue
-	private long id;
+public class Actuador extends SuperClase{
 	
 	private String nombre;
 	// private Decodificador unDeco;

@@ -5,13 +5,12 @@ import java.util.List;
 import java.util.stream.Stream;
 
 import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToOne;
 import javax.persistence.Transient;
 
 import sge.Documento;
+import sge.SuperClase;
 import sge.categorias.Categoria;
 import sge.dispositivos.Dispositivo;
 import sge.dispositivos.conModulo.DispositivoConModulo;
@@ -22,9 +21,7 @@ import sge.simplex.ResultadoSimplex;
 import sge.simplex.SgeSimplex;
 
 @Entity
-public class Cliente {
-	@Id @GeneratedValue
-	private int id;
+public class Cliente extends SuperClase{
 	
 	private boolean simplexAutomatico = false;
 	final int puntosAgregarDisp = 15;

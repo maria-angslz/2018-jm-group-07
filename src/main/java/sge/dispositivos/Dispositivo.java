@@ -1,6 +1,8 @@
 package sge.dispositivos;
 
-public abstract class Dispositivo {
+import sge.SuperClase;
+
+public abstract class Dispositivo extends SuperClase{
 	public abstract double consumoKWxHora();
 //	protected double minimo;
 //	protected double maximo;

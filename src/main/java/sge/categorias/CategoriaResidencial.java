@@ -2,8 +2,6 @@ package sge.categorias;
 
 import java.time.temporal.ValueRange;
 
-import sge.clientes.Cliente;
-
 public class CategoriaResidencial extends Categoria {
 	private double cargoFijo;
 	private double cargoPorkWh;
