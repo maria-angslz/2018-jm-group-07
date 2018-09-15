@@ -41,9 +41,7 @@ public class Cliente extends SuperClase{
 	@Transient
 	private List<DispositivoInteligente> dispositivosInteligentes;
 	private int puntos;
-	
-	@ManyToOne
-	private int id_transformador;
+
 
 	public Cliente(String nombreYApellido, Documento documento, String domicilio, String telefono,
 			Categoria categoria, List<DispositivoEstandar> dispositivosEstandar, List<DispositivoInteligente> dispositivosInteligentes) {

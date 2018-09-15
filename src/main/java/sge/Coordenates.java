@@ -1,9 +1,15 @@
 package sge;
 
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
 
 @Entity
 public class Coordenates {
+	
+	@Id @GeneratedValue
+	private int id;
+	
 	double latitud;
 	double longitud;
 	
