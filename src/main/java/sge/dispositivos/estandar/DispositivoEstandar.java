@@ -1,7 +1,7 @@
 package sge.dispositivos.estandar;
 
 import sge.dispositivos.Dispositivo;
-import sge.dispositivos.inteligentes.TipoDeDispositivo;
+import sge.dispositivos.TipoDeDispositivo;
 
 public class DispositivoEstandar extends Dispositivo {
 	private String nombre;

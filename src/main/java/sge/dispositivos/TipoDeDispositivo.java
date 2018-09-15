@@ -1,4 +1,4 @@
-package sge.dispositivos.inteligentes;
+package sge.dispositivos;
 
 public enum TipoDeDispositivo {
 	

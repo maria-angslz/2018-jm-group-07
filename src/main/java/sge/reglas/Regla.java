@@ -1,23 +1,16 @@
 package sge.reglas;
 
-import java.util.List;
 import java.util.function.Function;
 
 import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
 import javax.persistence.ManyToOne;
-import javax.persistence.OneToOne;
-
+import sge.SuperClase;
 import sge.dispositivos.inteligentes.DispositivoInteligente;
 
 //import java.util.List;
 
 @Entity
-public class Regla {
-	
-	@Id @GeneratedValue
-	private long id;
+public class Regla extends SuperClase{
 	
 	private String nombre;
 	//private List<Sensor> sensoresADisposicion; //pensamos que seria en un futuro una lista de sensores y actuadores, pero por el momenton por falta de informacion al respecto, lo planteamos para uno solo.

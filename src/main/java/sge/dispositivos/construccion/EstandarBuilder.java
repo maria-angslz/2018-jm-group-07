@@ -1,7 +1,7 @@
 package sge.dispositivos.construccion;
 
+import sge.dispositivos.TipoDeDispositivo;
 import sge.dispositivos.estandar.DispositivoEstandar;
-import sge.dispositivos.inteligentes.TipoDeDispositivo;
 
 public class EstandarBuilder implements DispositivoBuilder<DispositivoEstandar>{
 	int horas;
