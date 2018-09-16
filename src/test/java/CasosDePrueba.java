@@ -6,8 +6,8 @@ public class CasosDePrueba extends Fixture.FCasosDePrueba {
 	public void casoDePrueba1 () {
 		
 		transaction.begin();
-		entityManager().persist(clienteConDosDispositivos);
-		transaction.commit(); 
+		entityManager.persist(clienteConDosDispositivos);
+		transaction.commit();
 		
 		
 	}

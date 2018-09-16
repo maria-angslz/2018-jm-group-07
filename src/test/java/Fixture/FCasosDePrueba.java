@@ -25,7 +25,8 @@ import sge.dispositivos.estandar.DispositivoEstandar;
 import sge.dispositivos.inteligentes.DispositivoInteligente;
 import sge.dispositivos.inteligentes.DispositivoInteligenteFisico;
 
-public class FCasosDePrueba extends AbstractPersistenceTest implements WithGlobalEntityManager {
+public class FCasosDePrueba //extends AbstractPersistenceTest implements WithGlobalEntityManager 
+{
 	public EntityManager entityManager;
 	public EntityTransaction transaction;
 	public Cliente clienteConDosDispositivos;

@@ -4,6 +4,7 @@ import java.util.LinkedList;
 import java.util.List;
 import java.util.stream.Stream;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
@@ -32,13 +33,13 @@ public class Cliente extends SuperClase{
 	final int puntosConvDispEaI = 10;
 	private String nombreYApellido;
 	
-	@OneToOne
+	@OneToOne(cascade = {CascadeType.PERSIST})
 	private Documento documento;
 	
 	private String domicilio;
 	private String telefono;
 	
-	@ManyToOne
+	@ManyToOne(cascade = {CascadeType.PERSIST})
 	private Categoria categoria;
 	
 	@Transient
