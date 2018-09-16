@@ -33,7 +33,8 @@ public class FCasosDePrueba extends AbstractPersistenceTest implements WithGloba
 	@Before
 	public void init() {
 		
-		//entityManager = PerThreadEntityManagers.getEntityManager();
+		entityManager = PerThreadEntityManagers.getEntityManager();
+		transaction = entityManager.getTransaction();
 		
 		DispositivoInteligente smartTv = Factory.Inteligente().Televisor(0.6);
 		DispositivoInteligente pc = Factory.Inteligente().Computadora(0.6);

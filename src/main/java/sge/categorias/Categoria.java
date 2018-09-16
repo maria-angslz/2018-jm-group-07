@@ -1,12 +1,17 @@
 package sge.categorias;
 
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
 import javax.persistence.OneToMany;
 
 import sge.clientes.Cliente;
 
+@Entity
 public abstract class Categoria {
-	@OneToMany
-	Cliente cliente;
+	
+	@Id @GeneratedValue
+	private int id;
 	
 	public abstract double aproximarFacturacion(double KWConsumidos);
 

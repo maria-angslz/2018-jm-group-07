@@ -23,6 +23,10 @@ public class ZonaGeografica {
 	@OneToOne
 	Coordenates coordenadaCentral;
 	
+	public ZonaGeografica() {
+		super();
+	}
+	
 	public ZonaGeografica(List <Transformador> unTransformador,Coordenates centro ,int radio) {
 		transformadores = unTransformador;
 		radioCubierto = radio;

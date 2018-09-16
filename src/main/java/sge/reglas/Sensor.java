@@ -1,13 +1,18 @@
 package sge.reglas;
 
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
+
 import sge.SuperClase;
 
 @Entity
 public abstract class Sensor extends SuperClase{
+	@Id @GeneratedValue
+	private int id;
 	
 	public float medir() {
-		return -1; //valor negativo para reflejar que no hay implementación correcta aún
+		return -1; //valor negativo para reflejar que no hay implementaciï¿½n correcta aï¿½n
 	};
 	
 }

@@ -13,6 +13,10 @@ public class Coordenates {
 	double latitud;
 	double longitud;
 	
+	public Coordenates() {
+		super();
+	}
+	
 	public Coordenates(double longitud, double latitud) {
 		this.latitud = latitud;
 		this.longitud = longitud;

@@ -3,7 +3,11 @@ package sge.reglas;
 import java.util.function.Function;
 
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
 import javax.persistence.ManyToOne;
+import javax.persistence.Transient;
+
 import sge.SuperClase;
 import sge.dispositivos.inteligentes.DispositivoInteligente;
 
@@ -11,7 +15,8 @@ import sge.dispositivos.inteligentes.DispositivoInteligente;
 
 @Entity
 public class Regla extends SuperClase{
-	
+	@Id @GeneratedValue
+	private int id;
 	private String nombre;
 	//private List<Sensor> sensoresADisposicion; //pensamos que seria en un futuro una lista de sensores y actuadores, pero por el momenton por falta de informacion al respecto, lo planteamos para uno solo.
 	//private List<Actuador> actuadores;
@@ -22,7 +27,12 @@ public class Regla extends SuperClase{
 	@ManyToOne
 	private Actuador actuador;
 	
+	@Transient //es momentaneo, se deberia solucionar con respecto a lo hablado
 	private Function<Float,Boolean> funcion; //ver como persistir funciones
+	
+	public Regla() {
+		super();
+	}
 	
 	public Regla(String nombre,Sensor sensor, Actuador actuador) {
 		this.nombre = nombre;

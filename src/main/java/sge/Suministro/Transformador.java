@@ -30,6 +30,10 @@ public class Transformador {
 	private ZonaGeografica zona;
 /*	int id_zona; */
 
+	public Transformador() {
+		super();
+	}
+	
 	public Transformador(Coordenates posicion) {
 		this.posicion = posicion;
 	}

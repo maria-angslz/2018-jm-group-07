@@ -8,7 +8,7 @@ public class CasosDePrueba extends Fixture.FCasosDePrueba {
 		transaction.begin();
 		entityManager().persist(clienteConDosDispositivos);
 		transaction.commit(); 
-		//assertEquals("a", 1, 1);
+		
 		
 	}
 

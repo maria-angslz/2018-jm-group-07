@@ -5,6 +5,8 @@ import java.util.List;
 import java.util.stream.Stream;
 
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToOne;
 import javax.persistence.Transient;
@@ -22,6 +24,8 @@ import sge.simplex.SgeSimplex;
 
 @Entity
 public class Cliente extends SuperClase{
+	@Id @GeneratedValue
+	private int id; 
 	
 	private boolean simplexAutomatico = false;
 	final int puntosAgregarDisp = 15;
@@ -34,6 +38,7 @@ public class Cliente extends SuperClase{
 	private String domicilio;
 	private String telefono;
 	
+	@ManyToOne
 	private Categoria categoria;
 	
 	@Transient
@@ -42,6 +47,9 @@ public class Cliente extends SuperClase{
 	private List<DispositivoInteligente> dispositivosInteligentes;
 	private int puntos;
 
+	public Cliente() {
+		super();
+	}
 
 	public Cliente(String nombreYApellido, Documento documento, String domicilio, String telefono,
 			Categoria categoria, List<DispositivoEstandar> dispositivosEstandar, List<DispositivoInteligente> dispositivosInteligentes) {
