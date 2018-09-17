@@ -6,6 +6,7 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.ManyToOne;
+import javax.persistence.OneToOne;
 import javax.persistence.Transient;
 
 import sge.SuperClase;
@@ -21,10 +22,10 @@ public class Regla extends SuperClase{
 	//private List<Sensor> sensoresADisposicion; //pensamos que seria en un futuro una lista de sensores y actuadores, pero por el momenton por falta de informacion al respecto, lo planteamos para uno solo.
 	//private List<Actuador> actuadores;
 	
-	@ManyToOne
+	@OneToOne
 	private Sensor sensorADisposicion;
 	
-	@ManyToOne
+	@OneToOne
 	private Actuador actuador;
 	
 	@Transient //es momentaneo, se deberia solucionar con respecto a lo hablado

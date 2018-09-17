@@ -1,13 +1,18 @@
 package sge.categorias;
 
+import javax.persistence.DiscriminatorColumn;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.Inheritance;
+import javax.persistence.InheritanceType;
 import javax.persistence.OneToMany;
 
 import sge.clientes.Cliente;
 
 @Entity
+@DiscriminatorColumn(name = "tipo")
+@Inheritance(strategy = InheritanceType.SINGLE_TABLE)
 public abstract class Categoria {
 	
 	@Id @GeneratedValue

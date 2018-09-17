@@ -42,10 +42,11 @@ public class Cliente extends SuperClase{
 	@ManyToOne(cascade = {CascadeType.PERSIST})
 	private Categoria categoria;
 	
-	@Transient
+	@Transient //seria OneToMany
 	private List<DispositivoEstandar> dispositivosEstandar;
-	@Transient
+	@Transient //seria OneToMany
 	private List<DispositivoInteligente> dispositivosInteligentes;
+	
 	private int puntos;
 
 	public Cliente() {

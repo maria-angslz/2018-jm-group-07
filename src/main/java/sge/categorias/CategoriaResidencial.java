@@ -2,11 +2,22 @@ package sge.categorias;
 
 import java.time.temporal.ValueRange;
 
+import javax.persistence.DiscriminatorValue;
+import javax.persistence.Entity;
+import javax.persistence.Transient;
+
+@Entity
+@DiscriminatorValue(value = "Residencial")
 public class CategoriaResidencial extends Categoria {
 	private double cargoFijo;
 	private double cargoPorkWh;
+	@Transient //hay que preguntar como poder persistirlo
 	private ValueRange rango;
 
+	public CategoriaResidencial(){
+		super();
+	}
+	
 	public CategoriaResidencial(double cargoFijo, double cargoPorkWh, int min, int max) {
 		this.cargoFijo = cargoFijo;
 		this.cargoPorkWh = cargoPorkWh;

@@ -6,6 +6,8 @@ import java.util.List;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 import javax.persistence.Transient;
 
@@ -17,7 +19,8 @@ import sge.clientes.Cliente;
 public class ZonaGeografica {
 	@Id @GeneratedValue
 	int id;
-	@Transient
+	@OneToMany
+	@JoinColumn(name="idZona")
 	List<Transformador> transformadores;
 	int radioCubierto;
 	@OneToOne
