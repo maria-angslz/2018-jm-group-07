@@ -27,7 +27,7 @@ import sge.simplex.SgeSimplex;
 @Entity
 public class Cliente extends SuperClase{
 
-	private boolean simplexAutomatico = false;
+	private int simplexAutomatico = 0;
 	final int puntosAgregarDisp = 15;
 	final int puntosConvDispEaI = 10;
 	private String nombreYApellido;
@@ -152,11 +152,11 @@ public class Cliente extends SuperClase{
 		return categoria;
 	}
 
-	public boolean getSimplexAutomatico() {
+	public int getSimplexAutomatico() {
 		return simplexAutomatico;
 	}
 
-	public void setSimplexAutomatico(boolean b) {
+	public void setSimplexAutomatico(int b) {
 		simplexAutomatico = b;
 	}
 	
@@ -192,11 +192,11 @@ public class Cliente extends SuperClase{
 	}
 	
 	public void activarAhorroAutomatico() {
-		this.simplexAutomatico = true;
+		this.simplexAutomatico = 1;
 	}
 	
 	public void desactivarAhorroAutomatico() {
-		this.simplexAutomatico = false;
+		this.simplexAutomatico = 0;
 	}
 
 }

@@ -15,6 +15,6 @@ public class RepoClientes extends RepoGenerico<Cliente> {
 	}
 	
 	public List<Cliente> obtenerClientesSimplex() {
-		return RepoClientes.getInstance().get().stream().filter(cliente -> cliente.getSimplexAutomatico()).collect(Collectors.toList());
+		return RepoClientes.getInstance().get().stream().filter(cliente -> cliente.getSimplexAutomatico() == 1).collect(Collectors.toList());
 	}
 }

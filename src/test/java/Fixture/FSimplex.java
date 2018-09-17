@@ -37,7 +37,7 @@ public class FSimplex {
 		unAire.add(aire);
 		clienteConUnAire = new Cliente( "Pepe Mitre" ,
 				new Documento(40732178, TipoDocumento.DNI), "Belgrano 241", "01149231234", r3, estandares, unAire, new Coordenates(1,1));
-		clienteConUnAire.setSimplexAutomatico(true);
+		clienteConUnAire.setSimplexAutomatico(1);
 		RepoClientes.getInstance().agregar(clienteConUnAire);
 //		List<DispositivoInteligente> inteligentes2 = new ArrayList<DispositivoInteligente>();
 		cuatroAires.add(aire);
