@@ -26,6 +26,8 @@ public class FCasosDePrueba //extends AbstractPersistenceTest implements WithGlo
 	public EntityManager entityManager;
 	public EntityTransaction transaction;
 	public Cliente clienteConDosDispositivos;
+	public DispositivoInteligente smartTv;
+	
 	
 	@Before
 	public void init() {
@@ -33,7 +35,7 @@ public class FCasosDePrueba //extends AbstractPersistenceTest implements WithGlo
 		entityManager = PerThreadEntityManagers.getEntityManager();
 		transaction = entityManager.getTransaction();
 		
-		DispositivoInteligente smartTv = Factory.Inteligente().Televisor(0.6);
+		smartTv = Factory.Inteligente().Televisor(0.6);
 		DispositivoInteligente pc = Factory.Inteligente().Computadora(0.6);
 		
 		Categoria r3 = new CategoriaResidencial(60.71, 0.681, 325, 400);

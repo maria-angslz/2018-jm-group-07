@@ -38,7 +38,7 @@ public class ProcesoSimplex {
 		
 		clientesSimplex.forEach(cliente -> {
 			ResultadoSimplex resultado = cliente.consumoIdeal();
-//			List<DispositivoInteligente> dispositivosApagar = new ArrayList<DispositivoInteligente>();
+			
 			for (int i = 0; i < resultado.dispositivos.size(); i++) {
 				Dispositivo disp = resultado.dispositivos.get(i);
 				double maximo = resultado.horasOptimasDisps.get(i);
@@ -48,8 +48,6 @@ public class ProcesoSimplex {
 					unaRegla.setFuncion(funcionCumplir);
 					unaRegla.ejecutar((float) dispInteligente.consumoMensual(),dispInteligente);
 					
-//					if (dispInteligente.consumoMensual() > maximo)
-//						dispositivosApagar.add(dispInteligente);
 				});		
 			}
 		});

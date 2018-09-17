@@ -23,6 +23,14 @@ public class DispositivoInteligente extends Dispositivo {
 //		this(nombre, consumoKWxHora, 0.0, 0.0);
 //	}
 	
+	public String getNombre() {
+		return nombre;
+	}
+
+	public void setNombre(String nombre) {
+		this.nombre = nombre;
+	}
+
 	public void setDispositivoFisico(DispositivoInteligenteFisico unDispositivoFisico) {
 		this.dispositivoFisico = unDispositivoFisico;
 	}
