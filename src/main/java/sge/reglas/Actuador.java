@@ -12,9 +12,7 @@ import sge.dispositivos.inteligentes.DispositivoInteligente;
 
 @Entity
 public class Actuador extends SuperClase{
-	@Id @GeneratedValue
-	private int id;
-	
+
 	private String nombre;
 	// private Decodificador unDeco;
 	
@@ -22,7 +20,6 @@ public class Actuador extends SuperClase{
 	//Ver como se hace para persistir este atributo
 	private Funcion funcion; //le cambiamos el tipo
 
-	@OneToOne
 	private int idFuncion;
 	
 	public int getIdFuncion() {

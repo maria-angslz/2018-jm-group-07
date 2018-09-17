@@ -16,8 +16,7 @@ import sge.dispositivos.inteligentes.DispositivoInteligente;
 
 @Entity
 public class Regla extends SuperClase{
-	@Id @GeneratedValue
-	private int id;
+
 	private String nombre;
 	//private List<Sensor> sensoresADisposicion; //pensamos que seria en un futuro una lista de sensores y actuadores, pero por el momenton por falta de informacion al respecto, lo planteamos para uno solo.
 	//private List<Actuador> actuadores;

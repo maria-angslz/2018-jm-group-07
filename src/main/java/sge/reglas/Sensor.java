@@ -8,9 +8,7 @@ import sge.SuperClase;
 
 @Entity
 public abstract class Sensor extends SuperClase{
-	@Id @GeneratedValue
-	private int id;
-	
+
 	public float medir() {
 		return -1; //valor negativo para reflejar que no hay implementaci�n correcta a�n
 	};

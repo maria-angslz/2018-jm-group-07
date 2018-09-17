@@ -26,9 +26,7 @@ import sge.simplex.SgeSimplex;
 
 @Entity
 public class Cliente extends SuperClase{
-	@Id @GeneratedValue
-	private int id; 
-	
+
 	private boolean simplexAutomatico = false;
 	final int puntosAgregarDisp = 15;
 	final int puntosConvDispEaI = 10;
