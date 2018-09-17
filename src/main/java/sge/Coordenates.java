@@ -10,22 +10,22 @@ public class Coordenates {
 	@Id @GeneratedValue
 	private int id;
 	
-	double latitud;
-	double longitud;
+	float latitud;
+	float longitud;
 	
 	public Coordenates() {
 		super();
 	}
 	
-	public Coordenates(double longitud, double latitud) {
+	public Coordenates(float longitud, float latitud) {
 		this.latitud = latitud;
 		this.longitud = longitud;
 	}
-	public double X() {
+	public float X() {
 		return longitud;
 	}
 	
-	public double Y() {
+	public float Y() {
 		return latitud;
 	}
 	

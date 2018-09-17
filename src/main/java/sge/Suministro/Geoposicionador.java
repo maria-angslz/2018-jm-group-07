@@ -25,13 +25,7 @@ public class Geoposicionador {
 	
 	public void ubicarTransformadorSegunZona(Cliente uncliente) {
 		
-		this.ubicarZonaSegunCoordenada(this.coordenates(uncliente.domicilio())).asignarTransformadorAcliente(uncliente, this.coordenates(uncliente.domicilio()));
-		
-	}
-	
-	public Coordenates coordenates(String domicilio) {
-		
-		return new Coordenates(1, 1);
+		this.ubicarZonaSegunCoordenada(uncliente.miCoordenada()).asignarTransformadorAcliente(uncliente, uncliente.miCoordenada());
 		
 	}
 	

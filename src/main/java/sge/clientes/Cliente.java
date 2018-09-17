@@ -12,6 +12,7 @@ import javax.persistence.ManyToOne;
 import javax.persistence.OneToOne;
 import javax.persistence.Transient;
 
+import sge.Coordenates;
 import sge.Documento;
 import sge.SuperClase;
 import sge.categorias.Categoria;
@@ -36,6 +37,9 @@ public class Cliente extends SuperClase{
 	@OneToOne(cascade = {CascadeType.PERSIST})
 	private Documento documento;
 	
+	@OneToOne(cascade = {CascadeType.PERSIST})
+	private Coordenates miCoordenada;
+	
 	private String domicilio;
 	private String telefono;
 	
@@ -54,7 +58,7 @@ public class Cliente extends SuperClase{
 	}
 
 	public Cliente(String nombreYApellido, Documento documento, String domicilio, String telefono,
-			Categoria categoria, List<DispositivoEstandar> dispositivosEstandar, List<DispositivoInteligente> dispositivosInteligentes) {
+			Categoria categoria, List<DispositivoEstandar> dispositivosEstandar, List<DispositivoInteligente> dispositivosInteligentes, Coordenates miCoordenada) {
 		this.nombreYApellido = nombreYApellido;
 		this.documento = documento;
 		this.domicilio = domicilio;
@@ -62,6 +66,7 @@ public class Cliente extends SuperClase{
 		this.categoria = categoria;
 		this.dispositivosEstandar = dispositivosEstandar;
 		this.dispositivosInteligentes = dispositivosInteligentes;
+		this.miCoordenada = miCoordenada;
 		
 		/*
 		List<Dispositivo> construibles = RepoDispositivosResidenciales.getInstance().all();
@@ -70,6 +75,13 @@ public class Cliente extends SuperClase{
 		*/
 		
 		agregarPuntosIniciales();
+	}
+	
+	public Coordenates miCoordenada() {
+		return miCoordenada;
+	}
+	public void nuevaCoordenada(Coordenates nuevaCoordenada) {
+		miCoordenada = nuevaCoordenada;
 	}
 	
 	public void agregarPuntosIniciales() {

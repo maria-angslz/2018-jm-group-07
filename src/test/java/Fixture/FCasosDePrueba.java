@@ -4,17 +4,13 @@ import java.util.ArrayList;
 import java.util.List;
 
 import javax.persistence.EntityManager;
-import javax.persistence.EntityManagerFactory;
 import javax.persistence.EntityTransaction;
-import javax.persistence.Persistence;
 
 import org.junit.Before;
 import org.mockito.Mockito;
-import org.omg.CORBA.PERSIST_STORE;
 import org.uqbarproject.jpa.java8.extras.PerThreadEntityManagers;
-import org.uqbarproject.jpa.java8.extras.WithGlobalEntityManager;
-import org.uqbarproject.jpa.java8.extras.test.AbstractPersistenceTest;
 
+import sge.Coordenates;
 import sge.Documento;
 import sge.TipoDocumento;
 import sge.categorias.Categoria;
@@ -52,8 +48,9 @@ public class FCasosDePrueba //extends AbstractPersistenceTest implements WithGlo
 		dosDispositivosInteligentes.add(smartTv);
 		dosDispositivosInteligentes.add(pc);
 		
+		
 		clienteConDosDispositivos = new Cliente("Martin Perez",
-				new Documento(40732178, TipoDocumento.DNI), "Belgrano 2251", "01149212334", r3,sinDispositivosEstandar, dosDispositivosInteligentes);
+				new Documento(40732178, TipoDocumento.DNI), "Belgrano 2251", "01149212334", r3,sinDispositivosEstandar, dosDispositivosInteligentes, new Coordenates(1,1));
 		
 	}
 }

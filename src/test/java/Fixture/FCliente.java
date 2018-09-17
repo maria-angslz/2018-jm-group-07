@@ -6,6 +6,7 @@ import org.junit.Before;
 
 import org.mockito.Mockito;
 
+import sge.Coordenates;
 import sge.Documento;
 import sge.TipoDocumento;
 import sge.categorias.Categoria;
@@ -39,13 +40,13 @@ public class FCliente {
 		dosDispositivosInteligentes.add(smartTv);
 		dosDispositivosInteligentes.add(pc);
 		clienteConDosDispositivos = new Cliente("Martin Perez",
-				new Documento(40732178, TipoDocumento.DNI), "Belgrano 2251", "01149212334", r3,sinDispositivosEstandar, dosDispositivosInteligentes);
+				new Documento(40732178, TipoDocumento.DNI), "Belgrano 2251", "01149212334", r3,sinDispositivosEstandar, dosDispositivosInteligentes, new Coordenates(1,1));
 		clienteSinDispositivos = new Cliente("Juan Lopez",
-				new Documento(40732178, TipoDocumento.DNI), "Santa Fe 1781", "01141131234", r3, sinDispositivosEstandar, sinDispositivosInteligentes);
+				new Documento(40732178, TipoDocumento.DNI), "Santa Fe 1781", "01141131234", r3, sinDispositivosEstandar, sinDispositivosInteligentes, new Coordenates(1,1));
 		List<DispositivoEstandar> unDispositivoEstandar = new ArrayList<DispositivoEstandar>();
 		unDispositivoEstandar.add(heladera);
 		clienteConUnDispositivo = new Cliente( "Pepe Mitre" ,
-				new Documento(40732178, TipoDocumento.DNI), "Belgrano 241", "01149231234", r3, unDispositivoEstandar, sinDispositivosInteligentes);
+				new Documento(40732178, TipoDocumento.DNI), "Belgrano 241", "01149231234", r3, unDispositivoEstandar, sinDispositivosInteligentes, new Coordenates(1,1));
 		clienteMock = Mockito.spy(clienteConUnDispositivo);
 		
 	}

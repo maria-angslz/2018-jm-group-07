@@ -41,7 +41,7 @@ public class FSumistro {
 		dosDispositivosInteligentes.add(smartTv);
 		dosDispositivosInteligentes.add(pc);
 		clienteConDosDispositivos = new Cliente("Martin Perez",
-				new Documento(40732178, TipoDocumento.DNI), "Belgrano 2251", "01149212334", r3,sinDispositivosEstandar, dosDispositivosInteligentes);
+				new Documento(40732178, TipoDocumento.DNI), "Belgrano 2251", "01149212334", r3,sinDispositivosEstandar, dosDispositivosInteligentes, new Coordenates(1,1));
 		////////////////////////////////////////////
 		RepoClientes.getInstance().agregar(clienteConDosDispositivos);		
 		
