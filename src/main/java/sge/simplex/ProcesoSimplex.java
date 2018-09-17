@@ -8,6 +8,7 @@ import sge.dispositivos.Dispositivo;
 import sge.dispositivos.inteligentes.DispositivoInteligente;
 import sge.persistencia.repos.RepoClientes;
 import sge.reglas.Actuador;
+import sge.reglas.Funcion;
 import sge.reglas.Regla;
 
 public class ProcesoSimplex {
@@ -32,7 +33,7 @@ public class ProcesoSimplex {
 
 	public static void ejecutar() {
 		List<Cliente> clientesSimplex = RepoClientes.getInstance().obtenerClientesSimplex();
-		Actuador unActuador = new Actuador("apagar dispositivo", (d -> d.apagar()));
+		Actuador unActuador = new Actuador("apagar dispositivo", 0);
 		Regla unaRegla = new Regla("Controlar consumo mensual", unActuador);
 		
 		clientesSimplex.forEach(cliente -> {

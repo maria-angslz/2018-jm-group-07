@@ -31,6 +31,8 @@ public class Regla extends SuperClase{
 	@Transient //es momentaneo, se deberia solucionar con respecto a lo hablado
 	private Function<Float,Boolean> funcion; //ver como persistir funciones
 	
+	private int idFuncion;
+
 	public Regla() {
 		super();
 	}
@@ -54,14 +56,23 @@ public class Regla extends SuperClase{
 	public void ejecutar(DispositivoInteligente dispositivo) { //con la medicion de un sensor
 		float medicion = sensorADisposicion.medir();
 		if(funcion.apply(medicion)) {
-			actuador.accionar(dispositivo);
+			actuador.actuar(dispositivo);
 		}
 		
 	}
 	
 	public void ejecutar(float medicion, DispositivoInteligente dispositivo) {
 		if(funcion.apply(medicion)) {
-			actuador.accionar(dispositivo); //recibir la lista de dispositivos y pasarla como parametro
+			actuador.actuar(dispositivo); //recibir la lista de dispositivos y pasarla como parametro
 		}
 	}
+
+	public int getIdFuncion() {
+		return idFuncion;
+	}
+
+	public void setIdFuncion(int idFuncion) {
+		this.idFuncion = idFuncion;
+	}
+	
 }

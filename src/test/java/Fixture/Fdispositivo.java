@@ -26,16 +26,10 @@ public class Fdispositivo {
 	
 	public void Init() {
 		LuzInteligente = Factory.Inteligente().Lampara(100);
-//		LuzInteligente = new DispositivoInteligente("Luz",100, TipoDeDispositivo.Lampara);
-		
-//		dispoInteligentes = new ArrayList<DispositivoInteligente>();
-		
-//		dispoInteligentes.add(LuzInteligente);
 
-		Consumer<DispositivoInteligente> accionAEjecutar = (dispositivo) -> dispositivo.encender();
 		mockSensorLuminosidad = Mockito.mock(Sensor.class);
 		when(mockSensorLuminosidad.medir()).thenReturn((float) 0); //valor mockeado
-		Actuador unActuador = new Actuador("apaga luz", accionAEjecutar);
+		Actuador unActuador = new Actuador("encender luz", 1);
 		Function<Float,Boolean> funcionCumplir = (medicion) -> (Boolean) ((50) > (medicion));
 		unaRegla = new Regla("Determinacion de encendido de luz", mockSensorLuminosidad, unActuador);
 		unaRegla.setFuncion(funcionCumplir);
