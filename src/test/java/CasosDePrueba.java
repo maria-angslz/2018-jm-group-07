@@ -4,7 +4,6 @@ import org.junit.Test;
 
 import sge.Coordenates;
 import sge.clientes.Cliente;
-import sge.dispositivos.Dispositivo;
 import sge.dispositivos.inteligentes.*;
 
 public class CasosDePrueba extends Fixture.FCasosDePrueba {

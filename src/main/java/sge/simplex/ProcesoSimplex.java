@@ -8,7 +8,6 @@ import sge.dispositivos.Dispositivo;
 import sge.dispositivos.inteligentes.DispositivoInteligente;
 import sge.persistencia.repos.RepoClientes;
 import sge.reglas.Actuador;
-import sge.reglas.Funcion;
 import sge.reglas.Regla;
 
 public class ProcesoSimplex {

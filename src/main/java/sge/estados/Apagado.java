@@ -1,7 +1,13 @@
 package sge.estados;
+
+import javax.persistence.DiscriminatorValue;
+import javax.persistence.Entity;
+
 import sge.dispositivos.inteligentes.DispositivoInteligente;
 
-public class Apagado implements EstadoDispositivo {
+@Entity
+@DiscriminatorValue(value = "Apagado")
+public class Apagado extends EstadoDispositivo {
 	
 	public boolean encendido() {
 		return false;

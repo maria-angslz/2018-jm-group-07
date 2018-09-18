@@ -1,14 +1,35 @@
 package sge.dispositivos.inteligentes;
 
+import javax.persistence.CascadeType;
+import javax.persistence.DiscriminatorColumn;
+import javax.persistence.Entity;
+import javax.persistence.EnumType;
+import javax.persistence.Enumerated;
+import javax.persistence.Inheritance;
+import javax.persistence.InheritanceType;
+import javax.persistence.ManyToOne;
+import javax.persistence.Transient;
 import sge.dispositivos.Dispositivo;
 import sge.dispositivos.TipoDeDispositivo;
 import sge.estados.*;
 
+@Entity
+@DiscriminatorColumn(name = "especial")
+@Inheritance(strategy = InheritanceType.SINGLE_TABLE)
 public class DispositivoInteligente extends Dispositivo {
-	private String nombre;
-	private double consumoKWxHora;
+	
+	protected String nombre;
+	protected double consumoKWxHora;
+
+	@Enumerated(EnumType.ORDINAL)
+	protected TipoDeDispositivo tipo;
+	
+	@ManyToOne(cascade = {CascadeType.PERSIST})
 	private EstadoDispositivo estado; //aca podriamos usar un repo de estados, para no tener que andar instanciando todo el tiempo
+	
 	private double IDFabrica = (Math.random() * 100000) + 1; //deberia cambiarse dsps y meter los nros generados en una lista, para comprobar que no se repitan
+	
+	@Transient //no lo persistimos
 	private DispositivoInteligenteFisico dispositivoFisico; //deberia haber un repo de dispositivos fisicos y pedir el dispositivo con el mismo IDFabrica?
 
 	public DispositivoInteligente(String nombre, double consumoKWxHora, TipoDeDispositivo tipo) { //double maximo, double minimo

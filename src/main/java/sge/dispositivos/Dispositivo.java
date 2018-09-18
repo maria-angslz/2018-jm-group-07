@@ -2,11 +2,21 @@ package sge.dispositivos;
 
 import sge.SuperClase;
 
-public abstract class Dispositivo extends SuperClase{
+public abstract class Dispositivo extends SuperClase
+{
+	
+	
+	protected String nombre;
+	protected double consumoKWxHora;
+
+	protected TipoDeDispositivo tipo;
+	
+
 	public abstract double consumoKWxHora();
 //	protected double minimo;
 //	protected double maximo;
-	protected TipoDeDispositivo tipo;
+	
+	
 	public abstract double consumoMensual();
 	public Double getMinimo() {
 		return (double) tipo.getMinimo();

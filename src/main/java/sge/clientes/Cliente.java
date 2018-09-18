@@ -6,11 +6,10 @@ import java.util.stream.Stream;
 
 import javax.persistence.CascadeType;
 import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
+import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
-import javax.persistence.Transient;
 
 import sge.Coordenates;
 import sge.Documento;
@@ -44,9 +43,12 @@ public class Cliente extends SuperClase{
 	@ManyToOne(cascade = {CascadeType.PERSIST})
 	private Categoria categoria;
 	
-	@Transient //seria OneToMany
+	@OneToMany(cascade = {CascadeType.PERSIST})
+	@JoinColumn(name="idCliente")
 	private List<DispositivoEstandar> dispositivosEstandar;
-	@Transient //seria OneToMany
+	
+	@OneToMany(cascade = {CascadeType.PERSIST})
+	@JoinColumn(name="idCliente")
 	private List<DispositivoInteligente> dispositivosInteligentes;
 	
 	private int puntos;

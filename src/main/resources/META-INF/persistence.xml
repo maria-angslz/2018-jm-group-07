@@ -15,6 +15,14 @@
     	<class>sge.Suministro.ZonaGeografica</class>
     	<class>sge.Suministro.Transformador</class>
     	<class>sge.Coordenates</class>
+    	<class>sge.dispositivos.TipoDeDispositivo</class>
+    	<class>sge.dispositivos.estandar.DispositivoEstandar</class>
+    	<class>sge.dispositivos.conModulo.DispositivoConModulo</class>
+    	<class>sge.dispositivos.inteligentes.DispositivoInteligente</class>
+    	<class>sge.estados.EstadoDispositivo</class>
+    	<class>sge.estados.AhorroDeEnergia</class>
+    	<class>sge.estados.Apagado</class>
+    	<class>sge.estados.Encendido</class>
     	 
         <properties> 
 	    <property name="hibernate.archive.autodetection" value="class"/>        

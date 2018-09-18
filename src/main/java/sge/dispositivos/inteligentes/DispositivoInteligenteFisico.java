@@ -2,10 +2,10 @@ package sge.dispositivos.inteligentes;
 
 public interface DispositivoInteligenteFisico {
 	
-	public void apagar();
+	public abstract void apagar();
 	
-	public void encender();
+	public abstract void encender();
 	
-	public void entrarEnModoAhorroDeEnergia();
+	public abstract void entrarEnModoAhorroDeEnergia();
 
 }

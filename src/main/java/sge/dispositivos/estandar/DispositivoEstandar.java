@@ -1,19 +1,29 @@
 package sge.dispositivos.estandar;
 
+import javax.persistence.Entity;
+import javax.persistence.EnumType;
+import javax.persistence.Enumerated;
+
 import sge.dispositivos.Dispositivo;
 import sge.dispositivos.TipoDeDispositivo;
 
+@Entity
 public class DispositivoEstandar extends Dispositivo {
-	private String nombre;
-	private double consumoKWxHora;
-	private int horasDeUsoDiarias;
-	private TipoDeDispositivo tipo;
 	
-	public DispositivoEstandar(String nombre, double consumoKWxH, int horas, TipoDeDispositivo tipo) { //double maximo, double minimo
+	private int horasDeUsoDiarias;
+
+	protected String nombre;
+	protected double consumoKWxHora;
+
+	@Enumerated(EnumType.ORDINAL)
+	protected TipoDeDispositivo tipo;
+	
+	
+	public DispositivoEstandar(String unNombre, double consumoKWxH, int horas, TipoDeDispositivo tipo) { //double maximo, double minimo
 //		this.maximo = maximo;
 //		this.minimo = minimo;
 		this.tipo = tipo;
-		this.nombre = nombre;
+		nombre = unNombre;
 		this.consumoKWxHora = consumoKWxH;
 		this.horasDeUsoDiarias = horas;
 	}

@@ -6,9 +6,6 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.Inheritance;
 import javax.persistence.InheritanceType;
-import javax.persistence.OneToMany;
-
-import sge.clientes.Cliente;
 
 @Entity
 @DiscriminatorColumn(name = "tipo")

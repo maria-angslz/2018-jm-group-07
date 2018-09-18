@@ -1,9 +1,6 @@
 package sge.reglas;
 
 import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
-import javax.persistence.OneToOne;
 import javax.persistence.Transient;
 
 import sge.SuperClase;
@@ -28,7 +25,7 @@ public class Actuador extends SuperClase{
 
 	public void setIdFuncion(int idFuncion) {
 		this.idFuncion = idFuncion;
-	}
+	} 
 
 	public Actuador() {
 		super();

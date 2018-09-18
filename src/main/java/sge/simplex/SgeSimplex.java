@@ -2,9 +2,7 @@ package sge.simplex;
 
 import java.util.ArrayList;
 import java.util.Arrays;
-import java.util.Collections;
 import java.util.List;
-import java.util.stream.DoubleStream;
 
 import org.apache.commons.math3.optim.MaxIter;
 import org.apache.commons.math3.optim.PointValuePair;
@@ -17,7 +15,6 @@ import org.apache.commons.math3.optim.linear.SimplexSolver;
 import org.apache.commons.math3.optim.nonlinear.scalar.GoalType;
 
 import sge.dispositivos.Dispositivo;
-import sge.persistencia.json.JSONWrapper;
 
 public class SgeSimplex {
 	

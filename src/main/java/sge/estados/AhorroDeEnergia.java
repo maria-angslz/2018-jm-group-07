@@ -1,8 +1,13 @@
 package sge.estados;
 
+import javax.persistence.DiscriminatorValue;
+import javax.persistence.Entity;
+
 import sge.dispositivos.inteligentes.DispositivoInteligente;
 
-public class AhorroDeEnergia implements EstadoDispositivo {
+@Entity
+@DiscriminatorValue(value = "AhorroDeEnergia")
+public class AhorroDeEnergia extends EstadoDispositivo {
 	
 	public boolean encendido() {
 		return false;
