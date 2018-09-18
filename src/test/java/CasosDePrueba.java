@@ -46,7 +46,7 @@ public class CasosDePrueba extends Fixture.FCasosDePrueba {
 		transaction.begin();
 		//recupero dispositivo
 		DispositivoInteligente unDispositivoInteligente = entityManager.find(DispositivoInteligente.class, new Integer(1));
-		System.out.println(unDispositivoInteligente.getNombre());
+		System.out.println("El nombre del dispotivo es " + unDispositivoInteligente.getNombre());
 		
 		//muestro intervalos de encendido del mes
 		

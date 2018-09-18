@@ -40,6 +40,11 @@ public class DispositivoInteligente extends Dispositivo {
 		this.consumoKWxHora = consumoKWxHora;
 		this.estado = new Apagado(); //el dispositivo inicia apagado
 	}
+	
+	public DispositivoInteligente() {
+		super();
+	}
+	
 //	public DispositivoInteligente(String nombre, double consumoKWxHora) {
 //		this(nombre, consumoKWxHora, 0.0, 0.0);
 //	}
