@@ -8,6 +8,7 @@ import sge.dispositivos.Dispositivo;
 import sge.dispositivos.inteligentes.DispositivoInteligente;
 import sge.persistencia.repos.RepoClientes;
 import sge.reglas.Actuador;
+import sge.reglas.FuncionRegla;
 import sge.reglas.Regla;
 
 public class ProcesoSimplex {
@@ -33,7 +34,7 @@ public class ProcesoSimplex {
 	public static void ejecutar() {
 		List<Cliente> clientesSimplex = RepoClientes.getInstance().obtenerClientesSimplex();
 		Actuador unActuador = new Actuador("apagar dispositivo", 0);
-		Regla unaRegla = new Regla("Controlar consumo mensual", unActuador);
+		Regla unaRegla = new Regla("Controlar consumo mensual", unActuador,0); //0 es el id de la funcion MAYORQUE
 		
 		clientesSimplex.forEach(cliente -> {
 			ResultadoSimplex resultado = cliente.consumoIdeal();
@@ -43,9 +44,7 @@ public class ProcesoSimplex {
 				double maximo = resultado.horasOptimasDisps.get(i);
 				Optional<DispositivoInteligente> optDispInteligente = cliente.getDispositivosInteligentes().stream().filter(d -> d == disp).findFirst();
 				optDispInteligente.ifPresent(dispInteligente -> {
-					Function<Float,Boolean> funcionCumplir = (medicion) -> (Boolean) ((maximo) < (medicion));
-					unaRegla.setFuncion(funcionCumplir);
-					unaRegla.ejecutar((float) dispInteligente.consumoMensual(),dispInteligente);
+					unaRegla.ejecutar((float) dispInteligente.consumoMensual(),maximo,dispInteligente);
 					
 				});		
 			}

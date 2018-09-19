@@ -39,9 +39,12 @@ public class CasosDePrueba extends Fixture.FCasosDePrueba {
 	@Test
 	public void casoDePrueba2() {
 		
-		transaction.begin();
-		entityManager.persist(smartTv);
-		transaction.commit();		
+		// en caso de no correr previamente el caso de prueba 1, ejecutar también las tres líneas 
+		// comentadas debajo
+
+//		transaction.begin();
+//		entityManager.persist(smartTv);
+//		transaction.commit();		
 		
 		transaction.begin();
 		//recupero dispositivo
@@ -49,9 +52,21 @@ public class CasosDePrueba extends Fixture.FCasosDePrueba {
 		System.out.println("El nombre del dispotivo es " + unDispositivoInteligente.getNombre());
 		
 		//muestro intervalos de encendido del mes
+
+		//esta es una idea aproximada sobre lo que tiene que quedar en el caso de prueba
 		
-		// ??????????????????????????????????????
-		
+//		Calendar c = Calendar.getInstance();
+//		
+//		List<RegistroEstado> resultado;
+//				
+//		resultado = entityManager.createQuery("SELECT * FROM registroestado WHERE MONTH(fechaCambio)= :mesDeHoy AND idNuevoEstado = :idNuevoEst").setParameter("mesDeHoy",c.get(Calendar.MONTH)).setParameter("idNuevoEst",1).getResultList();
+//				
+//		for (int i = 0; i < resultado.size(); i++) {
+//		    System.out.println(resultado.get(i).getIdDispositivo());
+//		    System.out.println(resultado.get(i).getIdNuevoEstado());
+//		    System.out.println(resultado.get(i).getFechaCambio());
+//			}
+//
 		
 		//modifico atributo
 		unDispositivoInteligente.setNombre("Nombre modificado");

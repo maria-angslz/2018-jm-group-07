@@ -13,7 +13,7 @@ public class Actuador extends SuperClase{
 	private String nombre;
 	// private Decodificador unDeco;
 	
-	@Transient //es momentaneo! se deberia realizar el cambio hablado 
+	@Transient //no persistimos la función en sí, sino el id
 	//Ver como se hace para persistir este atributo
 	private Funcion funcion; //le cambiamos el tipo
 

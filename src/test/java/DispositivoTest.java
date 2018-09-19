@@ -12,7 +12,7 @@ import sge.estados.Encendido;
 public class DispositivoTest extends Fdispositivo {
 	@Test
 	public void testEncederAlCumplirseCondicionDada() {
-		unaRegla.ejecutar(LuzInteligente);
+		unaRegla.ejecutar(LuzInteligente,50);
 		assertTrue("El actuador debe enviar la orden de encender la luz",LuzInteligente.encendido());
 	}
 	

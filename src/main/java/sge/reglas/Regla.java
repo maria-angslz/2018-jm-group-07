@@ -1,5 +1,6 @@
 package sge.reglas;
 
+import java.util.function.BiFunction;
 import java.util.function.Function;
 
 import javax.persistence.Entity;
@@ -24,41 +25,44 @@ public class Regla extends SuperClase{
 	@OneToOne
 	private Actuador actuador;
 	
-	@Transient //es momentaneo, se deberia solucionar con respecto a lo hablado
-	private Function<Float,Boolean> funcion; //ver como persistir funciones
+	@Transient //no persistimos la función en sí, sino el id
+	private FuncionRegla funcion; //ver como persistir funciones
 	
+	@OneToOne
 	private int idFuncion;
 
 	public Regla() {
 		super();
 	}
 	
-	public Regla(String nombre,Sensor sensor, Actuador actuador) {
+	public Regla(String nombre,Sensor sensor, Actuador actuador, int idFuncion) {
 		this.nombre = nombre;
 		this.sensorADisposicion = sensor;
 		this.actuador = actuador;
+		this.idFuncion = idFuncion;
+		this.funcion = FuncionRegla.values()[idFuncion];
 	}
 	
-	public Regla(String nombre, Actuador actuador) { //, Function<Float, Boolean> unaFuncion
+	public Regla(String nombre, Actuador actuador, int idFuncion) { //, Function<Float, Boolean> unaFuncion
 		this.nombre = nombre;
 		this.actuador = actuador;
-		//this.funcion = unaFuncion;
+		this.idFuncion = idFuncion;
+		this.funcion = FuncionRegla.values()[idFuncion];
 	}
 	
-	public void setFuncion(Function<Float,Boolean> funcionACumplir) {
+	public void setFuncion(FuncionRegla funcionACumplir) {
 		this.funcion = funcionACumplir;
 	}
 	
-	public void ejecutar(DispositivoInteligente dispositivo) { //con la medicion de un sensor
+	public void ejecutar(DispositivoInteligente dispositivo, double maximo) { //con la medicion de un sensor
 		float medicion = sensorADisposicion.medir();
-		if(funcion.apply(medicion)) {
+		if(funcion.ejecutar(medicion,maximo)) {
 			actuador.actuar(dispositivo);
 		}
-		
 	}
 	
-	public void ejecutar(float medicion, DispositivoInteligente dispositivo) {
-		if(funcion.apply(medicion)) {
+	public void ejecutar(float medicion, double maximo, DispositivoInteligente dispositivo) {
+		if(funcion.ejecutar(medicion,maximo)) {
 			actuador.actuar(dispositivo); //recibir la lista de dispositivos y pasarla como parametro
 		}
 	}

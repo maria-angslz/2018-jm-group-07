@@ -29,9 +29,7 @@ public class Fdispositivo {
 		mockSensorLuminosidad = Mockito.mock(Sensor.class);
 		when(mockSensorLuminosidad.medir()).thenReturn((float) 0); //valor mockeado
 		Actuador unActuador = new Actuador("encender luz", 1);
-		Function<Float,Boolean> funcionCumplir = (medicion) -> (Boolean) ((50) > (medicion));
-		unaRegla = new Regla("Determinacion de encendido de luz", mockSensorLuminosidad, unActuador);
-		unaRegla.setFuncion(funcionCumplir);
+		unaRegla = new Regla("Determinacion de encendido de luz", mockSensorLuminosidad, unActuador,1);
 		mockDispositivoFisico = Mockito.mock(DispositivoInteligenteFisico.class);
 		LuzInteligente.setDispositivoFisico(mockDispositivoFisico);
 	}
