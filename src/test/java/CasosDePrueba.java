@@ -5,6 +5,8 @@ import org.junit.Test;
 import sge.Coordenates;
 import sge.clientes.Cliente;
 import sge.dispositivos.inteligentes.*;
+import sge.reglas.Actuador;
+import sge.reglas.Regla;
 
 public class CasosDePrueba extends Fixture.FCasosDePrueba {
 	
@@ -77,6 +79,37 @@ public class CasosDePrueba extends Fixture.FCasosDePrueba {
 		unDispositivoInteligente = entityManager.find(DispositivoInteligente.class, new Integer(1));
 		
 		assertEquals("El nombre del dispositivo debe ser Nombre Modificado","Nombre modificado",unDispositivoInteligente.getNombre());
+		
+	}
+	
+	@Test
+	public void casoDePrueba3() { //Todavía no funciona correctamente
+				
+		//persisto la regla con su actuador
+		transaction.begin();
+		entityManager.persist(unActuador);
+		entityManager.persist(unaRegla);
+		transaction.commit();
+		
+		transaction.begin();
+		
+		//recupero la regla
+		Regla reglaCasoPrueba3 = entityManager.find(Regla.class, new Integer(1));
+		
+		//ejecuto la regla asociada al dispositivo smartTv
+		//DispositivoInteligente tele = entityManager.find(DispositivoInteligente.class, new Integer(1));
+		reglaCasoPrueba3.ejecutar(smartTv, 100);
+
+		//le modifico y persisto
+		reglaCasoPrueba3.setIdFuncion(1);
+		transaction.commit();
+		
+		entityManager.clear(); //limpio la caché
+		
+		//la recupero nuevamente
+		reglaCasoPrueba3 = entityManager.find(Regla.class, new Integer(1));
+		
+		assertEquals("El id de la funcion debe ser 1",unaRegla.getIdFuncion(),1);
 		
 	}
 	

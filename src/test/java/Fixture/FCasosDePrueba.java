@@ -1,5 +1,7 @@
 package Fixture;
 
+import static org.mockito.Mockito.when;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -20,6 +22,9 @@ import sge.dispositivos.construccion.Factory;
 import sge.dispositivos.estandar.DispositivoEstandar;
 import sge.dispositivos.inteligentes.DispositivoInteligente;
 import sge.dispositivos.inteligentes.DispositivoInteligenteFisico;
+import sge.reglas.Actuador;
+import sge.reglas.Regla;
+import sge.reglas.Sensor;
 
 public class FCasosDePrueba //extends AbstractPersistenceTest implements WithGlobalEntityManager 
 {
@@ -27,7 +32,9 @@ public class FCasosDePrueba //extends AbstractPersistenceTest implements WithGlo
 	public EntityTransaction transaction;
 	public Cliente clienteConDosDispositivos;
 	public DispositivoInteligente smartTv;
-	
+	public Regla unaRegla;
+	public Actuador unActuador;
+	public Sensor mockSensor;
 	
 	@Before
 	public void init() {
@@ -54,5 +61,9 @@ public class FCasosDePrueba //extends AbstractPersistenceTest implements WithGlo
 		clienteConDosDispositivos = new Cliente("Martin Perez",
 				new Documento(40732178, TipoDocumento.DNI), "Belgrano 2251", "01149212334", r3,sinDispositivosEstandar, dosDispositivosInteligentes, new Coordenates(1,1));
 		
+		unActuador = new Actuador("apagar dispositivo", 0);
+		unaRegla = new Regla("Caso De¨Prueba3", unActuador, 0);
+		
+
 	}
 }

@@ -1,8 +1,5 @@
 package sge.reglas;
 
-import java.util.function.BiFunction;
-import java.util.function.Function;
-
 import javax.persistence.Entity;
 import javax.persistence.OneToOne;
 import javax.persistence.Transient;
@@ -26,25 +23,24 @@ public class Regla extends SuperClase{
 	private Actuador actuador;
 	
 	@Transient //no persistimos la función en sí, sino el id
-	private FuncionRegla funcion; //ver como persistir funciones
+	private FuncionRegla funcion;
 	
-	@OneToOne
 	private int idFuncion;
 
 	public Regla() {
 		super();
 	}
 	
-	public Regla(String nombre,Sensor sensor, Actuador actuador, int idFuncion) {
+	public Regla(String nombre, Actuador actuador, int idFuncion) {
 		this.nombre = nombre;
-		this.sensorADisposicion = sensor;
 		this.actuador = actuador;
 		this.idFuncion = idFuncion;
 		this.funcion = FuncionRegla.values()[idFuncion];
 	}
 	
-	public Regla(String nombre, Actuador actuador, int idFuncion) { //, Function<Float, Boolean> unaFuncion
+	public Regla(String nombre,Sensor sensor, Actuador actuador, int idFuncion) {
 		this.nombre = nombre;
+		this.sensorADisposicion = sensor;
 		this.actuador = actuador;
 		this.idFuncion = idFuncion;
 		this.funcion = FuncionRegla.values()[idFuncion];
@@ -63,7 +59,7 @@ public class Regla extends SuperClase{
 	
 	public void ejecutar(float medicion, double maximo, DispositivoInteligente dispositivo) {
 		if(funcion.ejecutar(medicion,maximo)) {
-			actuador.actuar(dispositivo); //recibir la lista de dispositivos y pasarla como parametro
+			actuador.actuar(dispositivo);
 		}
 	}
 
