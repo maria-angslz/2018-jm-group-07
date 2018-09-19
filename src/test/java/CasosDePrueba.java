@@ -98,7 +98,7 @@ public class CasosDePrueba extends Fixture.FCasosDePrueba {
 		
 		//ejecuto la regla asociada al dispositivo smartTv
 		//DispositivoInteligente tele = entityManager.find(DispositivoInteligente.class, new Integer(1));
-		reglaCasoPrueba3.ejecutar(smartTv, 100);
+		reglaCasoPrueba3.ejecutar(50,100,smartTv);
 
 		//le modifico y persisto
 		reglaCasoPrueba3.setIdFuncion(1);
