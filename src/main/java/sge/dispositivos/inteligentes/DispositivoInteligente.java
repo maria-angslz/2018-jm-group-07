@@ -1,5 +1,9 @@
 package sge.dispositivos.inteligentes;
 
+import java.util.ArrayList;
+import java.util.Date;
+import java.util.List;
+
 import javax.persistence.CascadeType;
 import javax.persistence.DiscriminatorColumn;
 import javax.persistence.Entity;
@@ -7,7 +11,9 @@ import javax.persistence.EnumType;
 import javax.persistence.Enumerated;
 import javax.persistence.Inheritance;
 import javax.persistence.InheritanceType;
+import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
 import javax.persistence.Transient;
 import sge.dispositivos.Dispositivo;
 import sge.dispositivos.TipoDeDispositivo;
@@ -31,6 +37,10 @@ public class DispositivoInteligente extends Dispositivo {
 	
 	@Transient //no lo persistimos
 	private DispositivoInteligenteFisico dispositivoFisico; //deberia haber un repo de dispositivos fisicos y pedir el dispositivo con el mismo IDFabrica?
+	
+	@OneToMany(cascade = {CascadeType.PERSIST})
+	@JoinColumn(name="idDispositivoInteligente")
+	private List<RegistroEstado> listaCambiosDeEstado = new ArrayList<RegistroEstado> ();
 
 	public DispositivoInteligente(String nombre, double consumoKWxHora, TipoDeDispositivo tipo) { //double maximo, double minimo
 //		this.maximo = maximo;
@@ -38,7 +48,7 @@ public class DispositivoInteligente extends Dispositivo {
 		this.tipo = tipo;
 		this.nombre = nombre;
 		this.consumoKWxHora = consumoKWxHora;
-		this.estado = new Apagado(); //el dispositivo inicia apagado
+		this.cambiarEstado(new Apagado()); //el dispositivo inicia apagado
 	}
 	
 	public DispositivoInteligente() {
@@ -99,6 +109,9 @@ public class DispositivoInteligente extends Dispositivo {
 	}
 
 	public void cambiarEstado(EstadoDispositivo estado) {
+		//crear un nuevo RegistroEstado y persistirlo
+		//o teniendo una tabla aparte de registrode estados (que no estaria en el modelo de clases) armar un insert
+		listaCambiosDeEstado.add(new RegistroEstado(this, estado, new Date()));
 		this.estado = estado;
 	}
 

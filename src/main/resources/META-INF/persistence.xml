@@ -23,6 +23,7 @@
     	<class>sge.estados.AhorroDeEnergia</class>
     	<class>sge.estados.Apagado</class>
     	<class>sge.estados.Encendido</class>
+    	<class>sge.estados.RegistroEstado</class>
     	 
         <properties> 
 	    <property name="hibernate.archive.autodetection" value="class"/>        

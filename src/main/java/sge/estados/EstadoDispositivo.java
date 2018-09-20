@@ -17,6 +17,9 @@ public abstract class EstadoDispositivo{
 	@Id @GeneratedValue
 	private int id;
 	
+	public int getId() {
+		return id;
+	}
 	public abstract boolean encendido();
 	public abstract boolean modoAhorroDeEnergia();
 	public abstract void apagarse(DispositivoInteligente disp);

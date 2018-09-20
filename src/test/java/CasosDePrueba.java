@@ -1,5 +1,9 @@
 import static org.junit.Assert.assertEquals;
 
+import java.util.Calendar;
+import java.util.Date;
+import java.util.List;
+
 import org.junit.Test;
 
 import sge.Coordenates;
@@ -7,6 +11,7 @@ import sge.clientes.Cliente;
 import sge.dispositivos.inteligentes.*;
 import sge.reglas.Actuador;
 import sge.reglas.Regla;
+import sge.estados.*;
 
 public class CasosDePrueba extends Fixture.FCasosDePrueba {
 	
@@ -41,7 +46,7 @@ public class CasosDePrueba extends Fixture.FCasosDePrueba {
 	@Test
 	public void casoDePrueba2() {
 		
-		// en caso de no correr previamente el caso de prueba 1, ejecutar también las tres líneas 
+		// en caso de no correr previamente el caso de prueba 1, ejecutar tambiï¿½n las tres lï¿½neas 
 		// comentadas debajo
 
 //		transaction.begin();
@@ -56,19 +61,15 @@ public class CasosDePrueba extends Fixture.FCasosDePrueba {
 		//muestro intervalos de encendido del mes
 
 		//esta es una idea aproximada sobre lo que tiene que quedar en el caso de prueba
-		
-//		Calendar c = Calendar.getInstance();
-//		
-//		List<RegistroEstado> resultado;
-//				
-//		resultado = entityManager.createQuery("SELECT * FROM registroestado WHERE MONTH(fechaCambio)= :mesDeHoy AND idNuevoEstado = :idNuevoEst").setParameter("mesDeHoy",c.get(Calendar.MONTH)).setParameter("idNuevoEst",1).getResultList();
-//				
-//		for (int i = 0; i < resultado.size(); i++) {
-//		    System.out.println(resultado.get(i).getIdDispositivo());
-//		    System.out.println(resultado.get(i).getIdNuevoEstado());
-//		    System.out.println(resultado.get(i).getFechaCambio());
-//			}
-//
+				
+		List<RegistroEstado> resultado = entityManager.createQuery("SELECT re FROM registroestado AS re WHERE MONTH(fechaCambio)= :mesDeHoy").setParameter("mesDeHoy", new Date().getMonth()).getResultList(); // AND idNuevoEstado = :idNuevoEst // .setParameter("idNuevoEst",1)//agregar nuevo anio
+				
+		for (int i = 0; i < resultado.size(); i++) {
+		    //System.out.println(resultado.get(i).getDispositivo().getNombre());
+		    System.out.println(resultado.get(i).getNuevoEstado().getId());
+		    System.out.println(resultado.get(i).getFechaCambio());
+			}
+
 		
 		//modifico atributo
 		unDispositivoInteligente.setNombre("Nombre modificado");
@@ -83,7 +84,7 @@ public class CasosDePrueba extends Fixture.FCasosDePrueba {
 	}
 	
 	@Test
-	public void casoDePrueba3() { //Todavía no funciona correctamente
+	public void casoDePrueba3() { //Todavï¿½a no funciona correctamente
 				
 		//persisto la regla con su actuador
 		transaction.begin();
@@ -104,7 +105,7 @@ public class CasosDePrueba extends Fixture.FCasosDePrueba {
 		reglaCasoPrueba3.setIdFuncion(1);
 		transaction.commit();
 		
-		entityManager.clear(); //limpio la caché
+		entityManager.clear(); //limpio la cachï¿½
 		
 		//la recupero nuevamente
 		reglaCasoPrueba3 = entityManager.find(Regla.class, new Integer(1));
