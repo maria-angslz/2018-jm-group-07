@@ -121,4 +121,11 @@ public class DispositivoInteligente extends Dispositivo {
 	public TipoDeDispositivo getTipo() {
 		return tipo;
 	}
+	
+	public Double getMinimo() {
+		return (double) tipo.getMinimo();
+	}
+	public Double getMaximo() {
+		return (double) tipo.getMaximo();
+	}
 }
