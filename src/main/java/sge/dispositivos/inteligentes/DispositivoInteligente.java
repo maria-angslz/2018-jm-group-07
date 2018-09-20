@@ -2,11 +2,13 @@ package sge.dispositivos.inteligentes;
 
 import java.util.ArrayList;
 import java.util.Date;
+import java.util.LinkedList;
 import java.util.List;
 
 import javax.persistence.CascadeType;
 import javax.persistence.DiscriminatorColumn;
 import javax.persistence.Entity;
+import javax.persistence.EntityManager;
 import javax.persistence.EnumType;
 import javax.persistence.Enumerated;
 import javax.persistence.Inheritance;
@@ -15,6 +17,9 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.Transient;
+
+import org.uqbarproject.jpa.java8.extras.PerThreadEntityManagers;
+
 import sge.dispositivos.Dispositivo;
 import sge.dispositivos.TipoDeDispositivo;
 import sge.estados.*;
@@ -58,6 +63,30 @@ public class DispositivoInteligente extends Dispositivo {
 //	public DispositivoInteligente(String nombre, double consumoKWxHora) {
 //		this(nombre, consumoKWxHora, 0.0, 0.0);
 //	}
+
+	public List<IntervaloEstado> getIntervalosDeEstadoEnEsteMes(EntityManager mger) {
+		return getIntervalosDeEstadoEnMes(new Date(), mger);
+	}
+	
+	public List<IntervaloEstado> getIntervalosDeEstadoEnMes(Date fecha, EntityManager mger) {
+		List<RegistroEstado> resultado = mger.createQuery("FROM RegistroEstado WHERE MONTH(fechaCambio) = MONTH(:fecha)").setParameter("fecha", fecha).getResultList();
+		RegistroEstado ultimo = null;
+		List<IntervaloEstado> intervalos = new LinkedList<IntervaloEstado>();
+		for (int i = 0; i < resultado.size(); i++) {
+			RegistroEstado reg = resultado.get(i);
+			if( ultimo == null) {
+				ultimo = reg;
+				continue;
+			}
+			
+			IntervaloEstado nuevoIntervalo = new IntervaloEstado(ultimo.getFechaCambio(), reg.getFechaCambio(), ultimo.getNuevoEstado());
+			intervalos.add(nuevoIntervalo);
+		    ultimo = reg;
+		}
+		if( ultimo != null)
+			intervalos.add(new IntervaloEstado(ultimo.getFechaCambio(), new Date(), estado));
+		return intervalos;
+	}
 	
 	public String getNombre() {
 		return nombre;

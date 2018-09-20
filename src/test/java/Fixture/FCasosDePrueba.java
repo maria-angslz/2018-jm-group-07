@@ -54,6 +54,10 @@ public class FCasosDePrueba //extends AbstractPersistenceTest implements WithGlo
 		
 		smartTv.setDispositivoFisico(mockDispositivoFisico);
 		smartTv.encender();
+		smartTv.apagar();
+		smartTv.encender();
+		smartTv.apagar();
+		smartTv.encender();
 		dosDispositivosInteligentes.add(smartTv);
 		dosDispositivosInteligentes.add(pc);
 		

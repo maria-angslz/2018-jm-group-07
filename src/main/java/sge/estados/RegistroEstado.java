@@ -2,9 +2,11 @@ package sge.estados;
 
 import java.util.Date;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
+import javax.persistence.OneToOne;
 
 import sge.SuperClase;
 import sge.dispositivos.inteligentes.DispositivoInteligente;
@@ -14,12 +16,16 @@ public class RegistroEstado extends SuperClase{
 	
 	//@ManyToOne
 	//private DispositivoInteligente Dispositivo;
-	
-	@ManyToOne
+
+	@OneToOne(cascade = {CascadeType.PERSIST})
 	private EstadoDispositivo NuevoEstado;
 	
 	private Date fechaCambio;
 	
+	public void setFechaCambio(Date fechaCambio) {
+		this.fechaCambio = fechaCambio;
+	}
+
 	public RegistroEstado() {
 		super();
 	}
