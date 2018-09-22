@@ -50,4 +50,12 @@ public class ZonaGeografica {
 		
 	}
 	
+	public List<Transformador> transformadores(){
+		return transformadores;
+	}
+	
+	public void agregarTransformador(Transformador transf) {
+		transformadores.add(transf);
+	}
+	
 }

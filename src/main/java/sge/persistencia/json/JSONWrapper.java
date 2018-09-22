@@ -1,6 +1,7 @@
 package sge.persistencia.json;
 
 import java.io.IOException;
+import java.util.Arrays;
 import java.util.List;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
@@ -19,6 +20,7 @@ public class JSONWrapper {
 	}
 
 	public static <T> List<T> cargar(String file) {
+		//Arrays.asList(gson.fromJson(FileIO.stringFromFile(file), new TypeToken<List<T>>() {}.getType()));
 		return gson.fromJson(FileIO.stringFromFile(file), new TypeToken<List<T>>() {}.getType());
 	}
 

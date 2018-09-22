@@ -1,6 +1,7 @@
 package Fixture;
 
 
+import java.io.FileNotFoundException;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -25,6 +26,8 @@ import sge.dispositivos.inteligentes.DispositivoInteligenteFisico;
 import sge.reglas.Actuador;
 import sge.reglas.Regla;
 import sge.reglas.Sensor;
+import sge.persistencia.json.*;
+import sge.persistencia.repos.RepoZonas;
 
 public class FCasosDePrueba //extends AbstractPersistenceTest implements WithGlobalEntityManager 
 {
@@ -35,11 +38,12 @@ public class FCasosDePrueba //extends AbstractPersistenceTest implements WithGlo
 	public Regla unaRegla;
 	public Actuador unActuador;
 	public Sensor mockSensor;
-	public Transformador transformadorCampus;
-	public Transformador transformadorMedrano;
+	public List<Transformador> transformadores = new ArrayList<>();
+	public CargaDatosWrapper cargador;
+	public RepoZonas repoZonas;
 	
 	@Before
-	public void init() {
+	public void init() throws FileNotFoundException {
 		
 		entityManager = PerThreadEntityManagers.getEntityManager();
 		transaction = entityManager.getTransaction();
@@ -70,13 +74,19 @@ public class FCasosDePrueba //extends AbstractPersistenceTest implements WithGlo
 		unActuador = new Actuador("apagar dispositivo", 0);
 		unaRegla = new Regla("Caso De Prueba3", unActuador, 0);
 		
-		//creo 2 transformadores.
+		this.cargarTransformadores();
 		
-		transformadorCampus = new Transformador(new Coordenates(5,5));
-		transformadorCampus.setCliente(clienteConDosDispositivos);
+	}
+	
+	public void cargarTransformadores() throws FileNotFoundException{
+		//cargo los transformadores del sistema.
+
+		cargador = new CargaDatosWrapper();
+		cargador.cargarZona();
+		repoZonas = RepoZonas.getInstance();
 		
-		transformadorMedrano = new Transformador(new Coordenates(200,6));
-		transformadorMedrano.setCliente(clienteConDosDispositivos);
+		repoZonas.get().forEach(unaZona -> transformadores.addAll(unaZona.transformadores()));
 		
+		transformadores.forEach(unTransformador -> unTransformador.setCliente(clienteConDosDispositivos));	
 	}
 }
