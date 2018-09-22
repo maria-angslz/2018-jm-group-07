@@ -18,7 +18,6 @@ import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.Transient;
 
-import org.uqbarproject.jpa.java8.extras.PerThreadEntityManagers;
 
 import sge.dispositivos.Dispositivo;
 import sge.dispositivos.TipoDeDispositivo;

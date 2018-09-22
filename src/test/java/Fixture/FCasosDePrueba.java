@@ -1,6 +1,5 @@
 package Fixture;
 
-import static org.mockito.Mockito.when;
 
 import java.util.ArrayList;
 import java.util.List;

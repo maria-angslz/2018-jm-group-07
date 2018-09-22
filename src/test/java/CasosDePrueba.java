@@ -1,30 +1,21 @@
 import static org.junit.Assert.assertEquals;
 
-import java.time.Period;
-import java.time.ZoneId;
-import java.util.Calendar;
-import java.util.Date;
-import java.util.LinkedList;
 import java.util.List;
 
 import javax.persistence.Query;
 
-import org.junit.Before;
-import org.junit.BeforeClass;
 import org.junit.Test;
-import org.uqbarproject.jpa.java8.extras.PerThreadEntityManagers;
 
 import sge.Coordenates;
 import sge.Suministro.Transformador;
 import sge.clientes.Cliente;
 import sge.dispositivos.inteligentes.*;
-import sge.reglas.Actuador;
 import sge.reglas.Regla;
 import sge.estados.*;
 
 public class CasosDePrueba extends Fixture.FCasosDePrueba {
 
-/*	@Test
+	@Test
 	public void casoDePrueba1() {
 
 		// persisto un cliente
@@ -115,7 +106,7 @@ public class CasosDePrueba extends Fixture.FCasosDePrueba {
 		assertEquals("El id de la funcion debe ser 1", unaRegla.getIdFuncion(), 1);
 
 	}
-*/
+
 	@Test
 	public void casoDePrueba4() {
 		
