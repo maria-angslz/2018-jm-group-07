@@ -15,6 +15,7 @@ import org.uqbarproject.jpa.java8.extras.PerThreadEntityManagers;
 import sge.Coordenates;
 import sge.Documento;
 import sge.TipoDocumento;
+import sge.Suministro.Transformador;
 import sge.categorias.Categoria;
 import sge.categorias.CategoriaResidencial;
 import sge.clientes.Cliente;
@@ -35,6 +36,8 @@ public class FCasosDePrueba //extends AbstractPersistenceTest implements WithGlo
 	public Regla unaRegla;
 	public Actuador unActuador;
 	public Sensor mockSensor;
+	public Transformador transformadorCampus;
+	public Transformador transformadorMedrano;
 	
 	@Before
 	public void init() {
@@ -66,8 +69,15 @@ public class FCasosDePrueba //extends AbstractPersistenceTest implements WithGlo
 				new Documento(40732178, TipoDocumento.DNI), "Belgrano 2251", "01149212334", r3,sinDispositivosEstandar, dosDispositivosInteligentes, new Coordenates(1,1));
 		
 		unActuador = new Actuador("apagar dispositivo", 0);
-		unaRegla = new Regla("Caso De¨Prueba3", unActuador, 0);
+		unaRegla = new Regla("Caso De Prueba3", unActuador, 0);
 		
-
+		//creo 2 transformadores.
+		
+		transformadorCampus = new Transformador(new Coordenates(5,5));
+		transformadorCampus.setCliente(clienteConDosDispositivos);
+		
+		transformadorMedrano = new Transformador(new Coordenates(200,6));
+		transformadorMedrano.setCliente(clienteConDosDispositivos);
+		
 	}
 }

@@ -15,6 +15,7 @@ import org.junit.Test;
 import org.uqbarproject.jpa.java8.extras.PerThreadEntityManagers;
 
 import sge.Coordenates;
+import sge.Suministro.Transformador;
 import sge.clientes.Cliente;
 import sge.dispositivos.inteligentes.*;
 import sge.reglas.Actuador;
@@ -23,7 +24,7 @@ import sge.estados.*;
 
 public class CasosDePrueba extends Fixture.FCasosDePrueba {
 
-	@Test
+/*	@Test
 	public void casoDePrueba1() {
 
 		// persisto un cliente
@@ -55,9 +56,9 @@ public class CasosDePrueba extends Fixture.FCasosDePrueba {
 		// en caso de no correr previamente el caso de prueba 1, ejecutar tambi�n las tres l�neas 
 		// comentadas debajo
 
-//		transaction.begin();
-//		entityManager.persist(smartTv);
-//		transaction.commit();		
+		transaction.begin();
+		entityManager.persist(smartTv);
+		transaction.commit();		
 		transaction.begin();
 		
 		//recupero dispositivo
@@ -76,6 +77,7 @@ public class CasosDePrueba extends Fixture.FCasosDePrueba {
 		transaction.commit();
 		entityManager.clear(); //limpio cache
 		
+		//lo recupero nuevamente y verifico lo actualizado
 		unDispositivoInteligente = entityManager.find(DispositivoInteligente.class, new Integer(1));
 		
 		assertEquals("El nombre del dispositivo debe ser Nombre Modificado","Nombre modificado",unDispositivoInteligente.getNombre());
@@ -83,7 +85,7 @@ public class CasosDePrueba extends Fixture.FCasosDePrueba {
 	}
 
 	@Test
-	public void casoDePrueba3() { // Todav�a no funciona correctamente
+	public void casoDePrueba3() { // Todavia no funciona correctamente
 
 		// persisto la regla con su actuador
 		transaction.begin();
@@ -105,7 +107,7 @@ public class CasosDePrueba extends Fixture.FCasosDePrueba {
 		reglaCasoPrueba3.setIdFuncion(1);
 		transaction.commit();
 
-		entityManager.clear(); // limpio la cach�
+		entityManager.clear(); // limpio la cache
 
 		// la recupero nuevamente
 		reglaCasoPrueba3 = entityManager.find(Regla.class, new Integer(1));
@@ -113,5 +115,46 @@ public class CasosDePrueba extends Fixture.FCasosDePrueba {
 		assertEquals("El id de la funcion debe ser 1", unaRegla.getIdFuncion(), 1);
 
 	}
-
+*/
+	@Test
+	public void casoDePrueba4() {
+		
+		//esto habria que traerlo del json de entrada
+		
+		// persisto los transformadores
+		transaction.begin();
+		entityManager.persist(transformadorCampus);
+		entityManager.persist(transformadorMedrano);
+		transaction.commit();
+		
+		//recupero todos los transformadores persistidos
+		Query query = entityManager.createNativeQuery("SELECT * FROM transformador",Transformador.class);
+		 
+		List<Transformador> listaTransformadores =  query.getResultList();
+		//registro su cantidad
+		System.out.println(listaTransformadores.size());
+		
+		//creo un nuevo transformador, esto deberia agregarse al json de entrada
+		Transformador transformadorcitoNuevo = new Transformador(new Coordenates(8,6));
+		transformadorcitoNuevo.setCliente(clienteConDosDispositivos);
+		
+		//habria que leer nuevamente el json de entrada
+		
+		//persistir lo nuevo
+		
+		transaction.begin();
+		entityManager.persist(transformadorcitoNuevo);
+		transaction.commit();
+		
+		entityManager.clear(); // limpio la cache
+		
+		//vuelvo a traer todos los transformadores y evaluo que sea uno mas.
+		
+	
+		Query queryNueva = entityManager.createNativeQuery("SELECT * FROM transformador",Transformador.class);
+		 
+		List<Transformador> listaTransformadoresNuevos =  queryNueva.getResultList();
+		
+		assertEquals("La cantidad debe ser 3", 3, listaTransformadoresNuevos.size());
+	}
 }

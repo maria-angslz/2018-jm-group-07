@@ -3,6 +3,7 @@ package sge.Suministro;
 import java.util.ArrayList;
 import java.util.List;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
@@ -19,11 +20,11 @@ public class Transformador {
 	@Id @GeneratedValue
 	private int id;
 	
-	@OneToMany
+	@OneToMany(cascade = {CascadeType.PERSIST})
 	@JoinColumn(name="idTransformador")
 	List<Cliente> clientes = new ArrayList<Cliente>();
 	
-	@OneToOne
+	@OneToOne(cascade = {CascadeType.PERSIST})
 	Coordenates posicion;
 
 
