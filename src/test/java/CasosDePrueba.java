@@ -109,8 +109,8 @@ public class CasosDePrueba extends Fixture.FCasosDePrueba {
 
 	}
 
-/*	@Test
-	public void casoDePrueba4() throws FileNotFoundException {
+	@Test
+	public void casoDePrueba4() {
 		
 		
 		// persisto los transformadores
@@ -153,5 +153,5 @@ public class CasosDePrueba extends Fixture.FCasosDePrueba {
 		
 		assertEquals("La cantidad debe ser 3", listaTransformadores.size() + 1, listaTransformadoresNuevos.size());
 	}
-	*/
+	
 }

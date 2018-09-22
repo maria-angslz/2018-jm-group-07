@@ -1,14 +1,16 @@
 package sge.dispositivos;
 
+import javax.persistence.EnumType;
+import javax.persistence.Enumerated;
+
 import sge.SuperClase;
 
 public abstract class Dispositivo extends SuperClase
 {
-	
-	
 	protected String nombre;
 	protected double consumoKWxHora;
 
+	@Enumerated(EnumType.ORDINAL)
 	protected TipoDeDispositivo tipo;
 	
 

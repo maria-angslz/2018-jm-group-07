@@ -3,6 +3,7 @@ package Fixture;
 
 import java.io.FileNotFoundException;
 import java.util.ArrayList;
+import java.util.LinkedList;
 import java.util.List;
 
 import javax.persistence.EntityManager;
@@ -16,6 +17,7 @@ import sge.Coordenates;
 import sge.Documento;
 import sge.TipoDocumento;
 import sge.Suministro.Transformador;
+import sge.Suministro.ZonaGeografica;
 import sge.categorias.Categoria;
 import sge.categorias.CategoriaResidencial;
 import sge.clientes.Cliente;
@@ -74,20 +76,31 @@ public class FCasosDePrueba //extends AbstractPersistenceTest implements WithGlo
 		unActuador = new Actuador("apagar dispositivo", 0);
 		unaRegla = new Regla("Caso De Prueba3", unActuador, 0);
 		
-		//comentado para que funcione el resto de los test y reporte.. esto es para el caso de prueba 4
-		//this.cargarTransformadores();
+		this.cargarTransformadores();
 		
 	}
 	
-	public void cargarTransformadores() throws FileNotFoundException{
+	public void cargarTransformadores() {
 		//cargo los transformadores del sistema.
 
 		cargador = new CargaDatosWrapper();
-		cargador.cargarZona();
 		repoZonas = RepoZonas.getInstance();
+		/*
+		List<Transformador> transformadores = new ArrayList<Transformador>();
+		Coordenates posicionTransf = new Coordenates(1, 1);
+		Transformador unTransformador = new Transformador(posicionTransf);
+		transformadores.add(unTransformador);
+		
+		Coordenates centroCapital = new Coordenates(0, 0);
+		ZonaGeografica capitalFederal = new ZonaGeografica(transformadores,centroCapital,10); // el 10 es el radio que abarca
+		RepoZonas.getInstance().agregar(capitalFederal);
+		List<ZonaGeografica> z = new ArrayList<ZonaGeografica>();
+		z.add(capitalFederal);
+		repoZonas.addAll(z);
+		cargador.guardarZona();
+		*/
+		cargador.cargarZona();
 		
 		repoZonas.get().forEach(unaZona -> transformadores.addAll(unaZona.transformadores()));
-		
-		transformadores.forEach(unTransformador -> unTransformador.setCliente(clienteConDosDispositivos));	
 	}
 }

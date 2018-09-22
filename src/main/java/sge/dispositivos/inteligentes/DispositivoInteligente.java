@@ -28,19 +28,13 @@ import sge.estados.*;
 @Inheritance(strategy = InheritanceType.SINGLE_TABLE)
 public class DispositivoInteligente extends Dispositivo {
 	
-	protected String nombre;
-	protected double consumoKWxHora;
-
-	@Enumerated(EnumType.ORDINAL)
-	protected TipoDeDispositivo tipo;
-	
 	@ManyToOne(cascade = {CascadeType.PERSIST})
 	private EstadoDispositivo estado; //aca podriamos usar un repo de estados, para no tener que andar instanciando todo el tiempo
 	
 	private double IDFabrica = (Math.random() * 100000) + 1; //deberia cambiarse dsps y meter los nros generados en una lista, para comprobar que no se repitan
 	
 	@Transient //no lo persistimos
-	private DispositivoInteligenteFisico dispositivoFisico; //deberia haber un repo de dispositivos fisicos y pedir el dispositivo con el mismo IDFabrica?
+	private transient DispositivoInteligenteFisico dispositivoFisico; //deberia haber un repo de dispositivos fisicos y pedir el dispositivo con el mismo IDFabrica?
 	
 	@OneToMany(cascade = {CascadeType.PERSIST})
 	@JoinColumn(name="idDispositivoInteligente")

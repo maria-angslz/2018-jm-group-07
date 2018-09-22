@@ -11,13 +11,6 @@ import sge.dispositivos.TipoDeDispositivo;
 public class DispositivoEstandar extends Dispositivo {
 	
 	private int horasDeUsoDiarias;
-
-	protected String nombre;
-	protected double consumoKWxHora;
-
-	@Enumerated(EnumType.ORDINAL)
-	protected TipoDeDispositivo tipo;
-	
 	
 	public DispositivoEstandar(String unNombre, double consumoKWxH, int horas, TipoDeDispositivo tipo) { //double maximo, double minimo
 //		this.maximo = maximo;
