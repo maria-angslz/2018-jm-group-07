@@ -200,5 +200,9 @@ public class Cliente extends SuperClase{
 	public void desactivarAhorroAutomatico() {
 		this.simplexAutomatico = 0;
 	}
+	
+	public double promedioPorDispositivo() {
+		return this.getDispositivos().stream().mapToDouble(unDispositivo -> unDispositivo.consumoMensual()).sum() / this.getDispositivos().size();
+	}
 
 }

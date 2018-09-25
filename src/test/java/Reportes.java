@@ -1,4 +1,6 @@
 
+import static org.junit.Assert.assertEquals;
+
 import java.util.List;
 
 import javax.persistence.EntityManager;
@@ -12,8 +14,8 @@ import sge.dispositivos.Dispositivo;
 import sge.dispositivos.inteligentes.DispositivoInteligente;
 
 
-public class Reportes {
-	@Test
+public class Reportes extends Fixture.FCasosDePrueba{
+	
 	//el reporte es del mes actual. 
 	public void consumoPorHogar() {
 		String queryString = "SELECT * FROM Cliente";
@@ -29,22 +31,23 @@ public class Reportes {
 		System.out.println(unCliente.cantidadDeConsumoDelMes()); 
 		System.out.println(unCliente.nombre());
 	}
-	
+
 	@Test
-	public void consumoPorDispositivo() {
-		String queryString = "SELECT * FROM Dispositivointeligente";
-		EntityManager entityManager = PerThreadEntityManagers.getEntityManager();
-		entityManager.clear();
-		Query query = entityManager.createNativeQuery(queryString,DispositivoInteligente.class);
-		
-		List<DispositivoInteligente> resultado =  query.getResultList();
-		
-		resultado.forEach(unDispositivo -> imprimirConsumoPromedioPorDispositivo(unDispositivo, 30)); // Periodo de 30 dias
+	public void imprimirPromedioPorDispositivoParaUnClienteEspecifico() {
+		double resultadoEsperado = clienteConDosDispositivos.promedioPorDispositivo();
+		assertEquals(resultadoEsperado, PromedioPorDispositivo(clienteConDosDispositivos),1);
 	}
 	
-	public void imprimirConsumoPromedioPorDispositivo(Dispositivo unDispositivo, int unPeriodo) {
-		System.out.println(unDispositivo.consumoPromedioPorPeriodo(unPeriodo)); 
-		System.out.println(unDispositivo.getNombre());
+	
+	public double PromedioPorDispositivo(Cliente unCliente) {
+		String queryString = "SELECT * FROM Cliente WHERE id = :idABuscar";
+		EntityManager entityManager = PerThreadEntityManagers.getEntityManager();
+		//esta linea tiene el id del cliente, pero no es un dato que podemos obtener de objetos, sino que se genera solo en la bd.
+		Query query = entityManager.createNativeQuery(queryString,Cliente.class).setParameter("idABuscar", 1);
+		
+		Cliente ClienteEncontrado =  (Cliente) query.getSingleResult();
+		
+		return ClienteEncontrado.promedioPorDispositivo();
 	}
 	
 }

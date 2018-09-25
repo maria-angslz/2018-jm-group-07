@@ -159,9 +159,4 @@ public class DispositivoInteligente extends Dispositivo {
 	public Double getMaximo() {
 		return (double) tipo.getMaximo();
 	}
-
-	
-	public double consumoPromedioPorPeriodo(int unPeriodo) {
-		return this.consumoTotalUnPeriodo(unPeriodo) / unPeriodo;
-	}
 }

@@ -43,6 +43,8 @@ public class FCasosDePrueba //extends AbstractPersistenceTest implements WithGlo
 	public List<Transformador> transformadores = new ArrayList<>();
 	public CargaDatosWrapper cargador;
 	public RepoZonas repoZonas;
+	public List<DispositivoInteligente> dosDispositivosInteligentes;
+	public List<DispositivoEstandar> sinDispositivosEstandar;
 	
 	@Before
 	public void init() throws FileNotFoundException {
@@ -55,8 +57,8 @@ public class FCasosDePrueba //extends AbstractPersistenceTest implements WithGlo
 		
 		Categoria r3 = new CategoriaResidencial(60.71, 0.681, 325, 400);
 		
-		List<DispositivoInteligente> dosDispositivosInteligentes = new ArrayList<DispositivoInteligente>();
-		List<DispositivoEstandar> sinDispositivosEstandar = new ArrayList<DispositivoEstandar>();
+		dosDispositivosInteligentes = new ArrayList<DispositivoInteligente>();
+		sinDispositivosEstandar = new ArrayList<DispositivoEstandar>();
 		
 		DispositivoInteligenteFisico mockDispositivoFisico = Mockito.mock(DispositivoInteligenteFisico.class);
 		
@@ -76,7 +78,7 @@ public class FCasosDePrueba //extends AbstractPersistenceTest implements WithGlo
 		unActuador = new Actuador("apagar dispositivo", 0);
 		unaRegla = new Regla("Caso De Prueba3", unActuador, 0);
 		
-		this.cargarTransformadores();
+		//this.cargarTransformadores();
 		
 	}
 	

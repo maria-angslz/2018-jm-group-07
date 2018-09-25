@@ -2,9 +2,11 @@ package sge.dispositivos;
 
 import javax.persistence.EnumType;
 import javax.persistence.Enumerated;
+import javax.persistence.MappedSuperclass;
 
 import sge.SuperClase;
 
+@MappedSuperclass
 public abstract class Dispositivo extends SuperClase
 {
 	protected String nombre;
@@ -37,5 +39,4 @@ public abstract class Dispositivo extends SuperClase
 		return nombre;
 	}
 	
-	public abstract double consumoPromedioPorPeriodo(int unPeriodo);
 }
