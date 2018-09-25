@@ -8,6 +8,8 @@ import org.junit.Test;
 import org.uqbarproject.jpa.java8.extras.PerThreadEntityManagers;
 
 import sge.clientes.Cliente;
+import sge.dispositivos.Dispositivo;
+import sge.dispositivos.inteligentes.DispositivoInteligente;
 
 
 public class Reportes {
@@ -26,6 +28,23 @@ public class Reportes {
 	public void imprimirConsumoPorCliente(Cliente unCliente) {
 		System.out.println(unCliente.cantidadDeConsumoDelMes()); 
 		System.out.println(unCliente.nombre());
+	}
+	
+	@Test
+	public void consumoPorDispositivo() {
+		String queryString = "SELECT * FROM Dispositivointeligente";
+		EntityManager entityManager = PerThreadEntityManagers.getEntityManager();
+		entityManager.clear();
+		Query query = entityManager.createNativeQuery(queryString,DispositivoInteligente.class);
+		
+		List<DispositivoInteligente> resultado =  query.getResultList();
+		
+		resultado.forEach(unDispositivo -> imprimirConsumoPromedioPorDispositivo(unDispositivo, 30)); // Periodo de 30 dias
+	}
+	
+	public void imprimirConsumoPromedioPorDispositivo(Dispositivo unDispositivo, int unPeriodo) {
+		System.out.println(unDispositivo.consumoPromedioPorPeriodo(unPeriodo)); 
+		System.out.println(unDispositivo.getNombre());
 	}
 	
 }

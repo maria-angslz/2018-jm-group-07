@@ -80,10 +80,6 @@ public class DispositivoInteligente extends Dispositivo {
 			intervalos.add(new IntervaloEstado(ultimo.getFechaCambio(), new Date(), estado));
 		return intervalos;
 	}
-	
-	public String getNombre() {
-		return nombre;
-	}
 
 	public void setNombre(String nombre) {
 		this.nombre = nombre;
@@ -162,5 +158,10 @@ public class DispositivoInteligente extends Dispositivo {
 	}
 	public Double getMaximo() {
 		return (double) tipo.getMaximo();
+	}
+
+	
+	public double consumoPromedioPorPeriodo(int unPeriodo) {
+		return this.consumoTotalUnPeriodo(unPeriodo) / unPeriodo;
 	}
 }

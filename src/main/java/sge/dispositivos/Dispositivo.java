@@ -32,4 +32,10 @@ public abstract class Dispositivo extends SuperClase
 			otro.consumoKWxHora() == consumoKWxHora() &&
 			otro.getClass() == getClass();
 	}
+	
+	public String getNombre() {
+		return nombre;
+	}
+	
+	public abstract double consumoPromedioPorPeriodo(int unPeriodo);
 }

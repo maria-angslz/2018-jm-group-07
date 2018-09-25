@@ -39,5 +39,11 @@ public class DispositivoEstandar extends Dispositivo {
 	public TipoDeDispositivo getTipo() {
 		return tipo;
 	}
+
+	@Override
+	public double consumoPromedioPorPeriodo(int unPeriodo) {
+		// TODO Auto-generated method stub
+		return 0;
+	}
 	
 }
