@@ -43,4 +43,8 @@ public class Transformador {
 		this.clientes.add(cliente);
 	}
 	
+	public double promedioEnergiaSuministrada() {
+		return this.energiaSuministrada() / this.clientes.size();
+	}
+	
 }

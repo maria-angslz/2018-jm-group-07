@@ -78,7 +78,7 @@ public class CasosDePrueba extends Fixture.FCasosDePrueba {
 	}
 
 	@Test
-	public void casoDePrueba3() { // Todavia no funciona correctamente
+	public void casoDePrueba3() {
 
 		// persisto la regla con su actuador
 		transaction.begin();
@@ -92,8 +92,6 @@ public class CasosDePrueba extends Fixture.FCasosDePrueba {
 		Regla reglaCasoPrueba3 = entityManager.find(Regla.class, new Integer(1));
 
 		// ejecuto la regla asociada al dispositivo smartTv
-		// DispositivoInteligente tele =
-		// entityManager.find(DispositivoInteligente.class, new Integer(1));
 		reglaCasoPrueba3.ejecutar(50, 100, smartTv);
 
 		// le modifico y persisto

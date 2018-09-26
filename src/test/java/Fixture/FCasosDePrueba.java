@@ -45,6 +45,7 @@ public class FCasosDePrueba //extends AbstractPersistenceTest implements WithGlo
 	public RepoZonas repoZonas;
 	public List<DispositivoInteligente> dosDispositivosInteligentes;
 	public List<DispositivoEstandar> sinDispositivosEstandar;
+	public Transformador unTransformador;
 	
 	@Before
 	public void init() throws FileNotFoundException {
@@ -79,6 +80,9 @@ public class FCasosDePrueba //extends AbstractPersistenceTest implements WithGlo
 		unaRegla = new Regla("Caso De Prueba3", unActuador, 0);
 		
 		//this.cargarTransformadores();
+		
+		unTransformador = new Transformador(new Coordenates(1, 1));
+		unTransformador.setCliente(clienteConDosDispositivos);
 		
 	}
 	
