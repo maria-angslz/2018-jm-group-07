@@ -23,11 +23,11 @@ public class Reportes extends Fixture.FCasosDePrueba {
 		double consumoEsperado = clienteConDosDispositivos.cantidadDeConsumoDelMes();
 		System.out.println(clienteConDosDispositivos.nombre());
 		System.out.println(clienteConDosDispositivos.cantidadDeConsumoDelMes() + "Kw");
-		assertEquals(consumoEsperado, consumoPorHogar(clienteConDosDispositivos), 0);
+		assertEquals(consumoEsperado, consumoPorHogarParticular(clienteConDosDispositivos), 0);
 	}
 
 	// el reporte es del mes actual.
-	public double consumoPorHogar(Cliente unCliente) {
+	public double consumoPorHogarParticular(Cliente unCliente) {
 		String queryString = "SELECT * FROM Cliente WHERE id = :idABuscar";
 		EntityManager entityManager = PerThreadEntityManagers.getEntityManager();
 
@@ -36,6 +36,20 @@ public class Reportes extends Fixture.FCasosDePrueba {
 		Cliente ClienteEncontrado = (Cliente) query.getSingleResult();
 
 		return ClienteEncontrado.cantidadDeConsumoDelMes();
+	}
+	
+	@Test
+	public void consumoPorHogar() {
+		String queryString = "SELECT * FROM Cliente";
+		EntityManager entityManager = PerThreadEntityManagers.getEntityManager();
+
+		Query query = entityManager.createNativeQuery(queryString, Cliente.class);
+		
+		List<Cliente> clientes = query.getResultList();
+		
+		clientes.forEach(unCliente ->
+				System.out.println(unCliente.nombre() + " --- " + unCliente.cantidadDeConsumoDelMes())
+		);
 	}
 
 	@Test
@@ -69,6 +83,8 @@ public class Reportes extends Fixture.FCasosDePrueba {
 				.setParameter("idTransformador", 1);
 		Transformador elTransformador = (Transformador) query.getSingleResult();
 		double consumoPromedioInicial = elTransformador.promedioEnergiaSuministrada();
+		
+		System.out.println(consumoPromedioInicial);
 
 		String queryStringDispositivo = "SELECT * FROM dispositivointeligente WHERE id = :idDispositivo";
 		Query queryDispositivo = entityManager.createNativeQuery(queryStringDispositivo, DispositivoInteligente.class)
@@ -86,6 +102,8 @@ public class Reportes extends Fixture.FCasosDePrueba {
 		// volvemos a traer el transformador
 		elTransformador = (Transformador) query.getSingleResult();
 		double consumoPromedioFinal = elTransformador.promedioEnergiaSuministrada();
+		
+		System.out.println(consumoPromedioFinal);
 
 		assertTrue(consumoPromedioFinal > consumoPromedioInicial);
 
