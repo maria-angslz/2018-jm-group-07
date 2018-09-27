@@ -11,9 +11,11 @@ import sge.Coordenates;
 import sge.Suministro.Transformador;
 import sge.Suministro.ZonaGeografica;
 import sge.clientes.Cliente;
+import sge.dispositivos.Dispositivo;
 import sge.dispositivos.inteligentes.*;
 import sge.reglas.Regla;
 import sge.estados.*;
+import sge.Reportes.Reporte;
 
 public class CasosDePrueba extends Fixture.FCasosDePrueba {
 
@@ -110,6 +112,7 @@ public class CasosDePrueba extends Fixture.FCasosDePrueba {
 	@Test
 	public void casoDePrueba4() {
 		
+		this.cargarTransformadores();
 		
 		// persisto los transformadores
 		transaction.begin();
@@ -150,6 +153,61 @@ public class CasosDePrueba extends Fixture.FCasosDePrueba {
 		List<Transformador> listaTransformadoresNuevos =  queryNueva.getResultList();
 		
 		assertEquals("La cantidad debe ser 3", listaTransformadores.size() + 1, listaTransformadoresNuevos.size());
+	}
+	
+	@Test
+	public void casoDePrueba5() {
+		
+		Reporte reportePrueba = new Reporte();
+		
+		int idPrueba = 1;
+		
+		System.out.println("El consumo total del cliente Martin Perez es: " + reportePrueba.consumoPorHogarParticular(idPrueba));
+		
+		System.out.println("El consumo promedio por dispositivo del cliente Martin Perez es: " + reportePrueba.PromedioPorDispositivo(idPrueba));
+		
+		System.out.println("La energia suministrada promedio del primer transformador es: " + reportePrueba.consumoPromedioPorTransformador(idPrueba));
+		
+		String queryString = "SELECT * FROM Transformador Where id = :idTransformador";
+		Query query = entityManager.createNativeQuery(queryString, Transformador.class).setParameter("idTransformador", idPrueba);
+		Transformador elTransformador = (Transformador) query.getSingleResult();
+		
+		entityManager.clear();
+		
+		Cliente clienteDePrueba = elTransformador.getClientes().stream().findFirst().get();
+		
+		DispositivoInteligente dispositivoDePrueba = clienteDePrueba.getDispositivosInteligentes().stream().findFirst().get(); //en realidad tendria que usar el ID de este dispositivo, pero no lo puedo indicar, por eso uso el id harcodeado
+		
+		transaction.begin();
+		
+		queryString = "SELECT * FROM dispositivoInteligente Where id = :idDispositivo";
+		query = entityManager.createNativeQuery(queryString, Transformador.class).setParameter("idTransformador", idPrueba);
+		dispositivoDePrueba = (DispositivoInteligente) query.getSingleResult();
+		
+		// incrementamos el consumo del dispositivo al 1000%
+		dispositivoDePrueba.incrementarConsumoEnPorcentaje(10);
+		
+		entityManager.persist(dispositivoDePrueba);
+		transaction.commit();
+		
+		entityManager.clear();
+		
+		//vuelvo a traer el transformador
+		
+		queryString = "SELECT * FROM Transformador Where id = :idTransformador";
+		query = entityManager.createNativeQuery(queryString, Transformador.class).setParameter("idTransformador", idPrueba);
+		elTransformador = (Transformador) query.getSingleResult();
+		
+		System.out.println("El consumo para el transformador con el dispositivo aumentado es: " + reportePrueba.consumoPromedioPorTransformador(idPrueba)); //deberia ser el id del transformador
+		
+	}
+	
+	public void cargarTransformadores() {
+		repoZonas.get().clear(); //limpio el repo para que no me agregue elementos repetidos si ya habian
+		cargador.cargarZona();
+		
+		transformadores.clear();//limpio la lista de transformadores para que no me agregue elementos repetidos si ya habian
+		repoZonas.get().forEach(unaZona -> transformadores.addAll(unaZona.transformadores()));
 	}
 	
 }

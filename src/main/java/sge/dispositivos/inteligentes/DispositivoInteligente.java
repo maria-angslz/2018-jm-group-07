@@ -160,7 +160,4 @@ public class DispositivoInteligente extends Dispositivo {
 		return (double) tipo.getMaximo();
 	}
 	
-	public void incrementarConsumo(int cantidad) {
-		this.consumoKWxHora *= cantidad;
-	}
 }

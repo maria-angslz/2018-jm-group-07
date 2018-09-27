@@ -20,14 +20,16 @@ public abstract class Dispositivo extends SuperClase
 //	protected double minimo;
 //	protected double maximo;
 	
-	
 	public abstract double consumoMensual();
+	
 	public Double getMinimo() {
 		return (double) tipo.getMinimo();
 	}
+	
 	public Double getMaximo() {
 		return (double) tipo.getMaximo();
 	}
+	
 	public boolean mismoModelo(Dispositivo otro) {
 		return otro.tipo.getMinimo() == tipo.getMinimo() &&
 			otro.tipo.getMaximo() == tipo.getMaximo() &&
@@ -37,6 +39,10 @@ public abstract class Dispositivo extends SuperClase
 	
 	public String getNombre() {
 		return nombre;
+	}
+	
+	public void incrementarConsumoEnPorcentaje(int porcentaje) {
+		this.consumoKWxHora = consumoKWxHora + consumoKWxHora * porcentaje;
 	}
 	
 }

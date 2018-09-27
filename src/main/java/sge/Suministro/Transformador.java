@@ -17,14 +17,14 @@ import sge.clientes.Cliente;
 @Entity
 public class Transformador {
 	
-	@Id @GeneratedValue
+	@Id //@GeneratedValue
 	private int id;
 	
-	@OneToMany(cascade = {CascadeType.PERSIST})
+	@OneToMany//(cascade = {CascadeType.PERSIST})
 	@JoinColumn(name="idTransformador")
 	List<Cliente> clientes = new ArrayList<Cliente>();
-	
-	@OneToOne(cascade = {CascadeType.PERSIST})
+
+	@OneToOne//(cascade = {CascadeType.PERSIST})
 	Coordenates posicion;
 
 
@@ -45,6 +45,10 @@ public class Transformador {
 	
 	public double promedioEnergiaSuministrada() {
 		return this.energiaSuministrada() / this.clientes.size();
+	}
+	
+	public List<Cliente> getClientes() {
+		return clientes;
 	}
 	
 }

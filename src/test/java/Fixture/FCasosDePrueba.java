@@ -31,6 +31,7 @@ import sge.reglas.Sensor;
 import sge.persistencia.json.*;
 import sge.persistencia.repos.RepoZonas;
 
+
 public class FCasosDePrueba //extends AbstractPersistenceTest implements WithGlobalEntityManager 
 {
 	public EntityManager entityManager;
@@ -41,8 +42,8 @@ public class FCasosDePrueba //extends AbstractPersistenceTest implements WithGlo
 	public Actuador unActuador;
 	public Sensor mockSensor;
 	public List<Transformador> transformadores = new ArrayList<>();
-	public CargaDatosWrapper cargador;
-	public RepoZonas repoZonas;
+	public CargaDatosWrapper cargador = new CargaDatosWrapper();
+	public RepoZonas repoZonas = RepoZonas.getInstance();
 	public List<DispositivoInteligente> dosDispositivosInteligentes;
 	public List<DispositivoEstandar> sinDispositivosEstandar;
 	public Transformador unTransformador;
@@ -86,27 +87,5 @@ public class FCasosDePrueba //extends AbstractPersistenceTest implements WithGlo
 		
 	}
 	
-	public void cargarTransformadores() {
-		//cargo los transformadores del sistema.
-
-		cargador = new CargaDatosWrapper();
-		repoZonas = RepoZonas.getInstance();
-		/*
-		List<Transformador> transformadores = new ArrayList<Transformador>();
-		Coordenates posicionTransf = new Coordenates(1, 1);
-		Transformador unTransformador = new Transformador(posicionTransf);
-		transformadores.add(unTransformador);
-		
-		Coordenates centroCapital = new Coordenates(0, 0);
-		ZonaGeografica capitalFederal = new ZonaGeografica(transformadores,centroCapital,10); // el 10 es el radio que abarca
-		RepoZonas.getInstance().agregar(capitalFederal);
-		List<ZonaGeografica> z = new ArrayList<ZonaGeografica>();
-		z.add(capitalFederal);
-		repoZonas.addAll(z);
-		cargador.guardarZona();
-		*/
-		cargador.cargarZona();
-		
-		repoZonas.get().forEach(unaZona -> transformadores.addAll(unaZona.transformadores()));
-	}
+	
 }
