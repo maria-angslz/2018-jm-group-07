@@ -5,6 +5,8 @@ import java.util.List;
 import java.util.stream.Stream;
 
 import javax.persistence.CascadeType;
+import javax.persistence.Embedded;
+import javax.persistence.EmbeddedId;
 import javax.persistence.Entity;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
@@ -34,7 +36,7 @@ public class Cliente extends SuperClase{
 	@OneToOne(cascade = {CascadeType.PERSIST})
 	private Documento documento;
 	
-	@OneToOne(cascade = {CascadeType.PERSIST})
+	@Embedded
 	private Coordenates miCoordenada;
 	
 	private String domicilio;

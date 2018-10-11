@@ -1,15 +1,10 @@
 package sge;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
+import javax.persistence.Embeddable;
 
-@Entity
+@Embeddable
 public class Coordenates {
-	
-	@Id @GeneratedValue
-	private int id;
-	
+
 	float latitud;
 	float longitud;
 	

@@ -3,13 +3,12 @@ package sge.Suministro;
 import java.util.ArrayList;
 import java.util.List;
 
-import javax.persistence.CascadeType;
+import javax.persistence.Embedded;
+import javax.persistence.EmbeddedId;
 import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.OneToMany;
-import javax.persistence.OneToOne;
 
 import sge.Coordenates;
 import sge.clientes.Cliente;
@@ -24,7 +23,7 @@ public class Transformador {
 	@JoinColumn(name="idTransformador")
 	List<Cliente> clientes = new ArrayList<Cliente>();
 
-	@OneToOne//(cascade = {CascadeType.PERSIST})
+	@Embedded
 	Coordenates posicion;
 
 

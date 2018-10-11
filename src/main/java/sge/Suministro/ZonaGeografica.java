@@ -3,6 +3,8 @@ package sge.Suministro;
 
 import java.util.List;
 
+import javax.persistence.Embedded;
+import javax.persistence.EmbeddedId;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
@@ -22,7 +24,7 @@ public class ZonaGeografica {
 	@JoinColumn(name="idZona")
 	List<Transformador> transformadores;
 	int radioCubierto;
-	@OneToOne
+	@Embedded
 	Coordenates coordenadaCentral;
 	
 	public ZonaGeografica() {
