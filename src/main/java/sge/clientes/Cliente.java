@@ -1,13 +1,15 @@
 package sge.clientes;
 
+import java.io.Serializable;
 import java.util.LinkedList;
 import java.util.List;
 import java.util.stream.Stream;
 
 import javax.persistence.CascadeType;
 import javax.persistence.Embedded;
-import javax.persistence.EmbeddedId;
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
@@ -26,14 +28,16 @@ import sge.simplex.ResultadoSimplex;
 import sge.simplex.SgeSimplex;
 
 @Entity
-public class Cliente extends SuperClase{
+public class Cliente extends SuperClase
+{
 
 	private int simplexAutomatico = 0;
 	final int puntosAgregarDisp = 15;
 	final int puntosConvDispEaI = 10;
 	private String nombreYApellido;
 	
-	@OneToOne(cascade = {CascadeType.PERSIST})
+	
+	@OneToOne(cascade = {CascadeType.PERSIST, CascadeType.MERGE})
 	private Documento documento;
 	
 	@Embedded
@@ -205,6 +209,9 @@ public class Cliente extends SuperClase{
 	
 	public double promedioPorDispositivo() {
 		return this.getDispositivos().stream().mapToDouble(unDispositivo -> unDispositivo.consumoMensual()).sum() / this.getDispositivos().size();
+	}
+	public int documento() {
+		return documento.numero();
 	}
 
 }

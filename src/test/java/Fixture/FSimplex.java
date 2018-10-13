@@ -36,7 +36,7 @@ public class FSimplex {
 		List<DispositivoEstandar> estandares = new ArrayList<DispositivoEstandar>();
 		unAire.add(aire);
 		clienteConUnAire = new Cliente( "Pepe Mitre" ,
-				new Documento(40732178, TipoDocumento.DNI), "Belgrano 241", "01149231234", r3, estandares, unAire, new Coordenates(1,1));
+				new Documento(40732178, TipoDocumento.DNI), "Belgrano 241", "01149231234", r3, estandares, unAire, new Coordenates(1.0,1.0));
 		clienteConUnAire.setSimplexAutomatico(1);
 		RepoClientes.getInstance().agregar(clienteConUnAire);
 //		List<DispositivoInteligente> inteligentes2 = new ArrayList<DispositivoInteligente>();
@@ -45,7 +45,7 @@ public class FSimplex {
 		cuatroAires.add(aire);
 		cuatroAires.add(aire);
 		clienteConCuatroAires = new Cliente( "Pepe Mitre" ,
-				new Documento(40732178, TipoDocumento.DNI), "Belgrano 241", "01149231234", r3, estandares, cuatroAires, new Coordenates(1,1));
+				new Documento(40732178, TipoDocumento.DNI), "Belgrano 241", "01149231234", r3, estandares, cuatroAires, new Coordenates(1.0,1.0));
 		
 	}
 }

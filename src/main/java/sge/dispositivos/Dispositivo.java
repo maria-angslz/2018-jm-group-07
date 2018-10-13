@@ -2,6 +2,8 @@ package sge.dispositivos;
 
 import javax.persistence.EnumType;
 import javax.persistence.Enumerated;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
 import javax.persistence.MappedSuperclass;
 
 import sge.SuperClase;
@@ -9,6 +11,7 @@ import sge.SuperClase;
 @MappedSuperclass
 public abstract class Dispositivo extends SuperClase
 {
+	
 	protected String nombre;
 	protected double consumoKWxHora;
 

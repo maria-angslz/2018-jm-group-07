@@ -3,23 +3,25 @@ package sge.Suministro;
 import java.util.ArrayList;
 import java.util.List;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Embedded;
-import javax.persistence.EmbeddedId;
 import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.OneToMany;
 
+import org.hibernate.annotations.Cascade;
+
 import sge.Coordenates;
+import sge.SuperClase;
 import sge.clientes.Cliente;
 
 @Entity
-public class Transformador {
+public class Transformador extends SuperClase
+{
 	
-	@Id //@GeneratedValue
-	private int id;
-	
-	@OneToMany//(cascade = {CascadeType.PERSIST})
+
+	@OneToMany(cascade = {CascadeType.PERSIST, CascadeType.MERGE})
 	@JoinColumn(name="idTransformador")
 	List<Cliente> clientes = new ArrayList<Cliente>();
 
@@ -49,5 +51,7 @@ public class Transformador {
 	public List<Cliente> getClientes() {
 		return clientes;
 	}
-	
+	public void setId(int id) {
+		this.id = id;
+	}
 }

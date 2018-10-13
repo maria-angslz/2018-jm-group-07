@@ -6,7 +6,8 @@ import javax.persistence.Enumerated;
 import javax.persistence.Id;
 
 @Entity
-public class Documento {
+public class Documento{
+	
 	@Id
 	private int numero;
 	
@@ -15,6 +16,9 @@ public class Documento {
 
 	public Documento() {
 		super();
+	}
+	public int numero() {
+		return numero;
 	}
 	
 	public Documento(int numero, TipoDocumento tipo) {

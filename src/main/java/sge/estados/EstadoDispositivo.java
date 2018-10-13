@@ -7,15 +7,14 @@ import javax.persistence.Id;
 import javax.persistence.Inheritance;
 import javax.persistence.InheritanceType;
 
+import sge.SuperClase;
 import sge.dispositivos.inteligentes.DispositivoInteligente;
 
 @Entity
 @DiscriminatorColumn(name = "estado")
 @Inheritance(strategy = InheritanceType.SINGLE_TABLE)
-public abstract class EstadoDispositivo{  
-	
-	@Id @GeneratedValue
-	private int id;
+public abstract class EstadoDispositivo extends SuperClase
+{  
 	
 	public int getId() {
 		return id;

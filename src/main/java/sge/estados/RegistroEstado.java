@@ -4,6 +4,8 @@ import java.util.Date;
 
 import javax.persistence.CascadeType;
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToOne;
@@ -12,8 +14,8 @@ import sge.SuperClase;
 import sge.dispositivos.inteligentes.DispositivoInteligente;
 
 @Entity
-public class RegistroEstado extends SuperClase{
-	
+public class RegistroEstado extends SuperClase
+{
 	//@ManyToOne
 	//private DispositivoInteligente Dispositivo;
 

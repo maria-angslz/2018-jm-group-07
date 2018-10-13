@@ -1,63 +1,60 @@
 [
   {
-    "id": 99,
     "transformadores": [
       {
-        "id": 100,
         "clientes": [],
-        "posicion": {
-          "id": 101,
+        "posicion": {         
           "latitud": 1.0,
           "longitud": 1.0
         }
       },
       {
-        "id": 102,
+        
         "clientes": [],
         "posicion": {
-          "id": 0,
+          
           "latitud": 1.0,
           "longitud": 1.0
         }
       },
       {
-        "id": 103,
+        
         "clientes": [],
         "posicion": {
-          "id": 0,
+          
           "latitud": 1.0,
           "longitud": 1.0
         }
       },
       {
-        "id": 104,
+        
         "clientes": [],
         "posicion": {
-          "id": 0,
+          
           "latitud": 1.0,
           "longitud": 1.0
         }
       },
       {
-        "id": 20,
+        
         "clientes": [],
         "posicion": {
-          "id": 0,
+        
           "latitud": 1.0,
           "longitud": 1.0
         }
       },
       {
-        "id": 22,
+        
         "clientes": [],
         "posicion": {
-          "id": 0,
+        
           "latitud": 1.0,
           "longitud": 1.0
         }
       },
       {
-        "id": 23,
+        
         "clientes": [
           {
             "simplexAutomatico": 0,
@@ -69,7 +66,7 @@
               "tipo": "DNI"
             },
             "miCoordenada": {
-              "id": 24,
+              
               "latitud": 1.0,
               "longitud": 1.0
             },
@@ -85,8 +82,8 @@
                   "minLargest": 325,
                   "maxSmallest": 400,
                   "maxLargest": 400
-                },
-                "id": 25
+                }
+                
               }
             },
             "dispositivosEstandar": [],
@@ -95,7 +92,7 @@
                 "estado": {
                   "type": "sge.estados.Encendido",
                   "data": {
-                    "id": 26
+                   
                   }
                 },
                 "IDFabrica": 72639.59401123709,
@@ -104,73 +101,68 @@
                     "NuevoEstado": {
                       "type": "sge.estados.Apagado",
                       "data": {
-                        "id": 27
+                        
                       }
                     },
-                    "fechaCambio": "Sep 22, 2018 7:47:04 PM",
-                    "id": 28
+                    "fechaCambio": "Sep 22, 2018 7:47:04 PM"
+                    
                   },
                   {
                     "NuevoEstado": {
                       "type": "sge.estados.Encendido",
                       "data": {
-                        "id": 29
+                        
                       }
                     },
-                    "fechaCambio": "Sep 22, 2018 7:47:04 PM",
-                    "id": 30
+                    "fechaCambio": "Sep 22, 2018 7:47:04 PM"
                   },
                   {
                     "NuevoEstado": {
                       "type": "sge.estados.Apagado",
                       "data": {
-                        "id": 31
+                       
                       }
                     },
-                    "fechaCambio": "Sep 22, 2018 7:47:04 PM",
-                    "id": 32
+                    "fechaCambio": "Sep 22, 2018 7:47:04 PM"
                   },
                   {
                     "NuevoEstado": {
                       "type": "sge.estados.Encendido",
                       "data": {
-                        "id": 33
+                       
                       }
                     },
-                    "fechaCambio": "Sep 22, 2018 7:47:04 PM",
-                    "id": 34
+                    "fechaCambio": "Sep 22, 2018 7:47:04 PM"
                   },
                   {
                     "NuevoEstado": {
                       "type": "sge.estados.Apagado",
                       "data": {
-                        "id": 35
+                        
                       }
                     },
-                    "fechaCambio": "Sep 22, 2018 7:47:04 PM",
-                    "id": 36
+                    "fechaCambio": "Sep 22, 2018 7:47:04 PM"
                   },
                   {
                     "NuevoEstado": {
                       "type": "sge.estados.Encendido",
                       "data": {
-                        "id": 37
+                        
                       }
                     },
-                    "fechaCambio": "Sep 22, 2018 7:47:04 PM",
-                    "id": 38
+                    "fechaCambio": "Sep 22, 2018 7:47:04 PM"
                   }
                 ],
                 "nombre": "Televisor",
                 "consumoKWxHora": 0.6,
-                "tipo": "Televisor",
-                "id": 39
+                "tipo": "Televisor"
+                
               },
               {
                 "estado": {
                   "type": "sge.estados.Apagado",
                   "data": {
-                    "id": 41
+                    
                   }
                 },
                 "IDFabrica": 79531.22495539219,
@@ -179,25 +171,23 @@
                     "NuevoEstado": {
                       "type": "sge.estados.Apagado",
                       "data": {
-                        "id": 42
+                        
                       }
                     },
-                    "fechaCambio": "Sep 22, 2018 7:47:04 PM",
-                    "id": 43
+                    "fechaCambio": "Sep 22, 2018 7:47:04 PM"
                   }
                 ],
                 "nombre": "Computadora",
                 "consumoKWxHora": 0.6,
-                "tipo": "Computadora",
-                "id": 44
+                "tipo": "Computadora"
+                
               }
             ],
-            "puntos": 30,
-            "id": 45
+            "puntos": 30
           }
         ],
         "posicion": {
-          "id": 46,
+          
           "latitud": 6.0,
           "longitud": 8.0
         }
@@ -205,82 +195,81 @@
     ],
     "radioCubierto": 10,
     "coordenadaCentral": {
-      "id": 47,
+     
       "latitud": 0.0,
       "longitud": 0.0
     }
   },
   {
-    "id": 48,
     "transformadores": [
       {
-        "id": 49,
+       
         "clientes": [],
         "posicion": {
-          "id": 61,
+          
           "latitud": 1.0,
           "longitud": 1.0
         }
       },
       {
-        "id": 51,
+        
         "clientes": [],
         "posicion": {
-          "id": 52,
+          
           "latitud": 1.0,
           "longitud": 1.0
         }
       },
       {
-        "id": 53,
+        
         "clientes": [],
         "posicion": {
-          "id": 54,
+          
           "latitud": 1.0,
           "longitud": 1.0
         }
       },
       {
-        "id": 55,
+        
         "clientes": [],
         "posicion": {
-          "id": 56,
+          
           "latitud": 1.0,
           "longitud": 1.0
         }
       },
       {
-        "id": 57,
+        
         "clientes": [],
         "posicion": {
-          "id": 58,
+          
           "latitud": 1.0,
           "longitud": 1.0
         }
       },
       {
-        "id": 59,
+        
         "clientes": [],
         "posicion": {
-          "id": 62,
+          
           "latitud": 1.0,
           "longitud": 1.0
         }
       },
       {
-        "id": 63,
+        
         "clientes": [
           {
             "simplexAutomatico": 0,
             "puntosAgregarDisp": 15,
             "puntosConvDispEaI": 10,
-            "nombreYApellido": "Martin Perez",
+            "nombreYApellido": "Juan carlos",
             "documento": {
-              "numero": 40732178,
+              "numero": 41762174,
               "tipo": "DNI"
             },
             "miCoordenada": {
-              "id": 72,
+              
               "latitud": 1.0,
               "longitud": 1.0
             },
@@ -296,8 +285,7 @@
                   "minLargest": 325,
                   "maxSmallest": 400,
                   "maxLargest": 400
-                },
-                "id": 73
+                }
               }
             },
             "dispositivosEstandar": [],
@@ -306,7 +294,7 @@
                 "estado": {
                   "type": "sge.estados.Encendido",
                   "data": {
-                    "id": 74
+                    
                   }
                 },
                 "IDFabrica": 72639.59401123709,
@@ -315,73 +303,66 @@
                     "NuevoEstado": {
                       "type": "sge.estados.Apagado",
                       "data": {
-                        "id": 75
+                        
                       }
                     },
-                    "fechaCambio": "Sep 22, 2018 7:47:04 PM",
-                    "id": 76
+                    "fechaCambio": "Sep 22, 2018 7:47:04 PM"
                   },
                   {
                     "NuevoEstado": {
                       "type": "sge.estados.Encendido",
                       "data": {
-                        "id": 77
+                        
                       }
                     },
-                    "fechaCambio": "Sep 22, 2018 7:47:04 PM",
-                    "id": 78
+                    "fechaCambio": "Sep 22, 2018 7:47:04 PM"
                   },
                   {
                     "NuevoEstado": {
                       "type": "sge.estados.Apagado",
                       "data": {
-                        "id": 79
+                        
                       }
                     },
-                    "fechaCambio": "Sep 22, 2018 7:47:04 PM",
-                    "id": 81
+                    "fechaCambio": "Sep 22, 2018 7:47:04 PM"
                   },
                   {
                     "NuevoEstado": {
                       "type": "sge.estados.Encendido",
                       "data": {
-                        "id": 82
+                        
                       }
                     },
-                    "fechaCambio": "Sep 22, 2018 7:47:04 PM",
-                    "id": 83
+                    "fechaCambio": "Sep 22, 2018 7:47:04 PM"
                   },
                   {
                     "NuevoEstado": {
                       "type": "sge.estados.Apagado",
                       "data": {
-                        "id": 84
+                        
                       }
                     },
-                    "fechaCambio": "Sep 22, 2018 7:47:04 PM",
-                    "id": 85
+                    "fechaCambio": "Sep 22, 2018 7:47:04 PM"
                   },
                   {
                     "NuevoEstado": {
                       "type": "sge.estados.Encendido",
                       "data": {
-                        "id": 86
+                        
                       }
                     },
-                    "fechaCambio": "Sep 22, 2018 7:47:04 PM",
-                    "id": 87
+                    "fechaCambio": "Sep 22, 2018 7:47:04 PM"
                   }
                 ],
                 "nombre": "Televisor",
                 "consumoKWxHora": 0.6,
-                "tipo": "Televisor",
-                "id": 88
+                "tipo": "Televisor"
               },
               {
                 "estado": {
                   "type": "sge.estados.Apagado",
                   "data": {
-                    "id": 89
+                    
                   }
                 },
                 "IDFabrica": 79531.22495539219,
@@ -390,25 +371,22 @@
                     "NuevoEstado": {
                       "type": "sge.estados.Apagado",
                       "data": {
-                        "id": 91
+                        
                       }
                     },
-                    "fechaCambio": "Sep 22, 2018 7:47:04 PM",
-                    "id": 92
+                    "fechaCambio": "Sep 22, 2018 7:47:04 PM"
                   }
                 ],
                 "nombre": "Computadora",
                 "consumoKWxHora": 0.6,
-                "tipo": "Computadora",
-                "id": 93
+                "tipo": "Computadora"
               }
             ],
-            "puntos": 30,
-            "id": 92
+            "puntos": 30
           }
         ],
         "posicion": {
-          "id": 95,
+          
           "latitud": 6.0,
           "longitud": 8.0
         }
@@ -416,19 +394,18 @@
     ],
     "radioCubierto": 10,
     "coordenadaCentral": {
-      "id": 94,
+      
       "latitud": 0.0,
       "longitud": 0.0
     }
   },
   {
-    "id": 96,
     "transformadores": [
       {
-        "id": 97,
+        
         "clientes": [],
         "posicion": {
-          "id": 98,
+          
           "latitud": 1.0,
           "longitud": 1.0
         }
@@ -436,19 +413,18 @@
     ],
     "radioCubierto": 10,
     "coordenadaCentral": {
-      "id": 111,
+      
       "latitud": 0.0,
       "longitud": 0.0
     }
   },
   {
-    "id": 113,
     "transformadores": [
       {
-        "id": 112,
+        
         "clientes": [],
         "posicion": {
-          "id": 114,
+          
           "latitud": 1.0,
           "longitud": 1.0
         }
@@ -456,19 +432,18 @@
     ],
     "radioCubierto": 10,
     "coordenadaCentral": {
-      "id": 115,
+      
       "latitud": 0.0,
       "longitud": 0.0
     }
   },
   {
-    "id": 116,
     "transformadores": [
       {
-        "id": 117,
+        
         "clientes": [],
         "posicion": {
-          "id": 223,
+          
           "latitud": 1.0,
           "longitud": 1.0
         }
@@ -476,19 +451,19 @@
     ],
     "radioCubierto": 10,
     "coordenadaCentral": {
-      "id": 224,
+      
       "latitud": 0.0,
       "longitud": 0.0
     }
   },
   {
-    "id": 226,
+    
     "transformadores": [
       {
-        "id": 225,
+        
         "clientes": [],
         "posicion": {
-          "id": 227,
+          
           "latitud": 1.0,
           "longitud": 1.0
         }
@@ -496,7 +471,7 @@
     ],
     "radioCubierto": 10,
     "coordenadaCentral": {
-      "id": 228,
+      
       "latitud": 0.0,
       "longitud": 0.0
     }

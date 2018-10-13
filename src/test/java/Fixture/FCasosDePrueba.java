@@ -3,12 +3,14 @@ package Fixture;
 
 import java.io.FileNotFoundException;
 import java.util.ArrayList;
-import java.util.LinkedList;
 import java.util.List;
+import java.util.Random;
+import java.util.concurrent.ThreadLocalRandom;
 
 import javax.persistence.EntityManager;
 import javax.persistence.EntityTransaction;
 
+import org.hibernate.Session;
 import org.junit.Before;
 import org.mockito.Mockito;
 import org.uqbarproject.jpa.java8.extras.PerThreadEntityManagers;
@@ -17,7 +19,6 @@ import sge.Coordenates;
 import sge.Documento;
 import sge.TipoDocumento;
 import sge.Suministro.Transformador;
-import sge.Suministro.ZonaGeografica;
 import sge.categorias.Categoria;
 import sge.categorias.CategoriaResidencial;
 import sge.clientes.Cliente;
@@ -29,6 +30,7 @@ import sge.reglas.Actuador;
 import sge.reglas.Regla;
 import sge.reglas.Sensor;
 import sge.persistencia.json.*;
+import sge.persistencia.repos.RepoClientes;
 import sge.persistencia.repos.RepoZonas;
 
 
@@ -36,6 +38,7 @@ public class FCasosDePrueba //extends AbstractPersistenceTest implements WithGlo
 {
 	public EntityManager entityManager;
 	public EntityTransaction transaction;
+	public Cliente LaZulma;
 	public Cliente clienteConDosDispositivos;
 	public DispositivoInteligente smartTv;
 	public Regla unaRegla;
@@ -47,6 +50,7 @@ public class FCasosDePrueba //extends AbstractPersistenceTest implements WithGlo
 	public List<DispositivoInteligente> dosDispositivosInteligentes;
 	public List<DispositivoEstandar> sinDispositivosEstandar;
 	public Transformador unTransformador;
+	
 	
 	@Before
 	public void init() throws FileNotFoundException {
@@ -73,17 +77,19 @@ public class FCasosDePrueba //extends AbstractPersistenceTest implements WithGlo
 		dosDispositivosInteligentes.add(smartTv);
 		dosDispositivosInteligentes.add(pc);
 		
+		LaZulma = new Cliente("Zulma Lobato",
+				new Documento(ThreadLocalRandom.current().nextInt(0, 999999999), TipoDocumento.DNI), "Cronica 2000", "01149212335", r3,sinDispositivosEstandar, dosDispositivosInteligentes, new Coordenates(80000.0,14863958390.0)); 
 		
-		clienteConDosDispositivos = new Cliente("Martin Perez",
-				new Documento(40732178, TipoDocumento.DNI), "Belgrano 2251", "01149212334", r3,sinDispositivosEstandar, dosDispositivosInteligentes, new Coordenates(1,1));
+		clienteConDosDispositivos = new Cliente("Esteban Luis",
+				new Documento(ThreadLocalRandom.current().nextInt(0, 999999999), TipoDocumento.DNI), "Belgrano 2251", "01149212334", r3,sinDispositivosEstandar, dosDispositivosInteligentes, new Coordenates(1.0,1.0));
 		
 		unActuador = new Actuador("apagar dispositivo", 0);
-		unaRegla = new Regla("Caso De Prueba3", unActuador, 0);
+		unaRegla = new Regla("Caso De Prueba3", unActuador, 0);		
+	
 		
-		//this.cargarTransformadores();
-		
-		unTransformador = new Transformador(new Coordenates(1, 1));
+		unTransformador = new Transformador(new Coordenates(1.0, 1.0));
 		unTransformador.setCliente(clienteConDosDispositivos);
+		
 		
 	}
 	

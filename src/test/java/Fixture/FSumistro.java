@@ -41,17 +41,17 @@ public class FSumistro {
 		dosDispositivosInteligentes.add(smartTv);
 		dosDispositivosInteligentes.add(pc);
 		clienteConDosDispositivos = new Cliente("Martin Perez",
-				new Documento(40732178, TipoDocumento.DNI), "Belgrano 2251", "01149212334", r3,sinDispositivosEstandar, dosDispositivosInteligentes, new Coordenates(1,1));
+				new Documento(40732178, TipoDocumento.DNI), "Belgrano 2251", "01149212334", r3,sinDispositivosEstandar, dosDispositivosInteligentes, new Coordenates(1.0,1.0));
 		////////////////////////////////////////////
 		RepoClientes.getInstance().agregar(clienteConDosDispositivos);		
 		
 
-		Coordenates posicionTransf = new Coordenates(1, 1);
+		Coordenates posicionTransf = new Coordenates(1.0, 1.0);
 		
 		unTransformador = new Transformador(posicionTransf);
 		transformadores.add(unTransformador);
 		
-		Coordenates centroCapital = new Coordenates(0, 0);
+		Coordenates centroCapital = new Coordenates(0.0, 0.0);
 		capitalFederal = new ZonaGeografica(transformadores,centroCapital,10); // el 10 es el radio que abarca
 		RepoZonas.getInstance().agregar(capitalFederal);
 		Geoposicionador ungeo = new Geoposicionador();

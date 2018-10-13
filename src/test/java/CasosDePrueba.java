@@ -1,6 +1,5 @@
 import static org.junit.Assert.assertEquals;
 
-import java.io.FileNotFoundException;
 import java.util.List;
 
 import javax.persistence.Query;
@@ -11,11 +10,9 @@ import sge.Coordenates;
 import sge.Suministro.Transformador;
 import sge.Suministro.ZonaGeografica;
 import sge.clientes.Cliente;
-import sge.dispositivos.Dispositivo;
 import sge.dispositivos.inteligentes.*;
 import sge.reglas.Regla;
 import sge.estados.*;
-import sge.Reportes.Reporte;
 
 public class CasosDePrueba extends Fixture.FCasosDePrueba {
 
@@ -24,7 +21,7 @@ public class CasosDePrueba extends Fixture.FCasosDePrueba {
 
 		// persisto un cliente
 		transaction.begin();
-		entityManager.persist(clienteConDosDispositivos);
+		entityManager.persist(LaZulma);
 		transaction.commit();
 
 		// lo recupero
@@ -34,7 +31,7 @@ public class CasosDePrueba extends Fixture.FCasosDePrueba {
 
 		// le modifico la geolocalizacion y lo actualizao
 
-		Coordenates coordenadaNueva = new Coordenates(50, 50);
+		Coordenates coordenadaNueva = new Coordenates(50.0, 50.0);
 		clientitoPerez.nuevaCoordenada(coordenadaNueva);
 		transaction.commit();
 		entityManager.clear(); // limpio la cache para obligarlo a que vuelva a buscar de la bd
@@ -112,11 +109,13 @@ public class CasosDePrueba extends Fixture.FCasosDePrueba {
 	@Test
 	public void casoDePrueba4() {
 		
-		this.cargarTransformadores();
 		
-		// persisto los transformadores
+		this.cargarTransformadores();
+	
+		//persisto las zonas
 		transaction.begin();
-		transformadores.forEach(unTransformador -> entityManager.persist(unTransformador));
+		repoZonas.get().forEach(unaZona -> entityManager.persist(unaZona));
+		System.out.println(transformadores.size());
 		transaction.commit();
 		
 		//recupero todos los transformadores persistidos
@@ -126,24 +125,29 @@ public class CasosDePrueba extends Fixture.FCasosDePrueba {
 		//registro su cantidad
 		System.out.println(listaTransformadores.size());
 		
+		
 		//creo un nuevo transformador
-		Transformador transformadorcitoNuevo = new Transformador(new Coordenates(8,6));
+		Transformador transformadorcitoNuevo = new Transformador(new Coordenates(8.0,6.0));
 		transformadorcitoNuevo.setCliente(clienteConDosDispositivos);
+		
 		
 		ZonaGeografica Zonita = repoZonas.get().stream().findFirst().get();
 		Zonita.agregarTransformador(transformadorcitoNuevo);
 		cargador.guardarZona();
 		
 		//habria que leer nuevamente el json de entrada
-		this.cargarTransformadores();
+		this.cargarTransformadores();	
 		
 		//persistir lo nuevo
+
+		transaction.begin();	
+		Query query2 = entityManager.createNativeQuery("select * from cliente where documento_numero = :idABuscar", Cliente.class ).setParameter("idABuscar", clienteConDosDispositivos.documento());
 		
-		transaction.begin();
-		transformadores.forEach(unTransformador -> entityManager.persist(unTransformador));
-		transaction.commit();
-		
+		clienteConDosDispositivos = (Cliente) query2.getSingleResult();
+		entityManager.merge(Zonita);
+		transaction.commit();	
 		entityManager.clear(); // limpio la cache
+		
 		
 		//vuelvo a traer todos los transformadores y evaluo que sea uno mas.
 		
@@ -152,9 +156,9 @@ public class CasosDePrueba extends Fixture.FCasosDePrueba {
 		 
 		List<Transformador> listaTransformadoresNuevos =  queryNueva.getResultList();
 		
-		assertEquals("La cantidad debe ser 3", listaTransformadores.size() + 1, listaTransformadoresNuevos.size());
+		assertEquals("La cantidad debe ser 19", listaTransformadores.size() + 1, listaTransformadoresNuevos.size());
 	}
-	
+/*	
 	@Test
 	public void casoDePrueba5() {
 		
@@ -201,9 +205,10 @@ public class CasosDePrueba extends Fixture.FCasosDePrueba {
 		System.out.println("El consumo para el transformador con el dispositivo aumentado es: " + reportePrueba.consumoPromedioPorTransformador(idPrueba)); //deberia ser el id del transformador
 		
 	}
-	
+*/	
 	public void cargarTransformadores() {
 		repoZonas.get().clear(); //limpio el repo para que no me agregue elementos repetidos si ya habian
+		
 		cargador.cargarZona();
 		
 		transformadores.clear();//limpio la lista de transformadores para que no me agregue elementos repetidos si ya habian

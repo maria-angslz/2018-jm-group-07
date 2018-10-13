@@ -7,13 +7,14 @@ import javax.persistence.Id;
 import javax.persistence.Inheritance;
 import javax.persistence.InheritanceType;
 
+import sge.SuperClase;
+
 @Entity
 @DiscriminatorColumn(name = "tipo")
 @Inheritance(strategy = InheritanceType.SINGLE_TABLE)
-public abstract class Categoria {
+public abstract class Categoria extends SuperClase
+{
 	
-	@Id @GeneratedValue
-	private int id;
 	
 	public abstract double aproximarFacturacion(double KWConsumidos);
 
