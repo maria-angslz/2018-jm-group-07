@@ -37,7 +37,7 @@ public class Reporte {
 		
 		String queryStringTransformador = "SELECT * FROM Transformador Where id = :idTransformador";
 		EntityManager entityManager = PerThreadEntityManagers.getEntityManager();
-		Query query = entityManager.createNativeQuery(queryStringTransformador, Transformador.class).setParameter("idTransformador", 1);
+		Query query = entityManager.createNativeQuery(queryStringTransformador, Transformador.class).setParameter("idTransformador", idTransformador);
 		Transformador elTransformador = (Transformador) query.getSingleResult();
 		return elTransformador.promedioEnergiaSuministrada();
 		

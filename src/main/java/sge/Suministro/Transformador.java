@@ -45,7 +45,12 @@ public class Transformador extends SuperClase
 	}
 	
 	public double promedioEnergiaSuministrada() {
-		return this.energiaSuministrada() / this.clientes.size();
+		if(this.clientes.size() == 0) {
+			return 0;
+		}
+		else {
+			return this.energiaSuministrada() / this.clientes.size();
+		}
 	}
 	
 	public List<Cliente> getClientes() {

@@ -7,6 +7,7 @@ import javax.persistence.Query;
 import org.junit.Test;
 
 import sge.Coordenates;
+import sge.Reportes.Reporte;
 import sge.Suministro.Transformador;
 import sge.Suministro.ZonaGeografica;
 import sge.clientes.Cliente;
@@ -158,7 +159,7 @@ public class CasosDePrueba extends Fixture.FCasosDePrueba {
 		
 		assertEquals("La cantidad debe ser 19", listaTransformadores.size() + 1, listaTransformadoresNuevos.size());
 	}
-/*	
+
 	@Test
 	public void casoDePrueba5() {
 		
@@ -170,13 +171,11 @@ public class CasosDePrueba extends Fixture.FCasosDePrueba {
 		
 		System.out.println("El consumo promedio por dispositivo del cliente Martin Perez es: " + reportePrueba.PromedioPorDispositivo(idPrueba));
 		
-		System.out.println("La energia suministrada promedio del primer transformador es: " + reportePrueba.consumoPromedioPorTransformador(idPrueba));
+		System.out.println("La energia suministrada promedio del primer transformador es: " + reportePrueba.consumoPromedioPorTransformador(7));
 		
 		String queryString = "SELECT * FROM Transformador Where id = :idTransformador";
-		Query query = entityManager.createNativeQuery(queryString, Transformador.class).setParameter("idTransformador", idPrueba);
+		Query query = entityManager.createNativeQuery(queryString, Transformador.class).setParameter("idTransformador", 7);
 		Transformador elTransformador = (Transformador) query.getSingleResult();
-		
-		entityManager.clear();
 		
 		Cliente clienteDePrueba = elTransformador.getClientes().stream().findFirst().get();
 		
@@ -185,7 +184,7 @@ public class CasosDePrueba extends Fixture.FCasosDePrueba {
 		transaction.begin();
 		
 		queryString = "SELECT * FROM dispositivoInteligente Where id = :idDispositivo";
-		query = entityManager.createNativeQuery(queryString, Transformador.class).setParameter("idTransformador", idPrueba);
+		query = entityManager.createNativeQuery(queryString, DispositivoInteligente.class).setParameter("idDispositivo", 4);
 		dispositivoDePrueba = (DispositivoInteligente) query.getSingleResult();
 		
 		// incrementamos el consumo del dispositivo al 1000%
@@ -199,13 +198,13 @@ public class CasosDePrueba extends Fixture.FCasosDePrueba {
 		//vuelvo a traer el transformador
 		
 		queryString = "SELECT * FROM Transformador Where id = :idTransformador";
-		query = entityManager.createNativeQuery(queryString, Transformador.class).setParameter("idTransformador", idPrueba);
+		query = entityManager.createNativeQuery(queryString, Transformador.class).setParameter("idTransformador", 7);
 		elTransformador = (Transformador) query.getSingleResult();
 		
-		System.out.println("El consumo para el transformador con el dispositivo aumentado es: " + reportePrueba.consumoPromedioPorTransformador(idPrueba)); //deberia ser el id del transformador
+		System.out.println("El consumo para el transformador con el dispositivo aumentado es: " + reportePrueba.consumoPromedioPorTransformador(7)); //deberia ser el id del transformador
 		
 	}
-*/	
+
 	public void cargarTransformadores() {
 		repoZonas.get().clear(); //limpio el repo para que no me agregue elementos repetidos si ya habian
 		
