@@ -14,13 +14,21 @@ public class ControllerHome {
 				Optional.fromNullable(apodo)
 				.transform(it -> user.findByApodo(it))
 				.or(user.getCapturas());*/
-		
+		String email = req.queryParams("go");
 		HashMap<String, Object> viewModel = new HashMap<>();
 		//viewModel.put("apodo", apodo);
 		//viewModel.put("capturas", capturas);
 		
 		return new ModelAndView(
 				viewModel, 
-				"index.hbs");
+				"login.hbs");
+	}
+	
+	public static ModelAndView principal(Request req, Response res) {
+		HashMap<String, Object> viewModel = new HashMap<>();
+		
+		return new ModelAndView(
+				viewModel, 
+				"ViewReporte.html");
 	}
 }

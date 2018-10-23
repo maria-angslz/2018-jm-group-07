@@ -8,6 +8,7 @@ public class Administrador {
 	private String domicilio;
 	private LocalDate fechaDeAlta;
 	private long id;
+	private String email;
 
 	public static Administrador nuevoAdministrador(String nombreYApellido, String domicilio) {
 		return new Administrador(nombreYApellido, domicilio, LocalDate.now());

@@ -8,6 +8,7 @@ public class Router {
 	public static void configure() {
 		
 		HandlebarsTemplateEngine transformes = new HandlebarsTemplateEngine();
-		Spark.get("/", ControllerHome::index, transformes);	
+		Spark.get("/login", ControllerHome::index, transformes);
+		Spark.post("/principal",ControllerHome::principal, transformes);
 	}
 }
