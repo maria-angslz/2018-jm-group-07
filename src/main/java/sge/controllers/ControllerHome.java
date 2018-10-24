@@ -49,7 +49,7 @@ public class ControllerHome {
         	
         } else if(session.checkPass(email,password,"cliente")) {
         	
-        	return new ModelAndView(viewModel, "ViewReporte.html");
+        	return new ModelAndView(viewModel, "ViewConsumoUltimoPeriodo.hbs");
         	
         }
         else {

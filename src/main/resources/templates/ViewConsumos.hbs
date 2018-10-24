@@ -1,8 +1,5 @@
-<html>
-	<head>
-		<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css">
-		<link rel="stylesheet" href="css/login.css">
-		<title>Consumos</title>
+{{#partial "head"}}
+<title>Consumos</title>
 		<style>
 			table {
 				font-family: arial, sans-serif;
@@ -20,9 +17,10 @@
 				background-color: #dddddd;
 			}
 		</style>
-	</head>
-	<body>
-		<label>Consumos</label>
+{{/partial}}
+
+{{#partial "content"}}
+	<label>Consumos</label>
 		<table>
 			<tr>
 				<th> Nombre Cliente </th>
@@ -37,6 +35,6 @@
 			</tr>
 			{{/each}}
 		</table>
-		
-	</body>
-</html>
+{{/partial}}
+
+{{> layoutHome.hbs}}
