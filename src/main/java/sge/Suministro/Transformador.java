@@ -37,7 +37,7 @@ public class Transformador extends SuperClase
 		this.posicion = posicion;
 	}
 	public double energiaSuministrada(){
-		return clientes.stream().mapToDouble(unCliente -> unCliente.consumos()).sum();		
+		return clientes.stream().mapToDouble(unCliente -> unCliente.getConsumos()).sum();		
 		
 	}
 	public void setCliente(Cliente cliente) {

@@ -197,7 +197,7 @@ public class Cliente extends SuperClase
 		return dispositivosInteligentes.stream().filter(disp -> disp.encendido());
 	}
 	
-	public double consumos() {
+	public double getConsumos() {
 		return dispositivosEncendidos().mapToDouble(unDispositivo -> unDispositivo.consumoKWxHora()).sum();
 	}
 	
