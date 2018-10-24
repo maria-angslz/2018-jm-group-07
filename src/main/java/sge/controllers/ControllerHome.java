@@ -11,7 +11,6 @@ import java.util.Map;
 import spark.ModelAndView;
 import spark.Request;
 import spark.Response;
-
 import java.nio.charset.Charset;
 
 import org.apache.http.NameValuePair;
@@ -19,13 +18,21 @@ import org.apache.http.client.utils.URLEncodedUtils;
 
 
 public class ControllerHome {
+	public static boolean lanzarCartel = false;
 	public static CargaDatosWrapper cargador = new CargaDatosWrapper();
 	public static RepoClientes repoClientes = RepoClientes.getInstance();
 	
 	public static ModelAndView login(Request req, Response res) {
-		//String email = req.queryParams("go");
-		HashMap<String, Object> viewModel = new HashMap<>();
 		
+		HashMap<String, Object> viewModel = new HashMap<>();
+		if(lanzarCartel) {
+			viewModel.put("booleano", true);
+			lanzarCartel = false;
+		}
+		else {
+			viewModel.remove("booleano");
+		}
+				
 		return new ModelAndView(viewModel, "login.hbs");
 	}
 	
@@ -53,6 +60,8 @@ public class ControllerHome {
         	
         }
         else {
+        	lanzarCartel = true;
+        	res.redirect("/login");       	
         	
         	return new ModelAndView(viewModel, "login.hbs");
         	
