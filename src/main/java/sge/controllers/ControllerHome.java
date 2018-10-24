@@ -29,7 +29,7 @@ public class ControllerHome {
 		
 		return new ModelAndView(
 				viewModel, 
-				"login.html");
+				"login.hbs");
 	}
 	
 	public static ModelAndView principal(Request req, Response res) {
@@ -39,10 +39,15 @@ public class ControllerHome {
         Map<String, String> params = toMap(pairs);
 
         String email = params.get("email");
-        int password = Integer.parseInt(params.get("password"));
+        int password=-1;
+        try {
+        	password = Integer.parseInt(params.get("password"));
+        } catch(Exception e) {
+        	
+        }
        
         logger session = new logger();
-        if(session.checkPass(email,password)) {
+        if(password != -1 && session.checkPass(email,password)) {
         
         	HashMap<String, Object> viewModel = new HashMap<>();
         	return new ModelAndView(
