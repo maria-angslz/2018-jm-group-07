@@ -9,6 +9,7 @@ public class Administrador {
 	private LocalDate fechaDeAlta;
 	private long id;
 	private String email;
+	private int pass;
 
 	public static Administrador nuevoAdministrador(String nombreYApellido, String domicilio) {
 		return new Administrador(nombreYApellido, domicilio, LocalDate.now());

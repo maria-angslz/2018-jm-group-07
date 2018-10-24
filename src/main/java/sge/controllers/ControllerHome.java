@@ -29,7 +29,7 @@ public class ControllerHome {
 		
 		return new ModelAndView(
 				viewModel, 
-				"login.hbs");
+				"login.html");
 	}
 	
 	public static ModelAndView principal(Request req, Response res) {
@@ -53,7 +53,7 @@ public class ControllerHome {
         	HashMap<String, Object> viewModel = new HashMap<>();
         	return new ModelAndView(
     				viewModel, 
-    				"login.hbs");
+    				"login.html");
         }
         
 	}
