@@ -1,72 +1,133 @@
 [
-	{
-		"horasDelMes": 720,
-		"nombreYApellido": "Jose Hernandez",
-		"documento": {
-			"numero": 47465078,
-			"tipo": "DNI"
-		},
-		"domicilio": "Belgrano 2252",
-		"telefono": "01149212334",
-		"categoria": {
-			"cargoFijo": 60.71,
-			"cargoPorkWh": 0.681,
-			"rango": {
-				"minSmallest": 325,
-				"minLargest": 325,
-				"maxSmallest": 400,
-				"maxLargest": 400
-			}
-		},
-		"dispositivos": [
-			{
-				"nombre": "TV",
-				"consumoKWxHora": 5.0,
-				"encendido": true,
-				"consumoDeEsteMes": 0.0,
-				"fechaDeEncendido": {
-					"date": {
-						"year": 2018,
-						"month": 4,
-						"day": 24
-					},
-					"time": {
-						"hour": 15,
-						"minute": 25,
-						"second": 47,
-						"nano": 594000000
-					}
-				}
-			},
-			{
-				"nombre": "Heladera",
-				"consumoKWxHora": 40.0,
-				"encendido": false,
-				"consumoDeEsteMes": 0.0
-			}
-		],
-		"facturacionAproximadaDelMesPasado": 0.0
-	},
-	{
-		"horasDelMes": 720,
+	  {
+		"simplexAutomatico": 0,
+		"puntosAgregarDisp": 15,
+		"puntosConvDispEaI": 10,
 		"nombreYApellido": "Martin Perez",
+		"email": "pruebita@gmail.com",
+		"pass": 123,
 		"documento": {
-			"numero": 40732178,
-			"tipo": "DNI"
+		  "numero": 40732178,
+		  "tipo": "DNI"
+		},
+		"miCoordenada": {
+		  
+		  "latitud": 1.0,
+		  "longitud": 1.0
 		},
 		"domicilio": "Belgrano 2251",
 		"telefono": "01149212334",
 		"categoria": {
+		  "type": "sge.categorias.CategoriaResidencial",
+		  "data": {
 			"cargoFijo": 60.71,
 			"cargoPorkWh": 0.681,
 			"rango": {
-				"minSmallest": 325,
-				"minLargest": 325,
-				"maxSmallest": 400,
-				"maxLargest": 400
+			  "minSmallest": 325,
+			  "minLargest": 325,
+			  "maxSmallest": 400,
+			  "maxLargest": 400
 			}
+			
+		  }
 		},
-		"dispositivos": [],
-		"facturacionAproximadaDelMesPasado": 0.0
-	}
+		"dispositivosEstandar": [],
+		"dispositivosInteligentes": [
+		  {
+			"estado": {
+			  "type": "sge.estados.Encendido",
+			  "data": {
+			   
+			  }
+			},
+			"IDFabrica": 72639.59401123709,
+			"listaCambiosDeEstado": [
+			  {
+				"NuevoEstado": {
+				  "type": "sge.estados.Apagado",
+				  "data": {
+					
+				  }
+				},
+				"fechaCambio": "Sep 22, 2018 7:47:04 PM"
+				
+			  },
+			  {
+				"NuevoEstado": {
+				  "type": "sge.estados.Encendido",
+				  "data": {
+					
+				  }
+				},
+				"fechaCambio": "Sep 22, 2018 7:47:04 PM"
+			  },
+			  {
+				"NuevoEstado": {
+				  "type": "sge.estados.Apagado",
+				  "data": {
+				   
+				  }
+				},
+				"fechaCambio": "Sep 22, 2018 7:47:04 PM"
+			  },
+			  {
+				"NuevoEstado": {
+				  "type": "sge.estados.Encendido",
+				  "data": {
+				   
+				  }
+				},
+				"fechaCambio": "Sep 22, 2018 7:47:04 PM"
+			  },
+			  {
+				"NuevoEstado": {
+				  "type": "sge.estados.Apagado",
+				  "data": {
+					
+				  }
+				},
+				"fechaCambio": "Sep 22, 2018 7:47:04 PM"
+			  },
+			  {
+				"NuevoEstado": {
+				  "type": "sge.estados.Encendido",
+				  "data": {
+					
+				  }
+				},
+				"fechaCambio": "Sep 22, 2018 7:47:04 PM"
+			  }
+			],
+			"nombre": "Televisor",
+			"consumoKWxHora": 0.6,
+			"tipo": "Televisor"
+			
+		  },
+		  {
+			"estado": {
+			  "type": "sge.estados.Apagado",
+			  "data": {
+				
+			  }
+			},
+			"IDFabrica": 79531.22495539219,
+			"listaCambiosDeEstado": [
+			  {
+				"NuevoEstado": {
+				  "type": "sge.estados.Apagado",
+				  "data": {
+					
+				  }
+				},
+				"fechaCambio": "Sep 22, 2018 7:47:04 PM"
+			  }
+			],
+			"nombre": "Computadora",
+			"consumoKWxHora": 0.6,
+			"tipo": "Computadora"
+			
+		  }
+		],
+		"puntos": 30
+	  }
 ]

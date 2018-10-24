@@ -14,16 +14,12 @@
 							<img src="img/logo_sge.png" align="middle" style="width: 150;">
 							<h4 style="text-align: center;">SGE</h4>
 						</div>
-						<form action="/principal" method="get">
-							<div class="form-group">
-							    <label for="exampleInputEmail1">Usuario</label>
-							    <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Usuario">
-						  	</div>
-						  	<div class="form-group">
-							    <label for="exampleInputPassword1">Contrase&#241;a</label>
-							    <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Contrase&#241;a">
-						  	</div>
-						  	<button type="submit" name="go" class="btn btn-lg btn-primary btn-block" FORMMETHOD="post" >Ingresar</button>
+						<form action="/principal" method="post">
+							<input type="email" name="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Usuario">
+						  	
+						  	<input type="password" name="password" class="form-control" id="exampleInputPassword1" placeholder="Contrase&#241;a">
+					 		
+					 		<button type="submit" class="btn btn-lg btn-primary btn-block" FORMMETHOD="post">Ingresar</button>
 						</form>
 						<small>Realizado por Grupo 7</small>
 				      </section>  

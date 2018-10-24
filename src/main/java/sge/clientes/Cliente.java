@@ -36,6 +36,7 @@ public class Cliente extends SuperClase
 	final int puntosConvDispEaI = 10;
 	private String nombreYApellido;
 	private String email;
+	private int pass;
 	
 	
 	@OneToOne(cascade = {CascadeType.PERSIST, CascadeType.MERGE})
@@ -214,5 +215,11 @@ public class Cliente extends SuperClase
 	public int documento() {
 		return documento.numero();
 	}
-
+	
+	public String email() {
+		return email;
+	}
+	public Integer pass() {
+		return pass;
+	}
 }
