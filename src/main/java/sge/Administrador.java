@@ -20,6 +20,14 @@ public class Administrador {
 		this.domicilio = domicilio;
 		this.fechaDeAlta = fechaDeAlta;
 	}
+	
+	public String email() {
+		return email;
+	}
+
+	public Integer pass() {
+		return pass;
+	}
 
 	public int antiguedad() {
 		LocalDate now = LocalDate.now();

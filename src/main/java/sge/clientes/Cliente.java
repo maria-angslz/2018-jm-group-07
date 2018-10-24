@@ -85,6 +85,14 @@ public class Cliente extends SuperClase
 		agregarPuntosIniciales();
 	}
 	
+	public String getNombreYApellido() {
+		return nombreYApellido;
+	}
+
+	public String getEmail() {
+		return email;
+	}
+	
 	public Coordenates miCoordenada() {
 		return miCoordenada;
 	}
