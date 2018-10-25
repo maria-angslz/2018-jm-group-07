@@ -11,5 +11,6 @@ public class Router {
 		Spark.get("/login", ControllerHome::login, transformes);
 		Spark.post("/principal",ControllerHome::principal, transformes);
 		Spark.post("/principal/reporte",ControllerHome::reporte, transformes);
+		Spark.get("/cliente/dispositivos",ControllerHome::reporte, transformes);
 	}
 }
