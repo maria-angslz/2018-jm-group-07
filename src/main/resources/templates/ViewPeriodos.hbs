@@ -1,0 +1,17 @@
+{{#partial "head"}}
+<title>Consumos por Periodo</title>
+{{/partial}}
+
+{{#partial "content"}}
+	TODO
+	{{#each periodos}}
+		<div class="card" style="width: 20rem;">
+		  <div class="card-body">
+		    <label>{{fecha}}</label>
+		    <label>{{estado}}</label>
+		  </div>
+		</div>
+	{{/each}}
+{{/partial}}
+
+{{> layoutHogar.hbs}}

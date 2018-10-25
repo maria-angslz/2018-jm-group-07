@@ -206,6 +206,10 @@ public class Cliente extends SuperClase
 		return SgeSimplex.getInstance().optimizar(getDispositivos());
 	}
 	
+	public ResultadoSimplex getConsumoIdeal() {
+		return consumoIdeal();
+	}
+	
 	public void activarAhorroAutomatico() {
 		this.simplexAutomatico = 1;
 	}

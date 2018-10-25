@@ -8,8 +8,8 @@
 			"day": 20
 		},
 		"id": 0,
-		"email":"juancito@admin",
-		"pass":123
+		"email": "juancito@admin",
+		"pass": 123
 	},
 	{
 		"nombreYApellido": "Pepe Rodriguez",
@@ -20,7 +20,7 @@
 			"day": 20
 		},
 		"id": 0,
-		"email":"pepito@admin",
-		"pass":2222
+		"email": "pepito@admin",
+		"pass": 2222
 	}
 ]

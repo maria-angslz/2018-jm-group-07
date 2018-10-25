@@ -1,0 +1,17 @@
+{{#partial "head"}}
+<title>Estado de dispositivos</title>
+{{/partial}}
+
+{{#partial "content"}}
+	<br>
+	{{#each cliente.dispositivosInteligentes}}
+		<div class="card text-white {{#if estado.encendido}}bg-success{{else}}bg-danger{{/if}} mb-3" style="width: 20rem;">
+			<div class="card-body">
+				<h5 class="card-title">{{nombre}}</h5>
+				<label>{{estado}}</label>
+			</div>
+		</div>
+	{{/each}}
+{{/partial}}
+
+{{>layoutHogar.hbs}}
