@@ -1,479 +1,432 @@
 [
-  {
-    "transformadores": [
-      {
-        "clientes": [],
-        "posicion": {         
-          "latitud": 1.0,
-          "longitud": 1.0
-        }
-      },
-      {
-        
-        "clientes": [],
-        "posicion": {
-          
-          "latitud": 1.0,
-          "longitud": 1.0
-        }
-      },
-      {
-        
-        "clientes": [],
-        "posicion": {
-          
-          "latitud": 1.0,
-          "longitud": 1.0
-        }
-      },
-      {
-        
-        "clientes": [],
-        "posicion": {
-          
-          "latitud": 1.0,
-          "longitud": 1.0
-        }
-      },
-      {
-        
-        "clientes": [],
-        "posicion": {
-        
-          "latitud": 1.0,
-          "longitud": 1.0
-        }
-      },
-      {
-        
-        "clientes": [],
-        "posicion": {
-        
-          "latitud": 1.0,
-          "longitud": 1.0
-        }
-      },
-      {
-        
-        "clientes": [
-          {
-            "simplexAutomatico": 0,
-            "puntosAgregarDisp": 15,
-            "puntosConvDispEaI": 10,
-            "nombreYApellido": "Martin Perez",
-            "documento": {
-              "numero": 40732178,
-              "tipo": "DNI"
-            },
-            "miCoordenada": {
-              
-              "latitud": 1.0,
-              "longitud": 1.0
-            },
-            "domicilio": "Belgrano 2251",
-            "telefono": "01149212334",
-            "categoria": {
-              "type": "sge.categorias.CategoriaResidencial",
-              "data": {
-                "cargoFijo": 60.71,
-                "cargoPorkWh": 0.681,
-                "rango": {
-                  "minSmallest": 325,
-                  "minLargest": 325,
-                  "maxSmallest": 400,
-                  "maxLargest": 400
-                }
-                
-              }
-            },
-            "dispositivosEstandar": [],
-            "dispositivosInteligentes": [
-              {
-                "estado": {
-                  "type": "sge.estados.Encendido",
-                  "data": {
-                   
-                  }
-                },
-                "IDFabrica": 72639.59401123709,
-                "listaCambiosDeEstado": [
-                  {
-                    "NuevoEstado": {
-                      "type": "sge.estados.Apagado",
-                      "data": {
-                        
-                      }
-                    },
-                    "fechaCambio": "Sep 22, 2018 7:47:04 PM"
-                    
-                  },
-                  {
-                    "NuevoEstado": {
-                      "type": "sge.estados.Encendido",
-                      "data": {
-                        
-                      }
-                    },
-                    "fechaCambio": "Sep 22, 2018 7:47:04 PM"
-                  },
-                  {
-                    "NuevoEstado": {
-                      "type": "sge.estados.Apagado",
-                      "data": {
-                       
-                      }
-                    },
-                    "fechaCambio": "Sep 22, 2018 7:47:04 PM"
-                  },
-                  {
-                    "NuevoEstado": {
-                      "type": "sge.estados.Encendido",
-                      "data": {
-                       
-                      }
-                    },
-                    "fechaCambio": "Sep 22, 2018 7:47:04 PM"
-                  },
-                  {
-                    "NuevoEstado": {
-                      "type": "sge.estados.Apagado",
-                      "data": {
-                        
-                      }
-                    },
-                    "fechaCambio": "Sep 22, 2018 7:47:04 PM"
-                  },
-                  {
-                    "NuevoEstado": {
-                      "type": "sge.estados.Encendido",
-                      "data": {
-                        
-                      }
-                    },
-                    "fechaCambio": "Sep 22, 2018 7:47:04 PM"
-                  }
-                ],
-                "nombre": "Televisor",
-                "consumoKWxHora": 0.6,
-                "tipo": "Televisor"
-                
-              },
-              {
-                "estado": {
-                  "type": "sge.estados.Apagado",
-                  "data": {
-                    
-                  }
-                },
-                "IDFabrica": 79531.22495539219,
-                "listaCambiosDeEstado": [
-                  {
-                    "NuevoEstado": {
-                      "type": "sge.estados.Apagado",
-                      "data": {
-                        
-                      }
-                    },
-                    "fechaCambio": "Sep 22, 2018 7:47:04 PM"
-                  }
-                ],
-                "nombre": "Computadora",
-                "consumoKWxHora": 0.6,
-                "tipo": "Computadora"
-                
-              }
-            ],
-            "puntos": 30
-          }
-        ],
-        "posicion": {
-          
-          "latitud": 6.0,
-          "longitud": 8.0
-        }
-      }
-    ],
-    "radioCubierto": 10,
-    "coordenadaCentral": {
-     
-      "latitud": 0.0,
-      "longitud": 0.0
-    }
-  },
-  {
-    "transformadores": [
-      {
-       
-        "clientes": [],
-        "posicion": {
-          
-          "latitud": 1.0,
-          "longitud": 1.0
-        }
-      },
-      {
-        
-        "clientes": [],
-        "posicion": {
-          
-          "latitud": 1.0,
-          "longitud": 1.0
-        }
-      },
-      {
-        
-        "clientes": [],
-        "posicion": {
-          
-          "latitud": 1.0,
-          "longitud": 1.0
-        }
-      },
-      {
-        
-        "clientes": [],
-        "posicion": {
-          
-          "latitud": 1.0,
-          "longitud": 1.0
-        }
-      },
-      {
-        
-        "clientes": [],
-        "posicion": {
-          
-          "latitud": 1.0,
-          "longitud": 1.0
-        }
-      },
-      {
-        
-        "clientes": [],
-        "posicion": {
-          
-          "latitud": 1.0,
-          "longitud": 1.0
-        }
-      },
-      {
-        
-        "clientes": [
-          {
-            "simplexAutomatico": 0,
-            "puntosAgregarDisp": 15,
-            "puntosConvDispEaI": 10,
-            "nombreYApellido": "Juan carlos",
-            "documento": {
-              "numero": 41762174,
-              "tipo": "DNI"
-            },
-            "miCoordenada": {
-              
-              "latitud": 1.0,
-              "longitud": 1.0
-            },
-            "domicilio": "Belgrano 2251",
-            "telefono": "01149212334",
-            "categoria": {
-              "type": "sge.categorias.CategoriaResidencial",
-              "data": {
-                "cargoFijo": 60.71,
-                "cargoPorkWh": 0.681,
-                "rango": {
-                  "minSmallest": 325,
-                  "minLargest": 325,
-                  "maxSmallest": 400,
-                  "maxLargest": 400
-                }
-              }
-            },
-            "dispositivosEstandar": [],
-            "dispositivosInteligentes": [
-              {
-                "estado": {
-                  "type": "sge.estados.Encendido",
-                  "data": {
-                    
-                  }
-                },
-                "IDFabrica": 72639.59401123709,
-                "listaCambiosDeEstado": [
-                  {
-                    "NuevoEstado": {
-                      "type": "sge.estados.Apagado",
-                      "data": {
-                        
-                      }
-                    },
-                    "fechaCambio": "Sep 22, 2018 7:47:04 PM"
-                  },
-                  {
-                    "NuevoEstado": {
-                      "type": "sge.estados.Encendido",
-                      "data": {
-                        
-                      }
-                    },
-                    "fechaCambio": "Sep 22, 2018 7:47:04 PM"
-                  },
-                  {
-                    "NuevoEstado": {
-                      "type": "sge.estados.Apagado",
-                      "data": {
-                        
-                      }
-                    },
-                    "fechaCambio": "Sep 22, 2018 7:47:04 PM"
-                  },
-                  {
-                    "NuevoEstado": {
-                      "type": "sge.estados.Encendido",
-                      "data": {
-                        
-                      }
-                    },
-                    "fechaCambio": "Sep 22, 2018 7:47:04 PM"
-                  },
-                  {
-                    "NuevoEstado": {
-                      "type": "sge.estados.Apagado",
-                      "data": {
-                        
-                      }
-                    },
-                    "fechaCambio": "Sep 22, 2018 7:47:04 PM"
-                  },
-                  {
-                    "NuevoEstado": {
-                      "type": "sge.estados.Encendido",
-                      "data": {
-                        
-                      }
-                    },
-                    "fechaCambio": "Sep 22, 2018 7:47:04 PM"
-                  }
-                ],
-                "nombre": "Televisor",
-                "consumoKWxHora": 0.6,
-                "tipo": "Televisor"
-              },
-              {
-                "estado": {
-                  "type": "sge.estados.Apagado",
-                  "data": {
-                    
-                  }
-                },
-                "IDFabrica": 79531.22495539219,
-                "listaCambiosDeEstado": [
-                  {
-                    "NuevoEstado": {
-                      "type": "sge.estados.Apagado",
-                      "data": {
-                        
-                      }
-                    },
-                    "fechaCambio": "Sep 22, 2018 7:47:04 PM"
-                  }
-                ],
-                "nombre": "Computadora",
-                "consumoKWxHora": 0.6,
-                "tipo": "Computadora"
-              }
-            ],
-            "puntos": 30
-          }
-        ],
-        "posicion": {
-          
-          "latitud": 6.0,
-          "longitud": 8.0
-        }
-      }
-    ],
-    "radioCubierto": 10,
-    "coordenadaCentral": {
-      
-      "latitud": 0.0,
-      "longitud": 0.0
-    }
-  },
-  {
-    "transformadores": [
-      {
-        
-        "clientes": [],
-        "posicion": {
-          
-          "latitud": 1.0,
-          "longitud": 1.0
-        }
-      }
-    ],
-    "radioCubierto": 10,
-    "coordenadaCentral": {
-      
-      "latitud": 0.0,
-      "longitud": 0.0
-    }
-  },
-  {
-    "transformadores": [
-      {
-        
-        "clientes": [],
-        "posicion": {
-          
-          "latitud": 1.0,
-          "longitud": 1.0
-        }
-      }
-    ],
-    "radioCubierto": 10,
-    "coordenadaCentral": {
-      
-      "latitud": 0.0,
-      "longitud": 0.0
-    }
-  },
-  {
-    "transformadores": [
-      {
-        
-        "clientes": [],
-        "posicion": {
-          
-          "latitud": 1.0,
-          "longitud": 1.0
-        }
-      }
-    ],
-    "radioCubierto": 10,
-    "coordenadaCentral": {
-      
-      "latitud": 0.0,
-      "longitud": 0.0
-    }
-  },
-  {
-    
-    "transformadores": [
-      {
-        
-        "clientes": [],
-        "posicion": {
-          
-          "latitud": 1.0,
-          "longitud": 1.0
-        }
-      }
-    ],
-    "radioCubierto": 10,
-    "coordenadaCentral": {
-      
-      "latitud": 0.0,
-      "longitud": 0.0
-    }
-  }
+	{
+		"transformadores": [
+			{
+				"clientes": [],
+				"posicion": {
+					"latitud": 1.0,
+					"longitud": 1.0
+				}
+			},
+			{
+				"clientes": [],
+				"posicion": {
+					"latitud": 1.0,
+					"longitud": 1.0
+				}
+			},
+			{
+				"clientes": [],
+				"posicion": {
+					"latitud": 1.0,
+					"longitud": 1.0
+				}
+			},
+			{
+				"clientes": [],
+				"posicion": {
+					"latitud": 1.0,
+					"longitud": 1.0
+				}
+			},
+			{
+				"clientes": [],
+				"posicion": {
+					"latitud": 1.0,
+					"longitud": 1.0
+				}
+			},
+			{
+				"clientes": [],
+				"posicion": {
+					"latitud": 1.0,
+					"longitud": 1.0
+				}
+			},
+			{
+				"clientes": [
+					{
+						"simplexAutomatico": 0,
+						"puntosAgregarDisp": 15,
+						"puntosConvDispEaI": 10,
+						"nombreYApellido": "Martin Perez",
+						"documento": {
+							"numero": 40732178,
+							"tipo": "DNI"
+						},
+						"miCoordenada": {
+							"latitud": 1.0,
+							"longitud": 1.0
+						},
+						"domicilio": "Belgrano 2251",
+						"telefono": "01149212334",
+						"categoria": {
+							"type": "sge.categorias.CategoriaResidencial",
+							"data": {
+								"cargoFijo": 60.71,
+								"cargoPorkWh": 0.681,
+								"rango": {
+									"minSmallest": 325,
+									"minLargest": 325,
+									"maxSmallest": 400,
+									"maxLargest": 400
+								}
+							}
+						},
+						"dispositivosEstandar": [],
+						"dispositivosInteligentes": [
+							{
+								"estado": {
+									"type": "sge.estados.Encendido",
+									"data": {
+										
+									}
+								},
+								"IDFabrica": 72639.59401123709,
+								"listaCambiosDeEstado": [
+									{
+										"NuevoEstado": {
+											"type": "sge.estados.Apagado",
+											"data": {
+												
+											}
+										},
+										"fechaCambio": "Sep 22, 2018 7:47:04 PM"
+									},
+									{
+										"NuevoEstado": {
+											"type": "sge.estados.Encendido",
+											"data": {
+												
+											}
+										},
+										"fechaCambio": "Sep 22, 2018 7:47:04 PM"
+									},
+									{
+										"NuevoEstado": {
+											"type": "sge.estados.Apagado",
+											"data": {
+												
+											}
+										},
+										"fechaCambio": "Sep 22, 2018 7:47:04 PM"
+									},
+									{
+										"NuevoEstado": {
+											"type": "sge.estados.Encendido",
+											"data": {
+												
+											}
+										},
+										"fechaCambio": "Sep 22, 2018 7:47:04 PM"
+									},
+									{
+										"NuevoEstado": {
+											"type": "sge.estados.Apagado",
+											"data": {
+												
+											}
+										},
+										"fechaCambio": "Sep 22, 2018 7:47:04 PM"
+									},
+									{
+										"NuevoEstado": {
+											"type": "sge.estados.Encendido",
+											"data": {
+												
+											}
+										},
+										"fechaCambio": "Sep 22, 2018 7:47:04 PM"
+									}
+								],
+								"nombre": "Televisor",
+								"consumoKWxHora": 0.6,
+								"tipo": "Televisor"
+							},
+							{
+								"estado": {
+									"type": "sge.estados.Apagado",
+									"data": {
+										
+									}
+								},
+								"IDFabrica": 79531.22495539219,
+								"listaCambiosDeEstado": [
+									{
+										"NuevoEstado": {
+											"type": "sge.estados.Apagado",
+											"data": {
+												
+											}
+										},
+										"fechaCambio": "Sep 22, 2018 7:47:04 PM"
+									}
+								],
+								"nombre": "Computadora",
+								"consumoKWxHora": 0.6,
+								"tipo": "Computadora"
+							}
+						],
+						"puntos": 30
+					}
+				],
+				"posicion": {
+					"latitud": 6.0,
+					"longitud": 8.0
+				}
+			}
+		],
+		"radioCubierto": 10,
+		"coordenadaCentral": {
+			"latitud": 0.0,
+			"longitud": 0.0
+		}
+	},
+	{
+		"transformadores": [
+			{
+				"clientes": [],
+				"posicion": {
+					"latitud": 1.0,
+					"longitud": 1.0
+				}
+			},
+			{
+				"clientes": [],
+				"posicion": {
+					"latitud": 1.0,
+					"longitud": 1.0
+				}
+			},
+			{
+				"clientes": [],
+				"posicion": {
+					"latitud": 1.0,
+					"longitud": 1.0
+				}
+			},
+			{
+				"clientes": [],
+				"posicion": {
+					"latitud": 1.0,
+					"longitud": 1.0
+				}
+			},
+			{
+				"clientes": [],
+				"posicion": {
+					"latitud": 1.0,
+					"longitud": 1.0
+				}
+			},
+			{
+				"clientes": [],
+				"posicion": {
+					"latitud": 1.0,
+					"longitud": 1.0
+				}
+			},
+			{
+				"clientes": [
+					{
+						"simplexAutomatico": 0,
+						"puntosAgregarDisp": 15,
+						"puntosConvDispEaI": 10,
+						"nombreYApellido": "Juan carlos",
+						"documento": {
+							"numero": 41762174,
+							"tipo": "DNI"
+						},
+						"miCoordenada": {
+							"latitud": 1.0,
+							"longitud": 1.0
+						},
+						"domicilio": "Belgrano 2251",
+						"telefono": "01149212334",
+						"categoria": {
+							"type": "sge.categorias.CategoriaResidencial",
+							"data": {
+								"cargoFijo": 60.71,
+								"cargoPorkWh": 0.681,
+								"rango": {
+									"minSmallest": 325,
+									"minLargest": 325,
+									"maxSmallest": 400,
+									"maxLargest": 400
+								}
+							}
+						},
+						"dispositivosEstandar": [],
+						"dispositivosInteligentes": [
+							{
+								"estado": {
+									"type": "sge.estados.Encendido",
+									"data": {
+										
+									}
+								},
+								"IDFabrica": 72639.59401123709,
+								"listaCambiosDeEstado": [
+									{
+										"NuevoEstado": {
+											"type": "sge.estados.Apagado",
+											"data": {
+												
+											}
+										},
+										"fechaCambio": "Sep 22, 2018 7:47:04 PM"
+									},
+									{
+										"NuevoEstado": {
+											"type": "sge.estados.Encendido",
+											"data": {
+												
+											}
+										},
+										"fechaCambio": "Sep 22, 2018 7:47:04 PM"
+									},
+									{
+										"NuevoEstado": {
+											"type": "sge.estados.Apagado",
+											"data": {
+												
+											}
+										},
+										"fechaCambio": "Sep 22, 2018 7:47:04 PM"
+									},
+									{
+										"NuevoEstado": {
+											"type": "sge.estados.Encendido",
+											"data": {
+												
+											}
+										},
+										"fechaCambio": "Sep 22, 2018 7:47:04 PM"
+									},
+									{
+										"NuevoEstado": {
+											"type": "sge.estados.Apagado",
+											"data": {
+												
+											}
+										},
+										"fechaCambio": "Sep 22, 2018 7:47:04 PM"
+									},
+									{
+										"NuevoEstado": {
+											"type": "sge.estados.Encendido",
+											"data": {
+												
+											}
+										},
+										"fechaCambio": "Sep 22, 2018 7:47:04 PM"
+									}
+								],
+								"nombre": "Televisor",
+								"consumoKWxHora": 0.6,
+								"tipo": "Televisor"
+							},
+							{
+								"estado": {
+									"type": "sge.estados.Apagado",
+									"data": {
+										
+									}
+								},
+								"IDFabrica": 79531.22495539219,
+								"listaCambiosDeEstado": [
+									{
+										"NuevoEstado": {
+											"type": "sge.estados.Apagado",
+											"data": {
+												
+											}
+										},
+										"fechaCambio": "Sep 22, 2018 7:47:04 PM"
+									}
+								],
+								"nombre": "Computadora",
+								"consumoKWxHora": 0.6,
+								"tipo": "Computadora"
+							}
+						],
+						"puntos": 30
+					}
+				],
+				"posicion": {
+					"latitud": 6.0,
+					"longitud": 8.0
+				}
+			}
+		],
+		"radioCubierto": 10,
+		"coordenadaCentral": {
+			"latitud": 0.0,
+			"longitud": 0.0
+		}
+	},
+	{
+		"transformadores": [
+			{
+				"clientes": [],
+				"posicion": {
+					"latitud": 1.0,
+					"longitud": 1.0
+				}
+			}
+		],
+		"radioCubierto": 10,
+		"coordenadaCentral": {
+			"latitud": 0.0,
+			"longitud": 0.0
+		}
+	},
+	{
+		"transformadores": [
+			{
+				"clientes": [],
+				"posicion": {
+					"latitud": 1.0,
+					"longitud": 1.0
+				}
+			}
+		],
+		"radioCubierto": 10,
+		"coordenadaCentral": {
+			"latitud": 0.0,
+			"longitud": 0.0
+		}
+	},
+	{
+		"transformadores": [
+			{
+				"clientes": [],
+				"posicion": {
+					"latitud": 1.0,
+					"longitud": 1.0
+				}
+			}
+		],
+		"radioCubierto": 10,
+		"coordenadaCentral": {
+			"latitud": 0.0,
+			"longitud": 0.0
+		}
+	},
+	{
+		"transformadores": [
+			{
+				"clientes": [],
+				"posicion": {
+					"latitud": 1.0,
+					"longitud": 1.0
+				}
+			}
+		],
+		"radioCubierto": 10,
+		"coordenadaCentral": {
+			"latitud": 0.0,
+			"longitud": 0.0
+		}
+	}
 ]
