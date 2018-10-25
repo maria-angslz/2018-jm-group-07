@@ -1,8 +1,6 @@
 package sge.dispositivos.estandar;
 
 import javax.persistence.Entity;
-import javax.persistence.EnumType;
-import javax.persistence.Enumerated;
 
 import sge.dispositivos.Dispositivo;
 import sge.dispositivos.TipoDeDispositivo;

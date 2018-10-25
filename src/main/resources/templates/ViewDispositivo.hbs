@@ -1,0 +1,57 @@
+<html>
+	<head>
+		<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css">
+		<link rel="stylesheet" href="css/reporte.css">
+		<title>AltaDispositivos</title>
+		<script type="text/javascript">			
+			if( {{ boolOK }} ){
+				alert("Dispositivo almacenado correctamente");
+			}
+			function crearlink(Sel){
+				if (Sel.formato.selectedIndex == 1){
+					document.getElementById("horas").innerHTML = "<label>Horas de uso Diarias: </label> <input type='number' name='horasUso' class='form-control' id='inputhorasUso' placeholder='Ingrese Horas de Uso Diarias'>";
+				}
+				else{
+					document.getElementById("horas").innerHTML = "";
+				}
+			}
+		</script>
+	</head>
+	<body>
+		<h2>Alta de Dispositivo</h2>
+		<p></p>
+		<label>Formato de Dispositivo: </label>
+		<form action="/principal/altaDispositivo" method="get">
+			
+			<select name="formato" onchange="crearlink(this.form)">
+				<option>Inteligente</option>
+				<option>Estandar</option>
+			</select>
+			
+			<p></p>
+			<label>Nombre: </label>
+			<input type="text" name="nombreDisp" class="form-control" id="inputNombre" placeholder="Ingrese Nombre Dispositivo">
+			<p></p>
+			<label>Consumo en Kw/Hora: </label>
+			<input type="number" name="consumoKwHora" class="form-control" id="inputConsumo" placeholder="Ingrese Consumo">
+			<p></p>
+			<div id="horas">			
+			</div>		
+			<p></p>			
+			<label>Tipo de Dispositivo: </label>
+			<select name="tipo">
+					<option>AireAcondicionado</option>
+					<option>Lampara</option>
+					<option>Televisor</option>
+					<option>Lavarropas</option>
+					<option>Computadora</option>
+					<option>Microondas</option>
+					<option>Plancha</option>
+					<option>Ventilador</option>
+					<option>Heladera</option>
+			</select>
+			<p></p>
+			<button type="submit" class="btn btn-lg btn-primary btn-block">Guardar</button>
+		</form>
+	</body>
+</html>

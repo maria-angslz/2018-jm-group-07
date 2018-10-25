@@ -14,5 +14,9 @@ public class SuperClase implements Serializable{
 	@Id @GeneratedValue
 	@Expose(serialize = false, deserialize = false)
 	protected int id;
+	
+	public int getid() {
+		return id;
+	}
 
 }
