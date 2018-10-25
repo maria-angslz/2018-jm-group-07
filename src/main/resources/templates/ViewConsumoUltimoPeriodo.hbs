@@ -3,14 +3,15 @@
 {{/partial}}
 
 {{#partial "content"}}
-	<div class="card" style="width: 50rem;">
+	<br>
+	{{#each cliente.dispositivosInteligentes}}
+	<div class="card text-white bg-dark mb-3" style="width: 20rem;">
+	  <div class="card-header">{{nombre}}</div>
 	  <div class="card-body">
-	    <h5 class="card-title">Ultimo Consumo</h5>
-	    <p class="card-text">Consumo:</p>
-	    <label>Fecha inicio:</label><br>
-	    <label>Fecha final:</label>
+		<p class="card-text">{{consumoMensual}}</p>
 	  </div>
 	</div>
+	{{/each}}
 {{/partial}}
 
-{{>layoutHome.hbs}}
+{{> layoutHogar.hbs}}

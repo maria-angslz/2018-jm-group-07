@@ -1,0 +1,16 @@
+{{#partial "head"}}
+<title>Ultimas Mediciones</title>
+{{/partial}}
+
+{{#partial "content"}}
+	{{#each mediciones}}
+		<div class="card" style="width: 20rem;">
+		  <div class="card-body">
+		    <label>{{fecha}}</label>
+		    <label>{{estado}}</label>
+		  </div>
+		</div>
+	{{/each}}
+{{/partial}}
+
+{{> layoutHogar.hbs}}

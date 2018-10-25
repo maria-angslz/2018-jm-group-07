@@ -8,6 +8,10 @@ import sge.dispositivos.inteligentes.DispositivoInteligente;
 @Entity
 @DiscriminatorValue(value = "Encendido")  
 public class Encendido extends EstadoDispositivo {
+
+	public String toString() {
+		return "Encendido";
+	}
 	
 	public boolean encendido() {
 		return true;

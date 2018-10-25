@@ -28,6 +28,9 @@ import sge.estados.*;
 @Inheritance(strategy = InheritanceType.SINGLE_TABLE)
 public class DispositivoInteligente extends Dispositivo {
 	
+	public EstadoDispositivo getEstado() {
+		return estado;
+	}
 	@ManyToOne(cascade = {CascadeType.PERSIST})
 	private EstadoDispositivo estado; //aca podriamos usar un repo de estados, para no tener que andar instanciando todo el tiempo
 	
@@ -103,6 +106,10 @@ public class DispositivoInteligente extends Dispositivo {
 	
 	public double consumoMensual() {
 		return consumoTotalUnPeriodo(30); //el 30 seria la cantidad de dias del mes
+	}
+	
+	public double getConsumoMensual() {
+		return consumoMensual();
 	}
 
 	public double consumoDuranteUltimasHoras(int cantHoras) {

@@ -3,14 +3,15 @@
 {{/partial}}
 
 {{#partial "content"}}
-	{{#each dispositivosInteligentes}}
-		<div class="card" style="width: 20rem;">
-		  <div class="card-body">
-		    <h5 class="card-title">{{nombre}}</h5>
-		    <label>{{estado}}</label>
-		  </div>
+	<br>
+	{{#each cliente.dispositivosInteligentes}}
+		<div class="card text-white {{#if estado.encendido}}bg-success{{else}}bg-danger{{/if}} mb-3" style="width: 20rem;">
+			<div class="card-body">
+				<h5 class="card-title">{{nombre}}</h5>
+				<label>{{estado}}</label>
+			</div>
 		</div>
 	{{/each}}
 {{/partial}}
 
-{{>layoutHome.hbs}}
+{{>layoutHogar.hbs}}

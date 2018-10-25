@@ -1,0 +1,16 @@
+{{#partial "head"}}
+<title>Optimizaciones</title>
+{{/partial}}
+
+{{#partial "content"}}
+	{{#each cliente.consumoIdeal.pares}}
+		<div class="card text-white bg-dark mb-3" style="width: 20rem;">
+			<div class="card-body">
+				<h5 class="card-title">{{dispositivo.nombre}}</h5>
+				<label>{{consumo}}</label>
+			</div>
+		</div>
+	{{/each}}
+{{/partial}}
+
+{{> layoutCliente.hbs}}

@@ -1,12 +1,14 @@
 package sge.controllers;
 
 import sge.Web.logger;
+import sge.clientes.Cliente;
 import sge.persistencia.json.CargaDatosWrapper;
 import sge.persistencia.repos.RepoClientes;
 
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.Optional;
 
 import spark.ModelAndView;
 import spark.Request;
@@ -34,6 +36,13 @@ public class ControllerHome {
 		return new ModelAndView(viewModel, "login.hbs");
 	}
 
+	public static ModelAndView logout(Request req, Response res) {
+		HashMap<String, Object> viewModel = new HashMap<>();
+		req.session().invalidate();
+		res.redirect("/login");
+		return new ModelAndView(viewModel, "");
+	}
+
 	public static ModelAndView principal(Request req, Response res) {
 
 		List<NameValuePair> pairs = URLEncodedUtils.parse(req.body(), Charset.defaultCharset());
@@ -53,9 +62,17 @@ public class ControllerHome {
 			return new ModelAndView(viewModel, "ViewConsumos.hbs");
 
 		} else if (session.checkPass(email, password, "cliente")) {
+			Optional<Cliente> cliente = repoClientes.get().stream()
+					.filter(c -> c.getEmail().equals(email) && c.pass().equals(password)).findFirst();
 
-			return new ModelAndView(viewModel, "ViewConsumoUltimoPeriodo.hbs");
-
+			if (cliente.isPresent()) {
+				req.session(true);
+				req.session().attribute("cliente", cliente.get());
+				res.redirect("/cliente/hogar");
+			} else {
+				res.redirect("/login");
+			}
+			return new ModelAndView(viewModel, "");
 		} else {
 			lanzarCartel = true;
 			res.redirect("/login");
@@ -64,6 +81,50 @@ public class ControllerHome {
 
 		}
 
+	}
+
+	public static void autenticarCliente(Request req, Response res, HashMap<String, Object> viewModel) {
+		Object cliente = req.session().attribute("cliente");
+		if (cliente == null)
+			res.redirect("/login");
+		viewModel.put("cliente", cliente);
+	}
+
+	public static ModelAndView dispositivosCliente(Request req, Response res) {
+		HashMap<String, Object> viewModel = new HashMap<>();
+		autenticarCliente(req, res, viewModel);
+		return new ModelAndView(viewModel, "ViewEstadoDispositivos.hbs");
+	}
+
+	public static ModelAndView ultimasmediciones(Request req, Response res) {
+		HashMap<String, Object> viewModel = new HashMap<>();
+		autenticarCliente(req, res, viewModel);
+		return new ModelAndView(viewModel, "ViewMediciones.hbs");
+	}
+
+	public static ModelAndView optimizaciones(Request req, Response res) {
+		HashMap<String, Object> viewModel = new HashMap<>();
+		autenticarCliente(req, res, viewModel);
+
+		return new ModelAndView(viewModel, "ViewOptimizaciones.hbs");
+	}
+
+	public static ModelAndView ultimoperiodo(Request req, Response res) {
+		HashMap<String, Object> viewModel = new HashMap<>();
+		autenticarCliente(req, res, viewModel);
+		return new ModelAndView(viewModel, "ViewConsumoUltimoPeriodo.hbs");
+	}
+
+	public static ModelAndView hogar(Request req, Response res) {
+		res.redirect("/cliente/hogar/mediciones");
+		HashMap<String, Object> viewModel = new HashMap<>();
+		autenticarCliente(req, res, viewModel);
+		return new ModelAndView(viewModel, "");
+	}
+
+	public static ModelAndView periodos(Request req, Response res) {
+		HashMap<String, Object> viewModel = new HashMap<>();
+		return new ModelAndView(viewModel, "ViewPeriodos.hbs");
 	}
 
 	public static ModelAndView reporte(Request req, Response res) {
