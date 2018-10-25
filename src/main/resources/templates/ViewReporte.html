@@ -1,22 +1,18 @@
 <html>
 	<head>
 		<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css">
-		<link rel="stylesheet" href="css/login.css">
-		<title>Reporte</title>
+		<link rel="stylesheet" href="css/reporte.css">
+		<title>ReporteNro2</title>
 	</head>
 	<body>
-		<label>Administrador</label>
-		<a href="http://www.google.com.ar"><img src="img/Logout.jpg" alt="titulo enlace" border="0" style="width: 50;" /></a>
-		<label>SGE</label>
-		<label>Reporte Nro 1</label>
-		<p>Seleccione un cliente para calcular su consumo: </p>
-		<select>
-		  <option>Cliente1</option>
-		  <option>Cliente2</option>
-		  <option>Cliente3</option>
-		  <option>Cliente4</option>
-		</select>
-		<p>El consumo del cliente "VarNombreCliente" es: </p>
-		<label>Valor en KW</label>
+		<h2>Obtener Consumo Promedio por Cliente</h2>
+		<p></p>
+		<label>Ingrese un cliente para calcular el promedio de consumo por dispositivo: </label>
+		<form action="/principal/reporte" method="post">
+			<input type="number" name="busqueda" class="form-control" id="inputBusqueda" placeholder="DNI cliente: XXXXXXXX">
+			<p></p>
+			<button type="submit" class="btn btn-lg btn-primary btn-block" FORMMETHOD="post">Buscar</button>
+		</form>
+		<label>El consumo promedio por dispositivo para {{ clienteEncontrado }}: {{ consumoCalculado }}</label>
 	</body>
 </html>

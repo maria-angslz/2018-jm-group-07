@@ -68,6 +68,13 @@ public class ControllerHome {
         }
         
 	}
+	
+	public static ModelAndView reporte(Request req, Response res) {
+		
+		HashMap<String, Object> viewModel = new HashMap<>();
+				
+		return new ModelAndView(viewModel, "login.hbs");
+	}
 
 	private static Map<String, String> toMap(List<NameValuePair> pairs){
     Map<String, String> map = new HashMap<>();
