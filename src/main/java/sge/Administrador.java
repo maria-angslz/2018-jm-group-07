@@ -38,7 +38,8 @@ public class Administrador {
 		return (int) ChronoUnit.MONTHS.between(fechaDeAlta, now);
 	}
 
-	public String nombre() {
+	public String getNombre() {
 		return nombreYApellido;
 	}
+	
 }

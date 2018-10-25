@@ -1,5 +1,6 @@
 package sge.controllers;
 
+import sge.Administrador;
 import sge.Reportes.Reporte;
 import sge.Web.logger;
 import sge.clientes.Cliente;
@@ -9,6 +10,7 @@ import sge.dispositivos.estandar.DispositivoEstandar;
 import sge.dispositivos.inteligentes.DispositivoInteligente;
 
 import sge.persistencia.json.CargaDatosWrapper;
+import sge.persistencia.repos.RepoAdmins;
 import sge.persistencia.repos.RepoClientes;
 
 import java.util.HashMap;
@@ -35,7 +37,8 @@ public class ControllerHome {
 	public static boolean lanzaAltaOK = false;
 	public static CargaDatosWrapper cargador = new CargaDatosWrapper();
 	public static RepoClientes repoClientes = RepoClientes.getInstance();
-
+	public static RepoAdmins repoAdmins = RepoAdmins.getInstance();
+	
 	public static ModelAndView login(Request req, Response res) {
 
 		HashMap<String, Object> viewModel = new HashMap<>();
@@ -70,9 +73,19 @@ public class ControllerHome {
 
 		if (session.checkPass(email, password, "admin")) {
 
-			viewModel.put("clientes", repoClientes.get());
+			Optional<Administrador> admin = repoAdmins.get().stream()
+					.filter(c -> c.email().equals(email) && c.pass().equals(password)).findFirst();
 
-			return new ModelAndView(viewModel, "ViewConsumos.hbs");
+			if (admin.isPresent()) {
+				req.session(true);
+				req.session().attribute("Admin", admin.get());
+				res.redirect("/principal/consumos");
+			} else {
+				res.redirect("/login");
+			}
+			
+
+			return new ModelAndView(viewModel, "");
 
 		} else if (session.checkPass(email, password, "cliente")) {
 			Optional<Cliente> cliente = repoClientes.get().stream()
@@ -95,14 +108,29 @@ public class ControllerHome {
 		}
 
 	}
-
+	
+	
 	public static void autenticarCliente(Request req, Response res, HashMap<String, Object> viewModel) {
 		Object cliente = req.session().attribute("cliente");
 		if (cliente == null)
 			res.redirect("/login");
 		viewModel.put("cliente", cliente);
 	}
+	
+	public static void autenticarAdmin(Request req, Response res, HashMap<String, Object> viewModel) {
+		Object admin = req.session().attribute("Admin");
+		if (admin == null)
+			res.redirect("/login");
+		viewModel.put("Admin", admin);
+	}
 
+	public static ModelAndView consumos(Request req, Response res) {
+		HashMap<String, Object> viewModel = new HashMap<>();
+		autenticarAdmin(req, res, viewModel);
+		viewModel.put("clientes", repoClientes.get());
+		return new ModelAndView(viewModel, "ViewConsumos.hbs");
+	}
+	
 	public static ModelAndView dispositivosCliente(Request req, Response res) {
 		HashMap<String, Object> viewModel = new HashMap<>();
 		autenticarCliente(req, res, viewModel);

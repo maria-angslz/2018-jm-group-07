@@ -14,8 +14,8 @@
 
   			<div class="collapse navbar-collapse d-flex justify-content-end" id="navbarSupportedContent">
 		    	<form class="form-inline my-2 my-lg-0">
-		    		 <label class="mr-sm-2"> Usuario </label>
-		    	 	<button class="btn btn-outline-success my-2 my-sm-0" type="submit">Salir</button>
+		    		 <label class="mr-sm-2"> {{Admin.nombre}} </label>
+		    	 	 <a href="/logout" class="btn btn-outline-success my-2 my-sm-0" type="submit">Salir</a>
 		    	</form>
 		  	</div>
 		</nav>
@@ -24,9 +24,9 @@
 		  <div class="col-2">
 		    <div class="list-group" id="list-tab" role="tablist">
 		      <label>Menu</label>
-		      <a class="list-group-item list-group-item-action" id="list-profile-list" data-toggle="list" href="#list-profile" role="tab" aria-controls="profile">Consumos</a>
-		      <a class="list-group-item list-group-item-action" id="list-messages-list" data-toggle="list" href="#list-messages" role="tab" aria-controls="messages">Reportes</a>
-		      <a class="list-group-item list-group-item-action" id="list-settings-list" data-toggle="list" href="#list-settings" role="tab" aria-controls="settings">Alta de Dispositivos</a>
+		      <a class="list-group-item list-group-item-action" id="list-profile-list" data-toggle="list" href="/principal/consumos" role="tab" aria-controls="profile">Consumos</a>
+		      <a class="list-group-item list-group-item-action" id="list-messages-list" data-toggle="list" href="/principal/reporte" role="tab" aria-controls="messages">Reportes</a>
+		      <a class="list-group-item list-group-item-action" id="list-settings-list" data-toggle="list" href="/principal/altaDispositivo" role="tab" aria-controls="settings">Alta de Dispositivos</a>
 		    </div>
 		  </div>
 		  <div class="col-10">
