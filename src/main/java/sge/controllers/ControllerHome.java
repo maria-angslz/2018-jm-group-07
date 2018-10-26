@@ -39,6 +39,12 @@ public class ControllerHome {
 	public static RepoClientes repoClientes = RepoClientes.getInstance();
 	public static RepoAdmins repoAdmins = RepoAdmins.getInstance();
 	
+	public static ModelAndView redirectLogin(Request req, Response res) {
+		res.redirect("/login");
+		HashMap<String, Object> viewModel = new HashMap<>();
+		return new ModelAndView(viewModel, "");
+	}
+	
 	public static ModelAndView login(Request req, Response res) {
 
 		HashMap<String, Object> viewModel = new HashMap<>();
