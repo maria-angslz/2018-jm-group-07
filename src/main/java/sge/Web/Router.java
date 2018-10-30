@@ -12,12 +12,10 @@ public class Router {
 		Spark.get("/", ControllerHome::redirectLogin, transformes);
 		Spark.get("/login", ControllerHome::login, transformes);
 		Spark.get("/logout", ControllerHome::logout, transformes);
-		Spark.post("/principal",ControllerHome::principal, transformes);
-		Spark.get("/principal/consumos",ControllerHome::consumos, transformes);
-		Spark.get("/principal/reporte",ControllerHome::reporte, transformes);
-		Spark.get("/principal/altaDispositivo",ControllerHome::alta, transformes);
-
-		//Spark.post("/principal/reporte",ControllerHome::reporte, transformes);
+		Spark.post("/login",ControllerHome::intentarLoguear, transformes);
+		Spark.get("/administrador/consumos",ControllerHome::consumos, transformes);
+		Spark.get("/administrador/reporte",ControllerHome::reporte, transformes);
+		Spark.get("/administrador/altaDispositivo",ControllerHome::alta, transformes);
 		Spark.get("/cliente/hogar/dispositivos",ControllerHome::dispositivosCliente, transformes);
 		Spark.get("/cliente/hogar/ultimoperiodo",ControllerHome::ultimoperiodo, transformes);
 		Spark.get("/cliente/hogar/mediciones",ControllerHome::ultimasmediciones, transformes);

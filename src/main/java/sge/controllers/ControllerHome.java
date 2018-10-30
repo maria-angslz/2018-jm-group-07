@@ -65,7 +65,7 @@ public class ControllerHome {
 		return new ModelAndView(viewModel, "");
 	}
 
-	public static ModelAndView principal(Request req, Response res) {
+	public static ModelAndView intentarLoguear(Request req, Response res) {
 
 		List<NameValuePair> pairs = URLEncodedUtils.parse(req.body(), Charset.defaultCharset());
 
@@ -85,7 +85,7 @@ public class ControllerHome {
 			if (admin.isPresent()) {
 				req.session(true);
 				req.session().attribute("Admin", admin.get());
-				res.redirect("/principal/consumos");
+				res.redirect("/administrador/consumos");
 			} else {
 				res.redirect("/login");
 			}
@@ -216,7 +216,7 @@ public class ControllerHome {
 		}
 		else {
 			lanzaAdvertenciaDni = true;
-			res.redirect("/principal/reporte");       	
+			res.redirect("/administrador/reporte");       	
         	
         	return new ModelAndView(viewModel, "ViewReporte.hbs");
 		}			
@@ -266,7 +266,7 @@ public static ModelAndView alta(Request req, Response res) {
 			transaction.commit();
 			lanzaAltaOK = true;
 		}
-		res.redirect("/principal/altaDispositivo");
+		res.redirect("/administrador/altaDispositivo");
 		return new ModelAndView(viewModel, "ViewDispositivo.hbs");
 	}							
 }
