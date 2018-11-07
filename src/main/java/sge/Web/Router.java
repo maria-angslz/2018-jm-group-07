@@ -16,6 +16,7 @@ public class Router {
 		Spark.get("/administrador/consumos",ControllerHome::consumos, transformes);
 		Spark.get("/administrador/reporte",ControllerHome::reporte, transformes);
 		Spark.get("/administrador/altaDispositivo",ControllerHome::alta, transformes);
+		
 		Spark.get("/cliente/hogar/dispositivos",ControllerHome::dispositivosCliente, transformes);
 		Spark.get("/cliente/hogar/ultimoperiodo",ControllerHome::ultimoperiodo, transformes);
 		Spark.get("/cliente/hogar/mediciones",ControllerHome::ultimasmediciones, transformes);

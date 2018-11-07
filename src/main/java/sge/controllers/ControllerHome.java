@@ -84,7 +84,7 @@ public class ControllerHome {
 
 			if (admin.isPresent()) {
 				req.session(true);
-				req.session().attribute("Admin", admin.get());
+				req.session().attribute("User", admin.get());
 				res.redirect("/administrador/consumos");
 			} else {
 				res.redirect("/login");
@@ -99,8 +99,8 @@ public class ControllerHome {
 
 			if (cliente.isPresent()) {
 				req.session(true);
-				req.session().attribute("cliente", cliente.get());
-				res.redirect("/cliente/hogar");
+				req.session().attribute("User", cliente.get());
+				res.redirect("/cliente/hogar/dispositivos");
 			} else {
 				res.redirect("/login");
 			}
@@ -117,17 +117,17 @@ public class ControllerHome {
 	
 	
 	public static void autenticarCliente(Request req, Response res, HashMap<String, Object> viewModel) {
-		Object cliente = req.session().attribute("cliente");
+		Object cliente = req.session().attribute("User");
 		if (cliente == null)
 			res.redirect("/login");
-		viewModel.put("cliente", cliente);
+		viewModel.put("User", cliente);
 	}
 	
 	public static void autenticarAdmin(Request req, Response res, HashMap<String, Object> viewModel) {
-		Object admin = req.session().attribute("Admin");
+		Object admin = req.session().attribute("User");
 		if (admin == null)
 			res.redirect("/login");
-		viewModel.put("Admin", admin);
+		viewModel.put("User", admin);
 	}
 
 	public static ModelAndView consumos(Request req, Response res) {

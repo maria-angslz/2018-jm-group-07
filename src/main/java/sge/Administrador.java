@@ -42,4 +42,8 @@ public class Administrador {
 		return nombreYApellido;
 	}
 	
+	public String getEmail() {
+		return email;
+	}
+	
 }
