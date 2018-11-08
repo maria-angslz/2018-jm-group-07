@@ -1,13 +1,8 @@
 package sge.controllers;
 
 import sge.Administrador;
-import sge.Reportes.Reporte;
 import sge.Web.logger;
 import sge.clientes.Cliente;
-
-import sge.dispositivos.TipoDeDispositivo;
-import sge.dispositivos.estandar.DispositivoEstandar;
-import sge.dispositivos.inteligentes.DispositivoInteligente;
 
 import sge.persistencia.json.CargaDatosWrapper;
 import sge.persistencia.repos.RepoAdmins;
@@ -17,11 +12,6 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.Optional;
-
-import javax.persistence.EntityManager;
-import javax.persistence.EntityTransaction;
-import javax.persistence.Query;
-
 import spark.ModelAndView;
 import spark.Request;
 import spark.Response;
@@ -29,7 +19,6 @@ import java.nio.charset.Charset;
 
 import org.apache.http.NameValuePair;
 import org.apache.http.client.utils.URLEncodedUtils;
-import org.uqbarproject.jpa.java8.extras.PerThreadEntityManagers;
 
 public class ControllerHome {
 	public static boolean lanzaAdvertenciaDni = false;
