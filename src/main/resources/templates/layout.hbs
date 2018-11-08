@@ -4,9 +4,12 @@
 		<link rel="stylesheet" href="css/login.css">
 		<title>	{{#block "title"}}{{/block}}</title>
 		<script type="text/javascript">
-			if( {{ booleano }} ){
-				alert("Usuario y/o contraseña incorrecta, intente nuevamente");
+			function myFunction(){
+				if( {{ booleano }} ){
+					document.getElementById("alerta").innerHTML = "<div class='alert alert-warning' role='alert'>Usuario o contraseña ingresados incorrectamente, intente nuevamente!</div>";
+				}
 			}
+			window.onload=myFunction;
 		</script>
 	</head>
 	<body>

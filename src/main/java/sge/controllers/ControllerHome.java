@@ -32,7 +32,6 @@ import org.apache.http.client.utils.URLEncodedUtils;
 import org.uqbarproject.jpa.java8.extras.PerThreadEntityManagers;
 
 public class ControllerHome {
-	public static boolean lanzarCartel = false;
 	public static boolean lanzaAdvertenciaDni = false;
 	public static boolean lanzaAltaOK = false;
 	public static CargaDatosWrapper cargador = new CargaDatosWrapper();
@@ -48,13 +47,6 @@ public class ControllerHome {
 	public static ModelAndView login(Request req, Response res) {
 
 		HashMap<String, Object> viewModel = new HashMap<>();
-		if (lanzarCartel) {
-			viewModel.put("booleano", true);
-			lanzarCartel = false;
-		} else {
-			viewModel.remove("booleano");
-		}
-
 		return new ModelAndView(viewModel, "login.hbs");
 	}
 
@@ -106,9 +98,7 @@ public class ControllerHome {
 			}
 			return new ModelAndView(viewModel, "");
 		} else {
-			lanzarCartel = true;
-			res.redirect("/login");
-
+			viewModel.put("booleano", true);
 			return new ModelAndView(viewModel, "login.hbs");
 
 		}
