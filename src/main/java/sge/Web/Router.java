@@ -15,6 +15,7 @@ public class Router {
 		Spark.get("/login", ControllerHome::login, transformes);
 		Spark.get("/logout", ControllerHome::logout, transformes);
 		Spark.post("/login",ControllerHome::intentarLoguear, transformes);
+		
 		Spark.get("/administrador/consumos",ControllerAdmin::consumos, transformes);
 		Spark.get("/administrador/reporte",ControllerAdmin::reporte, transformes);
 		Spark.get("/administrador/altaDispositivo",ControllerAdmin::alta, transformes);

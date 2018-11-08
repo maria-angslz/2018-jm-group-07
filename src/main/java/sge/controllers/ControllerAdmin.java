@@ -63,33 +63,25 @@ public class ControllerAdmin {
 			return new ModelAndView(viewModel, "ViewReporte.hbs");
 		}
 		else {	
-		
-		System.out.println(param);	
+
+			Query query = DBService.obtenerClientePorDNI(param);
 			
-		String queryString = "SELECT * FROM cliente WHERE documento_numero = :dni";
-		
-		
-		EntityManager entityManager = PerThreadEntityManagers.getEntityManager();
-		
-		Query query = entityManager.createNativeQuery(queryString, Cliente.class).setParameter("dni", param);
-			
-		
-		if(query.getResultList().size() != 0) {
-			Cliente unCliente = (Cliente) query.getSingleResult();
-			Reporte reporte = new Reporte();
-			double promedio = reporte.PromedioPorDispositivo(unCliente.getid());		
-			
-			viewModel.put("clienteEncontrado", unCliente.nombre());
-			viewModel.put("consumoCalculado", promedio);
-					
-			return new ModelAndView(viewModel, "ViewReporte.hbs");
-		}
-		else {
-			lanzaAdvertenciaDni = true;
-			res.redirect("/administrador/reporte");       	
-        	
-        	return new ModelAndView(viewModel, "ViewReporte.hbs");
-		}			
+			if(query.getResultList().size() != 0) {
+				Cliente unCliente = (Cliente) query.getSingleResult();
+				Reporte reporte = new Reporte();
+				double promedio = reporte.PromedioPorDispositivo(unCliente.getid());		
+				
+				viewModel.put("clienteEncontrado", unCliente.nombre());
+				viewModel.put("consumoCalculado", promedio);
+						
+				return new ModelAndView(viewModel, "ViewReporte.hbs");
+			}
+			else {
+				lanzaAdvertenciaDni = true;
+				res.redirect("/administrador/reporte");       	
+	        	
+	        	return new ModelAndView(viewModel, "ViewReporte.hbs");
+			}			
 		}
 	}
 	
