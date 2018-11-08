@@ -7,7 +7,8 @@
 		<div class="card text-white bg-dark mb-3" style="width: 20rem;">
 			<div class="card-body">
 				<h5 class="card-title">{{dispositivo.nombre}}</h5>
-				<label>{{consumo}}</label>
+				<button id = "optimizar_btn" class="btn btn-default">Optimizar</button>
+				<label id="consumo_label" style="display: none;">{{consumo}}</label>
 			</div>
 		</div>
 	{{/each}}
