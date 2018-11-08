@@ -1,6 +1,8 @@
 package sge.Web;
 
 import sge.controllers.ControllerHome;
+import sge.controllers.ControllerCliente;
+import sge.controllers.ControllerAdmin;
 import spark.Spark;
 import spark.template.handlebars.HandlebarsTemplateEngine;
 
@@ -13,15 +15,16 @@ public class Router {
 		Spark.get("/login", ControllerHome::login, transformes);
 		Spark.get("/logout", ControllerHome::logout, transformes);
 		Spark.post("/login",ControllerHome::intentarLoguear, transformes);
-		Spark.get("/administrador/consumos",ControllerHome::consumos, transformes);
-		Spark.get("/administrador/reporte",ControllerHome::reporte, transformes);
-		Spark.get("/administrador/altaDispositivo",ControllerHome::alta, transformes);
-		Spark.get("/cliente/hogar/dispositivos",ControllerHome::dispositivosCliente, transformes);
-		Spark.get("/cliente/hogar/ultimoperiodo",ControllerHome::ultimoperiodo, transformes);
-		Spark.get("/cliente/hogar/mediciones",ControllerHome::ultimasmediciones, transformes);
-		Spark.get("/cliente/hogar",ControllerHome::hogar, transformes);
-		Spark.get("/cliente/optimizaciones",ControllerHome::optimizaciones, transformes);
-		Spark.get("/cliente/periodos",ControllerHome::periodos, transformes);
+		Spark.get("/administrador/consumos",ControllerAdmin::consumos, transformes);
+		Spark.get("/administrador/reporte",ControllerAdmin::reporte, transformes);
+		Spark.get("/administrador/altaDispositivo",ControllerAdmin::alta, transformes);
+		
+		Spark.get("/cliente/hogar/dispositivos",ControllerCliente::dispositivosCliente, transformes);
+		Spark.get("/cliente/hogar/ultimoperiodo",ControllerCliente::ultimoperiodo, transformes);
+		Spark.get("/cliente/hogar/mediciones",ControllerCliente::ultimasmediciones, transformes);
+		Spark.get("/cliente/hogar",ControllerCliente::hogar, transformes);
+		Spark.get("/cliente/optimizaciones",ControllerCliente::optimizaciones, transformes);
+		Spark.get("/cliente/periodos",ControllerCliente::periodos, transformes);
 
 	}
 }
