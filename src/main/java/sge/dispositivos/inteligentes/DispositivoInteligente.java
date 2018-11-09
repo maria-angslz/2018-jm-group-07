@@ -4,11 +4,14 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.LinkedList;
 import java.util.List;
+import java.util.concurrent.TimeUnit;
+import java.util.stream.Collectors;
 
 import javax.persistence.CascadeType;
 import javax.persistence.DiscriminatorColumn;
 import javax.persistence.Entity;
 import javax.persistence.EntityManager;
+import javax.persistence.EntityManagerFactory;
 import javax.persistence.Inheritance;
 import javax.persistence.InheritanceType;
 import javax.persistence.JoinColumn;
@@ -16,6 +19,7 @@ import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.Transient;
 
+import org.uqbarproject.jpa.java8.extras.PerThreadEntityManagers;
 
 import sge.dispositivos.Dispositivo;
 import sge.dispositivos.TipoDeDispositivo;
@@ -81,6 +85,47 @@ public class DispositivoInteligente extends Dispositivo {
 			intervalos.add(new IntervaloEstado(ultimo.getFechaCambio(), new Date(), estado));
 		return intervalos;
 	}
+	
+	public Double totalConsumoIntervalo (IntervaloEstado intervalo) {
+		
+		Date inicioIntervalo = intervalo.getInicio();
+		Date finIntervalo = intervalo.getFin();
+		
+		long diferencia1 = finIntervalo.getTime() - inicioIntervalo.getTime();
+		
+	    Double diferencia = (double) TimeUnit.DAYS.convert(diferencia1, TimeUnit.MILLISECONDS); //esta en dias
+		
+		System.out.println(diferencia1);
+		
+		return this.consumoKWxHora() * 24 * diferencia;
+		
+	}
+	
+	public double getConsumoUltimoPeriodo() {
+		
+		EntityManager mger = PerThreadEntityManagers.getEntityManager();
+		
+		List<IntervaloEstado> intervalosDeEsteMes = this.getIntervalosDeEstadoEnEsteMes(mger);
+		
+		List<IntervaloEstado> intervalosDeEsteMesEncendido = intervalosDeEsteMes.stream().filter(intervalo -> intervalo.getEstado().getEncendido()).collect(Collectors.toList());
+		
+		List<Double> listaHoras =  intervalosDeEsteMesEncendido.stream().map(i -> i.getHoras()).collect(Collectors.toList());
+		
+		Double horas = listaHoras.stream().mapToDouble(Double::doubleValue).sum();
+		
+		return consumoKWxHora * horas;
+	
+	}
+	
+	
+//	public Double consumoTotalIntervalos (List<IntervaloEstado> intervalos) {
+		
+		//se puede reemplazar por una query
+//		List<IntervaloEstado> intervalosEncendido = intervalos.obtenerIntervalosDeEncendido();
+		
+//		return 1;
+//	}
+	
 
 	public void setNombre(String nombre) {
 		this.nombre = nombre;
