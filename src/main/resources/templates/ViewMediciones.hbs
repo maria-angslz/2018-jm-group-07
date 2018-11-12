@@ -3,14 +3,30 @@
 {{/partial}}
 
 {{#partial "content"}}
-	{{#each mediciones}}
-		<div class="card" style="width: 20rem;">
+	{{#each cliente.dispositivos}}
+	
+		<br>
+		<div class="card text-white bg-dark mb-3" style="width: 20rem;">
+		 
+		 
 		  <div class="card-body">
-		    <label>{{fecha}}</label>
-		    <label>{{estado}}</label>
+		  
+		  	<h5 class="card-title">{{nombre}}</h5>
+		  	<p class="card-text">{{consumo}}</p>
+		  	
 		  </div>
 		</div>
+		
+		<div>
+		
+			 {{#each intervalosDeEstadoEnMes}}
+		    		<h6 class="card-estado">{{estado}}</h6> 			
+		  	 {{/each}}
+		
+		</div>
+		
+		
 	{{/each}}
 {{/partial}}
 
-{{>navbarCliente.hbs}}
+{{>layoutHogar.hbs}}
