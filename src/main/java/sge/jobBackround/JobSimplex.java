@@ -13,13 +13,11 @@ public class JobSimplex {
 	
 	Runnable tarea = new Runnable () {
 		public void run() {
-			//ProcesoSimplex.ejecutar();
-			System.out.println("Tarola");
+			ProcesoSimplex.ejecutar();
 		}
 	};
 	
 	int delay = 3; //ejecuta cada 3 horas
-	//scheduler.scheduleAtFixedRate(tarea, 0, delay, TimeUnit.HOURS);
-	scheduler.scheduleAtFixedRate(tarea, 0, 5, TimeUnit.SECONDS);
+	scheduler.scheduleAtFixedRate(tarea, 0, delay, TimeUnit.HOURS);
 	}
 }
