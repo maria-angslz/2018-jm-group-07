@@ -134,11 +134,11 @@
     				<configuration>
         				<jdkVersion>1.8</jdkVersion>
         				<!-- Use your own application name -->
-        				<appName>spark-heroku-example</appName> 
+        				<appName>sge-grupo-7</appName> 
         				<processTypes>
             				<!-- Tell Heroku how to launch your application -->
             				<!-- You might have to remove the ./ in front   -->
-            				<web>java -jar ./target/my-app-1.0-jar-with-dependencies.jar</web>
+            				<web>java -jar ./target/SGE-1.0-jar-with-dependencies.jar</web>
         				</processTypes>
     				</configuration>
 				</plugin>
