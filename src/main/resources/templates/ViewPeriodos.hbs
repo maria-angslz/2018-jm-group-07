@@ -3,14 +3,13 @@
 {{/partial}}
 
 {{#partial "content"}}
-	TODO
-	{{#each periodos}}
-		<div class="card" style="width: 20rem;">
-		  <div class="card-body">
-		    <label>{{fecha}}</label>
-		    <label>{{estado}}</label>
-		  </div>
-		</div>
+	{{#each cliente.consumosUltimosPeriodos}}
+	<div class="card text-white bg-dark mb-3" style="width: 20rem;">
+	  <div class="card-header">{{mes}}</div>
+	  <div class="card-body">
+		<p class="card-text">{{consumo}}</p>
+	  </div>
+	</div>
 	{{/each}}
 {{/partial}}
 
