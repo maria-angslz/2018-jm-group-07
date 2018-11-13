@@ -1,7 +1,5 @@
 package sge.persistencia.json;
 
-import java.io.FileNotFoundException;
-import java.io.IOException;
 import java.util.List;
 
 import sge.Administrador;
@@ -22,13 +20,22 @@ public class CargaDatosWrapper implements AlmacenamientoPersistente {
 	private String archivoCategoriasResidenciales = ".\\src\\main\\resources\\CategoriasResidenciales.json";
 	private String archivoTransformadores = ".\\src\\\\main\\\\resources\\\\Transformador.json";
 
-	public void cargarAdmins() throws FileNotFoundException {
-		List<Administrador> admins = JSONWrapper.cargarConClase(archivoAdmins, Administrador[].class);
-		RepoAdmins.getInstance().addAll(admins);
+	public void cargarAdmins() {
+		try {
+			List<Administrador> admins = JSONWrapper.cargarConClase(archivoAdmins, Administrador[].class);
+			RepoAdmins.getInstance().addAll(admins);
+		} catch (Exception e) {
+			throw new RuntimeException(e);
+		}
+		
 	}
 
-	public void guardarAdmins() throws IOException {
-		JSONWrapper.guardar(archivoAdmins, RepoAdmins.getInstance().get());
+	public void guardarAdmins() {
+		try {
+			JSONWrapper.guardar(archivoAdmins, RepoAdmins.getInstance().get());
+		} catch (Exception e) {
+			throw new RuntimeException(e);
+		}
 	}
 
 	public void cargarZona() {
@@ -49,22 +56,39 @@ public class CargaDatosWrapper implements AlmacenamientoPersistente {
 		}
 	}
 
-	public void cargarClientes() throws FileNotFoundException {
-		List<Cliente> clientes = JSONWrapper.cargarConClase(archivoClientes, Cliente[].class);
-		RepoClientes.getInstance().addAll(clientes);
+	public void cargarClientes() {
+		try {
+			List<Cliente> clientes = JSONWrapper.cargarConClase(archivoClientes, Cliente[].class);
+			RepoClientes.getInstance().addAll(clientes);
+		} catch (Exception e) {
+			throw new RuntimeException(e);
+		}
+		
 	}
 
-	public void guardarClientes() throws IOException {
-		JSONWrapper.guardar(archivoClientes, RepoClientes.getInstance().get());
+	public void guardarClientes() {
+		try {
+			JSONWrapper.guardar(archivoClientes, RepoClientes.getInstance().get());
+		} catch (Exception e) {
+			throw new RuntimeException(e);
+		}
 	}
 
-	public void cargarCategorias() throws FileNotFoundException {
-		List<CategoriaResidencial> categorias = JSONWrapper.cargarConClase(archivoCategoriasResidenciales,CategoriaResidencial[].class);
-		RepoCatResidenciales.getInstance().addAll(categorias);
+	public void cargarCategorias() {
+		try {
+			List<CategoriaResidencial> categorias = JSONWrapper.cargarConClase(archivoCategoriasResidenciales,CategoriaResidencial[].class);
+			RepoCatResidenciales.getInstance().addAll(categorias);
+		} catch (Exception e) {
+			throw new RuntimeException(e);
+		}
 	}
 
-	public void guardarCategorias() throws IOException {
-		JSONWrapper.guardar(archivoCategoriasResidenciales, RepoCatResidenciales.getInstance().get());
+	public void guardarCategorias() {
+		try {
+			JSONWrapper.guardar(archivoCategoriasResidenciales, RepoCatResidenciales.getInstance().get());
+		} catch (Exception e) {
+			throw new RuntimeException(e);
+		}
 	}
 
 }

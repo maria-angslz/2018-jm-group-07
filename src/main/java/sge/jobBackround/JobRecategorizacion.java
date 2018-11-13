@@ -7,16 +7,18 @@ import java.util.concurrent.TimeUnit;
 import sge.persistencia.repos.RepoClientes;
 
 public class JobRecategorizacion {
-	public static void main(String[] args) {
+	public void iniciar() {
 		ScheduledExecutorService scheduler = Executors.newSingleThreadScheduledExecutor();
 		Runnable task = new Runnable() {
 			public void run() {
-				RepoClientes.getInstance().get().stream().forEach(unCliente -> unCliente.recategorizar());
+				//RepoClientes.getInstance().get().stream().forEach(unCliente -> unCliente.recategorizar());
+				System.out.println("Hola");
 			}
 		};
 
 		int delay = 90; // tiempo que queremos que lo haga (3 meses = 90 dias).
-		scheduler.scheduleAtFixedRate(task, 0, delay, TimeUnit.DAYS);
+		//scheduler.scheduleAtFixedRate(task, 0, delay, TimeUnit.DAYS);
+		scheduler.scheduleAtFixedRate(task, 0, 5, TimeUnit.SECONDS);
 		//scheduler.shutdown();
 
 	}
