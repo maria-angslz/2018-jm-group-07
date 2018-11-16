@@ -3,29 +3,14 @@
 {{/partial}}
 
 {{#partial "content"}}
-	{{#each cliente.dispositivos}}
-	
 		<br>
+		{{#each cliente.consumosUltimosPeriodos}}
 		<div class="card text-white bg-dark mb-3" style="width: 20rem;">
-		 
-		 
-		  <div class="card-body">
-		  
-		  	<h5 class="card-title">{{nombre}}</h5>
-		  	<p class="card-text">{{consumo}}</p>
-		  	
-		  </div>
-		</div>
-		
-		<div>
-		
-			 {{#each intervalosDeEstadoEnMes}}
-		    		<h6 class="card-estado">{{estado}}</h6> 			
-		  	 {{/each}}
-		
-		</div>
-		
-		
+	  <div class="card-header">{{mes}}</div>
+	  <div class="card-body">
+		<p class="card-text">{{consumo}}</p>
+	  </div>
+	</div>
 	{{/each}}
 {{/partial}}
 

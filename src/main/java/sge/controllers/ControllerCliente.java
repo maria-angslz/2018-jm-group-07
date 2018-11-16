@@ -34,7 +34,7 @@ public class ControllerCliente {
 	}
 	
 	public static ModelAndView hogar(Request req, Response res) {
-		res.redirect("/cliente/hogar/mediciones");
+		res.redirect("/cliente/hogar/dispositivos");
 		HashMap<String, Object> viewModel = new HashMap<>();
 		autenticarCliente(req, res, viewModel);
 		return new ModelAndView(viewModel, "");
