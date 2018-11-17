@@ -1,7 +1,7 @@
 {{#partial "head"}}
 
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 
 <title>Ultimas Mediciones</title>
 
@@ -12,27 +12,32 @@ $(document).ready(function(){
     $("#periodos *").filter(function() {
       $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
     });
-    $('.container').find(".card-title:not(:contains(" + filter + "))").parent().css('display','none');
+    $('.container').find(".card-header:not(:contains(" + filter + "))").parent().css("display","none"); 
   });
 });
 </script>
-
-
 
 {{/partial}}
 
 {{#partial "content"}}
 <br>
 
-		Busque el mes que desea consultar: <input class="form-control" id="myInput" type="text" placeholder="Search..">	
+		Busque el mes que desea consultar:<input class="form-control" id="myInput" type="text" placeholder="Buscar..." style="width: 20rem;">	
 <br>
-		
-		{{#each cliente.consumosUltimosPeriodos}}
-		<br>
-		<div id="periodos" class="card text-white bg-info mb-3" style="width: 20rem;">
-	  		<div class="card-header">{{mes}} {{consumo}}</div>
-	</div>
-	{{/each}}
+	
+		<div id="periodos" class="card text-white  mb-3" 
+			style="width: 20rem; border-bottom-width: 0px;
+				border-right-width: 0px;
+				border-left-width: 0px;
+				border-top-width: 0px;">	
+				{{#each cliente.consumosUltimosPeriodos}}
+<br>	
+	  		<div class="card-header bg-info " 
+	  			style= "margin-bottom: 20px;">
+						{{mes}} {{consumo}}
+			</div>
+				{{/each}}
+		</div>
 	
 {{/partial}}
 
