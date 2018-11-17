@@ -12,9 +12,12 @@ $(document).ready(function(){
     $("#periodos *").filter(function() {
       $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
     });
+    $('.container').find(".card-title:not(:contains(" + filter + "))").parent().css('display','none');
   });
 });
 </script>
+
+
 
 {{/partial}}
 
@@ -26,8 +29,8 @@ $(document).ready(function(){
 		
 		{{#each cliente.consumosUltimosPeriodos}}
 		<br>
-		<div id="periodos" class="card text-white bg-dark mb-3" style="width: 20rem;">
-	  <div class="card-header">{{mes}} - consumo = {{consumo}}</div>
+		<div id="periodos" class="card text-white bg-info mb-3" style="width: 20rem;">
+	  		<div class="card-header">{{mes}} {{consumo}}</div>
 	</div>
 	{{/each}}
 	
