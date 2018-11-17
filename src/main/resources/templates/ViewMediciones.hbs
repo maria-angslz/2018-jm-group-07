@@ -1,17 +1,36 @@
 {{#partial "head"}}
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
 <title>Ultimas Mediciones</title>
+
+<script>
+$(document).ready(function(){
+  $("#myInput").on("keyup", function() {
+    var value = $(this).val().toLowerCase();
+    $("#periodos *").filter(function() {
+      $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
+    });
+  });
+});
+</script>
+
 {{/partial}}
 
 {{#partial "content"}}
-		<br>
+<br>
+
+		Busque el mes que desea consultar: <input class="form-control" id="myInput" type="text" placeholder="Search..">	
+<br>
+		
 		{{#each cliente.consumosUltimosPeriodos}}
-		<div class="card text-white bg-dark mb-3" style="width: 20rem;">
-	  <div class="card-header">{{mes}}</div>
-	  <div class="card-body">
-		<p class="card-text">{{consumo}}</p>
-	  </div>
+		<br>
+		<div id="periodos" class="card text-white bg-dark mb-3" style="width: 20rem;">
+	  <div class="card-header">{{mes}} - consumo = {{consumo}}</div>
 	</div>
 	{{/each}}
+	
 {{/partial}}
 
 {{>layoutHogar.hbs}}
