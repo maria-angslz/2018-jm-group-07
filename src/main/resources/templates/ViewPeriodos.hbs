@@ -4,21 +4,9 @@
 
 {{#partial "content"}}
 <br>
-	<div class="dropdown">
-  		<button class="btn btn-success dropdown-toggle" type="button" id="periodos" 
-  		data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-    		Periodos
-  		</button>
-  			<div class="dropdown-menu" aria-labelledby="periodos">
-    			<a class="dropdown-item" href="#">Noviembre</a>
-    			<a class="dropdown-item" href="#">Diciembre</a>
-    			<a class="dropdown-item" href="#">Otro mes</a>
-  			</div>
-	</div>
-	
 	{{#each cliente.consumosUltimosPeriodos}}
 	<br>
-	<div class="card text-white bg-dark mb-3" style="width: 20rem;">
+	<div class="card text-white bg-info mb-3" style="width: 20rem;">
 	  <div class="card-header">{{mes}}</div>
 	  <div class="card-body">
 		<p class="card-text">{{consumo}}</p>

@@ -9,6 +9,7 @@ import spark.template.handlebars.HandlebarsTemplateEngine;
 public class Router {
 	public static void configure() {
 		
+		Spark.staticFileLocation("/public");
 		HandlebarsTemplateEngine transformes = new HandlebarsTemplateEngine();
 		Spark.get("", ControllerHome::redirectLogin, transformes);
 		Spark.get("/", ControllerHome::redirectLogin, transformes);
@@ -26,6 +27,8 @@ public class Router {
 		Spark.get("/cliente/hogar",ControllerCliente::hogar, transformes);
 		Spark.get("/cliente/optimizaciones",ControllerCliente::optimizaciones, transformes);
 		Spark.get("/cliente/periodos",ControllerCliente::periodos, transformes);
+		
+		
 
 	}
 }
