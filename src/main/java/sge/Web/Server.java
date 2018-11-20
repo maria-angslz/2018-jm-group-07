@@ -12,6 +12,7 @@ public class Server {
         //ProcessBuilder processBuilder = new ProcessBuilder();
         if (System.getenv("PORT") != null) {
             return Integer.parseInt(System.getenv("PORT"));
+
         }
         return 4567; //return default port if heroku-port isn't set (i.e. on localhost)
     }
