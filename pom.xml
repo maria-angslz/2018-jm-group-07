@@ -33,9 +33,9 @@
 		</dependency>
 		<!-- driver jdbc -->
 		<dependency>
-			<groupId>mysql</groupId>
-			<artifactId>mysql-connector-java</artifactId>
-			<version>8.0.12</version>
+			<groupId>org.postgresql</groupId>
+			<artifactId>postgresql</artifactId>
+			<version>42.2.5</version>
 		</dependency>
 		<dependency>
 			<groupId>junit</groupId>
@@ -138,7 +138,7 @@
         				<processTypes>
             				<!-- Tell Heroku how to launch your application -->
             				<!-- You might have to remove the ./ in front   -->
-            				<web>java -jar target/SGE-1.0.jar target/*.war</web>
+            				<web>java -jar target/SGE-1.0-jar-with-dependencies.jar</web>
         				</processTypes>
     				</configuration>
 				</plugin>
