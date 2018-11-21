@@ -15,10 +15,10 @@ import sge.persistencia.json.JSONWrapper;
 
 public class CargaDatosWrapper implements AlmacenamientoPersistente {
 
-	private String archivoAdmins = ".\\src\\main\\resources\\Administradores.json";
-	private String archivoClientes = ".\\src\\main\\resources\\Clientes.json";
-	private String archivoCategoriasResidenciales = ".\\src\\main\\resources\\CategoriasResidenciales.json";
-	private String archivoTransformadores = ".\\src\\\\main\\\\resources\\\\Transformador.json";
+	private String archivoAdmins = "./target/classes/Administradores.json";
+	private String archivoClientes = "./target/classes/Clientes.json";
+	private String archivoCategoriasResidenciales = "./target/classes/CategoriasResidenciales.json";
+	private String archivoTransformadores = "./target/classes/Transformador.json";
 
 	public void cargarAdmins() {
 		try {
