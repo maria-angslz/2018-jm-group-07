@@ -14,10 +14,14 @@ public class JobSimplex {
 	Runnable tarea = new Runnable () {
 		public void run() {
 			ProcesoSimplex.ejecutar();
+			System.out.println("SIMPLEX ACTIVADO");
 		}
 	};
 	
-	int delay = 3; //ejecuta cada 3 horas
-	scheduler.scheduleAtFixedRate(tarea, 0, delay, TimeUnit.HOURS);
+	//int delay = 3; //ejecuta cada 3 horas
+	int delay = 45; //ejecuta cada 3 horas
+	//scheduler.scheduleAtFixedRate(tarea, 0, delay, TimeUnit.HOURS);
+	scheduler.scheduleAtFixedRate(tarea, 0, delay, TimeUnit.SECONDS);
+	
 	}
 }

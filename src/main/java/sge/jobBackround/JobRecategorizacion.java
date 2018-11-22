@@ -12,10 +12,14 @@ public class JobRecategorizacion {
 		Runnable task = new Runnable() {
 			public void run() {
 				RepoClientes.getInstance().get().stream().forEach(unCliente -> unCliente.recategorizar());
+				System.out.println("CAMBIO DE RECATEGORIZACION");
 			}
 		};
 
-		int delay = 90; // tiempo que queremos que lo haga (3 meses = 90 dias).
-		scheduler.scheduleAtFixedRate(task, 0, delay, TimeUnit.DAYS);
+		//int delay = 90; // tiempo que queremos que lo haga (3 meses = 90 dias).
+		int delay = 30; // tiempo que queremos que lo haga (3 meses = 90 dias).
+		//scheduler.scheduleAtFixedRate(task, 0, delay, TimeUnit.DAYS);
+		scheduler.scheduleAtFixedRate(task, 0, delay, TimeUnit.SECONDS);
+		
 	}
 }

@@ -1,5 +1,7 @@
 package sge.dispositivos.inteligentes;
 
+import java.time.LocalDate;
+import java.time.ZoneId;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.LinkedList;
@@ -68,13 +70,18 @@ public class DispositivoInteligente extends Dispositivo {
 	// }
 
 	public List<IntervaloEstado> getIntervalosDeEstadoEnEsteMes(EntityManager mger) {
+		
 		return getIntervalosDeEstadoEnMes(new Date(), mger);
+	}
+	
+	public LocalDate dateLocal(Date date) {
+		return date.toInstant().atZone(ZoneId.systemDefault()).toLocalDate();
 	}
 
 	public List<IntervaloEstado> getIntervalosDeEstadoEnMes(Date fecha, EntityManager mger) {
 		List<RegistroEstado> resultado = mger
-				.createQuery("FROM RegistroEstado WHERE MONTH(fechaCambio) = MONTH(:fecha)")
-				.setParameter("fecha", fecha).getResultList();
+				.createQuery("FROM RegistroEstado WHERE date_part('month', fechaCambio) = :mes AND date_part('year', fechaCambio) = :anio")
+				.setParameter("mes", dateLocal(fecha).getMonthValue()).setParameter("anio", dateLocal(fecha).getYear()).getResultList();
 		RegistroEstado ultimo = null;
 		List<IntervaloEstado> intervalos = new LinkedList<IntervaloEstado>();
 		for (int i = 0; i < resultado.size(); i++) {

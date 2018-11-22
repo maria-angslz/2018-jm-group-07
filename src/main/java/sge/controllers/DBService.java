@@ -13,7 +13,7 @@ public class DBService {
 		
 		String queryString = "SELECT * FROM cliente WHERE documento_numero = :dni";
 		EntityManager entityManager = PerThreadEntityManagers.getEntityManager();
-		return entityManager.createNativeQuery(queryString, Cliente.class).setParameter("dni", dni);
+		return entityManager.createNativeQuery(queryString, Cliente.class).setParameter("dni", Integer.parseInt(dni));
 		 
 	}
 
