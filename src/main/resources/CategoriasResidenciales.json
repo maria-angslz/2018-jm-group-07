@@ -1,52 +1,92 @@
 [
 	{
-		"cargoFijo": 60.71,
-		"cargoPorkWh": 0.681,
+		"cargoFijo": 18.76,
+		"cargoPorkWh": 0.644,
 		"rango": {
-			"minSmallest": 325,
-			"minLargest": 325,
-			"maxSmallest": 400,
-			"maxLargest": 400
+			"minSmallest": 0,
+			"minLargest": 0,
+			"maxSmallest": 150,
+			"maxLargest": 150
+		}
+	},
+	{
+		"cargoFijo": 35.32,
+		"cargoPorkWh": 0.644,
+		"rango": {
+			"minSmallest": 151,
+			"minLargest": 151,
+			"maxSmallest": 325,
+			"maxLargest": 325
 		}
 	},
 	{
 		"cargoFijo": 60.71,
 		"cargoPorkWh": 0.681,
 		"rango": {
-			"minSmallest": 325,
-			"minLargest": 325,
+			"minSmallest": 326,
+			"minLargest": 326,
 			"maxSmallest": 400,
 			"maxLargest": 400
 		}
 	},
 	{
-		"cargoFijo": 60.71,
-		"cargoPorkWh": 0.681,
+		"cargoFijo": 71.74,
+		"cargoPorkWh": 0.738,
 		"rango": {
-			"minSmallest": 325,
-			"minLargest": 325,
-			"maxSmallest": 400,
-			"maxLargest": 400
+			"minSmallest": 401,
+			"minLargest": 401,
+			"maxSmallest": 450,
+			"maxLargest": 450
 		}
 	},
 	{
-		"cargoFijo": 60.71,
-		"cargoPorkWh": 0.681,
+		"cargoFijo": 110.38,
+		"cargoPorkWh": 0.794,
 		"rango": {
-			"minSmallest": 325,
-			"minLargest": 325,
-			"maxSmallest": 400,
-			"maxLargest": 400
+			"minSmallest": 451,
+			"minLargest": 451,
+			"maxSmallest": 500,
+			"maxLargest": 500
 		}
 	},
 	{
-		"cargoFijo": 60.71,
-		"cargoPorkWh": 0.681,
+		"cargoFijo": 220.75,
+		"cargoPorkWh": 0.832,
 		"rango": {
-			"minSmallest": 325,
-			"minLargest": 325,
-			"maxSmallest": 400,
-			"maxLargest": 400
+			"minSmallest": 501,
+			"minLargest": 501,
+			"maxSmallest": 600,
+			"maxLargest": 600
+		}
+	},
+	{
+		"cargoFijo": 443.59,
+		"cargoPorkWh": 0.851,
+		"rango": {
+			"minSmallest": 601,
+			"minLargest": 601,
+			"maxSmallest": 700,
+			"maxLargest": 700
+		}
+	},
+	{
+		"cargoFijo": 545.96,
+		"cargoPorkWh": 0.851,
+		"rango": {
+			"minSmallest": 701,
+			"minLargest": 701,
+			"maxSmallest": 1400,
+			"maxLargest": 1400
+		}
+	},
+	{
+		"cargoFijo": 887.19,
+		"cargoPorkWh": 0.851,
+		"rango": {
+			"minSmallest": 1401,
+			"minLargest": 1401,
+			"maxSmallest": 50000000,
+			"maxLargest": 50000000
 		}
 	}
 ]
