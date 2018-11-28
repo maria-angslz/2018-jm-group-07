@@ -23,7 +23,7 @@ public class Encendido extends EstadoDispositivo {
 	
 	public void apagarse(DispositivoInteligente disp) {
 		disp.cambiarEstado(new Apagado());
-		disp.getDispositivoFisico().apagar();
+//		disp.getDispositivoFisico().apagar();  //  Esto si se descomenta se rompe el job de simplex, hay que ver para mockearlo
 	}
 	
 	public void encenderse(DispositivoInteligente disp) {
