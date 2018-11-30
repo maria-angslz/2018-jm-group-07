@@ -30,21 +30,7 @@ public class DispositivoTest extends Fdispositivo {
 		//El mensaje encender() deberia llamarse solo una vez
 		Mockito.verify(mockDispositivoFisico, Mockito.only()).encender();
 	}
-	
-	@Test
-	public void testApagarDispositivoEncendido() {
-		//Inicia apagado asi que primero le cambio el estado a encendido
-		LuzInteligente.cambiarEstado(new Encendido());
-		LuzInteligente.apagar();
-		Mockito.verify(mockDispositivoFisico, Mockito.only()).apagar();
-	}
-	
-	@Test
-	public void testApagarDispositivoYaApagado() {
-		LuzInteligente.apagar();
-		Mockito.verify(mockDispositivoFisico, Mockito.never()).apagar();
-	}
-	
+			
 	@Test
 	public void testModoAhorroDeEnergiaDispositivoApagado() {
 		LuzInteligente.establecerModoAhorroDeEnergia();
