@@ -85,7 +85,15 @@ public class Cliente extends SuperClase {
 	public String getEmail() {
 		return email;
 	}
-
+	
+	public int getDocumento() {
+		return documento.numero();
+	}
+	
+	public String getDomicilio() {
+		return domicilio;
+	}
+	
 	public Coordenates miCoordenada() {
 		return miCoordenada;
 	}
@@ -210,7 +218,7 @@ public class Cliente extends SuperClase {
 	}
 
 	public double getConsumos() {
-		return dispositivosEncendidos().mapToDouble(unDispositivo -> unDispositivo.consumoKWxHora()).sum();
+		return dispositivosInteligentes.stream().mapToDouble(unDispositivo -> unDispositivo.getConsumoUltimoPeriodo()).sum() + dispositivosEstandar.stream().mapToDouble(unDispositivo -> unDispositivo.consumoMensual()).sum();
 	}
 
 	public String domicilio() {
@@ -234,8 +242,7 @@ public class Cliente extends SuperClase {
 	}
 
 	public double promedioPorDispositivo() {
-		return this.getDispositivos().stream().mapToDouble(unDispositivo -> unDispositivo.consumoMensual()).sum()
-				/ this.getDispositivos().size();
+		return this.getConsumos() / this.getDispositivos().size();
 	}
 
 	public int documento() {

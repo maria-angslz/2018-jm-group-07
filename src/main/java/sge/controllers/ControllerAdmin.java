@@ -131,6 +131,6 @@ public class ControllerAdmin {
 			res.redirect("/administrador/altaDispositivo");
 			return new ModelAndView(viewModel, "ViewDispositivo.hbs");
 		}							
-	}
+	}							
 	
 }

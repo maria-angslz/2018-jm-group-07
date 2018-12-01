@@ -23,14 +23,20 @@
 	<label>Consumos</label>
 		<table>
 			<tr>
-				<th> Nombre Cliente </th>
+				<th> Nombre y Apellido </th>
+				<th> Numero de Documento </th>
 				<th> Email </th>
-				<th> Consumo </th>
+				<th> Domicilio </th>
+				<th> Puntos </th>
+				<th> Consumo del Ultimo Periodo </th>
 			</tr>
 			{{#each clientes}}
 			<tr>
 				<td> {{ nombreYApellido }} </td>
+				<td> {{ documento }} </td>
 				<td> {{ email }} </td>
+				<td> {{ domicilio }} </td>
+				<td> {{ puntos }} </td>
 				<td> {{ consumos }} </td>
 			</tr>
 			{{/each}}

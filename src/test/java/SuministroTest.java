@@ -9,9 +9,5 @@ public class SuministroTest extends FSumistro{
 		assertEquals("hay un solo cliente, por lo que para los dos dispositivos que tiene, debe tener un consumo de 1.2 kwh", 1.2,unTransformador.energiaSuministrada(),2);
 		
 	}
-	@Test
-	public void calculoConsumoTotalZona() {
-		assertEquals("4.8kwh",4.839,capitalFederal.consumoTotal(),2);
-	}
 }
 

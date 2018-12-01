@@ -50,7 +50,7 @@
             "puntosAgregarDisp": 15,
             "puntosConvDispEaI": 10,
             "nombreYApellido": "Martin Perez",
-            "email": "pruebita@gmail.com",
+            "email": "Martin_Perez@gmail.com",
             "pass": 123,
             "documento": {
               "numero": 40732178,
@@ -195,7 +195,7 @@
             "puntosAgregarDisp": 15,
             "puntosConvDispEaI": 10,
             "nombreYApellido": "Esteban Luis",
-            "email": "pruebita2@gmail.com",
+            "email": "EstebLuis@gmail.com",
             "pass": 1111,
             "documento": {
               "numero": 51667167,
@@ -205,7 +205,7 @@
               "latitud": 1.0,
               "longitud": 1.0
             },
-            "domicilio": "Belgrano 2251",
+            "domicilio": "Cordoba 182",
             "telefono": "01149212334",
             "categoria": {
               "type": "sge.categorias.CategoriaResidencial",
@@ -362,7 +362,7 @@
             "puntosAgregarDisp": 15,
             "puntosConvDispEaI": 10,
             "nombreYApellido": "Juan carlos",
-            "email": "pruebita3@gmail.com",
+            "email": "Juan.Carlos@gmail.com",
             "pass": 123,
             "documento": {
               "numero": 41762174,
@@ -372,7 +372,7 @@
               "latitud": 1.0,
               "longitud": 1.0
             },
-            "domicilio": "Belgrano 2251",
+            "domicilio": "Jujuy 1030",
             "telefono": "01149212334",
             "categoria": {
               "type": "sge.categorias.CategoriaResidencial",
