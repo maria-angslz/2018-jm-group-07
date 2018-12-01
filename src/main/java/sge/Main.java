@@ -1,8 +1,6 @@
 package sge;
 
 import sge.persistencia.json.CargaDatosWrapper;
-import sge.persistencia.repos.RepoAdmins;
-import sge.persistencia.repos.RepoCatResidenciales;
 import sge.persistencia.repos.RepoZonas;
 
 import javax.persistence.EntityManager;

@@ -11,10 +11,8 @@ import sge.dispositivos.inteligentes.DispositivoInteligente;
 public class Actuador extends SuperClase{
 
 	private String nombre;
-	// private Decodificador unDeco;
 	
-	@Transient //no persistimos la función en sí, sino el id
-	//Ver como se hace para persistir este atributo
+	@Transient //no persistimos la funciï¿½n en sï¿½, sino el id
 	private Funcion funcion; //le cambiamos el tipo
 
 	private int idFuncion;
@@ -31,11 +29,6 @@ public class Actuador extends SuperClase{
 		super();
 	}
 	
-//	public Actuador(String nombre, Consumer<DispositivoInteligente> unaFuncion) {
-//		this.nombre = nombre;
-//		this.funcion = unaFuncion;
-//	}
-//
 	
 	public Actuador(String unNombre, int unIdFuncion) {
 		this.nombre = unNombre;
@@ -46,8 +39,5 @@ public class Actuador extends SuperClase{
 	public void actuar(DispositivoInteligente dispositivo) { 
 				
 		funcion.accionar(dispositivo);
-		// unDeco.decodificarMensaje(unDispositivo.getIDfabrica()); ----> habria que
-		// decodificar el mensaje para este id de fabricante que ya se lo envio por
-		// parametro,
 	}
 }

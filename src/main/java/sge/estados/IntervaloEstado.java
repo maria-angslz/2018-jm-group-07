@@ -1,9 +1,6 @@
 package sge.estados;
 
 import java.util.Date;
-import java.util.concurrent.TimeUnit;
-
-import sge.dispositivos.inteligentes.DispositivoInteligente;
 
 public class IntervaloEstado {
 	Date inicio;
@@ -48,8 +45,6 @@ public class IntervaloEstado {
 		
 		return segundos / 3600.0;
 		
-		//return (double) TimeUnit.HOURS.convert(diferencia, TimeUnit.MILLISECONDS);
-		//no usamos convert(..) porque redondea para abajo y perdemos precision
 	}
 	
 }

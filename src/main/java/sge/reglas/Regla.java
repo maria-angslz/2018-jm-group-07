@@ -7,14 +7,12 @@ import javax.persistence.Transient;
 import sge.SuperClase;
 import sge.dispositivos.inteligentes.DispositivoInteligente;
 
-//import java.util.List;
+
 
 @Entity
 public class Regla extends SuperClase{
 
 	private String nombre;
-	//private List<Sensor> sensoresADisposicion; //pensamos que seria en un futuro una lista de sensores y actuadores, pero por el momenton por falta de informacion al respecto, lo planteamos para uno solo.
-	//private List<Actuador> actuadores;
 	
 	@OneToOne
 	private Sensor sensorADisposicion;
@@ -22,7 +20,7 @@ public class Regla extends SuperClase{
 	@OneToOne
 	private Actuador actuador;
 	
-	@Transient //no persistimos la función en sí, sino el id
+	@Transient //no persistimos la funciï¿½n en sï¿½, sino el id
 	private FuncionRegla funcion;
 	
 	private int idFuncion;

@@ -42,7 +42,7 @@ public class ClienteTest extends Fixture.FCliente{
 
 	@Test
 	public void testCantidadDispositivosApagadosDeClienteConDispositivos() {
-		assertEquals("El cliente debe tener un dispositivo apagado, ya que el SmartTv esta encendido, y la PC está apagada", 1,
+		assertEquals("El cliente debe tener un dispositivo apagado, ya que el SmartTv esta encendido, y la PC estï¿½ apagada", 1,
 				clienteConDosDispositivos.cantidadDispositivosApagados());
 	}
 	
@@ -74,7 +74,6 @@ public class ClienteTest extends Fixture.FCliente{
 
 	@Test
 	public void testFacturacionAproximadaClienteCategoriaR3ConUnDispositivos() {
-		//clienteConUnDispositivo.getDispositivos().stream().forEach(disp -> disp.setConsumoDeEsteMes(350));
 		assertEquals(
 				"El cliente de categoria R3 con un dispositivo de consumo 0.6 kW/h tiene una facturacion aproximada de 5209.07",
 				354.902, clienteConUnDispositivo. facturacionAproximada(), 0.05);
@@ -88,9 +87,6 @@ public class ClienteTest extends Fixture.FCliente{
 	
 	@Test
 	public void testClienteMantieneCategoria() {
-		//when(clienteMock.consumoDeEsteMes()).thenReturn(350.0);
-		//Categoria r3 = clienteMock.getCategoria();
-		//clienteMock.recategorizar();
 		Categoria r3 = clienteConUnDispositivo.getCategoria();
 		clienteConUnDispositivo.recategorizar();
 		assertEquals("El cliente no supera el consumo maximo de su categoria, por ende la mantiene", r3, clienteConUnDispositivo.getCategoria());
@@ -99,8 +95,6 @@ public class ClienteTest extends Fixture.FCliente{
 	@Test
 	public void testClienteCambiaDeCategoria() {
 		
-		//RepoCatResidenciales.getInstance().agregar((CategoriaResidencial)r4);
-		//when(clienteMock.consumoDeEsteMes()).thenReturn(425.0);
 		Categoria r7 = new CategoriaResidencial(443.59, 0.851, 600, 700);
 		RepoCatResidenciales.getInstance().agregar((CategoriaResidencial) r7);
 		clienteConDosDispositivos.recategorizar();

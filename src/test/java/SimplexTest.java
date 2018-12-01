@@ -20,11 +20,9 @@ public class SimplexTest extends Fixture.FSimplex {
 		ResultadoSimplex res = clienteConCuatroAires.consumoIdeal();
 		assertEquals("Un cliente con cuatro", SgeSimplex.consumoMaximo, res.horasTotales* unAire.get(0).consumoKWxHora(), 0.5);
 	}
-	
 	@Test
 	public void testSimplexAutomatico() {
 		ProcesoSimplex.ejecutar();
-		assertEquals("El aire se pasa del consumo mensual, por lo tanto lo debe apagar",1, clienteConUnAire.cantidadDispositivosApagados());
+		assertEquals("El aire no se pasa del consumo mensual, por lo tanto no lo debe apagar",0, clienteConUnAire.cantidadDispositivosApagados());
 	}
-
 }

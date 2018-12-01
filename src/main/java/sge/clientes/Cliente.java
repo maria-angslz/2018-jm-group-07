@@ -5,20 +5,15 @@ import java.util.Calendar;
 import java.util.Date;
 import java.util.LinkedList;
 import java.util.List;
-import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
 import javax.persistence.CascadeType;
 import javax.persistence.Embedded;
 import javax.persistence.Entity;
-import javax.persistence.EntityManager;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
-
-import org.apache.commons.math3.util.Pair;
-import org.uqbarproject.jpa.java8.extras.PerThreadEntityManagers;
 
 import sge.Coordenates;
 import sge.Documento;
@@ -28,7 +23,6 @@ import sge.dispositivos.Dispositivo;
 import sge.dispositivos.conModulo.DispositivoConModulo;
 import sge.dispositivos.estandar.DispositivoEstandar;
 import sge.dispositivos.inteligentes.DispositivoInteligente;
-import sge.estados.IntervaloEstado;
 import sge.persistencia.repos.RepoCatResidenciales;
 import sge.simplex.ResultadoSimplex;
 import sge.simplex.SgeSimplex;
@@ -81,13 +75,6 @@ public class Cliente extends SuperClase {
 		this.dispositivosInteligentes = dispositivosInteligentes;
 		this.miCoordenada = miCoordenada;
 
-		/*
-		 * List<Dispositivo> construibles =
-		 * RepoDispositivosResidenciales.getInstance().all();
-		 * if(getDispositivos().stream().anyMatch(d->!construibles.stream().anyMatch(d2-
-		 * >d2.mismoModelo(d)))) throw new DispositivoNoPermitidoException();
-		 */
-
 		agregarPuntosIniciales();
 	}
 
@@ -117,7 +104,7 @@ public class Cliente extends SuperClase {
 		DateFormatSymbols dfs = new DateFormatSymbols();
 		String[] months = dfs.getMonths();
 		List<ConsumoEnMes> periodos = new LinkedList<ConsumoEnMes>();
-		for (int i = 0; i < 2; i++) {
+		for (int i = 0; i > -5; i--) {
 			cal.setTime(new Date());
 			cal.add(Calendar.MONTH, i);
 			final Date fechaMes = cal.getTime();
@@ -161,9 +148,7 @@ public class Cliente extends SuperClase {
 				+ dispositivosEstandar.stream().mapToDouble(disp -> disp.consumoMensual()).sum();
 	}
 
-	// En un futuro puede que querramos que los clientes
-	// tengan tipos de categoria y esta se encargue
-	// de recategorizarlo
+	
 	public void recategorizar() {
 		if (!categoria.perteneceAEstaCategoria(this.facturacionAproximada())) {
 			cambiarCategoria();

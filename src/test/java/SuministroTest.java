@@ -11,7 +11,7 @@ public class SuministroTest extends FSumistro{
 	}
 	@Test
 	public void calculoConsumoTotalZona() {
-		assertEquals("hay un solo transformador, por lo que el consumo total deberia ser justamente 1.2kwh, el mismo que el del transformador",1.2,capitalFederal.consumoTotal(),2);
+		assertEquals("4.8kwh",4.839,capitalFederal.consumoTotal(),2);
 	}
 }
 

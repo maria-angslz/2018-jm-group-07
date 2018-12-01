@@ -1,7 +1,6 @@
 package Fixture;
 
 import java.util.List;
-import java.util.function.Function;
 
 import org.junit.Before;
 import org.mockito.Mockito;

@@ -13,7 +13,6 @@ import javax.persistence.CascadeType;
 import javax.persistence.DiscriminatorColumn;
 import javax.persistence.Entity;
 import javax.persistence.EntityManager;
-import javax.persistence.EntityManagerFactory;
 import javax.persistence.Inheritance;
 import javax.persistence.InheritanceType;
 import javax.persistence.JoinColumn;
@@ -37,24 +36,19 @@ public class DispositivoInteligente extends Dispositivo {
 	}
 
 	@ManyToOne(cascade = { CascadeType.PERSIST })
-	private EstadoDispositivo estado; // aca podriamos usar un repo de estados, para no tener que andar instanciando
-										// todo el tiempo
+	private EstadoDispositivo estado; 
 
-	private double IDFabrica = (Math.random() * 100000) + 1; // deberia cambiarse dsps y meter los nros generados en una
-																// lista, para comprobar que no se repitan
+	private double IDFabrica = (Math.random() * 100000) + 1; 
 
-	@Transient // no lo persistimos
-	private transient DispositivoInteligenteFisico dispositivoFisico; // deberia haber un repo de dispositivos fisicos y
-																		// pedir el dispositivo con el mismo IDFabrica?
+	@Transient 
+	private transient DispositivoInteligenteFisico dispositivoFisico; 
 
 	@OneToMany(cascade = { CascadeType.PERSIST })
 	@JoinColumn(name = "idDispositivoInteligente")
 	private List<RegistroEstado> listaCambiosDeEstado = new ArrayList<RegistroEstado>();
 
 	public DispositivoInteligente(String nombre, double consumoKWxHora, TipoDeDispositivo tipo) { // double maximo,
-																									// double minimo
-		// this.maximo = maximo;
-		// this.minimo = minimo;
+		
 		this.tipo = tipo;
 		this.nombre = nombre;
 		this.consumoKWxHora = consumoKWxHora;
@@ -65,9 +59,6 @@ public class DispositivoInteligente extends Dispositivo {
 		super();
 	}
 
-	// public DispositivoInteligente(String nombre, double consumoKWxHora) {
-	// this(nombre, consumoKWxHora, 0.0, 0.0);
-	// }
 
 	public List<IntervaloEstado> getIntervalosDeEstadoEnEsteMes(EntityManager mger) {
 		
@@ -80,8 +71,8 @@ public class DispositivoInteligente extends Dispositivo {
 
 	public List<IntervaloEstado> getIntervalosDeEstadoEnMes(Date fecha, EntityManager mger) {
 		List<RegistroEstado> resultado = mger
-				.createQuery("FROM RegistroEstado WHERE date_part('month', fechaCambio) = :mes AND date_part('year', fechaCambio) = :anio")
-				.setParameter("mes", dateLocal(fecha).getMonthValue()).setParameter("anio", dateLocal(fecha).getYear()).getResultList();
+				.createNativeQuery("select r.id, r.fechacambio, r.nuevoestado_id FROM RegistroEstado as r left join dispositivointeligente as d on r.iddispositivointeligente = d.id WHERE date_part('month', fechaCambio) = :mes AND date_part('year', fechaCambio) = :anio and idfabrica = :idfabrica", RegistroEstado.class)
+				.setParameter("mes", dateLocal(fecha).getMonthValue()).setParameter("anio", dateLocal(fecha).getYear()).setParameter("idfabrica",this.IDFabrica).getResultList();
 		RegistroEstado ultimo = null;
 		List<IntervaloEstado> intervalos = new LinkedList<IntervaloEstado>();
 		for (int i = 0; i < resultado.size(); i++) {
@@ -97,7 +88,7 @@ public class DispositivoInteligente extends Dispositivo {
 			ultimo = reg;
 		}
 		if (ultimo != null)
-			intervalos.add(new IntervaloEstado(ultimo.getFechaCambio(), new Date(), estado));
+			intervalos.add(new IntervaloEstado(ultimo.getFechaCambio(), new Date(), ultimo.getNuevoEstado()));
 		return intervalos;
 	}
 
@@ -124,8 +115,8 @@ public class DispositivoInteligente extends Dispositivo {
 				.filter(intervalo -> intervalo.getEstado().getEncendido()).collect(Collectors.toList());
 		List<Double> listaHoras = intervalosDeEsteMesEncendido.stream().map(i -> i.getHoras())
 				.collect(Collectors.toList());
-
-		Double horas = listaHoras.stream().mapToDouble(Double::doubleValue).sum();
+	
+		Double horas = listaHoras.stream().mapToDouble(Double::doubleValue).sum();		
 		return consumoKWxHora * horas;
 
 	}
@@ -134,15 +125,6 @@ public class DispositivoInteligente extends Dispositivo {
 		return getConsumoEnPeriodo(new Date());
 
 	}
-
-	// public Double consumoTotalIntervalos (List<IntervaloEstado> intervalos) {
-
-	// se puede reemplazar por una query
-	// List<IntervaloEstado> intervalosEncendido =
-	// intervalos.obtenerIntervalosDeEncendido();
-
-	// return 1;
-	// }
 
 	public void setNombre(String nombre) {
 		this.nombre = nombre;
@@ -177,9 +159,7 @@ public class DispositivoInteligente extends Dispositivo {
 	}
 
 	public double consumoTotalUnPeriodo(int dias) {
-		return consumoKWxHora * 24 * dias; // el 24 refiere a las 24 hs de un dia
-		// aca habria que hacer una limitiacion de ctos dias como maximo se puede volver
-		// atras, que calculo que el maximo atras debe ser 30 dias (1 mes)
+		return consumoKWxHora * 24 * dias; 
 	}
 
 	public boolean encendido() {
@@ -195,9 +175,6 @@ public class DispositivoInteligente extends Dispositivo {
 	}
 
 	public void cambiarEstado(EstadoDispositivo estado) {
-		// crear un nuevo RegistroEstado y persistirlo
-		// o teniendo una tabla aparte de registrode estados (que no estaria en el
-		// modelo de clases) armar un insert
 		listaCambiosDeEstado.add(new RegistroEstado(this, estado, new Date()));
 		this.estado = estado;
 	}

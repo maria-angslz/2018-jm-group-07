@@ -50,7 +50,8 @@
             "puntosAgregarDisp": 15,
             "puntosConvDispEaI": 10,
             "nombreYApellido": "Martin Perez",
-            "pass": 0,
+            "email": "pruebita@gmail.com",
+            "pass": 123,
             "documento": {
               "numero": 40732178,
               "tipo": "DNI"
@@ -88,14 +89,14 @@
                       "type": "sge.estados.Apagado",
                       "data": {}
                     },
-                    "fechaCambio": "Sep 22, 2018 7:47:04 PM"
+                    "fechaCambio": "Sep 22, 2018 5:47:04 PM"
                   },
                   {
                     "NuevoEstado": {
                       "type": "sge.estados.Encendido",
                       "data": {}
                     },
-                    "fechaCambio": "Sep 22, 2018 7:47:04 PM"
+                    "fechaCambio": "Sep 22, 2018 6:47:04 PM"
                   },
                   {
                     "NuevoEstado": {
@@ -109,22 +110,51 @@
                       "type": "sge.estados.Encendido",
                       "data": {}
                     },
-                    "fechaCambio": "Sep 22, 2018 7:47:04 PM"
+                    "fechaCambio": "Oct 22, 2018 8:47:04 PM"
                   },
                   {
                     "NuevoEstado": {
                       "type": "sge.estados.Apagado",
                       "data": {}
                     },
-                    "fechaCambio": "Sep 22, 2018 7:47:04 PM"
+                    "fechaCambio": "Oct 22, 2018 10:47:04 PM"
                   },
                   {
                     "NuevoEstado": {
                       "type": "sge.estados.Encendido",
                       "data": {}
                     },
-                    "fechaCambio": "Sep 22, 2018 7:47:04 PM"
-                  }
+                    "fechaCambio": "Nov 22, 2018 10:47:04 PM"
+                  },
+                  {
+                    "NuevoEstado": {
+                      "type": "sge.estados.Apagado",
+                      "data": {}
+                    },
+                    "fechaCambio": "Nov 22, 2018 11:47:04 PM"
+                  },
+                  {
+                    "NuevoEstado": {
+                      "type": "sge.estados.Encendido",
+                      "data": {}
+                    },
+                    "fechaCambio": "Nov 22, 2018 11:55:04 PM"
+                  },
+                  {
+                    "NuevoEstado": {
+                      "type": "sge.estados.Apagado",
+                      "data": {}
+                    },
+                    "fechaCambio": "Nov 30, 2018 11:00:00 PM"
+                  },
+                  {
+                    "NuevoEstado": {
+                      "type": "sge.estados.Encendido",
+                      "data": {}
+                    },
+                    "fechaCambio": "Dec 01, 2018 12:00:00 AM"
+                  }                 
+                  
                 ],
                 "nombre": "Televisor",
                 "consumoKWxHora": 0.6,
@@ -165,7 +195,8 @@
             "puntosAgregarDisp": 15,
             "puntosConvDispEaI": 10,
             "nombreYApellido": "Esteban Luis",
-            "pass": 0,
+            "email": "pruebita2@gmail.com",
+            "pass": 1111,
             "documento": {
               "numero": 51667167,
               "tipo": "DNI"
@@ -196,7 +227,7 @@
                   "type": "sge.estados.Encendido",
                   "data": {}
                 },
-                "IDFabrica": 78123.90326197696,
+                "IDFabrica": 18123.90326197696,
                 "listaCambiosDeEstado": [
                   {
                     "NuevoEstado": {
@@ -210,35 +241,35 @@
                       "type": "sge.estados.Encendido",
                       "data": {}
                     },
-                    "fechaCambio": "Oct 24, 2018 11:21:03 PM"
+                    "fechaCambio": "Oct 25, 2018 12:21:03 AM"
                   },
                   {
                     "NuevoEstado": {
                       "type": "sge.estados.Apagado",
                       "data": {}
                     },
-                    "fechaCambio": "Oct 24, 2018 11:21:03 PM"
+                    "fechaCambio": "Oct 25, 2018 5:21:03 AM"
                   },
                   {
                     "NuevoEstado": {
                       "type": "sge.estados.Encendido",
                       "data": {}
                     },
-                    "fechaCambio": "Oct 24, 2018 11:21:03 PM"
+                    "fechaCambio": "Nov 24, 2018 10:00:00 AM"
                   },
                   {
                     "NuevoEstado": {
                       "type": "sge.estados.Apagado",
                       "data": {}
                     },
-                    "fechaCambio": "Oct 24, 2018 11:21:03 PM"
+                    "fechaCambio": "Nov 24, 2018 11:00:00 AM"
                   },
                   {
                     "NuevoEstado": {
                       "type": "sge.estados.Encendido",
                       "data": {}
                     },
-                    "fechaCambio": "Oct 24, 2018 11:21:03 PM"
+                    "fechaCambio": "Dec 01, 2018 12:00:00 AM"
                   }
                 ],
                 "nombre": "Televisor",
@@ -250,7 +281,7 @@
                   "type": "sge.estados.Apagado",
                   "data": {}
                 },
-                "IDFabrica": 7465.013186252416,
+                "IDFabrica": 2465.013186252416,
                 "listaCambiosDeEstado": [
                   {
                     "NuevoEstado": {
@@ -331,7 +362,8 @@
             "puntosAgregarDisp": 15,
             "puntosConvDispEaI": 10,
             "nombreYApellido": "Juan carlos",
-            "pass": 0,
+            "email": "pruebita3@gmail.com",
+            "pass": 123,
             "documento": {
               "numero": 41762174,
               "tipo": "DNI"
@@ -362,7 +394,7 @@
                   "type": "sge.estados.Encendido",
                   "data": {}
                 },
-                "IDFabrica": 72639.59401123709,
+                "IDFabrica": 32639.594011255555,
                 "listaCambiosDeEstado": [
                   {
                     "NuevoEstado": {
@@ -376,35 +408,35 @@
                       "type": "sge.estados.Encendido",
                       "data": {}
                     },
-                    "fechaCambio": "Sep 22, 2018 7:47:04 PM"
+                    "fechaCambio": "Sep 22, 2018 8:47:04 PM"
                   },
                   {
                     "NuevoEstado": {
                       "type": "sge.estados.Apagado",
                       "data": {}
                     },
-                    "fechaCambio": "Sep 22, 2018 7:47:04 PM"
+                    "fechaCambio": "Sep 22, 2018 10:47:04 PM"
                   },
                   {
                     "NuevoEstado": {
                       "type": "sge.estados.Encendido",
                       "data": {}
                     },
-                    "fechaCambio": "Sep 22, 2018 7:47:04 PM"
+                    "fechaCambio": "Oct 22, 2018 7:47:04 PM"
                   },
                   {
                     "NuevoEstado": {
                       "type": "sge.estados.Apagado",
                       "data": {}
                     },
-                    "fechaCambio": "Sep 22, 2018 7:47:04 PM"
+                    "fechaCambio": "Oct 22, 2018 9:47:04 PM"
                   },
                   {
                     "NuevoEstado": {
                       "type": "sge.estados.Encendido",
                       "data": {}
                     },
-                    "fechaCambio": "Sep 22, 2018 7:47:04 PM"
+                    "fechaCambio": "Dec 01, 2018 12:00:00 AM"
                   }
                 ],
                 "nombre": "Televisor",
@@ -416,7 +448,7 @@
                   "type": "sge.estados.Apagado",
                   "data": {}
                 },
-                "IDFabrica": 79531.22495539219,
+                "IDFabrica": 49531.224955666619,
                 "listaCambiosDeEstado": [
                   {
                     "NuevoEstado": {

@@ -47,7 +47,7 @@
 								
 							}
 						},
-						"fechaCambio": "Sep 22, 2018 7:47:04 PM"
+						"fechaCambio": "Sep 22, 2018 5:47:04 PM"
 					},
 					{
 						"NuevoEstado": {
@@ -56,7 +56,7 @@
 								
 							}
 						},
-						"fechaCambio": "Sep 22, 2018 7:47:04 PM"
+						"fechaCambio": "Sep 22, 2018 6:47:04 PM"
 					},
 					{
 						"NuevoEstado": {
@@ -74,7 +74,7 @@
 								
 							}
 						},
-						"fechaCambio": "Sep 22, 2018 7:47:04 PM"
+						"fechaCambio": "Oct 22, 2018 8:47:04 PM"
 					},
 					{
 						"NuevoEstado": {
@@ -83,7 +83,7 @@
 								
 							}
 						},
-						"fechaCambio": "Sep 22, 2018 7:47:04 PM"
+						"fechaCambio": "Oct 22, 2018 10:47:04 PM"
 					},
 					{
 						"NuevoEstado": {
@@ -92,8 +92,36 @@
 								
 							}
 						},
-						"fechaCambio": "Sep 22, 2018 7:47:04 PM"
-					}
+						"fechaCambio": "Nov 22, 2018 10:47:04 PM"
+					},
+					{
+                    "NuevoEstado": {
+                      "type": "sge.estados.Apagado",
+                      "data": {}
+                    },
+                    "fechaCambio": "Nov 22, 2018 11:47:04 PM"
+                  },
+                  {
+                    "NuevoEstado": {
+                      "type": "sge.estados.Encendido",
+                      "data": {}
+                    },
+                    "fechaCambio": "Nov 22, 2018 11:55:04 PM"
+                  },
+                  {
+                    "NuevoEstado": {
+                      "type": "sge.estados.Apagado",
+                      "data": {}
+                    },
+                    "fechaCambio": "Nov 30, 2018 11:00:00 PM"
+                  },
+                  {
+                    "NuevoEstado": {
+                      "type": "sge.estados.Encendido",
+                      "data": {}
+                    },
+                    "fechaCambio": "Dec 01, 2018 12:00:00 AM"
+                  } 
 				],
 				"nombre": "Televisor",
 				"consumoKWxHora": 0.6,
@@ -129,11 +157,11 @@
 		"simplexAutomatico": 0,
 		"puntosAgregarDisp": 15,
 		"puntosConvDispEaI": 10,
-		"nombreYApellido": "Juan carlos",
+		"nombreYApellido": "Esteban Luis",
 		"email": "pruebita2@gmail.com",
-		"pass": 123,
+		"pass": 1111,
 		"documento": {
-			"numero": 41762174,
+			"numero": 51667167,
 			"tipo": "DNI"
 		},
 		"miCoordenada": {
@@ -164,7 +192,7 @@
 						
 					}
 				},
-				"IDFabrica": 72639.59401123709,
+				"IDFabrica": 18123.90326197696,
 				"listaCambiosDeEstado": [
 					{
 						"NuevoEstado": {
@@ -173,7 +201,7 @@
 								
 							}
 						},
-						"fechaCambio": "Sep 22, 2018 7:47:04 PM"
+						"fechaCambio": "Oct 24, 2018 11:21:03 PM"
 					},
 					{
 						"NuevoEstado": {
@@ -182,7 +210,7 @@
 								
 							}
 						},
-						"fechaCambio": "Sep 22, 2018 7:47:04 PM"
+						"fechaCambio": "Oct 25, 2018 12:21:03 AM"
 					},
 					{
 						"NuevoEstado": {
@@ -191,7 +219,7 @@
 								
 							}
 						},
-						"fechaCambio": "Sep 22, 2018 7:47:04 PM"
+						"fechaCambio": "Oct 25, 2018 5:21:03 AM"
 					},
 					{
 						"NuevoEstado": {
@@ -200,7 +228,7 @@
 								
 							}
 						},
-						"fechaCambio": "Sep 22, 2018 7:47:04 PM"
+						"fechaCambio": "Nov 24, 2018 10:00:00 AM"
 					},
 					{
 						"NuevoEstado": {
@@ -209,7 +237,7 @@
 								
 							}
 						},
-						"fechaCambio": "Sep 22, 2018 7:47:04 PM"
+						"fechaCambio": "Nov 24, 2018 11:00:00 AM"
 					},
 					{
 						"NuevoEstado": {
@@ -218,7 +246,7 @@
 								
 							}
 						},
-						"fechaCambio": "Sep 22, 2018 7:47:04 PM"
+						"fechaCambio": "Dec 01, 2018 12:00:00 AM"
 					}
 				],
 				"nombre": "Televisor",
@@ -232,7 +260,7 @@
 						
 					}
 				},
-				"IDFabrica": 79531.22495539219,
+				"IDFabrica": 2465.013186252416,
 				"listaCambiosDeEstado": [
 					{
 						"NuevoEstado": {
@@ -241,7 +269,7 @@
 								
 							}
 						},
-						"fechaCambio": "Sep 22, 2018 7:47:04 PM"
+						"fechaCambio": "Oct 24, 2018 11:21:03 PM"
 					}
 				],
 				"nombre": "Computadora",
@@ -255,7 +283,7 @@
 		"simplexAutomatico": 0,
 		"puntosAgregarDisp": 15,
 		"puntosConvDispEaI": 10,
-		"nombreYApellido": "Juancito carlitos",
+		"nombreYApellido": "Juan carlos",
 		"email": "pruebita3@gmail.com",
 		"pass": 123,
 		"documento": {
@@ -290,7 +318,7 @@
 						
 					}
 				},
-				"IDFabrica": 72639.59401123709,
+				"IDFabrica": 32639.594011255555,
 				"listaCambiosDeEstado": [
 					{
 						"NuevoEstado": {
@@ -308,7 +336,7 @@
 								
 							}
 						},
-						"fechaCambio": "Sep 22, 2018 7:47:04 PM"
+						"fechaCambio": "Sep 22, 2018 8:47:04 PM"
 					},
 					{
 						"NuevoEstado": {
@@ -317,7 +345,7 @@
 								
 							}
 						},
-						"fechaCambio": "Sep 22, 2018 7:47:04 PM"
+						"fechaCambio": "Sep 22, 2018 10:47:04 PM"
 					},
 					{
 						"NuevoEstado": {
@@ -326,7 +354,7 @@
 								
 							}
 						},
-						"fechaCambio": "Sep 22, 2018 7:47:04 PM"
+						"fechaCambio": "Oct 22, 2018 7:47:04 PM"
 					},
 					{
 						"NuevoEstado": {
@@ -335,7 +363,7 @@
 								
 							}
 						},
-						"fechaCambio": "Sep 22, 2018 7:47:04 PM"
+						"fechaCambio": "Oct 22, 2018 9:47:04 PM"
 					},
 					{
 						"NuevoEstado": {
@@ -344,7 +372,7 @@
 								
 							}
 						},
-						"fechaCambio": "Sep 22, 2018 7:47:04 PM"
+						"fechaCambio": "Dec 01, 2018 12:00:00 AM"
 					}
 				],
 				"nombre": "Televisor",
@@ -358,133 +386,7 @@
 						
 					}
 				},
-				"IDFabrica": 79531.22495539219,
-				"listaCambiosDeEstado": [
-					{
-						"NuevoEstado": {
-							"type": "sge.estados.Apagado",
-							"data": {
-								
-							}
-						},
-						"fechaCambio": "Sep 22, 2018 7:47:04 PM"
-					}
-				],
-				"nombre": "Computadora",
-				"consumoKWxHora": 0.6,
-				"tipo": "Computadora"
-			}
-		],
-		"puntos": 30
-	},
-	{
-		"simplexAutomatico": 0,
-		"puntosAgregarDisp": 15,
-		"puntosConvDispEaI": 10,
-		"nombreYApellido": "Juance carlus",
-		"email": "pruebita4@gmail.com",
-		"pass": 123,
-		"documento": {
-			"numero": 41762174,
-			"tipo": "DNI"
-		},
-		"miCoordenada": {
-			"latitud": 1.0,
-			"longitud": 1.0
-		},
-		"domicilio": "Belgrano 2251",
-		"telefono": "01149212334",
-		"categoria": {
-			"type": "sge.categorias.CategoriaResidencial",
-			"data": {
-				"cargoFijo": 60.71,
-				"cargoPorkWh": 0.681,
-				"rango": {
-					"minSmallest": 325,
-					"minLargest": 325,
-					"maxSmallest": 400,
-					"maxLargest": 400
-				}
-			}
-		},
-		"dispositivosEstandar": [],
-		"dispositivosInteligentes": [
-			{
-				"estado": {
-					"type": "sge.estados.Encendido",
-					"data": {
-						
-					}
-				},
-				"IDFabrica": 72639.59401123709,
-				"listaCambiosDeEstado": [
-					{
-						"NuevoEstado": {
-							"type": "sge.estados.Apagado",
-							"data": {
-								
-							}
-						},
-						"fechaCambio": "Sep 22, 2018 7:47:04 PM"
-					},
-					{
-						"NuevoEstado": {
-							"type": "sge.estados.Encendido",
-							"data": {
-								
-							}
-						},
-						"fechaCambio": "Sep 22, 2018 7:47:04 PM"
-					},
-					{
-						"NuevoEstado": {
-							"type": "sge.estados.Apagado",
-							"data": {
-								
-							}
-						},
-						"fechaCambio": "Sep 22, 2018 7:47:04 PM"
-					},
-					{
-						"NuevoEstado": {
-							"type": "sge.estados.Encendido",
-							"data": {
-								
-							}
-						},
-						"fechaCambio": "Sep 22, 2018 7:47:04 PM"
-					},
-					{
-						"NuevoEstado": {
-							"type": "sge.estados.Apagado",
-							"data": {
-								
-							}
-						},
-						"fechaCambio": "Sep 22, 2018 7:47:04 PM"
-					},
-					{
-						"NuevoEstado": {
-							"type": "sge.estados.Encendido",
-							"data": {
-								
-							}
-						},
-						"fechaCambio": "Sep 22, 2018 7:47:04 PM"
-					}
-				],
-				"nombre": "Televisor",
-				"consumoKWxHora": 0.6,
-				"tipo": "Televisor"
-			},
-			{
-				"estado": {
-					"type": "sge.estados.Apagado",
-					"data": {
-						
-					}
-				},
-				"IDFabrica": 79531.22495539219,
+				"IDFabrica": 49531.224955666619,
 				"listaCambiosDeEstado": [
 					{
 						"NuevoEstado": {

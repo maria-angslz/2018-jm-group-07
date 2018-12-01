@@ -4,13 +4,11 @@ package Fixture;
 import java.io.FileNotFoundException;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Random;
 import java.util.concurrent.ThreadLocalRandom;
 
 import javax.persistence.EntityManager;
 import javax.persistence.EntityTransaction;
 
-import org.hibernate.Session;
 import org.junit.Before;
 import org.mockito.Mockito;
 import org.uqbarproject.jpa.java8.extras.PerThreadEntityManagers;
@@ -30,7 +28,6 @@ import sge.reglas.Actuador;
 import sge.reglas.Regla;
 import sge.reglas.Sensor;
 import sge.persistencia.json.*;
-import sge.persistencia.repos.RepoClientes;
 import sge.persistencia.repos.RepoZonas;
 
 
